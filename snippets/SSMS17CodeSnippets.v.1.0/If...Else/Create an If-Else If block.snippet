@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+   <_locTag _loc="locData">Default</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create an If - Else If Statement</Title>
+                        <Shortcut></Shortcut>
+			<Description>Code Snippet for an inline If-Else If statement.</Description>
+			<Author>Asel Sathkumara</Author>
+			<SnippetTypes>
+                                <SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+                                <Literal>
+                                	<ID>boolean_expression</ID>
+                                	<ToolTip>Provide the boolean expression you wish to evaluate.</ToolTip>
+                                	<Default>boolean_expression</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>sql_statement</ID>
+                                	<ToolTip>Enter your SQL statement(s) here.</ToolTip>
+                                	<Default>[...]</Default>
+                                </Literal>
+								
+
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+IF ($boolean_expression$)
+BEGIN
+	$sql_statement$
+END
+ELSE IF ($boolean_expression$)
+BEGIN
+	$sql_statement$
+END
+ELSE IF ($boolean_expression$)
+BEGIN
+	$sql_statement$
+END
+			]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+	<Header>
+	<Title>Declare Dynamic Sql Block</Title>
+        <Shortcut>ddsql</Shortcut>
+	<Description>Creates a dynamic sql declaration block</Description>
+	<Author>Emile Fraser</Author>
+	<SnippetTypes>
+		<SnippetType>Expansion</SnippetType>
+	</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal>
+				<ID>sql_statement</ID>
+				<ToolTip>Statement Variable of Dynamic sql</ToolTip>
+				<Default>@sql_statement</Default>
+			</Literal>
+			<Literal>
+				<ID>sql_statement_datatype</ID>
+				<ToolTip>Data type of the column</ToolTip>
+				<Default>NVARCHAR(MAX)</Default>
+			</Literal>
+			<Literal>
+				<ID>sql_message</ID>
+				<ToolTip>Message Variable of Dynamic sql</ToolTip>
+				<Default>@sql_message</Default>
+			</Literal>
+			<Literal>
+				<ID>sql_message_datatype</ID>
+				<ToolTip>Data type of the column</ToolTip>
+				<Default>NVARCHAR(MAX)</Default>
+			</Literal>
+			<Literal>
+				<ID>sql_parameter</ID>
+				<ToolTip>Parameter Variable of Dynamic sql</ToolTip>
+				<Default>@sql_parameter</Default>
+			</Literal>
+			<Literal>
+				<ID>sql_parameter_datatype</ID>
+				<ToolTip>Data type of the column</ToolTip>
+				<Default>NVARCHAR(MAX)</Default>
+			</Literal>	
+			<Literal>
+				<ID>sql_crlf</ID>
+				<ToolTip>Parameter Variable of Dynamic sql</ToolTip>
+				<Default>@sql_crlf</Default>
+			</Literal>
+			<Literal>
+				<ID>sql_crlf_datatype</ID>
+				<ToolTip>Data type of the column</ToolTip>
+				<Default>NVARCHAR(2) = CHAR(13) + CHAR(10)</Default>
+			</Literal>		
+			<Literal>
+				<ID>sql_tab</ID>
+				<ToolTip>Parameter Variable of Dynamic sql</ToolTip>
+				<Default>@sql_tab</Default>
+			</Literal>
+			<Literal>
+				<ID>sql_tab_datatype</ID>
+				<ToolTip>Data type of the column</ToolTip>
+				<Default>NVARCHAR(1) = CHAR(9)</Default>
+			</Literal>	
+			<Literal>
+				<ID>sql_execute</ID>
+				<ToolTip>Parameter Variable of Dynamic sql</ToolTip>
+				<Default>@sql_execute</Default>
+			</Literal>
+			<Literal>
+				<ID>sql_execute_datatype</ID>
+				<ToolTip>Data type of the column</ToolTip>
+				<Default>BIT = 0</Default>
+			</Literal>
+			<Literal>
+				<ID>sql_debug</ID>
+				<ToolTip>Parameter Variable of Dynamic sql</ToolTip>
+				<Default>@sql_execute</Default>
+			</Literal>
+			<Literal>
+				<ID>sql_debug_datatype</ID>
+				<ToolTip>Data type of the column</ToolTip>
+				<Default>BIT = 0</Default>
+			</Literal>
+			<Literal>
+				<ID>sql_log</ID>
+				<ToolTip>Parameter Variable of Dynamic sql</ToolTip>
+				<Default>@sql_execute</Default>
+			</Literal>
+			<Literal>
+				<ID>sql_log_datatype</ID>
+				<ToolTip>Data type of the column</ToolTip>
+				<Default>BIT = 0</Default>
+			</Literal>			
+		</Declarations>
+		<Code Language="SQL">
+			<![CDATA[
+	DECLARE 
+		$sql_statement$ 			$sql_statement_datatype$
+	,	$sql_message$ 			$sql_message_datatype$
+	,	$sql_parameter$ 			$sql_parameter_datatype$
+	,	$sql_crlf$				$sql_crlf_datatype$
+	,	$sql_tab$				$sql_tab_datatype$
+	,	$sql_execute$			$sql_execute_datatype$
+	,	$sql_debug$			$sql_debug_datatype$	
+	,	$sql_log$			$sql_log_datatype$
+$end$]]>
+		</Code>
+	</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
+

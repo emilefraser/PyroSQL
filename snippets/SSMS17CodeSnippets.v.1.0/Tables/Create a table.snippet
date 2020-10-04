@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+   <_locTag _loc="locData">Default</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create a table</Title>
+                        <Shortcut></Shortcut>
+			<Description>Code Snippet for a CREATE TABLE statement.</Description>
+			<Author>Asel Sathkumara</Author>
+			<SnippetTypes>
+                                <SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+								<Literal>
+                                	<ID>database_name</ID>
+                                	<ToolTip>Provide the name of the database you want to use</ToolTip>
+                                	<Default>[database_name]</Default>
+                                </Literal>
+
+
+                                <Literal>
+                                	<ID>table_name</ID>
+                                	<ToolTip>Provide the name of the first table (the one table)</ToolTip>
+                                	<Default>[table_name]</Default>
+                                </Literal>
+
+									<Literal>
+                                	<ID>table.column1_name</ID>
+                                	<ToolTip>Provide the name for the column</ToolTip>
+                                	<Default>[column_name]</Default>
+                                	</Literal>
+									<Literal>
+                                	<ID>table.column2_name</ID>
+                                	<ToolTip>Provide the name for the column</ToolTip>
+                                	<Default>[column_name]</Default>
+                                	</Literal>
+									<Literal>
+                                	<ID>table.column3_name</ID>
+                                	<ToolTip>Provide the name for the column</ToolTip>
+                                	<Default>[column_name]</Default>
+                                	</Literal>
+
+									<Literal>
+									<ID>table.column1.data_type</ID>
+									<ToolTip>Provide the data type of the column</ToolTip>
+									<Default>[data_type]</Default>
+									</Literal>
+									<Literal>
+									<ID>table.column2.data_type</ID>
+									<ToolTip>Provide the data type of the column</ToolTip>
+									<Default>[data_type]</Default>
+									</Literal>
+									<Literal>
+									<ID>table.column3.data_type</ID>
+									<ToolTip>Provide the data type of the column</ToolTip>
+									<Default>[data_type]</Default>
+									</Literal>
+									<Literal>
+                                	<ID>table.column1_properties</ID>
+                                	<ToolTip>Provide the properties of the column</ToolTip>
+                                	<Default>[column_properties]</Default>
+                                	</Literal>
+									<Literal>
+                                	<ID>table.column2_properties</ID>
+                                	<ToolTip>Provide the properties of the column</ToolTip>
+                                	<Default>[column_properties]</Default>
+                                	</Literal>
+									<Literal>
+                                	<ID>table.column3_properties</ID>
+                                	<ToolTip>Provide the properties of the column</ToolTip>
+                                	<Default>[column_properties]</Default>
+                                	</Literal>
+
+								
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+
+USE $database_name$;
+GO
+
+DROP TABLE IF EXISTS $table_name$;
+GO
+
+CREATE TABLE $table_name$
+(
+	$table.column1_name$ $table.column1.data_type$ $table.column1_properties$,
+	$table.column2_name$ $table.column2.data_type$ $table.column2_properties$,
+	$table.column3_name$ $table.column3.data_type$ $table.column3_properties$,
+	CreateTS DATETIME DEFAULT GETDATE()
+); 	
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

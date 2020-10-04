@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropFunction</Title>
+      <Shortcut>DropFunction</Shortcut>
+      <Description>Drop a function if it is already exists.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>function_name</ID>
+          <Default>function_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[IF OBJECT_ID('$schema$.$function_name$') IS NOT NULL
+	DROP FUNCTION $schema$.$function_name$
+GO
+
+$CARET$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

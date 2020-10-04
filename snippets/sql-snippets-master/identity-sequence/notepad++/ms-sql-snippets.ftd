@@ -1,0 +1,21 @@
+resetidentity-ms
+Lang:SQL
+DBCC CHECKIDENT ('[![SchemaName]!].[![TableName]!]', RESEED, [![IdentityNumber]!])
+GO
+$[0[]0]
+[>END<]
+
+Author: notahelpdesk
+Created: 2017-01-27
+Description: Reseeds the specified identity counter. Note that if you want the next inserted item to have a value of 11 you need to reseed to 10
+!$[FingerTextData FingerTextData]@#
+checkidentity-ms
+Lang:SQL
+DBCC CHECKIDENT ('[![SchemaName]!].[![TableName]!]', NORESEED)
+GO
+[>END<]
+
+Author: notahelpdesk
+Created: 2017-01-27
+Description: Find out what the current identity value for the specified table is
+!$[FingerTextData FingerTextData]@#

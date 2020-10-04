@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Transaction</Title>
+      <Shortcut>Tran</Shortcut>
+      <Description>Safe block of statements</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[BEGIN TRY
+	BEGIN TRANSACTION
+		$CARET$
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+	PRINT 
+		'Error ' + CONVERT(varchar(50), ERROR_NUMBER()) +
+  		', Severity ' + CONVERT(varchar(5), ERROR_SEVERITY()) +
+  		', State ' + CONVERT(varchar(5), ERROR_STATE()) +
+  		', Line ' + CONVERT(varchar(5), ERROR_LINE())
+  
+	PRINT ERROR_MESSAGE();
+  
+  	IF XACT_STATE() <> 0 BEGIN
+		ROLLBACK TRANSACTION
+  	END
+END CATCH;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+   <_locTag _loc="locData">Default</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create a 1:M table relationship</Title>
+                        <Shortcut></Shortcut>
+			<Description>Code Snippet for a 1:M table relationship.</Description>
+			<Author>Asel Sathkumara</Author>
+			<SnippetTypes>
+                                <SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+								<Literal>
+                                	<ID>database_name</ID>
+                                	<ToolTip>Provide the name of the database you want to use</ToolTip>
+                                	<Default>[database_name]</Default>
+                                </Literal>
+
+								<!-- Table 1 Declarations -->
+                                <Literal>
+                                	<ID>table1_name</ID>
+                                	<ToolTip>Provide the name of the first table (the one table)</ToolTip>
+                                	<Default>[table1_name]</Default>
+                                </Literal>
+
+									<Literal>
+                                	<ID>table1.column1_name</ID>
+                                	<ToolTip>Provide the name for the column</ToolTip>
+                                	<Default>[column_name]</Default>
+                                	</Literal>
+									<Literal>
+                                	<ID>table1.column2_name</ID>
+                                	<ToolTip>Provide the name for the column</ToolTip>
+                                	<Default>[column_name]</Default>
+                                	</Literal>
+									<Literal>
+                                	<ID>table1.column3_name</ID>
+                                	<ToolTip>Provide the name for the column</ToolTip>
+                                	<Default>[column_name]</Default>
+                                	</Literal>
+
+									<Literal>
+									<ID>table1.column1.data_type</ID>
+									<ToolTip>Provide the data type of the column</ToolTip>
+									<Default>[data_type]</Default>
+									</Literal>
+									<Literal>
+									<ID>table1.column2.data_type</ID>
+									<ToolTip>Provide the data type of the column</ToolTip>
+									<Default>[data_type]</Default>
+									</Literal>
+									<Literal>
+									<ID>table1.column3.data_type</ID>
+									<ToolTip>Provide the data type of the column</ToolTip>
+									<Default>[data_type]</Default>
+									</Literal>
+									<Literal>
+                                	<ID>table1.column1_properties</ID>
+                                	<ToolTip>Provide the properties of the column</ToolTip>
+                                	<Default>[column_properties]</Default>
+                                	</Literal>
+									<Literal>
+                                	<ID>table1.column2_properties</ID>
+                                	<ToolTip>Provide the properties of the column</ToolTip>
+                                	<Default>[column_properties]</Default>
+                                	</Literal>
+									<Literal>
+                                	<ID>table1.column3_properties</ID>
+                                	<ToolTip>Provide the properties of the column</ToolTip>
+                                	<Default>[column_properties]</Default>
+                                	</Literal>
+								<!-- Table 1 Declarations END -->
+
+								<!-- Table 2 Declarations -->
+								<Literal>
+                                	<ID>table2_name</ID>
+                                	<ToolTip>Provide the name of the second table (the many table)</ToolTip>
+                                	<Default>[table2_name]</Default>
+                                </Literal>
+
+									<Literal>
+                                	<ID>table2.column1_name</ID>
+                                	<ToolTip>Provide the name for the column</ToolTip>
+                                	<Default>[column_name]</Default>
+                                	</Literal>
+									<Literal>
+                                	<ID>table2.column3_name</ID>
+                                	<ToolTip>Provide the name for the column</ToolTip>
+                                	<Default>[column_name]</Default>
+                                	</Literal>
+
+									<Literal>
+									<ID>table2.column1.data_type</ID>
+									<ToolTip>Provide the data type of the column</ToolTip>
+									<Default>[data_type]</Default>
+									</Literal>
+									<Literal>
+									<ID>table2.column3.data_type</ID>
+									<ToolTip>Provide the data type of the column</ToolTip>
+									<Default>[data_type]</Default>
+									</Literal>
+									<Literal>
+                                	<ID>table2.column1_properties</ID>
+                                	<ToolTip>Provide the properties of the column</ToolTip>
+                                	<Default>[column_properties]</Default>
+                                	</Literal>
+									<Literal>
+                                	<ID>table2.column3_properties</ID>
+                                	<ToolTip>Provide the properties of the column</ToolTip>
+                                	<Default>[column_properties]</Default>
+                                	</Literal>
+								<!-- Table 2 Declarations END -->
+								
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+USE $database_name$;
+GO
+
+CREATE TABLE $table1_name$ 
+(
+	$table1.column1_name$ $table1.column1.data_type$ $table1.column1_properties$,
+	$table1.column2_name$ $table1.column2.data_type$ $table1.column2_properties$,
+	$table1.column3_name$ $table1.column3.data_type$ $table1.column3_properties$,
+	CreateTS DATETIME DEFAULT GETDATE()
+); 
+
+CREATE TABLE $table2_name$ 
+(
+	$table2.column1_name$ $table2.column1.data_type$ $table2.column1_properties$,
+	$table1.column1_name$ $table1.column1.data_type$ REFERENCES $table1_name$($table1.column1_name$),
+	$table2.column3_name$ $table2.column3.data_type$ $table2.column3_properties$,
+	CreateTS DATETIME DEFAULT GETDATE()
+);
+	
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

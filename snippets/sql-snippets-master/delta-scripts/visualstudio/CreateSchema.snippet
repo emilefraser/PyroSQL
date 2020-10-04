@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create a Schema, if it doesn't already exist</Title>
+            <Shortcut>createschema</Shortcut>
+			<Description>Check to see if the schema already exists and if it does't, create it</Description>
+			<Author>notahelpdesk</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>SchemaName</ID>
+					<ToolTip>Name of the schema</ToolTip>
+					<Default>newschema</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '$SchemaName$')
+BEGIN
+EXEC sp_executesql N'CREATE SCHEMA $SchemaName$'
+END
+GO
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

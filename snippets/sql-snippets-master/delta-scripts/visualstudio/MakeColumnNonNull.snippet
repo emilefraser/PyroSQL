@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Make Column non-null, ensuring that it's null to start with</Title>
+            <Shortcut>makenonnull</Shortcut>
+			<Description>Make an existing column non-null. Note that you need to know the existing definition of the column.</Description>
+			<Author>notahelpdesk</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>SchemaName</ID>
+					<ToolTip>Name of the default schema</ToolTip>
+					<Default>dbo</Default>
+				</Literal>
+				<Literal>
+					<ID>TableName</ID>
+					<ToolTip>Name of the table</ToolTip>
+					<Default>TableName</Default>
+				</Literal>
+				<Literal>
+					<ID>ColumnName</ID>
+					<ToolTip>Name of the column to modify</ToolTip>
+					<Default>ColumnName</Default>
+				</Literal>
+				<Literal>
+					<ID>ColumnDefinition</ID>
+					<ToolTip>Existing column definition</ToolTip>
+					<Default>VARCHAR(255)</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '$SchemaName$' AND TABLE_NAME = '$TableName$' AND COLUMN_NAME = '$ColumnName$' AND IS_NULLABLE = 'YES')
+BEGIN
+	ALTER TABLE [$SchemaName$].[$TableName$] ALTER COLUMN [$ColumnName$] $ColumnDefinition$ NOT NULL
+END
+GO
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DynamicSQL</Title>
+      <Shortcut>DynamicSQL</Shortcut>
+      <Description>Execute Dynamic SQL command.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>variable_name</ID>
+          <Default>SQL</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[DECLARE @$variable_name$ NVARCHAR(MAX)
+SET @$variable_name$ = ''
+
+--PRINT @$variable_name$
+EXEC sys.sp_executesql @$variable_name$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

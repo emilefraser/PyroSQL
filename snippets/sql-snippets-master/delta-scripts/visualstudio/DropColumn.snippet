@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Drop Column, if it exists</Title>
+            <Shortcut>dropcolumn</Shortcut>
+			<Description>Check to see if the specified column already exists, if it does, drop it.</Description>
+			<Author>notahelpdesk</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>SchemaName</ID>
+					<ToolTip>Name of the default schema</ToolTip>
+					<Default>dbo</Default>
+				</Literal>
+				<Literal>
+					<ID>TableName</ID>
+					<ToolTip>Name of the view</ToolTip>
+					<Default>TableName</Default>
+				</Literal>
+				<Literal>
+					<ID>ColumnName</ID>
+					<ToolTip>Name of the column</ToolTip>
+					<Default>ColumnName</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '$SchemaName$' AND TABLE_NAME = '$TableName$' AND COLUMN_NAME = '$ColumnName$')
+BEGIN
+	ALTER TABLE [$SchemaName$].[$TableName$] DROP COLUMN [$ColumnName$]
+END
+GO
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

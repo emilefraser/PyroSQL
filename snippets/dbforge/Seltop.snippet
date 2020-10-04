@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>SelectTop</Title>
+      <Shortcut>selt</Shortcut>
+      <Description>SELECT TOP ? * FROM</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>count</ID>
+          <Default>1000</Default>
+        </Literal>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[SELECT TOP $count$ * 
+FROM $schema$.$table_name$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

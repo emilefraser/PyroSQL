@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+   <_locTag _loc="locData">Default</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create an INNER JOIN statement</Title>
+                        <Shortcut></Shortcut>
+			<Description>Code Snippet for an INNER JOIN statement.</Description>
+			<Author>Asel Sathkumara</Author>
+			<SnippetTypes>
+                                <SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+                                <Literal>
+                                	<ID>table1</ID>
+                                	<ToolTip>Provide the name of the first table</ToolTip>
+                                	<Default>[table1_name]</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>table2</ID>
+                                	<ToolTip>Provide the name of the second table</ToolTip>
+                                	<Default>[table2_name]</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>alias1</ID>
+                                	<ToolTip>Provide an alias for your first table</ToolTip>
+                                	<Default>[alias1_name]</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>alias2</ID>
+                                	<ToolTip>Provide an alias for your second table</ToolTip>
+                                	<Default>[alias2_name]</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>table1.column_name</ID>
+                                	<ToolTip>Provide the name of your first table's column</ToolTip>
+                                	<Default>[table1.column_name]</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>table2.column_name</ID>
+                                	<ToolTip>Provide the name of your second table's column</ToolTip>
+                                	<Default>[table2.column_name]</Default>
+                                </Literal>
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+SELECT * 
+FROM $table1$ AS $alias1$
+INNER JOIN $table2$ AS $alias2$
+	ON $alias1$.$table1.column_name$ = $alias2$.$table2.column_name$;
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

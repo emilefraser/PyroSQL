@@ -1,0 +1,1 @@
+/* Select all */ SELECT * FROM /* Select top 100 */ SELECT TOP 100 * FROM 

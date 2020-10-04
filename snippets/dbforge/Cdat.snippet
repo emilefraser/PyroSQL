@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateDatabase</Title>
+      <Shortcut>CreateDatabase</Shortcut>
+      <Description>CREATE DATABASE statement.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>db_size</ID>
+          <Default>1 MB</Default>
+        </Literal>
+        <Literal>
+          <ID>database_name</ID>
+          <Default>database_name</Default>
+        </Literal>
+        <Literal>
+          <ID>max_size</ID>
+          <Default>UNLIMITED</Default>
+        </Literal>
+        <Literal>
+          <ID>log_size</ID>
+          <Default>1 MB</Default>
+        </Literal>
+        <Literal>
+          <ID>growth_increment</ID>
+          <Default>10%</Default>
+        </Literal>
+        <Literal>
+          <ID>collate</ID>
+          <Default>Latin1_General_CI_AS</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[USE [master]
+GO
+
+IF DB_ID('$database_name$') IS NOT NULL BEGIN
+	--ALTER DATABASE [$database_name$] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+	DROP DATABASE [$database_name$]
+END
+GO
+
+CREATE DATABASE [$database_name$]
+--ON PRIMARY (
+--	NAME = $database_name$_data,
+--	FILENAME = '$database_name$.mdf',
+--	SIZE = $db_size$,
+--	MAXSIZE = $max_size$,
+--	FILEGROWTH = $growth_increment$
+--) 
+--LOG ON
+--(
+--	NAME = $database_name$_log,
+--	FILENAME = '$database_name$.ldf',
+--	SIZE = $log_size$,
+--	MAXSIZE = $max_size$,
+--	FILEGROWTH = $growth_increment$
+--)
+--COLLATE $collate$
+GO
+
+USE [$database_name$]
+GO]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

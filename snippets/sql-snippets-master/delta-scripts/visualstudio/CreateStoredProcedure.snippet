@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create Stored Procedure, whether it exists or not</Title>
+            <Shortcut>createstoredproc</Shortcut>
+			<Description>Create a stored procedure.</Description>
+			<Author>notahelpdesk</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>SchemaName</ID>
+					<ToolTip>Name of the default schema</ToolTip>
+					<Default>dbo</Default>
+				</Literal>
+				<Literal>
+					<ID>ProcedureName</ID>
+					<ToolTip>Name of the stored procedure</ToolTip>
+					<Default>ProcedureName</Default>
+				</Literal>
+				<Literal>
+					<ID>ProcedureDefinition</ID>
+					<ToolTip>Stored procedure definition</ToolTip>
+					<Default>SELECT * FROM foo</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+IF Object_ID($ProcedureName$) IS NULL
+BEGIN
+EXEC ('CREATE Procedure [$SchemaName$].[$ProcedureName$] AS SELECT 1')
+END
+GO
+
+ALTER PROCEDURE [$SchemaName$].[$ProcedureName$]
+AS
+	$ProcedureDefinition$
+
+GO
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Pivot</Title>
+      <Shortcut>Pivot</Shortcut>
+      <Description>SELECT * FROM and PIVOT</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>aggregation_function</ID>
+          <Default>SUM</Default>
+        </Literal>
+        <Literal>
+          <ID>aggregated_column</ID>
+          <Default>aggregated_column</Default>
+        </Literal>
+        <Literal>
+          <ID>pivoted_column1</ID>
+          <Default>pivoted_column1</Default>
+        </Literal>
+        <Literal>
+          <ID>pivoted_column2</ID>
+          <Default>pivoted_column2</Default>
+        </Literal>
+        <Literal>
+          <ID>header_column</ID>
+          <Default>header_column</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[SELECT *
+FROM (
+	SELECT * 
+	FROM $schema$.$table_name$
+) t
+PIVOT (
+	$aggregation_function$($aggregated_column$)
+	FOR $header_column$ IN ([$pivoted_column1$], [$pivoted_column2$]) 
+) p]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

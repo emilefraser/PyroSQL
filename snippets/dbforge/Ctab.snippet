@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateTable</Title>
+      <Shortcut>CreateTable</Shortcut>
+      <Description>Create a table.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>column_name</ID>
+          <Default>ID</Default>
+        </Literal>
+        <Literal>
+          <ID>data_type</ID>
+          <Default>INT</Default>
+        </Literal>
+        <Literal>
+          <ID>tbl_name</ID>
+          <Default>tbl_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE TABLE $schema$.$tbl_name$
+(
+	$column_name$ $data_type$,$CARET$
+	CONSTRAINT PK_$tbl_name$_$column_name$ PRIMARY KEY ($column_name$)
+)
+GO]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

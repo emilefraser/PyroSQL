@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+   <_locTag _loc="locData">Default</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create a DML trigger</Title>
+                        <Shortcut></Shortcut>
+			<Description>Code Snippet for a DML (Insert, Update, Delete) Trigger.</Description>
+			<Author>Asel Sathkumara</Author>
+			<SnippetTypes>
+                                <SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+								<Literal>
+                                	<ID>database_name</ID>
+                                	<ToolTip>Provide the name of the database you want to use</ToolTip>
+                                	<Default>[database_name]</Default>
+                                </Literal>
+
+
+                                <Literal>
+                                	<ID>trigger_name</ID>
+                                	<ToolTip>Provide the name of the trigger you wish to create</ToolTip>
+                                	<Default>[trigger_name]</Default>
+                                </Literal>
+
+								<Literal>
+                                	<ID>object_name</ID>
+                                	<ToolTip>Provide the name of the table or view you wish to create the trigger on.</ToolTip>
+                                	<Default>{ table_name | view_name }</Default>
+                                </Literal>
+
+								<Literal>
+                                	<ID>trigger_keyword</ID>
+                                	<ToolTip>Specify when the trigger should be fired. AFTER does not work on views.</ToolTip>
+                                	<Default>{ FOR | AFTER | INSTEAD OF }</Default>
+                                </Literal>
+
+								<Literal>
+                                	<ID>dml_statement</ID>
+                                	<ToolTip>Specify which dml statements causes the trigger to activate</ToolTip>
+                                	<Default>{ [INSERT], [UPDATE], [DELETE] }</Default>
+                                </Literal>
+
+								<Literal>
+                                	<ID>sql_statement</ID>
+                                	<ToolTip>Enter your sql statement(s) here</ToolTip>
+                                	<Default>[...]</Default>
+                                </Literal>
+									
+								
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+
+USE $database_name$;
+GO
+
+DROP TRIGGER IF EXISTS $trigger_name$;
+GO
+
+CREATE TRIGGER $trigger_name$
+ON $object_name$
+$trigger_keyword$ $dml_statement$
+AS
+BEGIN
+	$sql_statement$
+END
+GO
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

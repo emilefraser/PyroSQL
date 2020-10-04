@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateTempTable</Title>
+      <Shortcut>CreateTempTable</Shortcut>
+      <Description>Create a temporary table.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>column_name1</ID>
+          <Default>column_name1</Default>
+        </Literal>
+        <Literal>
+          <ID>column_name2</ID>
+          <Default>column_name2</Default>
+        </Literal>
+        <Literal>
+          <ID>data_type1</ID>
+          <Default>INT</Default>
+        </Literal>
+        <Literal>
+          <ID>data_type2</ID>
+          <Default>VARCHAR(50)</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[IF OBJECT_ID('tempdb.dbo.#$table_name$') IS NOT NULL
+	DROP TABLE #$table_name$
+GO
+
+CREATE TABLE #$table_name$
+(
+	$column_name1$ $data_type1$ PRIMARY KEY,
+	$column_name2$ $data_type2$
+)
+$CARET$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

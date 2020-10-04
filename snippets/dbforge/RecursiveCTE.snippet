@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>RecursiveCTE</Title>
+      <Shortcut>RecursiveCTE</Shortcut>
+      <Description>Recursive common table expression.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>cte</ID>
+          <Default>cte</Default>
+        </Literal>
+        <Literal>
+          <ID>parent_column_name</ID>
+          <Default>parent_column_name</Default>
+        </Literal>
+        <Literal>
+          <ID>column_name</ID>
+          <Default>column_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[;WITH $cte$ AS
+(
+	SELECT *
+	FROM $schema$.$table_name$
+
+	UNION ALL
+
+	SELECT t2.*
+	FROM $cte$ t1
+	JOIN $schema$.$table_name$ t2 ON t1.$parent_column_name$ = t2.$column_name$
+)
+SELECT * 
+FROM $cte$
+--OPTION (MAXRECURSION 0)
+$CARET$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

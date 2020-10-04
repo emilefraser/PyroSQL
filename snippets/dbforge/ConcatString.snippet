@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ConcatString</Title>
+      <Shortcut>ConcatString</Shortcut>
+      <Description>Concatenate column values into a string.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>column_name</ID>
+          <Default>column_name</Default>
+        </Literal>
+        <Literal>
+          <ID>column_alias</ID>
+          <Default>column_alias</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[SELECT $column_alias$ = STUFF((
+	SELECT ', ' + $column_name$
+	FROM $schema$.$table_name$
+	FOR XML PATH(''), TYPE).value('.', 'NVARCHAR(MAX)'), 1, 2, '')
+$CARET$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

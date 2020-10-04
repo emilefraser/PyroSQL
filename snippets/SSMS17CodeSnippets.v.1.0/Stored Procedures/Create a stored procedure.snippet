@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+   <_locTag _loc="locData">Default</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create a stored procedure</Title>
+                        <Shortcut></Shortcut>
+			<Description>Code Snippet for a CREATE PROCEDURE statement.</Description>
+			<Author>Asel Sathkumara</Author>
+			<SnippetTypes>
+                                <SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+								<Literal>
+                                	<ID>database_name</ID>
+                                	<ToolTip>Provide the name of the database you want to use</ToolTip>
+                                	<Default>[database_name]</Default>
+                                </Literal>
+
+
+                                <Literal>
+                                	<ID>procedure_name</ID>
+                                	<ToolTip>Provide the name of the procedure you wish to create)</ToolTip>
+                                	<Default>[procedure_name]</Default>
+                                </Literal>
+									<Literal>
+                                	<ID>parameter1_name</ID>
+                                	<ToolTip>Provide the name of the first parameter</ToolTip>
+                                	<Default>@parameter1</Default>
+                                	</Literal>
+									<Literal>
+                                	<ID>parameter2_name</ID>
+                                	<ToolTip>Provide the name of the second parameter</ToolTip>
+                                	<Default>@parameter2</Default>
+                                	</Literal>
+
+									<Literal>
+                                	<ID>parameter1.data_type</ID>
+                                	<ToolTip>Provide the data type for the first parameter</ToolTip>
+                                	<Default>[data_type]</Default>
+                                	</Literal>
+									<Literal>
+                                	<ID>parameter2.data_type</ID>
+                                	<ToolTip>Provide the data type for the first parameter</ToolTip>
+                                	<Default>[data_type]</Default>
+                                	</Literal>
+
+									<Literal>
+                                	<ID>parameter1.default_value</ID>
+                                	<ToolTip>Provide the default value for parameter 1 (if any)</ToolTip>
+                                	<Default>[default_value]</Default>
+                                	</Literal>
+									<Literal>
+                                	<ID>parameter2.default_value</ID>
+                                	<ToolTip>Provide the default value for parameter 2 (if any)</ToolTip>
+                                	<Default>[default_value]</Default>
+                                	</Literal>
+
+									<Literal>
+                                	<ID>sql_statement</ID>
+                                	<ToolTip>Enter your SQL statement(s) here</ToolTip>
+                                	<Default>[...]</Default>
+                                	</Literal>
+
+								
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+
+USE $database_name$;
+GO
+
+DROP PROC IF EXISTS $procedure_name$;
+GO
+
+CREATE PROC $procedure_name$
+(
+	$parameter1_name$ $parameter1.data_type$ = $parameter1.default_value$,
+	$parameter2_name$ $parameter2.data_type$ = $parameter2.default_value$
+)
+AS
+BEGIN
+	$sql_statement$
+END
+GO
+
+EXEC $procedure_name$;
+GO
+
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

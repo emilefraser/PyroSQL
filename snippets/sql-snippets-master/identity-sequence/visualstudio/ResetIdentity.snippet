@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Reset the specified identity counter</Title>
+            <Shortcut>resetidentity</Shortcut>
+			<Description>Reseeds the specified identity counter. Note that if you want the next inserted item to have a value of 11 you need to reseed to 10</Description>
+			<Author>notahelpdesk</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>SchemaName</ID>
+					<ToolTip>Name of the schema</ToolTip>
+					<Default>dbo</Default>
+				</Literal>
+				<Literal>
+					<ID>TableName</ID>
+					<ToolTip>Name of the table</ToolTip>
+					<Default>TableName</Default>
+				</Literal>
+				<Literal>
+					<ID>IdentityNumber</ID>
+					<ToolTip>Number to reset to</ToolTip>
+					<Default>0</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+DBCC CHECKIDENT ('[$SchemaName$].[$TableName$]', RESEED, $IdentityNumber$)
+GO
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

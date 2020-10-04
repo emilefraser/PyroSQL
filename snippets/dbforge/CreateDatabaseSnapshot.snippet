@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateDatabaseSnapshot</Title>
+      <Shortcut>CreateDatabaseSnapshot</Shortcut>
+      <Description>Create a database snapshot.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>database_snapshot_name</ID>
+          <Default>database_snapshot_name</Default>
+        </Literal>
+        <Literal>
+          <ID>logical_file_name</ID>
+          <Default>logical_file_name</Default>
+        </Literal>
+        <Literal>
+          <ID>os_file_name</ID>
+          <Default>os_file_name</Default>
+        </Literal>
+        <Literal>
+          <ID>source_database_name</ID>
+          <Default>source_database_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[USE [master]
+GO
+
+IF DB_ID('$database_snapshot_name$') IS NOT NULL
+	DROP DATABASE [$database_snapshot_name$]
+GO
+
+CREATE DATABASE [$database_snapshot_name$]
+ON (
+	NAME = $logical_file_name$,
+	FILENAME = '$os_file_name$'
+)$CARET$
+AS SNAPSHOT OF [$source_database_name$]
+GO
+
+USE [$database_snapshot_name$]
+GO]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

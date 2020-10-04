@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Delete Row, if the specified condition returns just one matching row</Title>
+            <Shortcut>deleterow</Shortcut>
+			<Description>Check to see if a row (and only 1) matching the specified column value exists, if so delete it.</Description>
+			<Author>notahelpdesk</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>SchemaName</ID>
+					<ToolTip>Name of the default schema</ToolTip>
+					<Default>dbo</Default>
+				</Literal>
+				<Literal>
+					<ID>TableName</ID>
+					<ToolTip>Name of the table</ToolTip>
+					<Default>TableName</Default>
+				</Literal>
+				<Literal>
+					<ID>ColumnName</ID>
+					<ToolTip>Name of the column to check against</ToolTip>
+					<Default>ColumnName</Default>
+				</Literal>
+				<Literal>
+					<ID>ColumnValue</ID>
+					<ToolTip>Value to match against</ToolTip>
+					<Default>'TRUE'</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+IF (SELECT COUNT(*) FROM [$SchemaName$].[$TableName$] WHERE $ColumnName$ = $ColumnValue$) = 1
+BEGIN
+	DELETE FROM [$SchemaName$].[$TableName$] WHERE $ColumnName$ = $ColumnValue$
+END
+GO
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

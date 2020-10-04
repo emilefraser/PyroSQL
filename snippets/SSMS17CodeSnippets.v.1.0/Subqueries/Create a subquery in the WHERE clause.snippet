@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+   <_locTag _loc="locData">Default</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create a subquery in the WHERE clause</Title>
+                        <Shortcut></Shortcut>
+			<Description>Code Snippet for a subquery inside the WHERE clause.</Description>
+			<Author>Asel Sathkumara</Author>
+			<SnippetTypes>
+                                <SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+                                <Literal>
+                                	<ID>table</ID>
+                                	<ToolTip>Provide the name of the table you wish to query</ToolTip>
+                                	<Default>[table_name]</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>column_name</ID>
+                                	<ToolTip>Provide the name of the table's column</ToolTip>
+                                	<Default>[table.column_name]</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>operator</ID>
+                                	<ToolTip>Provide the operator</ToolTip>
+                                	<Default>OPERATOR</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>order_by_expression</ID>
+                                	<ToolTip>Provide the order by expression</ToolTip>
+                                	<Default>(order_by_expression)</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>sort_order</ID>
+                                	<ToolTip>Specify either ASC or DESC as your sort order</ToolTip>
+                                	<Default>[ASC|DESC]</Default>
+                                </Literal>
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+SELECT * 
+FROM $table$
+WHERE $column_name$ $operator$ (
+			SELECT $column_name$
+			FROM $table$
+			)
+ORDER BY $order_by_expression$ $sort_order$;
+
+
+
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

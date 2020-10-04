@@ -1,0 +1,164 @@
+'.source.sql':
+  'Create Table':
+    'prefix': 'createtable-ms'
+    'description': 'Check to see if the table already exists and if it does\'t, create it'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+      IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '$1' AND TABLE_NAME = '$2')
+      BEGIN
+        CREATE TABLE [$1].[$2] (
+          ${3:ColumnDefinitions}
+        )
+      END
+      GO
+      """
+
+  'Drop Table':
+    'prefix': 'droptable-ms'
+    'description': 'Check to see if the table exists, if it does, drop it'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+      IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '$1' AND TABLE_NAME = '$2')
+      BEGIN
+        DROP TABLE [$1].[$2]
+      END
+      GO
+    """
+  'Create View':
+    'prefix': 'createview-ms'
+    'description': 'Check to see if the view already exists, if it doesn\'t, create it'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+      IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_SCHEMA = '$1' AND TABLE_NAME = '$2')
+      BEGIN
+        CREATE VIEW [$1].[$2]
+        AS
+        ${3:ViewDefinition}
+      END
+      GO
+    """
+
+  'Drop View':
+    'prefix': 'dropview-ms'
+    'description': 'Check to see if the view exists, if it does, drop it'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+      IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_SCHEMA = '$1' AND TABLE_NAME = '$2')
+      BEGIN
+        DROP VIEW [$1].[$2]
+      END
+    """
+
+  'Add Column':
+    'prefix': 'addcolumn-ms'
+    'description': 'Check to see if the specified column already exists, if it doesn\'t, add it to the table'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+    IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '$1' AND TABLE_NAME = '$2' AND COLUMN_NAME = '$3')
+    BEGIN
+      ALTER TABLE [$1].[$2] ADD [$3] ${4:ColumnDefinition}
+    END
+    GO
+    """
+
+  'Drop Column':
+    'prefix': 'dropcolumn-ms'
+    'description': 'Check to see if the specified column already exists, if it does, drop it'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+    IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '$1' AND TABLE_NAME = '$2' AND COLUMN_NAME = '$3')
+    BEGIN
+      ALTER TABLE [$1].[$2] DROP COLUMN [$3]
+    END
+    GO
+    """
+
+  'Add Column Constraint':
+    'prefix': 'addcolumnconstraint-ms'
+    'description': 'Check to see if the specified constraint exists, if it doesn\'t, create it'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+      IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE WHERE TABLE_SCHEMA = '$1' AND TABLE_NAME = '$2' AND COLUMN_NAME = '$3')
+      BEGIN
+        ALTER TABLE [$1].[$2] ADD CONSTRAINT ${4:ConstraintName} ${5:ConstraintDefinition}
+      END
+      GO
+    """
+
+  'Drop Column Constraint':
+    'prefix': 'dropcolumnconstraint-ms'
+    'description': 'Check to see if the specified constraint exists, if it does, drop it'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+      IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE WHERE TABLE_SCHEMA = '$1' AND TABLE_NAME = '$2' AND COLUMN_NAME = '$3' AND CONSTRAINT_NAME = '$4')
+      BEGIN
+        ALTER TABLE [$1].[$2] DROP CONSTRAINT $4
+      END
+      GO
+    """
+
+  'Insert Row':
+    'prefix': 'insertrow-ms'
+    'description': 'Check to see if an entry matching the specified column value exists. If not, insert the specified row'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+      IF NOT EXISTS (SELECT * FROM [${1:Schema}].[$2] WHERE ${3:Key Column Name} = ${4:Key Column Value})
+      BEGIN
+        INSERT INTO [$1].[$2] (${5:Column Names}) VALUES (${6:Values})
+      END
+      GO
+    """
+
+  'Delete Row':
+    'prefix': 'deleterow-ms'
+    'description': 'Check to see if a row (and only 1) matching the specified column value exists, if so delete it.'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+      IF (SELECT COUNT(*) FROM [${1:Schema}].[$2] WHERE ${3:Key Column Name} = ${4:Key Column Value}) = 1
+      BEGIN
+        DELETE FROM [$1].[$2] WHERE $3 = $4
+      END
+      GO
+    """
+
+  'Create Stored Procedure':
+    'prefix': 'createstoredproc-ms'
+    'description': 'Create a stored procedure.'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+      IF Object_ID(${2:StoredProcedureName}) IS NULL
+      BEGIN
+        EXEC ('CREATE Procedure ${1:Schema}.$2 AS SELECT 1')
+      END
+      GO
+
+        ALTER PROCEDURE $1.$2
+        AS
+          ${3:ProcedureDefinition}
+
+        GO
+    """
+
+  'Make column Non-Null':
+    'prefix': 'makenonnull-ms'
+    'description': 'Make an existing column non-null. Note that you need to know the existing definition of the column.'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+      IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '$1' AND TABLE_NAME = '$2' AND COLUMN_NAME = '$3' AND IS_NULLABLE = 'YES')
+      BEGIN
+        ALTER TABLE [$1].[$2] ALTER COLUMN [$3] ${4:ColumnDefinition} NOT NULL
+      END
+      GO
+    """
+
+  'Create schema':
+    'prefix': 'createschema-ms'
+    'description': 'Create a schema if it does not already exist'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+      IF NOT EXISTS (SELECT schema_name FROM INFORMATION_SCHEMA.SCHEMATA WHERE schema_name = '$1')
+      BEGIN
+        EXEC sp_executesql N'CREATE SCHEMA $1'
+      END
+      GO
+    """

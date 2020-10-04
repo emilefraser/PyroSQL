@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+   <_locTag _loc="locData">Default</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Convert To Decimal</Title>
+                        <Shortcut></Shortcut>
+			<Description>Code Snippet for an inline convert to decimal statement.</Description>
+			<Author>Asel Sathkumara</Author>
+			<SnippetTypes>
+                                <SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+                                <Literal>
+                                	<ID>alias</ID>
+                                	<ToolTip>Provide an alias for the value</ToolTip>
+                                	<Default>[alias_name]</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>precision</ID>
+                                	<ToolTip>Provide the precision for the decimal value</ToolTip>
+                                	<Default>precision</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>scale</ID>
+                                	<ToolTip>Provide the scale for the decimal value</ToolTip>
+                                	<Default>scale</Default>
+                                </Literal>
+			</Declarations>
+			<Code Language="SQL"><![CDATA[CONVERT(DECIMAL($precision$, $scale$), $selected$) AS $alias$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

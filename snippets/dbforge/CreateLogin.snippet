@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateLogin</Title>
+      <Shortcut>CreateLogin</Shortcut>
+      <Description>Create a new SQL Server login.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>login_name</ID>
+          <Default>login_name</Default>
+        </Literal>
+        <Literal>
+          <ID>password</ID>
+          <Default>password</Default>
+        </Literal>
+        <Literal>
+          <ID>sid</ID>
+          <Default>sid</Default>
+        </Literal>
+        <Literal>
+          <ID>database</ID>
+          <Default>master</Default>
+        </Literal>
+        <Literal>
+          <ID>language</ID>
+          <Default>English</Default>
+        </Literal>
+        <Literal>
+          <ID>credential_name</ID>
+          <Default>credential_name</Default>
+        </Literal>
+        <Literal>
+          <ID>certificate_name</ID>
+          <Default>certificate_name</Default>
+        </Literal>
+        <Literal>
+          <ID>key_name</ID>
+          <Default>key_name</Default>
+        </Literal>
+        <Literal>
+          <ID>check_expiration</ID>
+          <Default>OFF</Default>
+        </Literal>
+        <Literal>
+          <ID>check_policy</ID>
+          <Default>ON</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE LOGIN $login_name$
+$CARET$--WITH
+--  PASSWORD = '$password$' MUST_CHANGE -- HASHED 
+--  SID = $sid$
+--  DEFAULT_DATABASE = $database$
+--  DEFAULT_LANGUAGE = $language$
+--  CHECK_EXPIRATION = $check_expiration$
+--  CHECK_POLICY = $check_policy$
+--  CREDENTIAL = $credential_name$
+--FROM
+--  WINDOWS
+--    WITH
+--      DEFAULT_DATABASE = $database$
+--      DEFAULT_LANGUAGE = $language$
+--  CERTIFICATE $certificate_name$
+--  ASYMMETRIC KEY $key_name$
+GO
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+   <_locTag _loc="locData">Default</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create a simple SELECT ALL statement</Title>
+                        <Shortcut></Shortcut>
+			<Description>Code Snippet for a simple SELECT ALL statement.</Description>
+			<Author>Asel Sathkumara</Author>
+			<SnippetTypes>
+                                <SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+                                <Literal>
+                                	<ID>table</ID>
+                                	<ToolTip>Provide the name of the table you wish to query</ToolTip>
+                                	<Default>[table_name]</Default>
+                                </Literal>
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+SELECT * 
+FROM $table$;
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

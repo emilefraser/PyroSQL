@@ -1,0 +1,169 @@
+makenonnull-ms
+Lang:SQL
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '$[![SchemaName]!]' AND TABLE_NAME = '$[![TableName]!]' AND COLUMN_NAME = '$[![ColumnName]!]' AND IS_NULLABLE = 'YES')
+BEGIN
+	ALTER TABLE [$[![SchemaName]!]].[$[![TableName]!]] ALTER COLUMN [$[![ColumnName]!]] $[0[]0] NOT NULL
+END
+GO
+[>END<]
+
+Author:  notahelpdesk
+Created: 2017-01-09
+Description: Make an existing column non-null. Note that you need to know the existing definition of the column.!$[FingerTextData FingerTextData]@#
+insertrow-ms
+Lang:SQL
+IF NOT EXISTS (SELECT * FROM [$[![SchemaName]!]].[$[![TableName]!]] WHERE $[![QueryColumnName]!] = $[![QueryColumnValue]!])
+BEGIN
+	INSERT INTO [$[![SchemaName]!]].[$[![TableName]!]] ($[![InsertColumns]!]) VALUES ($[![InsertValues]!])
+END
+GO
+[>END<]
+
+Author:  notahelpdesk
+Created: 2017-01-09
+Description: Check to see if an entry matching the specified column value exists. If not, insert the specified row.!$[FingerTextData FingerTextData]@#
+dropview-ms
+Lang:SQL
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_SCHEMA = '$[![SchemaName]!]' AND TABLE_NAME = '$[![ViewName]!]')
+BEGIN
+	DROP VIEW [$[![SchemaName]!]].[$[![ViewName]!]]
+END
+GO
+[>END<]
+
+Author:  notahelpdesk
+Created: 2017-01-09
+Description: Check to see if the specified view exists, if it does, drop it.!$[FingerTextData FingerTextData]@#
+droptable-ms
+Lang:SQL
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '$[![SchemaName]!]' AND TABLE_NAME = '$[![TableName]!]')
+BEGIN
+	DROP TABLE [$[![SchemaName]!]].[$[![TableName]!]]
+END
+GO
+[>END<]
+
+Author:  notahelpdesk
+Created: 2017-01-09
+Description: Check to see if the specified table exists, if it does, drop it.!$[FingerTextData FingerTextData]@#
+dropcolumnconstraint-ms
+Lang:SQL
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE WHERE TABLE_SCHEMA = '$[![SchemaName]!]' AND TABLE_NAME = '$[![TableName]!]' AND COLUMN_NAME = '$[![ColumnName]!]' AND CONSTRAINT_NAME = '$[![ConstraintName]!]')
+BEGIN
+	ALTER TABLE [$[![SchemaName]!]].[$[![TableName]!]] DROP CONSTRAINT $[![ConstraintName]!]
+END
+GO
+[>END<]
+
+Author:  notahelpdesk
+Created: 2017-01-09
+Description: Check to see if the specified constraint exists, if it does, drop it.!$[FingerTextData FingerTextData]@#
+dropcolumn-ms
+Lang:SQL
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '$[![SchemaName]!]' AND TABLE_NAME = '$[![TableName]!]' AND COLUMN_NAME = '$[![ColumnName]!]')
+BEGIN
+	ALTER TABLE [$[![SchemaName]!]].[$[![TableName]!]] DROP COLUMN [$[![ColumnName]!]]
+END
+GO
+[>END<]
+
+Author:  notahelpdesk
+Created: 2017-01-09
+Description: Check to see if the specified column already exists, if it does, drop it.!$[FingerTextData FingerTextData]@#
+deleterow-ms
+Lang:SQL
+IF (SELECT COUNT(*) FROM [$[![SchemaName]!]].[$[![TableName]!]] WHERE $[![ColumnName]!] = $[![ColumnValue]!]) = 1
+BEGIN
+	DELETE FROM [$[![SchemaName]!]].[$[![TableName]!]] WHERE $[![ColumnName]!] = $[![ColumnValue]!]
+END
+GO
+[>END<]
+
+Author:  notahelpdesk
+Created: 2017-01-09
+Description: Check to see if a row (and only 1) matching the specified column value exists, if so delete it.!$[FingerTextData FingerTextData]@#
+createview-ms
+Lang:SQL
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_SCHEMA = '$[![SchemaName]!]' AND TABLE_NAME = '$[![ViewName]!]')
+BEGIN
+	DROP VIEW [$[![SchemaName]!]].[$[![ViewName]!]]
+END
+GO
+
+CREATE VIEW [$[![SchemaName]!]].[$[![ViewName]!]] 
+AS
+$[0[]0]
+GO
+[>END<]
+
+Author:  notahelpdesk
+Created: 2017-01-09
+Description: Ensure that the view exists. If it already exists, it will be dropped and recreated.!$[FingerTextData FingerTextData]@#
+createtable-ms
+Lang:SQL
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '$[![SchemaName]!]' AND TABLE_NAME = '$[![TableName]!]')
+BEGIN
+	CREATE TABLE [$[![SchemaName]!]].[$[![TableName]!]] (
+		$[0[]0]
+	)
+END
+GO
+[>END<]
+
+Author:  notahelpdesk
+Created: 2017-01-09
+Description: Check to see if the table already exists and if it does't, create it!$[FingerTextData FingerTextData]@#
+createstoredproc-ms
+Lang:SQL
+IF Object_ID('$[![ProcedureName]!]') IS NULL
+BEGIN
+EXEC ('CREATE Procedure [$[![SchemaName]!]].[$[![ProcedureName]!]] AS SELECT 1')
+END
+GO
+
+ALTER PROCEDURE [$[![SchemaName]!]].[$[![ProcedureName]!]]
+AS
+	$[0[]0]
+
+GO
+[>END<]
+
+Author:  notahelpdesk
+Created: 2017-01-27
+Description: Create a stored procedure. If the procedure already exists, the script will be run as an alter!$[FingerTextData FingerTextData]@#
+createschema-ms
+Lang:SQL
+IF NOT EXISTS (SELECT schema_name FROM INFORMATION_SCHEMA.SCHEMATA WHERE schema_name = '$[![SchemaName]!]')
+BEGIN
+EXEC sp_executesql N'CREATE SCHEMA $[![SchemaName]!]'
+END
+GO
+[>END<]
+
+Author:  notahelpdesk
+Created: 2017-01-09
+Description: Create a schema if it does not already exist!$[FingerTextData FingerTextData]@#
+addcolumnconstraint-ms
+Lang:SQL
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE WHERE TABLE_SCHEMA = '$[![SchemaName]!]' AND TABLE_NAME = '$[![TableName]!]' AND COLUMN_NAME = '$[![ColumnName]!]')
+BEGIN
+	ALTER TABLE [$[![SchemaName]!]].[$[![ColumnName]!]] ADD CONSTRAINT $[![ConstraintName]!] $[![ConstraintDefinition]!]
+END
+GO
+[>END<]
+
+Author:  notahelpdesk
+Created: 2017-01-09
+Description: Check to see if a constraint exists on the specified column. If it doesn't, create it!$[FingerTextData FingerTextData]@#
+addcolumn-ms
+Lang:SQL
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '$[![SchemaName]!]' AND TABLE_NAME = '$[![TableName]!]' AND COLUMN_NAME = '$[![ColumnName]!]')
+BEGIN
+	ALTER TABLE [$[![SchemaName]!]].[$[![TableName]!]] ADD [$[![ColumnName]!]] $[![Definition]!]
+END
+GO
+[>END<]
+
+Author:  notahelpdesk
+Created: 2017-01-09
+Description: Check to see if the specified column already exists, if it doesn't, add it to the table!$[FingerTextData FingerTextData]@#

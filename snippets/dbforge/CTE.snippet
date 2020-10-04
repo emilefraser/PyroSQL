@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CTE</Title>
+      <Shortcut>CTE</Shortcut>
+      <Description>Common table expression.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>cte</ID>
+          <Default>cte</Default>
+        </Literal>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[WITH $cte$ AS 
+(
+	SELECT *
+	FROM $schema$.$table_name$    
+)
+SELECT * 
+FROM $cte$
+$CARET$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

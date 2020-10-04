@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Drop Column Constraint, if it exists</Title>
+            <Shortcut>dropcolumnconstraint</Shortcut>
+			<Description>Check to see if the specified constraint exists, if it does, drop it</Description>
+			<Author>notahelpdesk</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>SchemaName</ID>
+					<ToolTip>Name of the default schema</ToolTip>
+					<Default>dbo</Default>
+				</Literal>
+				<Literal>
+					<ID>TableName</ID>
+					<ToolTip>Name of the view</ToolTip>
+					<Default>TableName</Default>
+				</Literal>
+				<Literal>
+					<ID>ColumnName</ID>
+					<ToolTip>Name of the column</ToolTip>
+					<Default>ColumnName</Default>
+				</Literal>
+				<Literal>
+					<ID>ConstraintName</ID>
+					<ToolTip>Name for the constraint</ToolTip>
+					<Default>UQ_name</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE WHERE TABLE_SCHEMA = '$SchemaName$' AND TABLE_NAME = '$TableName$' AND COLUMN_NAME = '$ColumnName$' AND CONSTRAINT_NAME = '$ConstraintName$')
+BEGIN
+	ALTER TABLE [$SchemaName$].[$TableName$] DROP CONSTRAINT $ConstraintName$
+END
+GO
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

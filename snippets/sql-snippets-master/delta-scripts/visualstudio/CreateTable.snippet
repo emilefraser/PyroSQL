@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create Table, if it doesn't already exist</Title>
+            <Shortcut>createtable</Shortcut>
+			<Description>Check to see if the table already exists and if it does't, create it</Description>
+			<Author>notahelpdesk</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>SchemaName</ID>
+					<ToolTip>Name of the default schema</ToolTip>
+					<Default>dbo</Default>
+				</Literal>
+				<Literal>
+					<ID>TableName</ID>
+					<ToolTip>Name of the table</ToolTip>
+					<Default>TableName</Default>
+				</Literal>
+				<Literal>
+					<ID>column1</ID>
+					<ToolTip>Name of the column</ToolTip>
+					<Default>column_1</Default>
+				</Literal>
+				<Literal>
+					<ID>datatype1</ID>
+					<ToolTip>Data type of the column</ToolTip>
+					<Default>int NOT NULL</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '$SchemaName$' AND TABLE_NAME = '$TableName$')
+BEGIN
+CREATE TABLE [$SchemaName$].[$TableName$] (
+	$column1$ $datatype1$
+)
+END
+GO
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

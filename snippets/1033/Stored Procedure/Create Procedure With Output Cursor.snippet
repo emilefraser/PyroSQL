@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+	<Header>
+	<Title>Create Procedure with CURSOR OUTPUT Parameter</Title>
+        <Shortcut></Shortcut>
+	<Description>Creates a stored procedure that has a Cursor output parameter.</Description>
+	<Author>Microsoft Corporation</Author>
+	<SnippetTypes>
+		<SnippetType>Expansion</SnippetType>
+	</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal>
+				<ID>SchemaName</ID>
+				<ToolTip>Name of the schema</ToolTip>
+				<Default>dbo</Default>
+			</Literal>
+			<Literal>
+				<ID>storedprocname</ID>
+				<ToolTip>Name of the stored procedure</ToolTip>
+				<Default>Sample_Procedure</Default>
+			</Literal>
+			<Literal>
+				<ID>Param1</ID>
+				<ToolTip>Output parameter name</ToolTip>
+				<Default>sample_procedure_cursor</Default>
+			</Literal>
+			<Literal>
+				<ID>datatype1</ID>
+				<ToolTip>Datatype of the output parameter</ToolTip>
+				<Default>CURSOR</Default>
+			</Literal>
+		</Declarations>
+		<Code Language="SQL">
+			<![CDATA[CREATE PROCEDURE $SchemaName$.$storedprocname$ 
+    @$Param1$ $datatype1$ VARYING OUTPUT
+AS
+    SET @$Param1$ = CURSOR FOR
+        select 1
+    OPEN @$Param1$ 
+RETURN 0 $end$]]>
+		</Code>
+	</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
+

@@ -1,0 +1,18 @@
+'.source.sql':
+  'Check Identity':
+    'prefix': 'checkidentity-ms'
+    'description': 'Find out what the current identity value for the specified table is'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+      DBCC CHECKIDENT ('[${1:SchemaName}].[${2:TableName}]', NORESEED)
+      GO
+    """
+
+  'Reset Identity':
+    'prefix': 'resetidentity-ms'
+    'description': 'Reseeds the specified identity counter. Note that if you want the next inserted item to have a value of 11 you need to reseed to 10'
+    'leftLabelHTML': 'MS-SQL'
+    'body': """
+      DBCC CHECKIDENT ('[${1:SchemaName}].[${2:TableName}]', RESEED, ${3:IdentityNumber})
+      GO
+    """

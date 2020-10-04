@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+   <_locTag _loc="locData">Default</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create an UPDATE statement</Title>
+                        <Shortcut></Shortcut>
+			<Description>Code Snippet for an UPDATE statement.</Description>
+			<Author>Asel Sathkumara</Author>
+			<SnippetTypes>
+                                <SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+                                <Literal>
+                                	<ID>table</ID>
+                                	<ToolTip>Provide the name of the table you wish to update</ToolTip>
+                                	<Default>[table_name]</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>column_name</ID>
+                                	<ToolTip>Provide the name of the column you wish to update</ToolTip>
+                                	<Default>column_name</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>value</ID>
+                                	<ToolTip>Provide the new value for the column</ToolTip>
+                                	<Default>value1</Default>
+                                </Literal>
+								<Literal>
+                                	<ID>search_condition</ID>
+                                	<ToolTip>Provide the search condition</ToolTip>
+                                	<Default>(search_condition)</Default>
+                                </Literal>
+								
+								
+			</Declarations>
+			<Code Language="SQL"><![CDATA[
+UPDATE $table$
+SET $column_name$ = $value$
+WHERE $search_condition$;
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
