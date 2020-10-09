@@ -1,0 +1,2 @@
+CREATE SCHEMA [CT]
+GO

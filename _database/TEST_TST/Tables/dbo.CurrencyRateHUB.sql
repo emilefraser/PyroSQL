@@ -1,0 +1,8 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[CurrencyRateHUB](
+	[CurrencyRateVID] [bigint] IDENTITY(1,1) NOT NULL,
+	[CurrencyRateID] [bigint] NOT NULL
+) ON [PRIMARY]
+
+GO

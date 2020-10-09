@@ -1,0 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [tSQLt].[Private_ExpectException](
+	[i] [int] NULL
+) ON [PRIMARY]
+
+GO

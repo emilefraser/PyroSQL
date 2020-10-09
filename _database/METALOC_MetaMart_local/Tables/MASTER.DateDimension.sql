@@ -1,0 +1,39 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [MASTER].[DateDimension](
+	[CalendarDate] [date] NOT NULL,
+	[IsWeekend] [bit] NULL,
+	[Year] [smallint] NULL,
+	[QuarterNo] [tinyint] NULL,
+	[MonthNumber] [varchar](2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[DayofYear] [smallint] NULL,
+	[Day] [tinyint] NULL,
+	[Week] [tinyint] NULL,
+	[DayofWeekNo] [tinyint] NULL,
+	[DayofWeek] [varchar](9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[DayofWeekAbbreviation] [varchar](3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[Month] [varchar](20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[MonthAbbreviation] [varchar](5) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[FinancialYear] [int] NULL,
+	[FinancialPeriodNo] [varchar](2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[YearFinancialPeriod] [varchar](7) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[FinancialPeriod] [varchar](3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[FinancialQuarterNo] [tinyint] NULL,
+	[FinancialYearQuarter] [varchar](7) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[FinancialQuarter] [varchar](2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[MonthBeginDate] [date] NULL,
+	[MonthEndDate] [date] NULL,
+	[WeekBeginDate] [date] NULL,
+	[WeekEndDate] [date] NULL,
+	[PreviousYear] [int] NULL,
+	[PreviousYearDate] [date] NULL,
+	[IsToday]  AS (case when [CalendarDate]=CONVERT([date],getdate()) then (1) else (0) end),
+	[IsCurrentWeek]  AS (case when datepart(week,[CalendarDate])=datepart(week,getdate()) then (1) else (0) end),
+	[IsCurrentMonth]  AS (case when datepart(month,[CalendarDate])=datepart(month,getdate()) then (1) else (0) end),
+	[IsPublicHoliday] [bit] NULL,
+	[IsSchoolHoliday] [bit] NULL,
+	[IsInLast7Days]  AS (case when datediff(day,[calendardate],getdate())>(0) AND datediff(day,[calendardate],getdate())<=(7) then (1) else (0) end),
+	[IsInLast30Days]  AS (case when datediff(day,[calendardate],getdate())>(0) AND datediff(day,[calendardate],getdate())<=(30) then (1) else (0) end)
+) ON [PRIMARY]
+
+GO

@@ -1,0 +1,8 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [SDEL].[Ensamble_Per_Project](
+	[HubID] [int] NOT NULL,
+	[InfoMartObjectID] [int] NOT NULL
+) ON [PRIMARY]
+
+GO

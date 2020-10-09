@@ -1,0 +1,43 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[AROBP](
+	[IDCUST] [char](12) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[IDINVC] [char](22) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[CNTPAYMNBR] [decimal](5, 0) NULL,
+	[IDRMIT] [char](24) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[DATEBUS] [decimal](9, 0) NULL,
+	[TRANSTYPE] [smallint] NULL,
+	[CNTSEQNCE] [decimal](5, 0) NULL,
+	[AUDTDATE] [decimal](9, 0) NULL,
+	[AUDTTIME] [decimal](9, 0) NULL,
+	[AUDTUSER] [char](8) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[AUDTORG] [char](6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[DEPSTNBR] [decimal](9, 0) NULL,
+	[CNTBTCH] [decimal](9, 0) NULL,
+	[DATEBTCH] [decimal](9, 0) NULL,
+	[AMTPAYMHC] [decimal](19, 3) NULL,
+	[AMTPAYMTC] [decimal](19, 3) NULL,
+	[CODECURN] [char](3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[IDRATETYPE] [char](2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[RATEEXCHHC] [decimal](15, 7) NULL,
+	[SWOVRDRATE] [smallint] NULL,
+	[IDBANK] [char](8) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[TRXTYPE] [smallint] NULL,
+	[IDMEMOXREF] [char](22) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[SWINVCDEL] [smallint] NULL,
+	[DATELSTSTM] [decimal](9, 0) NULL,
+	[IDPREPAID] [char](22) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[IDCUSTRMIT] [char](12) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[DATERMIT] [decimal](9, 0) NULL,
+	[CNTITEM] [decimal](7, 0) NULL,
+	[FISCYR] [char](4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[FISCPER] [char](2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[RATEDATE] [decimal](9, 0) NULL,
+	[RATEOP] [smallint] NULL,
+	[STMTSEQ] [int] NULL,
+	[PYMCUID] [int] NULL,
+	[DEPSEQ] [int] NULL,
+	[DEPLINE] [int] NULL
+) ON [PRIMARY]
+
+GO

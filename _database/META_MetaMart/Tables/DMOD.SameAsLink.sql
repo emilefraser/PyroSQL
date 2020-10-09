@@ -1,0 +1,10 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [DMOD].[SameAsLink](
+	[SameAsLinkID] [int] IDENTITY(1,1) NOT NULL,
+	[SameAsLinkName] [varchar](150) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[HubID] [int] NOT NULL,
+	[IsActive] [bit] NULL
+) ON [PRIMARY]
+
+GO

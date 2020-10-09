@@ -1,0 +1,2 @@
+CREATE SCHEMA [raw]
+GO

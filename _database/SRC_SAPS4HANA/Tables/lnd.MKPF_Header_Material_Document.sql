@@ -1,0 +1,42 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [lnd].[MKPF_Header_Material_Document](
+	[MANDT] [nvarchar](3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[MBLNR] [nvarchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[MJAHR] [nvarchar](4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[VGART] [nvarchar](2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[BLART] [nvarchar](2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[BLAUM] [nvarchar](2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[BLDAT] [nvarchar](8) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[BUDAT] [nvarchar](8) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[CPUDT] [nvarchar](8) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[CPUTM] [nvarchar](6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[AEDAT] [nvarchar](8) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[USNAM] [nvarchar](12) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[TCODE] [nvarchar](4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[XBLNR] [nvarchar](16) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[BKTXT] [nvarchar](25) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[FRATH] [numeric](16, 2) NULL,
+	[FRBNR] [nvarchar](16) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[WEVER] [nvarchar](1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[XABLN] [nvarchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[AWSYS] [nvarchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[BLA2D] [nvarchar](2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[TCODE2] [nvarchar](20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[BFWMS] [nvarchar](1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[EXNUM] [nvarchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[SPE_BUDAT_UHR] [nvarchar](6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[SPE_BUDAT_ZONE] [nvarchar](6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[LE_VBELN] [nvarchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[SPE_LOGSYS] [nvarchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[SPE_MDNUM_EWM] [nvarchar](16) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[GTS_CUSREF_NO] [nvarchar](35) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[FLS_RSTO] [nvarchar](1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[MSR_ACTIVE] [nvarchar](1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[KNUMV] [nvarchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[XCOMPL] [nvarchar](1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[LFSNR] [nvarchar](16) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[OIB_BLTIME] [nvarchar](6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+) ON [PRIMARY]
+
+GO

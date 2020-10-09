@@ -1,7 +1,7 @@
--DROP PROCEDURE usp_String_or_binary_data_truncated
+DROP PROCEDURE IF EXISTS #usp_String_or_binary_data_truncated
 --GO
-CREATE PROCEDURE usp_String_or_binary_data_truncated
-@String VARCHAR(MAX)
+CREATE OR ALTER PROCEDURE #usp_String_or_binary_data_truncated
+	@String VARCHAR(MAX)
 AS
  
 DECLARE @VARCHAR AS VARCHAR(MAX)
@@ -77,8 +77,11 @@ AND C.max_length>0
  
 GO
 
-EXEC usp_String_or_binary_data_truncated 'INSERT INTO tbl_sample VALUES (1,''Bob Jack Creasey'')'
+EXEC #usp_String_or_binary_data_truncated 'INSERT INTO tbl_sample VALUES (1,''Bob Jack Creasey'')'
 GO
+
 EXEC usp_String_or_binary_data_truncated 'INSERT INTO tbl_sample ([ID],[NAME]) VALUES (2,''Frank Richard Wedge'')'
 GO
 --OUTPUT
+
+DROP PROCEDURE IF EXISTS #usp_String_or_binary_data_truncated

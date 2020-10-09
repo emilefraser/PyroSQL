@@ -1,0 +1,2 @@
+
+EXEC sp_MSforeachdb 'DBCC SHRINKDATABASE (''?'' , TRUNCATEONLY)';

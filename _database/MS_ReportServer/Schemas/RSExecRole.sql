@@ -1,0 +1,2 @@
+CREATE SCHEMA [RSExecRole]
+GO

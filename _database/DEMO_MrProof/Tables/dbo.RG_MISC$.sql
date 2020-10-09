@@ -1,0 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[RG_MISC$](
+	[Miscellaneous rules] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+) ON [PRIMARY]
+
+GO

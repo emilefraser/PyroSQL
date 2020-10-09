@@ -1,0 +1,8 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[SalesPersonHUB](
+	[SalesPersonVID] [bigint] IDENTITY(1,1) NOT NULL,
+	[EmployeeID] [bigint] NOT NULL
+) ON [PRIMARY]
+
+GO

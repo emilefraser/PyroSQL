@@ -1,0 +1,2 @@
+CREATE SCHEMA [guest]
+GO

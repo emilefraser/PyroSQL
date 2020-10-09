@@ -1,0 +1,8 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[AWBuildVersionHUB](
+	[AWBuildVersionVID] [bigint] IDENTITY(1,1) NOT NULL,
+	[AWBuildVersionID] [bigint] NOT NULL
+) ON [PRIMARY]
+
+GO

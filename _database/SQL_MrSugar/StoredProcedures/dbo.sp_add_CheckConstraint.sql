@@ -1,0 +1,15 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE   PROCEDURE dbo.sp_add_CheckConstraint
+AS
+BEGIN
+
+	ALTER TABLE 
+		dbo.MyTable
+	ADD CONSTRAINT 
+		CHK_dbo_MyTable_Value
+	CHECK
+		(value > 0.00)
+
+END
+GO

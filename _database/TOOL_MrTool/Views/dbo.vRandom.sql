@@ -1,0 +1,8 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+-- create view for function call
+CREATE VIEW vRandom
+AS
+SELECT randval = CRYPT_GEN_RANDOM (8)
+
+GO

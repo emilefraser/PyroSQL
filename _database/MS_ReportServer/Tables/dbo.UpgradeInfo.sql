@@ -1,0 +1,8 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[UpgradeInfo](
+	[Item] [nvarchar](260) COLLATE Latin1_General_100_CI_AS_KS_WS NOT NULL,
+	[Status] [nvarchar](512) COLLATE Latin1_General_100_CI_AS_KS_WS NULL
+) ON [PRIMARY]
+
+GO

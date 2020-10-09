@@ -1,0 +1,11 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+
+CREATE PROCEDURE spDouble 
+  @input int
+AS
+    BEGIN
+        RETURN @input *2;
+    END
+
+GO
