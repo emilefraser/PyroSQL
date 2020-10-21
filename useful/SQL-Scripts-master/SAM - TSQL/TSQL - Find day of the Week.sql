@@ -1,1 +1,0 @@
-select DATENAME(DW,'2013-03-04')

@@ -1,1 +1,0 @@
-Data Source=pl3sqlc01ext\ext01;Initial Catalog=dbDealing

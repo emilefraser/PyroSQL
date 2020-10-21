@@ -1,0 +1,14 @@
+10.0
+12
+1           SQLCHAR        0        100        ","           1           Geography                     Latin1_General_BIN
+2           SQLCHAR        0        100        ","           2           Period                        Latin1_General_BIN
+3           SQLCHAR        0        100        ","           3           CurrentSales                  Latin1_General_BIN
+4           SQLCHAR        0        100        ","           4           CurrentTraffic                Latin1_General_BIN
+5           SQLCHAR        0        100        ","           5           CurrentConvPerc               Latin1_General_BIN
+6           SQLCHAR        0        100        ","           6           CurrentAvgTransSize           Latin1_General_BIN
+7           SQLCHAR        0        100        ","           7           CurrentSTAR                   Latin1_General_BIN
+8           SQLCHAR        0        100        ","           8           CurrentTransactions           Latin1_General_BIN
+9           SQLCHAR        0        100        ","           9           CurrentLaborHours             Latin1_General_BIN
+10          SQLCHAR        0        100        ","           10          CurrentUnitsperTransaction    Latin1_General_BIN
+11          SQLCHAR        0        100        ","           11          CurrentAvgUnitsRetail         Latin1_General_BIN
+12          SQLCHAR        0        100        "0x0a"        12          CurrentSalesperShopper        Latin1_General_BIN

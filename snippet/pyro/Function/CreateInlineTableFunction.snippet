@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateInlineTableFunction</Title>
+      <Shortcut>CreateInlineTableFunction</Shortcut>
+      <Description>Create inline table-valued function.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>function_name</ID>
+          <Default>function_name</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name1</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name2</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE FUNCTION $schema_name1$.udf_$function_name$
+(
+	$CARET$
+)
+RETURNS TABLE
+--WITH ENCRYPTION|SCHEMABINDING, EXECUTE AS CALLER|SELF|OWNER|USER
+AS
+RETURN ( 
+	SELECT * 
+	FROM $schema_name2$.$table_name$
+)
+GO]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

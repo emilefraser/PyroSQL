@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropDatabase</Title>
+      <Shortcut>DropDatabase</Shortcut>
+      <Description>Drop a database if it is already exists.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>database_name</ID>
+          <Default>database_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[USE [master]
+GO
+
+IF DB_ID('$database_name$') IS NOT NULL BEGIN
+	--ALTER DATABASE [$database_name$] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+	DROP DATABASE [$database_name$]
+END
+GO
+
+$CARET$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

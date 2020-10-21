@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateIndex</Title>
+      <Shortcut>CreateIndex</Shortcut>
+      <Description>Create unique non-unique clustered index.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>fillfactor</ID>
+          <Default>100</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>filegroup_name</ID>
+          <Default>"default"</Default>
+        </Literal>
+        <Literal>
+          <ID>col_name</ID>
+          <Default>col_name</Default>
+        </Literal>
+        <Literal>
+          <ID>sort</ID>
+          <Default>ASC</Default>
+        </Literal>
+        <Literal>
+          <ID>index_name</ID>
+          <Default>index_name</Default>
+        </Literal>
+        <Literal>
+          <ID>col_name2</ID>
+          <Default>col_name2</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE UNIQUE NONCLUSTERED INDEX $index_name$
+ON $schema$.$table_name$ (
+	$col_name$ $sort$ $CARET$-- , ..., columnN ( ASC | DESC ] 
+)
+--INCLUDE ($col_name2$ $CARET$-- , ..., columnN)
+--WITH PAD_INDEX
+--    , FILLFACTOR = $fillfactor$
+--    , IGNORE_DUP_KEY
+--    , DROP_EXISTING
+--    , STATISTICS_NORECOMPUTE
+--    , SORT_IN_TEMPDB  -- [ ,...n ]
+-- ON $filegroup_name$
+GO]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

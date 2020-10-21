@@ -1,1 +1,0 @@
-LEFT(i.FirstName,1)

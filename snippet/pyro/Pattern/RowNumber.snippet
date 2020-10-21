@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>RowNumber</Title>
+      <Shortcut>RowNumber</Shortcut>
+      <Description>ROW_NUMBER fragment.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>column_name</ID>
+          <Default>column_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[RowNum = ROW_NUMBER() OVER (ORDER BY $column_name$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

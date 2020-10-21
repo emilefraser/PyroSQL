@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateView</Title>
+      <Shortcut>CreateView</Shortcut>
+      <Description>Create a view.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema_name1</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name2</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>view_name</ID>
+          <Default>view_name</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE VIEW $schema_name1$.vw_$view_name$
+--WITH ENCRYPTION, SCHEMABINDING, VIEW_METADATA
+AS
+	SELECT * 
+	FROM $schema_name2$.$table_name$
+	--WITH CHECK OPTION
+GO
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

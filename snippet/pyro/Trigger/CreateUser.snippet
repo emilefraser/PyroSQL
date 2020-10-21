@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateUser</Title>
+      <Shortcut>CreateUser</Shortcut>
+      <Description>Create a database user.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>user_name</ID>
+          <Default>user_name</Default>
+        </Literal>
+        <Literal>
+          <ID>login_name</ID>
+          <Default>login_name</Default>
+        </Literal>
+        <Literal>
+          <ID>certificate_name</ID>
+          <Default>certificate_name</Default>
+        </Literal>
+        <Literal>
+          <ID>key_name</ID>
+          <Default>key_name</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>dbo</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE USER $user_name$
+FROM 
+$CARET$--	LOGIN $login_name$
+--	CERTIFICATE $certificate_name$
+--	ASYMMETRIC KEY $key_name$
+--	WITHOUT LOGIN
+--	WITH DEFAULT_SCHEMA = $schema_name$
+GO
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

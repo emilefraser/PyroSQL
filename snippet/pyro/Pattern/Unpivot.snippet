@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>UnPivot</Title>
+      <Shortcut>UnPivot</Shortcut>
+      <Description>SELECT * FROM and UNPIVOT</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>column_code</ID>
+          <Default>column_code</Default>
+        </Literal>
+        <Literal>
+          <ID>column_value</ID>
+          <Default>column_value</Default>
+        </Literal>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>column_name1</ID>
+          <Default>column_name1</Default>
+        </Literal>
+        <Literal>
+          <ID>column_name2</ID>
+          <Default>column_name2</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[SELECT *
+FROM $schema$.$table_name$
+UNPIVOT (
+	$column_value$ FOR $column_code$ IN ($column_name1$, $column_name2$)
+) unpvt]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

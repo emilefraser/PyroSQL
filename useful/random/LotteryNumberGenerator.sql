@@ -1,0 +1,21 @@
+WITH 
+  L0 AS (SELECT 0 AS C UNION ALL SELECT 0),
+  L1 AS (SELECT 0 AS C FROM L0 AS A
+    CROSS JOIN L0 AS B),
+  L2 AS (SELECT 0 AS C FROM L1 AS A
+    CROSS JOIN L1 AS B),
+  L3 AS (SELECT 0 AS C FROM L2 AS A
+    CROSS JOIN L2 AS B),
+  Nums AS (SELECT TOP(49) ROW_NUMBER()
+     OVER(ORDER BY (SELECT 0)) AS n
+           FROM L3
+           ORDER BY n),
+  Choice AS (SELECT TOP(6) n
+             FROM Nums
+             ORDER BY CHECKSUM(NEWID()))
+SELECT STUFF(
+  (SELECT ',' + CAST(n AS VARCHAR(10))
+     AS [text()]
+   FROM Choice
+   ORDER BY n
+   FOR XML PATH('')), 1, 1, '');

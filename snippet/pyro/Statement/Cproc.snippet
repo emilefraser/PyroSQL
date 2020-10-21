@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateProcedure</Title>
+      <Shortcut>CreateProcedure</Shortcut>
+      <Description>Create a stored procedure.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>procedure_name</ID>
+          <Default>procedure_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[IF OBJECT_ID('$schema$.usp_$procedure_name$') IS NOT NULL
+	SET NOEXEC ON
+GO
+CREATE PROCEDURE $schema$.usp_$procedure_name$
+AS RETURN;
+GO
+SET NOEXEC OFF
+GO
+ALTER PROCEDURE $schema$.usp_$procedure_name$
+(
+	$CARET$
+)
+-- WITH ENCRYPTION, RECOMPILE, EXECUTE AS CALLER|SELF|OWNER| 'user_name'
+AS BEGIN
+	SET NOCOUNT ON;
+
+	RETURN 0;
+END
+GO]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

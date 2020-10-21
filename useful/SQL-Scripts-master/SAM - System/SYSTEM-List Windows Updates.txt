@@ -1,3 +1,0 @@
-# http://kb.hyve.com/wiki/List%20installed%20security%20patches%20and%20updates%20in%20windows
-
-wmic qfe list

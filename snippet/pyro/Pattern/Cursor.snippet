@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Cursor</Title>
+      <Shortcut>Cursor</Shortcut>
+      <Description>Read-only cursor.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>variable</ID>
+          <Default>@var1</Default>
+        </Literal>
+        <Literal>
+          <ID>type</ID>
+          <Default>INT</Default>
+        </Literal>
+        <Literal>
+          <ID>cursor_name</ID>
+          <Default>cur</Default>
+        </Literal>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[DECLARE $variable$ $type$
+
+DECLARE $cursor_name$ CURSOR FAST_FORWARD READ_ONLY LOCAL FOR
+	SELECT *
+	FROM $schema$.$table_name$
+
+OPEN $cursor_name$
+
+FETCH NEXT FROM $cursor_name$ INTO $variable$
+
+WHILE @@FETCH_STATUS = 0 BEGIN
+
+	$CARET$
+
+	FETCH NEXT FROM $cursor_name$ INTO $variable$
+
+END
+
+CLOSE $cursor_name$
+DEALLOCATE $cursor_name$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

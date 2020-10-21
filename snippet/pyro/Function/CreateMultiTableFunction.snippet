@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateMultiTableFunction</Title>
+      <Shortcut>CreateMultiTableFunction</Shortcut>
+      <Description>Create multi-statement table-valued function.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>return_variable</ID>
+          <Default>return_variable</Default>
+        </Literal>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>function_name</ID>
+          <Default>function_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[CREATE FUNCTION $schema$.udf_$function_name$
+(
+	$CARET$
+)
+RETURNS @$return_variable$ TABLE
+--WITH ENCRYPTION|SCHEMABINDING, EXECUTE AS CALLER|SELF|OWNER|USER
+AS BEGIN
+	RETURN
+END
+GO]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

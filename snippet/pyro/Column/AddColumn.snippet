@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AddColumn</Title>
+      <Shortcut>AddColumn</Shortcut>
+      <Description>ALTER TABLE ADD COLUMN fragment.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>column_name</ID>
+          <Default>column_name</Default>
+        </Literal>
+        <Literal>
+          <ID>data_type</ID>
+          <Default>VARCHAR(20)</Default>
+        </Literal>
+        <Literal>
+          <ID>null</ID>
+          <Default>NULL</Default>
+        </Literal>
+        <Literal>
+          <ID>collate</ID>
+          <Default>Latin1_General_CI_AS</Default>
+        </Literal>
+        <Literal>
+          <ID>default</ID>
+          <Default>NULL</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[ALTER TABLE $schema$.$table_name$
+	ADD $column_name$ $data_type$ $null$ $CARET$-- COLLATE $collate$
+	-- CONSTRAINT DF_$table_name$_$column_name$ DEFAULT $default$
+GO
+$CARET$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

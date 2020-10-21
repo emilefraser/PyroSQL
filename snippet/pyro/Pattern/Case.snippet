@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Case</Title>
+      <Shortcut>Case</Shortcut>
+      <Description>CASE expression</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>input_expression</ID>
+          <Default>input_expression</Default>
+        </Literal>
+        <Literal>
+          <ID>when_expression1</ID>
+          <Default>when_expression1</Default>
+        </Literal>
+        <Literal>
+          <ID>then_expression1</ID>
+          <Default>then_expression1</Default>
+        </Literal>
+        <Literal>
+          <ID>when_expression2</ID>
+          <Default>when_expression2</Default>
+        </Literal>
+        <Literal>
+          <ID>then_expression2</ID>
+          <Default>then_expression2</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CASE $input_expression$
+	WHEN $when_expression1$ THEN $then_expression1$
+	WHEN $when_expression2$ THEN $then_expression2$
+	$CARET$-- ELSE
+END]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

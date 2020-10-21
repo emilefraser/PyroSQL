@@ -1,0 +1,16 @@
+10.0
+14
+1           SQLCHAR        0        0        "|"           0           xyz                     ""
+2           SQLCHAR        0        0        "|"           2           account                 Latin1_General_CI_AS
+3           SQLCHAR        0        0        "|"           0           xyz                     ""
+4           SQLCHAR        0        0        "|"           3           balance                 ""
+5           SQLCHAR        0        0        "|"           0           xyz                     ""
+6           SQLCHAR        0        0        "|"           5           dt_transaction          ""
+7           SQLCHAR        0        0        "|"           0           xyz                     ""
+8           SQLCHAR        0        0        "|"           0           xyz                     ""
+9           SQLCHAR        0        0        "|"           0           xyz                     ""
+10          SQLCHAR        0        0        "|"           0           xyz                     ""
+11          SQLCHAR        0        0        "|"           0           xyz                     ""
+12          SQLCHAR        0        0        "|"           0           xyz                     ""
+13          SQLCHAR        0        0        "|"           0           xyz                     ""
+14          SQLCHAR        0        0        "\r\n"        6           OperationUser           Latin1_General_CI_AS

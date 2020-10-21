@@ -1,1 +1,0 @@
-sp_help_log_shipping_secondary_database 'Accnts_Live'

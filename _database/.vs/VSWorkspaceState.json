@@ -1,10 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\20201005",
-    "\\20201005\\MrTool",
-    "\\20201005\\MrTool\\UserDefinedFunctions"
+    "\\BP_MsBest",
+    "\\BP_MsBest\\Logins",
+    "\\BP_MsBest\\Tables",
+    "\\BP_MsBest\\Triggers",
+    "\\BP_MsBest\\UserDefinedFunctions",
+    "\\BP_MsBest\\Views"
   ],
-  "SelectedNode": "\\20201005\\MrTool\\UserDefinedFunctions\\dbo.Proper.sql",
+  "SelectedNode": "\\BP_MsBest\\StoredProcedures",
   "PreviewInSolutionExplorer": false
 }

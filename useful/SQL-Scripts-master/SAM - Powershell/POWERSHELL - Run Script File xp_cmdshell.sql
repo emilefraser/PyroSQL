@@ -1,1 +1,0 @@
-xp_cmdshell 'powershell.exe -file c:\script.ps1 -ExecutionPolicy Unrestricted'

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateTrigger</Title>
+      <Shortcut>CreateTrigger</Shortcut>
+      <Description>Create trigger.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>trigger_name</ID>
+          <Default>trigger_name</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>event_type</ID>
+          <Default>INSTEAD OF</Default>
+        </Literal>
+        <Literal>
+          <ID>events</ID>
+          <Default>INSERT, DELETE, UPDATE</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE TRIGGER $schema_name$.trg_$trigger_name$
+	ON $schema_name$.$table_name$
+	$event_type$ $events$
+AS 
+BEGIN
+	SET NOCOUNT ON;
+
+	$CARET$
+END
+GO
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

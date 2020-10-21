@@ -1,1 +1,0 @@
-GRANT ALTER ANY LOGIN to [loginname]

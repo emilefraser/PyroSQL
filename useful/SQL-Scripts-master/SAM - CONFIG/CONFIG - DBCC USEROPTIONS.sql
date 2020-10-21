@@ -1,1 +1,0 @@
-DBCC useroptions

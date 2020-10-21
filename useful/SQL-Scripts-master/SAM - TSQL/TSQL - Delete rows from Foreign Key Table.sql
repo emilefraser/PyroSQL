@@ -1,4 +1,0 @@
-ALTER TABLE MasterTable
-ADD CONSTRAINT fk_xyz 
-FOREIGN KEY (xyz) 
-REFERENCES ChildTable (xyz) ON DELETE CASCADE 

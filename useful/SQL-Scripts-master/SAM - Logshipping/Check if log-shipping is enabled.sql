@@ -1,1 +1,0 @@
-SELECT primary_database FROM msdb..log_shipping_primary_databases

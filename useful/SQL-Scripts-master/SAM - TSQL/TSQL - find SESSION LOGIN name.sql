@@ -1,1 +1,0 @@
-select suser_name() as login

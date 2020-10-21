@@ -1,1 +1,0 @@
-select * from sys.dm_db_stats_properties (object_id, stats_id)
