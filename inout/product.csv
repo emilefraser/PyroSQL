@@ -1,0 +1,15 @@
+﻿Name,Color,Price,Size,Quantity,Data,Tags
+Adjustable Race,Magenta,100,62,75,"{""Type"":""Part"",""MadeIn"":""China""}",
+Bearing Ball,Magenta,15.99,62,90,"{""ManufacturingCost"":11.672700,""Type"":""Part"",""MadeIn"":""China""}","[""promo""]"
+BB Ball Bearing,Magenta,28.99,62,80,"{""ManufacturingCost"":21.162700,""Type"":""Part"",""MadeIn"":""China""}",
+Blade,Magenta,18,62,45,,"[""new""]"
+"Sport-100 Helmet, Red",Red,41.99,72,38,"{""ManufacturingCost"":30.652700,""Type"":""Еquipment"",""MadeIn"":""China""}","[""promo""]"
+"Sport-100 Helmet, Black",Black,31.49,72,60,"{""ManufacturingCost"":22.987700,""Type"":""Еquipment"",""MadeIn"":""China""}","[""new"",""promo""]"
+"Mountain Bike Socks, M",White,560.99,M,30,"{""Type"":""Clothes""}","[""sales"",""promo""]"
+"Mountain Bike Socks, L",White,120.99,L,20,"{""ManufacturingCost"":88.322700,""Type"":""Clothes""}","[""sales"",""promo""]"
+"Long-Sleeve Logo Jersey, XL",Multi,44.99,XL,60,"{""ManufacturingCost"":32.842700,""Type"":""Clothes""}","[""sales"",""promo""]"
+"Road-650 Black, 52",Black,704.69,52,70,"{""Type"":""Bike"",""MadeIn"":""UK""}",
+"Mountain-100 Silver, 38",Silver,359.99,38,45,"{""ManufacturingCost"":262.792700,""Type"":""Bike"",""MadeIn"":""UK""}","[""promo""]"
+"Road-250 Black, 48",Black,299.02,48,25,"{""ManufacturingCost"":218.284600,""Type"":""Bike"",""MadeIn"":""UK""}","[""new"",""promo""]"
+ML Bottom Bracket,NULL,101.24,NULL,50,"{""Type"":""Part"",""MadeIn"":""China""}",
+HL Bottom Bracket,NULL,121.49,NULL,65,"{""ManufacturingCost"":88.687700,""Type"":""Part"",""MadeIn"":""China""}",

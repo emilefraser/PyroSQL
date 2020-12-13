@@ -1,0 +1,34 @@
+ErrorNum,Type,Description,Severity
+0,Err,Parsing Error,10
+1,BP,Avoid cross server joins,10
+2,BP,Best practice is to use two part naming,10
+3,BP,Dirty Reads cause consitancy errors,10
+4,BP,Dont Override the optimizer,10
+5,BP,Avoid use of 'Select *',10
+6,BP,Avoid Explicit Conversion of Columnar data,10
+7,BP,Avoid use of ordinal positions in ORDER BY Clauses,10
+8,BP,Dont Change DateFormat,10
+9,BP,Dont Change DateFirst,10
+10,BP,ReadUnCommitted: Dirty reads can cause consitancy errors,10
+11,BP,SET ROWCOUNT is not Allowed : Use TOP,10
+12,BP,Missing Column specifications on insert,10
+13,BP,CONCAT_NULL_YIELDS_NULL should be on,10
+14,BP,ANSI_NULLS should be On,10
+15,BP,ANSI_PADDING should be On,10
+16,BP,ANSI_WARNINGS should be On,10
+17,BP,ARITHABORT should be On,10
+18,BP,NUMERIC_ROUNDABORT should be Off,10
+19,BP,QUOTED_IDENTIFIER should be ON,10
+20,BP,FORCEPLAN should be OFF,10
+21,BP,Use 2 part naming in EXECUTE statements,10
+22,BP,Identity value should be agnostic,10
+23,BP,Avoid single line comments,10
+24,BP,Use two part naming,10
+25,PP,RANGE windows are much slower then ROWS (Explicit use),10
+26,PP,RANGE windows are much slower then ROWS (Implicit use),10
+27,BP,Create table statements should specify schema,10
+28,BP,Ordering in a view does not guarantee result set ordering,10
+29,PP,Cursors default to writable.  Specify FAST_FORWARD,10
+30,BP,Include SET NOCOUNT ON inside stored procedures,10
+31,BP,EXISTS/NOT EXISTS can be more performant than COUNT(*),10
+32,BP,Ordering in a derived table does not guarantee result set ordering,10
