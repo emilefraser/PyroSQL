@@ -13,16 +13,12 @@ CREATE OR ALTER PROCEDURE ex.ExecuteRemoteStatement
     @ScopedCredentialName        SYSNAME
 ,   @ScopedIdentity              NVARCHAR(MAX)
 ,   @ScopedSecret                NVARCHAR(MAX)
-,   @DataSourceName              
-,   @DataSourceType
-,   @DataSourceLocation
+,   @DataSourceName              NVARCHAR(MAX) 
+,   @DataSourceType				 NVARCHAR(MAX)
+,   @DataSourceLocation			 NVARCHAR(MAX)
 ,   @OtherParameters             NVARCHAR(MAX)  -- Accepted in form @DatabaseName = 'DBName'
 AS
 BEGIN
-
-
-
-
 
 
 -- Variables for Proc Control
@@ -72,9 +68,12 @@ DECLARE
 DECLARE
      @log_stepname             NVARCHAR(MAX)
 ,    @log_stepdefinition       NVARCHAR(MAX)
+
 ,    @log_stepparameter_out    NVARCHAR(MAX)
 
 
+-- CREATE DATABASE SCOPED CREDENTIAL
+SET @sql_statement = 
 
 -- TODO: Move to own stored proc
 CREATE DATABASE SCOPED CREDENTIAL dsc_pyromaniac 
