@@ -34,6 +34,27 @@ WITH (	TYPE = BLOB_STORAGE,
 		CREDENTIAL= CustomerTestBlobStorageCredential	--> CREDENTIAL is not required if a blob storage is public!
 );
 
+SELECT * FROM sys.external_data_sources
+
+
+
+CustomerTestBlobStorage
+
+EXEC sp_execute_remote
+		N'eds_masterdb',
+		N'Select * FROM sys.views'
+		
+		
+SELECT *
+FROM OPENROWSET(BULK 'product.bcp',
+				DATA_SOURCE = 'CustomerTestBlobStorage',
+				FORMATFILE='data/product.fmt',
+				FORMATFILE_DATA_SOURCE = 'MyAzureBlobStorage') as data
+GROUP BY Color;
+		
+		
+		
+		
 /********************************************************************************
 *				1.3. CREATE DESTINATION TABLE (if not exists)					*
 *********************************************************************************/
