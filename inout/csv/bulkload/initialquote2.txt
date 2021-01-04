@@ -1,0 +1,3 @@
+firstfield,num,midfield,lastfield
+"In this file, the first field is quoted",12,"Middle field","Last field"
+"One more quoted field",99,"Next middle field","Final last field"

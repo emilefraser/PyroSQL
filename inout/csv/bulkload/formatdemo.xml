@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<BCPFORMAT xmlns="http://schemas.microsoft.com/sqlserver/2004/bulkload/format"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <RECORD>
+    <FIELD ID="One" xsi:type="CharTerm" TERMINATOR=",&quot;"/> 
+    <FIELD ID="Two" xsi:type="CharTerm" TERMINATOR="&quot;,&quot;"
+                    COLLATION="Latin1_General_CI_AS"/> 
+    <FIELD ID="Three" xsi:type="CharTerm" TERMINATOR="&quot;\r\n"/> 
+  </RECORD>
+  <ROW>
+    <COLUMN SOURCE="One"/>
+    <COLUMN SOURCE="Two"   NAME="textcol"/>
+    <COLUMN SOURCE="Three" NAME="datecol"/>
+  </ROW>
+</BCPFORMAT>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<BCPFORMAT 
+xmlns="http://schemas.microsoft.com/sqlserver/2004/bulkload/format" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <RECORD>
+    <FIELD ID="1" xsi:type="CharTerm" TERMINATOR="|" /> 
+    <FIELD ID="2" xsi:type="CharTerm" TERMINATOR="|" COLLATION="Latin1_General_CS_AS"/>
+    <FIELD ID="3" xsi:type="CharTerm" TERMINATOR="|" 
+      COLLATION="Polish_CI_AS"/>
+    <FIELD ID="4" xsi:type="CharTerm" TERMINATOR="\r\n" 
+      COLLATION="Greek_CI_AS"/>
+  </RECORD>
+  <ROW>
+    <COLUMN SOURCE="1" NAME="a" xsi:type="SQLNVARCHAR"/>
+    <COLUMN SOURCE="2" NAME="b" xsi:type="SQLNVARCHAR"/>
+    <COLUMN SOURCE="3" NAME="c" xsi:type="SQLNVARCHAR"/>
+    <COLUMN SOURCE="4" NAME="d" xsi:type="SQLNVARCHAR"/>
+  </ROW>
+</BCPFORMAT>

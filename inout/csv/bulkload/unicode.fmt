@@ -1,0 +1,6 @@
+9.0
+4
+1  SQLNCHAR    0  0   "|\0"       1     a      ""
+2  SQLNCHAR    0  0   "|\0"       2     b      ""
+3  SQLNCHAR    0  0   "|\0"       3     c      ""
+4  SQLNCHAR    0  0   "\r\0\n\0"  4     d      ""

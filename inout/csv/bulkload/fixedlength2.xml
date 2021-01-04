@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<BCPFORMAT 
+xmlns="http://schemas.microsoft.com/sqlserver/2004/bulkload/format" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <RECORD>
+    <FIELD ID="1" xsi:type="CharFixed" LENGTH="14"/> 
+    <FIELD ID="2" xsi:type="CharFixed" LENGTH="8"/> 
+    <FIELD ID="3" xsi:type="CharFixed" LENGTH="17"/> 
+    <FIELD ID="4" xsi:type="CharFixed" LENGTH="1"/> 
+    <FIELD ID="5" xsi:type="CharTerm"  TERMINATOR="\r\n"/> 
+  </RECORD>
+  <ROW>
+    <COLUMN SOURCE="1" NAME="x" />
+    <COLUMN SOURCE="2" NAME="y" />
+    <COLUMN SOURCE="3" NAME="z" />
+    <COLUMN SOURCE="4" NAME="w" />
+  </ROW>
+</BCPFORMAT>

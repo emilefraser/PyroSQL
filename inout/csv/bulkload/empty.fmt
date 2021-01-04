@@ -1,0 +1,9 @@
+9.0
+7
+1 SQLCHAR 0 0 ";"     1 a ""
+2 SQLCHAR 0 0 ";"     2 b ""
+3 SQLCHAR 0 0 ";"     3 c ""
+4 SQLCHAR 0 0 ";"     4 d ""
+5 SQLCHAR 0 0 ";"     5 e ""
+6 SQLCHAR 0 0 ";"     6 f ""
+7 SQLCHAR 0 0 "!\r\n" 7 g ""

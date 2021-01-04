@@ -1,0 +1,6 @@
+9.0
+4
+1  SQLCHAR    0  0   "|"     1     a      ""
+2  SQLCHAR    0  0   "|"     2     b      Latin1_General_CI_AS
+3  SQLCHAR    0  0   "|"     3     c      Polish_CS_AS
+4  SQLCHAR    0  0   "\r\n"  4     d      Greek_CS_AS

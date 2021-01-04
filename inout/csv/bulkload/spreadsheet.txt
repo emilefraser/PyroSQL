@@ -1,0 +1,4 @@
+1;This text does not include a comma;2012-08-09
+2;But in this text, there is a comma;2013-02-28
+3;"And in this text; there is a semicolon";2013-09-08
+4;"Part of this text is ""quoted""";

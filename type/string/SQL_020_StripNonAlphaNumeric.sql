@@ -4,30 +4,18 @@ IF OBJECT_ID('[dbo].[StripNonAlphaNumeric]') IS NOT NULL
 DROP  FUNCTION  [dbo].[StripNonAlphaNumeric] 
 GO
 --#################################################################################################
--- Real World DBA Toolkit version 4.94 Lowell Izaguirre lowell@stormrage.com
---#################################################################################################
---#################################################################################################
 -- Author:  Lowell Izaguirre
 -- Create date: 08/15/2013
 -- Description:   Function stripping whitespace and non-alpha chars from input
 -- =============================================
 CREATE FUNCTION dbo.StripNonAlphaNumeric(@OriginalText VARCHAR(8000))
 RETURNS VARCHAR(8000)
-WITH SCHEMABINDING
 BEGIN
   DECLARE @CleanedText VARCHAR(8000)
-  ;WITH
-      E1(N) AS ( --=== Create Ten 1's
-                 SELECT 1 UNION ALL SELECT 1 UNION ALL
-                 SELECT 1 UNION ALL SELECT 1 UNION ALL
-                 SELECT 1 UNION ALL SELECT 1 UNION ALL
-                 SELECT 1 UNION ALL SELECT 1 UNION ALL
-                 SELECT 1 UNION ALL SELECT 1 --10
-               ),
-      E2(N) AS (SELECT 1 FROM E1 a, E1 b),   --100
-      E4(N) AS (SELECT 1 FROM E2 a, E2 b),   --10,000
-Tally(N) AS (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT N)) FROM E4) 
- 
+  ;WITH Tally (N) as
+    (SELECT TOP 10000 row_number() OVER (ORDER BY sc1.id)
+     FROM Master.dbo.SysColumns sc1
+     CROSS JOIN Master.dbo.SysColumns sc2)
   SELECT @CleanedText = ISNULL(@CleanedText,'') +
     CASE
       --ascii numbers are 48(for '0') thru 57 (for '9')

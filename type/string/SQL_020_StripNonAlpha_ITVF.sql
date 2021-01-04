@@ -4,9 +4,6 @@ IF OBJECT_ID('[dbo].[StripNonAlpha_ITVF]') IS NOT NULL
 DROP  FUNCTION  [dbo].[StripNonAlpha_ITVF] 
 GO
 --#################################################################################################
--- Real World DBA Toolkit version 4.94 Lowell Izaguirre lowell@stormrage.com
---#################################################################################################
---#################################################################################################
 --StripNonAlphaNumeric_ITVF removes specific characters from a string.
 --usage for ITVF requires cross apply or cross join
 --ie SELECT TOP 100 fn.CleanedText,MRNumber From EDLogDetail CROSS APPLY dbo.StripNonAlphaNumeric_ASCII_ITVF(MRNumber) fn WHERE MRNumber IS NOT NULL

@@ -1,0 +1,3 @@
+First field   12345678Third field      Y
+Second record     4711End of 2nd recordN
+Third record        15The value is 15  Y

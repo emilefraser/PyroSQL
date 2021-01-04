@@ -1,0 +1,5 @@
+9.0
+3
+1 SQLNCHAR   0   0   ";"    1  idcol   ""
+2 SQLNCHAR   0   0   ";"    2  textcol ""
+3 SQLNCHAR   0   0   "\r\n" 3  datecol ""

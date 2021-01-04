@@ -1,0 +1,3 @@
+idcol,quotedtext,a-date
+11,"Here is some text in quotes",2012-12-12
+12,"And this, is text with a comma",2013-09-02

@@ -1,0 +1,7 @@
+9.0
+5
+1 SQLCHAR 0  14 ""     3 x   Latin1_General_CI_AS
+2 SQLCHAR 0   8 ""     5 y   ""
+3 SQLCHAR 0  17 ""     4 z   Latin1_General_CI_AS
+4 SQLCHAR 0   1 ""     2 w   Latin1_General_CI_AS
+5 SQLCHAR 0   0 "\r\n" 0 ""  ""

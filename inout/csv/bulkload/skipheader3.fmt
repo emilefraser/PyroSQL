@@ -1,0 +1,6 @@
+9.0
+4
+1 SQLCHAR   0   0   "\n"     0  ""         ""
+2 SQLCHAR   0   0   ",\""    1  idcol      ""
+3 SQLCHAR   0   0   "\","    2  quotedtext Latin1_General_CI_AS
+4 SQLCHAR   0   0   "\r"     3  a-date     ""

@@ -1,12 +1,8 @@
 IF OBJECT_ID('[dbo].[StripComments]') IS NOT NULL 
 DROP  FUNCTION  [dbo].[StripComments] 
 GO
---#################################################################################################
--- Real World DBA Toolkit version 4.94 Lowell Izaguirre lowell@stormrage.com
---#################################################################################################
-CREATE FUNCTION [dbo].[StripComments](@StringToStrip varchar(max))
+CREATE FUNCTION StripComments(@StringToStrip varchar(max))
 RETURNS varchar(max)
-WITH SCHEMABINDING
 AS
 BEGIN
     -- This bit strips out block comments.  We need to strip them out BEFORE

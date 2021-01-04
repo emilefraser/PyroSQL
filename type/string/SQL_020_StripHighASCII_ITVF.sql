@@ -4,14 +4,11 @@ IF OBJECT_ID('[dbo].[StripHighASCII_ITVF]') IS NOT NULL
 DROP  FUNCTION  [dbo].[StripHighASCII_ITVF] 
 GO
 --#################################################################################################
--- Real World DBA Toolkit version 4.94 Lowell Izaguirre lowell@stormrage.com
---#################################################################################################
---#################################################################################################
 --StripHigh_ASCII_ITVF removes specific characters from a string.
 --usage for ITVF requires cross apply or cross join
 --ie SELECT TOP 100 fn.CleanedText,MRNumber From EDLogDetail CROSS APPLY dbo.StripHigh_ASCII_ITVF(MRNumber) fn WHERE MRNumber IS NOT NULL
 --#################################################################################################
-CREATE FUNCTION [dbo].[StripHighASCII_ITVF](@OriginalText NVARCHAR(4000))
+CREATE FUNCTION dbo.StripHighASCII_ITVF(@OriginalText NVARCHAR(4000))
 RETURNS TABLE WITH SCHEMABINDING AS
 RETURN
 
