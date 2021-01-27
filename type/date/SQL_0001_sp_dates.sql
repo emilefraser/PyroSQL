@@ -1,20 +1,20 @@
 
-USE master;
-GO
-IF OBJECT_ID('dbo.sp_dates') IS NOT NULL
-  DROP PROCEDURE dbo.sp_dates;
-GO
---#################################################################################################
--- Real World DBA Toolkit version 4.94 Lowell Izaguirre lowell@stormrage.com
---#################################################################################################
---#################################################################################################
---developer utility function added by Lowell, used in SQL Server Management Studio 
---Purpose: fast reference of various date formats 
---#################################################################################################
-CREATE PROCEDURE [dbo].[sp_dates](@date AS DATETIME = NULL)  
-AS  
-BEGIN  
---DECLARE @date AS DATETIME = NULL
+--USE master;
+--GO
+--IF OBJECT_ID('dbo.sp_dates') IS NOT NULL
+--  DROP PROCEDURE dbo.sp_dates;
+--GO
+----#################################################################################################
+---- Real World DBA Toolkit version 4.94 Lowell Izaguirre lowell@stormrage.com
+----#################################################################################################
+----#################################################################################################
+----developer utility function added by Lowell, used in SQL Server Management Studio 
+----Purpose: fast reference of various date formats 
+----#################################################################################################
+--CREATE PROCEDURE [dbo].[sp_dates](@date AS DATETIME = NULL)  
+--AS  
+--BEGIN  
+DECLARE @date AS DATETIME = GETDATE()
   IF @date IS NULL  
     SET @date = GETDATE()  
   SELECT CONVERT(VARCHAR,@date,101) AS FormattedDate,'101' AS Code,'SELECT CONVERT(VARCHAR,@date,101)' AS SQL UNION  
@@ -55,11 +55,11 @@ SELECT '_Last Day of Prior Year',' - ','select dateadd(ms,-3,DATEADD(yy, DATEDIF
 SELECT '_Last Day of Current Month',' - ','select dateadd(ms,-3,DATEADD(mm, DATEDIFF(m,0,getdate() ) + 1, 0))' UNION ALL
 SELECT '_Last Day of Current Year',' - ','select dateadd(ms,-3,DATEADD(yy, DATEDIFF(yy,0,getdate() ) + 1, 0)) ' 
   ORDER BY CODE,FormattedDate  
-END 
-GO
---#################################################################################################
---Mark as a system object
-EXECUTE sp_ms_marksystemobject 'sp_dates'
-GRANT EXECUTE ON dbo.sp_dates TO PUBLIC;
---#################################################################################################
-GO
+--END 
+--GO
+----#################################################################################################
+----Mark as a system object
+--EXECUTE sp_ms_marksystemobject 'sp_dates'
+--GRANT EXECUTE ON dbo.sp_dates TO PUBLIC;
+----#################################################################################################
+--GO

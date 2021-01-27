@@ -1,0 +1,199 @@
+USE [DataManager]
+GO
+/****** Object:  StoredProcedure [MAINTENANCE].[sp_defragment_Indexes]    Script Date: 9/16/2020 03:00:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Thuto>
+-- Create date: <25/02/2020>
+-- Description:	Checks all indexes for fragmentation and reorganized them if needed
+--              General Guidelines we will use
+--              Reorganize when fragmentation > 5-10%
+--              Rebuild when fragmentation > 30%
+-- =============================================
+/*
+    --SAMPLE EXECUTION 
+    EXEC [DataManager].[MAINTENANCE].[sp_defragment_Indexes] @DatabaseName = 'DataVault', @MaxRuntime_Minutes = 120, @IsRebuildOnline = 1, @sql_IsDebug = 1
+	 EXEC [DataManager].[MAINTENANCE].[sp_defragment_Indexes] @DatabaseName = 'InfoMart', @MaxRuntime_Minutes = 60, @IsRebuildOnline = 1, @sql_IsDebug = 1
+*/
+
+ALTER   PROCEDURE [MAINTENANCE].[sp_defragment_Indexes]
+	@DatabaseName SYSNAME		= 'DataVault'
+,   @MaxRuntime_Minutes INT		= 0    -- If No Value Spedified will run until its done
+,   @IsRebuildOnline BIT		= 1        -- For those indexes which we can rebuild online, use it?
+,   @sql_IsDebug BIT			= 0            -- To see the various Prints 
+AS
+BEGIN
+	SET NOCOUNT ON
+
+    -- Capture the Start Time of index and with the specified MAX Allowed RUNTIME Exit proc if its reaced
+    DECLARE @StartDT DATETIME2(7) = GETDATE()
+    DECLARE @EndDT DATETIME2(7) = DATEADD(MINUTE, @MaxRuntime_Minutes, @StartDT)
+
+	DECLARE @Exclude NVARCHAR(MAX) = 'EMS'
+
+	-- We use SYSNAME types as these types are in escence NVARCHAR(128) and also the maximum 
+    -- Length fo the majority of the SQL Server Objects (exception some temp table objects)
+	DECLARE 
+		@Database SYSNAME
+    ,   @SchemaName SYSNAME 
+	,   @TableName SYSNAME
+    ,   @IndexName SYSNAME
+    ,   @IndexTypeDesc NVARCHAR(100)
+    ,   @IndexFragmentation FLOAT
+    ,   @IndexFillFactor INT
+    ,   @Defragment_Strategy VARCHAR(30)
+    ,   @Defragment_Options VARCHAR(200)
+
+    -- SQL Dynamic Variables
+    DECLARE 
+        @sql_statement  NVARCHAR(MAX)
+    ,   @sql_parameters NVARCHAR(MAX)
+    ,   @sql_message NVARCHAR(MAX)
+    ,   @sql_query NVARCHAR(MAX)
+    ,   @sql_clrf AS NVARCHAR(2) = CHAR(13) + CHAR(10)
+    ,   @sql_clrf_eos AS NVARCHAR(4) = CHAR(13) + CHAR(10) + CHAR(13) + CHAR(10)
+
+    -- Declare Cursor Variable instead of Cursor then it only lives in scope of the procedure,
+    -- No need to deallocate it
+    -- And technically what you did here was right, lets check if the DB exists and whether its online
+    -- ect, but lets do it as an IF statement, if we want to loop through multiple Databases we will make use
+    -- of cursor logic outside tis proc (gives us more flexibility) and it makes code a bit simpler here (no cursor in curor0
+	IF EXISTS (
+        SELECT 
+		    1
+	    FROM         
+		    master.sys.databases
+	    WHERE
+		    name = @DatabaseName -- Database we are going to perform the Index Defragmentation on		
+		    AND state = 0 -- database is online
+		    AND is_in_standby = 0 -- database is not read only for log shipping
+    )
+    BEGIN
+
+        -- Instead of looping through the tables, lets instead loop through indexes, then we can test if they are defragment first
+        -- and if so what action to apply to them
+      -- DECLARE @index_cursor CURSOR 
+
+       SET @sql_statement = '
+           DECLARE index_cursor CURSOR FOR
+           SELECT
+	            SchemaName					= sch.name
+            ,	TableName					= tbl.name
+            ,	IndexName					= idx.name
+            ,	IndexFragmentation	        = istat.avg_fragmentation_in_percent
+            ,	IndexFillFactor				= idx.fill_factor 
+            ,	IndexTypeDesc				= idx.type_desc 
+            ,	Defragment_Strategy		    =	CASE 									    
+								                    WHEN istat.avg_fragmentation_in_percent < 5 THEN ''NONE''
+								                    WHEN idx.type_desc = ''HEAP'' THEN ''REBUILD''
+								                    WHEN istat.avg_fragmentation_in_percent >= 5 AND istat.avg_fragmentation_in_percent < 30  THEN ''REORGANIZE''
+								                    WHEN istat.avg_fragmentation_in_percent >= 30  THEN ''REBUILD''
+								                    ELSE ''NONE''
+							                    END
+            ,   Defragment_Options          = CASE 
+                                                WHEN ' + CONVERT(NVARCHAR, @IsRebuildOnline) + ' = 1 AND idx.type_desc = ''Clustered'' AND
+																istat.avg_fragmentation_in_percent >= 30
+                                                    THEN '' WITH (ONLINE = ON)''
+                                                ELSE ''''
+                                              END
+            
+            FROM ' +
+	            QUOTENAME(@DatabaseName) + '.sys.dm_db_index_physical_stats(DB_ID(@DatabaseName), NULL, NULL, NULL, NULL) AS istat
+            INNER JOIN '  +
+	            QUOTENAME(@DatabaseName) + '.sys.tables tbl 
+	            ON tbl.object_id = istat.object_id
+            INNER JOIN '  +
+	            QUOTENAME(@DatabaseName) + '.sys.schemas sch 
+	            ON tbl.schema_id = sch.schema_id
+            INNER JOIN '  +
+	            QUOTENAME(@DatabaseName) + '.sys.indexes AS idx 
+	            ON idx.object_id = istat.object_id
+	            AND istat.index_id = idx.index_id
+            INNER JOIN '  +
+                QUOTENAME(@DatabaseName) + '.sys.databases AS dbs
+                ON dbs.database_id = istat.database_id
+            WHERE    
+	            dbs.name  = ''' + @DatabaseName + '''		
+            ORDER BY  
+	            istat.avg_fragmentation_in_percent DESC
+        '
+
+		IF(@sql_isdebug = 1)
+		BEGIN
+			RAISERROR(@sql_statement, 0, 1)  WITH NOWAIT
+		END
+
+
+        SET @sql_parameters = ' @DatabaseName SYSNAME'--, @index_cursor CURSOR OUTPUT' 
+        EXEC sp_executesql @stmt = @sql_statement, @params = @sql_parameters, @DatabaseName = @DatabaseName--, @index_cursor = @index_cursor OUTPUT
+
+
+        -- Using Index Variable as it lives only in the scope of the procedure, thus no need to deallocated after using
+        OPEN index_cursor
+        FETCH NEXT FROM index_cursor
+        INTO @SchemaName, @TableName, @IndexName, @IndexFragmentation, @IndexFillFactor, @IndexTypeDesc, @Defragment_Strategy, @Defragment_Options
+
+        WHILE (@@FETCH_STATUS = 0)
+        BEGIN
+			IF(@TableName NOT LIKE '%' + @Exclude + '%')
+			BEGIN
+				-- Should we do something?
+				IF(@Defragment_Strategy <> 'NONE')
+				BEGIN 
+					-- Plain table with no indexes (heap)
+					IF(@IndexTypeDesc = 'HEAP')
+					BEGIN
+						SET @sql_statement = 'ALTER TABLE ' + QUOTENAME(@DatabaseName) + '.' + QUOTENAME(@SchemaName) + '.' + QUOTENAME(@TableName) + ' ' + @Defragment_Strategy + @sql_clrf
+					END
+					ELSE
+					BEGIN
+						SET @sql_statement = 'ALTER INDEX ' + QUOTENAME(@IndexName) + ' ON ' + QUOTENAME(@DatabaseName) + '.' +  QUOTENAME(@SchemaName) + '.' +  QUOTENAME(@TableName) + ' ' + @Defragment_Strategy + @Defragment_Options + @sql_clrf
+					END
+
+					IF (@sql_isdebug = 1)
+					BEGIN
+						SET @sql_message = 'Applying maintenance action ' + @sql_statement
+						RAISERROR(@sql_statement, 0, 1) WITH NOWAIT
+					END
+
+					-- Runs the Strategy for defragmentation on the index
+					EXEC sp_executesql @sql_statement
+
+				END
+				ELSE
+				BEGIN
+					IF (@sql_isdebug = 1)
+					BEGIN
+						SET @sql_message = 'No Maintenance Action applied to ' + QUOTENAME(@IndexName) + ' on ' + QUOTENAME(@DatabaseName) + '.' + QUOTENAME(@SchemaName) + '.' + QUOTENAME(@TableName) + @sql_clrf
+						RAISERROR(@sql_statement, 0, 1)  WITH NOWAIT
+					END
+				END
+
+			END
+
+			-- Before going to next one, is our time up
+			-- If so, exit gracefully
+			IF (GETDATE() > @EndDT)
+			BEGIN
+				RETURN 0
+			END
+
+			FETCH NEXT FROM index_cursor
+			INTO @SchemaName, @TableName, @IndexName, @IndexFragmentation, @IndexFillFactor, @IndexTypeDesc, @Defragment_Strategy, @Defragment_Options
+        END
+
+        CLOSE index_cursor
+        DEALLOCATE index_cursor
+    END
+    ELSE
+    BEGIN
+        IF (@sql_IsDebug = 1)
+        BEGIN
+            SET @sql_message = 'The Database ' + @DatabaseName + ' either doesnt exist or its offline/in standby currently'
+            RAISERROR(@sql_message, 0, 1) WITH NOWAIT
+        END
+    END
+END

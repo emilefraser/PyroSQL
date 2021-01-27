@@ -1,16 +1,12 @@
-/*
-Author: Aaron Bertrand
-Original links: https://www.mssqltips.com/sqlservertip/4052/build-a-cheat-sheet-for-sql-server-date-and-time-formats/
-*/
-
 SET NOCOUNT ON;
 
-DECLARE @sql NVARCHAR(MAX), @v VARCHAR(30), @d DATETIME2(7), @sqlServerMajorVersion TINYINT;
+DECLARE @sql NVARCHAR(MAX), @v VARCHAR(30), @DateTimeValue DATETIME2(7), @sqlServerMajorVersion TINYINT;
 SET @sql = N'';
 
 -- a random date/time, making sure no single digits for any
 -- date parts as these can truncate length of output:
-SET @d = '2015-12-31T22:25:59.7901245';
+--SET @d = '2015-12-31T22:25:59.7901245';
+SET @DateTimeValue = GETDATE()
 
 SET @sqlServerMajorVersion = CAST(SERVERPROPERTY ('ProductMajorVersion') AS TINYINT);
 
@@ -24,8 +20,8 @@ DECLARE @s INT = 0;
 WHILE @s <= 255
 BEGIN
   BEGIN TRY
-    SET @sql = N'SELECT @v = CONVERT(VARCHAR(30), @d, ' + RTRIM(@s) + ');';
-    EXEC sys.sp_executesql @sql, N'@v VARCHAR(30), @d DATETIME2(7)', @v, @d;
+    SET @sql = N'SELECT @v = CONVERT(VARCHAR(30), @DateTimeValue, ' + RTRIM(@s) + ');';
+    EXEC sys.sp_executesql @sql, N'@v VARCHAR(30), @DateTimeValue DATETIME2(7)', @v, @DateTimeValue;
     INSERT #s(style) VALUES(@s);
   END TRY
   BEGIN CATCH
@@ -46,24 +42,24 @@ WITH x(rn) AS
   FROM sys.all_objects ORDER BY name
 )
 SELECT @sql = @sql + N'INSERT #s SELECT ' + rn + ' FROM 
-  (SELECT n = TRY_CONVERT(VARCHAR(30),@d,' + rn + ')) AS x
+  (SELECT n = TRY_CONVERT(VARCHAR(30),@DateTimeValue,' + rn + ')) AS x
   WHERE n IS NOT NULL;' FROM x;
 
-EXEC sys.sp_executesql @sql, N'@d DATETIME2(7)', @d;
+EXEC sys.sp_executesql @sql, N'@DateTimeValue DATETIME2(7)', @DateTimeValue;
 END
 
 
 SET @sql = N'';
 
 SELECT @sql = @sql + N' UNION ALL SELECT [style #] = '
-  + style + ', expression = N''CONVERT(CHAR(''
-    +RTRIM(LEN(CONVERT(VARCHAR(30), @d, ' + style + ')))
-    +''), @d, ' + style + ')'',
-    [output] = CONVERT(VARCHAR(30), @d, ' + style + ')'
+  + style + ', expression = N''CONVERT(VARCHAR(''
+    +RTRIM(LEN(CONVERT(VARCHAR(30), @DateTimeValue, ' + style + ')))
+    +''), @DateTimeValue, ' + style + ')'',
+    [output] = CONVERT(VARCHAR(30), @DateTimeValue, ' + style + ')'
 FROM #s;
 
 SET @sql = STUFF(@sql, 1, 11, N'') + N';';
 
-EXEC sys.sp_executesql @sql, N'@d DATETIME2(7)', @d;
+EXEC sys.sp_executesql @sql, N'@DateTimeValue DATETIME2(7)', @DateTimeValue;
 
 DROP TABLE #s;

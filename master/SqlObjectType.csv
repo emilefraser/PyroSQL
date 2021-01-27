@@ -1,0 +1,28 @@
+Object Type Code,Object type,Description of the Object Type
+AF,Aggregate function (CLR),AGGREGATE_FUNCTION
+C,CHECK constraint,CHECK_CONSTRAINT
+D,DEFAULT (constraint or stand-alone),DEFAULT_CONSTRAINT
+F,FOREIGN KEY constraint,FOREIGN_KEY_CONSTRAINT
+FN,SQL scalar function,SQL_SCALAR_FUNCTION
+FS,Assembly (CLR) scalar-function,CLR_SCALAR_FUNCTION
+FT,Assembly (CLR) table-valued function,CLR_TABLE_VALUED_FUNCTION
+IF,SQL inline table-valued function,SQL_INLINE_TABLE_VALUED_FUNCTION
+IT,Internal table,INTERNAL_TABLE
+P,SQL Stored Procedure,SQL_STORED_PROCEDURE
+PC,Assembly (CLR) stored-procedure,CLR_STORED_PROCEDURE
+PG,Plan guide,PLAN_GUIDE
+PK,PRIMARY KEY constraint,PRIMARY_KEY_CONSTRAINT
+R,"Rule (old-style, stand-alone)",RULE
+RF,Replication-filter-procedure,REPLICATION_FILTER_PROCEDURE
+S,System base table,SYSTEM_TABLE
+SN,Synonym,SYNONYM
+SO,Sequence object,SEQUENCE_OBJECT
+SQ,Service queue,SERVICE_QUEUE
+TA,Assembly (CLR) DML trigger,CLR_TRIGGER
+TF,SQL table-valued-function,SQL_TABLE_VALUED_FUNCTION
+TR,SQL DML trigger,SQL_TRIGGER
+TT,Table type,TABLE_TYPE
+U,Table (user-defined),USER_TABLE
+UQ,UNIQUE constraint,UNIQUE_CONSTRAINT
+V,View,VIEW
+X,Extended stored procedure,EXTENDED_STORED_PROCEDURE
