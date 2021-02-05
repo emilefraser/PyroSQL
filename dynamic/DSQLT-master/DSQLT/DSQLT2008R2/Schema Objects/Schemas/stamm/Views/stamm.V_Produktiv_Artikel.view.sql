@@ -1,0 +1,1 @@
+﻿CREATE VIEW [stamm].[V_Produktiv_Artikel] AS SELECT * FROM Produktiv.[stamm].[Artikel]

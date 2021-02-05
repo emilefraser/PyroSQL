@@ -1,0 +1,1 @@
+﻿CREATE VIEW [stamm].[V_Produktiv_Preise] AS SELECT * FROM Produktiv.[stamm].[Preise]

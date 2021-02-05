@@ -1,0 +1,26 @@
+namespace Client
+{
+	sql FindByQuery
+	{
+		SELECT * FROM client_Profile
+		WHERE 1 = 1 
+
+		#if (isEmpty(State))    { AND `State`  = @State}
+		#isNotEmpty<City,    sql{ AND `City`    = @City }>
+		#isNotEmpty<Zipcode, sql{ AND `Zipcode` = @Zipcode }>
+
+		#isNotEqual<State,   "NY", sql{ AND `State` = @State }>
+		#isEqual<IsReactive, 1   , sql{ AND `WONum` LIKE CONCAT('B%', @WONum) }>
+
+		#include<CommonOrderBy>
+	}
+}
+
+sql CommonOrderBy
+{
+	#isNotEmpty<OrderBy, sql{
+		ORDER BY #prop<OrderBy> #iif<Asc, sql{ ASC }, sql{ DESC }>)
+	}, sql{
+		ORDER BY Id DESC
+	}>
+}

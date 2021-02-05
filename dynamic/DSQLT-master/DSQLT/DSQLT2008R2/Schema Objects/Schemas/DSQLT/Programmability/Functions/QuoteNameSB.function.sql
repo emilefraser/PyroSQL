@@ -1,0 +1,7 @@
+﻿CREATE FUNCTION [DSQLT].[QuoteNameSB]
+(@Text NVARCHAR (MAX))
+RETURNS NVARCHAR (MAX)
+AS
+BEGIN
+	RETURN [DSQLT].[QuoteName] (@Text,'[')
+END

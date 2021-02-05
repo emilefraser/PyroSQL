@@ -1,0 +1,1351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>"DatabaseProject"</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <ProjectGuid>{14fbf367-3743-41de-9164-cbcbf51ea6ad}</ProjectGuid>
+    <DSP>Microsoft.Data.Schema.Sql.Sql90DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>True</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>True</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchema</DefaultFileStructure>
+    <DeployToDatabaseAddToServerExplorer>False</DeployToDatabaseAddToServerExplorer>
+    <DeployToScript>True</DeployToScript>
+    <CatalogPropertiesFile>Properties\Database.sqlsettings</CatalogPropertiesFile>
+    <ServerPropertiesFile>
+    </ServerPropertiesFile>
+    <RootNamespace>DSQLT</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <AllowServerObjects>False</AllowServerObjects>
+    <AllowDatabaseObjects>True</AllowDatabaseObjects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>Data Source=.;Integrated Security=True;Pooling=False</TargetConnectionString>
+    <TargetDatabase>DSQLT</TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>
+    </TargetConnectionString>
+    <TargetDatabase>DSQLT</TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\TeamData\Microsoft.Data.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Database Backup" />
+    <Folder Include="Properties\" />
+    <Folder Include="Schema Objects\" />
+    <Folder Include="Schema Objects\Database Level Objects\" />
+    <Folder Include="Schema Objects\Database Level Objects\Assemblies\" />
+    <Folder Include="Schema Objects\Database Level Objects\Database Triggers\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Asymmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Certificates\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Audit Specification\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Encryption Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Master Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Application Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Database Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Schemas\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Signatures\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Symmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Users\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Broker Priorities\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Contracts\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Event Notifications\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Message Types\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Queues\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Remote Service Binding\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Routes\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Services\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Filegroups\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Files\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Stoplists\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes\" />
+    <Folder Include="Schema Objects\Schemas\" />
+    <Folder Include="Schema Objects\Schemas\@1\" />
+    <Folder Include="Schema Objects\Schemas\@1\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\@1\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\@1\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\@1\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\@1\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\@1\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\@1\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\@1\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\@1\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\@1\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\@1\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\@1\Tables\" />
+    <Folder Include="Schema Objects\Schemas\@1\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\@1\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@1\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\@1\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@1\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@1\Views\" />
+    <Folder Include="Schema Objects\Schemas\@1\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@1\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@1\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@2\" />
+    <Folder Include="Schema Objects\Schemas\@2\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\@2\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\@2\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\@2\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\@2\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\@2\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\@2\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\@2\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\@2\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\@2\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\@2\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\@2\Tables\" />
+    <Folder Include="Schema Objects\Schemas\@2\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\@2\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@2\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\@2\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@2\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@2\Views\" />
+    <Folder Include="Schema Objects\Schemas\@2\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@2\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@2\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@3\" />
+    <Folder Include="Schema Objects\Schemas\@3\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\@3\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\@3\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\@3\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\@3\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\@3\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\@3\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\@3\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\@3\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\@3\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\@3\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\@3\Tables\" />
+    <Folder Include="Schema Objects\Schemas\@3\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\@3\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@3\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\@3\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@3\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@3\Views\" />
+    <Folder Include="Schema Objects\Schemas\@3\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@3\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@3\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@4\" />
+    <Folder Include="Schema Objects\Schemas\@4\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\@4\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\@4\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\@4\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\@4\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\@4\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\@4\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\@4\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\@4\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\@4\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\@4\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\@4\Tables\" />
+    <Folder Include="Schema Objects\Schemas\@4\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\@4\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@4\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\@4\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@4\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@4\Views\" />
+    <Folder Include="Schema Objects\Schemas\@4\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@4\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@4\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@5\" />
+    <Folder Include="Schema Objects\Schemas\@5\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\@5\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\@5\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\@5\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\@5\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\@5\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\@5\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\@5\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\@5\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\@5\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\@5\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\@5\Tables\" />
+    <Folder Include="Schema Objects\Schemas\@5\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\@5\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@5\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\@5\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@5\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@5\Views\" />
+    <Folder Include="Schema Objects\Schemas\@5\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@5\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@5\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@6\" />
+    <Folder Include="Schema Objects\Schemas\@6\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\@6\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\@6\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\@6\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\@6\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\@6\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\@6\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\@6\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\@6\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\@6\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\@6\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\@6\Tables\" />
+    <Folder Include="Schema Objects\Schemas\@6\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\@6\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@6\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\@6\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@6\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@6\Views\" />
+    <Folder Include="Schema Objects\Schemas\@6\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@6\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@6\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@7\" />
+    <Folder Include="Schema Objects\Schemas\@7\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\@7\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\@7\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\@7\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\@7\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\@7\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\@7\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\@7\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\@7\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\@7\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\@7\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\@7\Tables\" />
+    <Folder Include="Schema Objects\Schemas\@7\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\@7\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@7\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\@7\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@7\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@7\Views\" />
+    <Folder Include="Schema Objects\Schemas\@7\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@7\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@7\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@8\" />
+    <Folder Include="Schema Objects\Schemas\@8\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\@8\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\@8\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\@8\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\@8\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\@8\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\@8\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\@8\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\@8\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\@8\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\@8\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\@8\Tables\" />
+    <Folder Include="Schema Objects\Schemas\@8\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\@8\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@8\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\@8\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@8\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@8\Views\" />
+    <Folder Include="Schema Objects\Schemas\@8\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@8\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@8\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@9\" />
+    <Folder Include="Schema Objects\Schemas\@9\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\@9\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\@9\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\@9\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\@9\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\@9\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\@9\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\@9\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\@9\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\@9\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\@9\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\@9\Tables\" />
+    <Folder Include="Schema Objects\Schemas\@9\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\@9\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@9\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\@9\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@9\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\@9\Views\" />
+    <Folder Include="Schema Objects\Schemas\@9\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\@9\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\@9\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\dbo\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Tables\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Views\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\DSQLT\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\Sample\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Tables\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Views\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\Sample\Views\Triggers\" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Data Generation Plans" />
+    <Folder Include="Schema Comparisons" />
+  </ItemGroup>
+  <ItemGroup>
+    <PropertiesFile Include="Properties\Database.sqlsettings">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqldeployment">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqlcmdvars">
+    </PropertiesFile>
+    <Build Include="Properties\Database.sqlpermissions">
+      <ModelBuilderType>Permissions</ModelBuilderType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\@1.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\@2.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\@3.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\@4.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\@5.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\@6.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\@7.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\@8.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\@9.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\DSQLT.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\Sample.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\Sync.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Service Broker\Routes\AutoCreatedLocal.route.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Storage\Files\DSQLT_log.sqlfile.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Storage\Files\PRIMARY.DSQLT.sqlfile.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Programmability\Stored Procedures\@1.@@2.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Programmability\Stored Procedures\@1.@@@2.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\@1.@1.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\@1.@2.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\@1.@3.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\@1.@4.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\@1.@5.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\@1.@6.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\@1.@7.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\@1.@8.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\@1.@9.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\Constraints\@1.@1.DF_@1_@1_Sync_CompareID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\Constraints\@1.@1.DF_@1_@1_Sync_CompareStatus.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\Constraints\@1.@1.DF_@1_@1_Sync_Id.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\Constraints\@1.@1.DF_@1_@1_Sync_RowCreated.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\Constraints\@1.@1.DF_@1_@1_Sync_RowDeleted.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\Constraints\@1.@1.DF_@1_@1_Sync_RowGUID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@1\Tables\Constraints\@1.@1.DF_@1_@1_Sync_RowModified.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\@2.@1.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\@2.@2.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\@2.@3.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\@2.@4.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\@2.@5.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\@2.@6.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\@2.@7.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\@2.@8.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\@2.@9.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\Constraints\@2.@2.DF_@2_@2_Sync_CompareID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\Constraints\@2.@2.DF_@2_@2_Sync_CompareStatus.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\Constraints\@2.@2.DF_@2_@2_Sync_Id.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\Constraints\@2.@2.DF_@2_@2_Sync_RowCreated.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\Constraints\@2.@2.DF_@2_@2_Sync_RowDeleted.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\Constraints\@2.@2.DF_@2_@2_Sync_RowGUID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@2\Tables\Constraints\@2.@2.DF_@2_@2_Sync_RowModified.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@3\Tables\@3.@1.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@3\Tables\@3.@2.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@3\Tables\@3.@3.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@3\Tables\@3.@4.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@3\Tables\@3.@5.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@3\Tables\@3.@6.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@3\Tables\@3.@7.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@3\Tables\@3.@8.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@3\Tables\@3.@9.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@4\Tables\@4.@1.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@4\Tables\@4.@2.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@4\Tables\@4.@3.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@4\Tables\@4.@4.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@4\Tables\@4.@5.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@4\Tables\@4.@6.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@4\Tables\@4.@7.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@4\Tables\@4.@8.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@4\Tables\@4.@9.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@5\Tables\@5.@1.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@5\Tables\@5.@2.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@5\Tables\@5.@3.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@5\Tables\@5.@4.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@5\Tables\@5.@5.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@5\Tables\@5.@6.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@5\Tables\@5.@7.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@5\Tables\@5.@8.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@5\Tables\@5.@9.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@6\Tables\@6.@1.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@6\Tables\@6.@2.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@6\Tables\@6.@3.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@6\Tables\@6.@4.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@6\Tables\@6.@5.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@6\Tables\@6.@6.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@6\Tables\@6.@7.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@6\Tables\@6.@8.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@6\Tables\@6.@9.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@7\Tables\@7.@1.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@7\Tables\@7.@2.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@7\Tables\@7.@3.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@7\Tables\@7.@4.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@7\Tables\@7.@5.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@7\Tables\@7.@6.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@7\Tables\@7.@7.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@7\Tables\@7.@8.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@7\Tables\@7.@9.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@8\Tables\@8.@1.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@8\Tables\@8.@2.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@8\Tables\@8.@3.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@8\Tables\@8.@4.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@8\Tables\@8.@5.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@8\Tables\@8.@6.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@8\Tables\@8.@7.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@8\Tables\@8.@8.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@8\Tables\@8.@9.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@9\Tables\@9.@1.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@9\Tables\@9.@2.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@9\Tables\@9.@3.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@9\Tables\@9.@4.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@9\Tables\@9.@5.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@9\Tables\@9.@6.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@9\Tables\@9.@7.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@9\Tables\@9.@8.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\@9\Tables\@9.@9.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\dbo.@1.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\dbo.@2.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\dbo.@3.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\dbo.@4.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\dbo.@5.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\dbo.@6.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\dbo.@7.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\dbo.@8.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\dbo.@9.table.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.AllSourceContains.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.ColumnList.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.Columns.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.Columns_2.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.Concat.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.CRLF.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.Databases.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.Digits.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.Escape.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.Functions.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.isDatabase.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.isFunc.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.isProc.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.isQuoted.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.isSchema.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.isSynonym.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.isTable.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.isView.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.Procedures.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.Quote.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.QuoteDQ.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.QuoteName.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.QuoteNameSB.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.QuoteSafe_1.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.QuoteSB.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.QuoteSQ.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.Schemas.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.SourceContains.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.SQ.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.Tables.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Functions\DSQLT.Views.function.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@@CopyFunction.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@@CopyProcedure.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@@CopyTable.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@@GenerateSchema.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@@GenerateTable.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@@PrintParameter.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@CopyFunction.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@CopyProcedure.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@CopyTable.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@CreateSchema.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@DropDatabase.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@DropFunction.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@DropProcedure.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@DropTable.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@GenerateDatabase.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@GenerateSchema.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@GenerateTable.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@getObjectDefinition.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@isFunc.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@isProc.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@isSchema.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@isSynonym.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@isTable.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@isView.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@Print1Parameter.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.@PrintParameter.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.Execute.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.Iterate.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT.License.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._addCreateStub.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._doTemplate.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._error.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._execSQL.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._fillDatabaseTemplate_1.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._fillTemplate.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._generateDatabase.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._generateDSQLT.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._generateDSQLTStub.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._generateLinkedserver.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._generateSchema.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._getTemplate.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._iterateTemplate.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\DSQLT\Programmability\Stored Procedures\DSQLT._replaceParameter.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sample\Programmability\Stored Procedures\Sample.@@CopyTableContentFrom.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sample\Programmability\Stored Procedures\Sample.@@CopyTableContentTo.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sample\Programmability\Stored Procedures\Sample.@CopyTableContentFrom.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sample\Programmability\Stored Procedures\Sample.@CopyTableContentTo.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sample\Programmability\Stored Procedures\Sample.@CopyTableFrom_1.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sample\Programmability\Stored Procedures\Sample.@CopyTableTo.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sample\Programmability\Stored Procedures\Sample.@ExecCopyTable.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sample\Programmability\Stored Procedures\Sample.@Test.proc.sql">
+      <SubType>Code</SubType>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql">
+      <SubType>Code</SubType>
+    </PreDeploy>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql">
+      <SubType>Code</SubType>
+    </PostDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="C:\Program Files\Microsoft Visual Studio 9.0\VSTSDB\Extensions\SqlServer\2005\DBSchemas\master.dbschema">
+      <HintPath>C:\Program Files\Microsoft Visual Studio 9.0\VSTSDB\Extensions\SqlServer\2005\DBSchemas\master.dbschema</HintPath>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+      <Private>False</Private>
+    </ArtifactReference>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Database Backup\DSQLT.bak">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Schema Comparisons\DB_Projekt.scmp">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+</Project>

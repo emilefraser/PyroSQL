@@ -1,0 +1,1 @@
+EXEC sp_MSforeachtable 'select ''?'', count(*) from ?'

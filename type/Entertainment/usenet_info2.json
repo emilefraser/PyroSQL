@@ -1,0 +1,255 @@
+[
+    {
+        "id": "1",
+        "name": "xsusenet",
+        "type": "Usenet Host",
+        "active": "true",
+        "login": {
+            "username": "emilefraser@icloud.com",
+            "password": "105022_Alpha"
+        },
+        "account": {
+            "host": "free.xsusenet.com",
+            "port": "23, 80, 81, 119, 443, 8080, 2323, 8181",
+            "ssl": "no",
+            "username": "123229467496",
+            "password": "L4Y@E&zZToQPNq",
+            "connections": "2",
+            "priority": "0"
+        }
+    },
+    {
+        "id": "2",
+        "name": "SABnzbd",
+        "type": "Usenet Client",
+        "active": "false",
+        "api": "603e2e438de6be99ad67795ff4edef11",
+        "nbz": "b85d183720db01d63553ffdf78f2ecb3",
+        "base_folder": "D:\\Download",
+        "watched_folder": "\\Content\\0_Watched",
+        "paused_folder": "\\Content\\1_Paused",
+        "inprogress_folder": "\\Content\\2_InProgress",
+        "completed_folder": "\\Content\\3_Completed",
+        "processsed_folder": "\\Content\\4_Processed",
+        "scripts_folder": "\\Usenet\\Scripts",
+        "admin_folder": "\\Usenet\\Admin",
+        "log_folder": "\\Usenet\\Log",
+        "backup_folder": "\\Usenet\\Backup",
+        "login": {
+            "username": "",
+            "password": ""
+        },
+        "details": {
+            "host": "http://127.0.0.1",
+            "port": "32797",
+            "ssl": "no",
+            "username": "122625567637",
+            "password": "03e630da41",
+            "connections": "2",
+            "priority": "0",
+            "root": "/sabnzbd"
+        }
+    },
+    {
+        "id": "3",
+        "name": "organizr-v2",
+        "type": "Microservice Dashboard",
+        "active": "false",
+        "login": {
+            "username": "pyromaniac",
+            "email": "efraser25@gmail.com",
+            "password": "105022_Alpha",
+            "hashkey": "X%9Wq%oES2L5P",
+            "registration_password": "SnowmanFireshoe25",
+            "api": "bmwjbuee21i310wj8nq"
+        },
+        "database": {
+            "name": "organizrv2db",
+            "path": "/config/www/db"
+        },
+        "account": {
+            "host": "free.xsusenet.com",
+            "port": "23, 80, 81, 119, 443, 8080, 2323, 8181",
+            "ssl": "no",
+            "username": "122625567637",
+            "password": "03e630da41",
+            "connections": "2",
+            "priority": "0"
+        }
+    },
+    {
+        "id": "4",
+        "name": "nzbfinder",
+        "type": "Usenet Provider",
+        "active": "true",
+        "host": "https://nzbfinder.ws",
+        "api": "bc31dfe728b033e7caaaa59ce6ea3a48",
+        "login": {
+            "username": "pyromaniac25",
+            "password": "105022_Alpha"
+        }
+    },
+    {
+        "id": "5",
+        "name": "drunkenslug",
+        "type": "Usenet Provider",
+        "active": "true",
+        "host": "https://drunkenslug.com",
+        "api": "a83abdf1acac5a0386cb2677ee492cba",
+        "login": {
+            "username": "pyromaniac",
+            "password": "105022_Alpha"
+        }
+    },
+    {
+        "id": "6",
+        "name": "miatrix",
+        "type": "Usenet Provider",
+        "active": "true",
+        "host": "https://www.miatrix.com",
+        "api": "f47e9886e7b1e324c6178c76e781a61a",
+        "login": {
+            "username": "pyromaniac25",
+            "password": "105022_Alpha"
+        }
+    },
+    {
+        "id": "7",
+        "name": "nbznoob",
+        "type": "Usenet Provider",
+        "active": "true",
+        "host": "Omgwtfnzbs",
+        "api": "8f7da19a207dca0f49014d8c876c0125",
+        "login": {
+            "username": "pyromaniac25",   	pyromaniac2510
+            "password": "105022_Alpha"
+        }
+    },
+    {
+        "id": "8",
+        "name": "pushbullet",
+        "type": "Notification Service",
+        "active": "true",
+        "host": "https://www.pushbullet.com",
+        "api": "o.C1bQGGIhcWSD79pRcxBwdIukhvUpneAI",
+        "loginwith": "Google Account"
+    },
+    {
+        "id": "9",
+        "name": "Transmission",
+        "type": "Torrent/Magnet Client",
+        "active": "true",
+        "host": "https://www.transmission.com",
+        "api": "o.BIaM8J1epHgU9BE3ZQbS9wvPzxQk301T",
+        "login": {
+            "type": "rpc",
+            "host": "127.0.0.1",
+            "port": "9091",
+            "username": "pyromaniac25",
+            "password": "105022_Alpha"
+        }
+    },
+    {
+        "id": "10",
+        "name": "GoodReads",
+        "type": "Ebook Libary",
+        "active": "true",
+        "host": "https://www.goodreads.com",
+        "api": "hbHZlxWm3piK2HqEiYoarQ",
+        "login": {
+            "userid": "114740541",
+            "secret": "a0cQa15gxs8vsACyW1KV3FZKxhLl8IYnmWN10UVS0"
+        }
+    },
+    {
+        "id": "11",
+        "name": "LibraryThing",
+        "type": "Ebook Libary",
+        "active": "true",
+        "api": "o.5cab39fce101f9b0600ccc8c2afc6e49",
+        "login": {
+            "username": "pyromaniac25",
+            "secret": "5cab39fce101f9b0600ccc8c2afc6e49"
+        }
+    },
+    {
+        "id": "12",
+        "name": "SongKick",
+        "type": "Music Unknown",
+        "active": "true",
+        "api": "o.nd1We7dFW2RqxPw8"
+    },
+    {
+        "id": "13",
+        "name": "Telkom",
+        "type": "Usenet Host",
+        "active": "true",
+        "account": {
+            "host": "news.saix.net",
+            "port": "119",
+            "ssl": "no",
+            "connections": "2",
+            "priority": "0"
+        }
+    },
+    {
+        "id": "14",
+        "name": "Openflixr",
+        "type": "Media Home",
+        "active": "true",
+        "login": {
+            "username": "openflixr",
+            "password": "openflixr"
+
+            
+                    
+            pyromaniac25
+            105022_Alpha
+        }
+    }
+]
+https://api.drunkenslug.com
+nzbcralwer
+Profile for pyromaniac25
+ Edit
+Username:	pyromaniac25
+Email:	efraser25@gmail.com
+Registered:	May 27, 2020 (19 Secs ago)
+Last Login:	May 27, 2020 (19 Secs ago)
+Role:	User
+Site Api/Rss Key:	345a1b9a85c7df560a6348071e5cf2a6
+
+Key: N/A
+Type: N/A
+Priority: N/A
+Storage: Site
+
+
+
+sonarr
+
+1f72d16871bb43ec9a51ffa040bfe432
+
+
+
+torrentleech
+cf0a13b629d048b38e04
+
+
+
+hydra
+
+Newznab API endpoint:	http://192.168.43.215:5076
+Torznab API endpoint:	http://192.168.43.215:5076/torznab
+API key:	RD9OKV077T98NSJ0DDPCRHFF22
+
+
+
+anbz
+https://abnzb.com/
+563df807bfbe21a9bd8ac19078373d84
+
+
+
+nabfinder
+	bc31dfe728b033e7caaaa59ce6ea3a48

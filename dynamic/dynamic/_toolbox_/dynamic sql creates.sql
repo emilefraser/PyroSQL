@@ -1,0 +1,25 @@
+DECLARE @S CHAR(80);
+DECLARE @SQL NVARCHAR(MAX);
+DECLARE @Object_Id INT;
+DECLARE @Index_Id INT = NULL;
+DECLARE @Object_Type char(2) = NULL;
+DECLARE @V INT; --SQL Server Major Version
+
+SELECT @V= CAST(CAST(SERVERPROPERTY('ProductVersion') as CHAR(2)) as NUMERIC), @S = REPLICATE('-',80);
+PRINT @S;  
+
+DECLARE @SQL NVARCHAR(MAX),
+@S CHAR(80), @Ex VARCHAR(2000),
+@V INT,--SQL Server Major Version
+@or CHAR(20)=' OPTION (RECOMPILE);',
+@us CHAR(17)='UNION ALL SELECT ';
+
+DECLARE @SQL VARCHAR(8000);
+DECLARE @Search_String VARCHAR(200) = '';
+DECLARE @S CHAR(80);
+DECLARE @V INT; --SQL Server Major Version
+
+
+ 	@Version     VARCHAR(30) = NULL OUTPUT,
+	@VersionDate DATETIME = NULL OUTPUT,
+    @VersionCheckMode BIT =

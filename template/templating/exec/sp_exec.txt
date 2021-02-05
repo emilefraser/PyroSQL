@@ -1,0 +1,21 @@
+-sp_exeduteSQL has advantages over EXEC including performance (execution plan reuse)
+
+-- sample #1
+USE AdventureWorks2008;
+EXEC ('SELECT * FROM Production.Product') -- tsql constant string execution 
+
+-- sample #2
+DECLARE @TableName sysname ='Sales.SalesOrderHeader'
+EXECUTE ('SELECT * FROM '+@TableName) -- T-SQL string with variable - dynamic 
+-- sysname is a system-supplied user-defined data type that is functionally equivalent to nvarchar(128) except that it is not nullable. 
+-- sysname is used to reference database object names.
+
+-- sample #3
+EXECUTE sp_executeSQL N'SELECT * FROM Purchasing.PurchaseOrderHeader'
+
+-- sample #4
+DECLARE @SQL varchar(256), @Table sysname;
+SET @SQL='SELECT * FROM'; SET @Table = 'Production.Product'
+SET @SQL = @SQL+' '+@Table
+PRINT @SQL -- for debugging dynamic SQL prior to execution of generated static code
+EXEC (@SQL) -- SQL Server 2005 execute dynamic SQL

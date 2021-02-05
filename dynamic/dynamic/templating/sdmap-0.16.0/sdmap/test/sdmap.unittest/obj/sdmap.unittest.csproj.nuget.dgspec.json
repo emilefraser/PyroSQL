@@ -1,0 +1,222 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Users\\efras\\OneDrive - AccTech Systems (Pty) Ltd\\SQL Server\\dynamic\\templating\\sdmap-0.16.0\\sdmap\\test\\sdmap.unittest\\sdmap.unittest.csproj": {}
+  },
+  "projects": {
+    "c:\\Users\\efras\\OneDrive - AccTech Systems (Pty) Ltd\\SQL Server\\dynamic\\templating\\sdmap-0.16.0\\sdmap\\src\\sdmap\\sdmap.csproj": {
+      "version": "0.16.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\efras\\OneDrive - AccTech Systems (Pty) Ltd\\SQL Server\\dynamic\\templating\\sdmap-0.16.0\\sdmap\\src\\sdmap\\sdmap.csproj",
+        "projectName": "sdmap",
+        "projectPath": "c:\\Users\\efras\\OneDrive - AccTech Systems (Pty) Ltd\\SQL Server\\dynamic\\templating\\sdmap-0.16.0\\sdmap\\src\\sdmap\\sdmap.csproj",
+        "packagesPath": "C:\\Users\\efras\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\efras\\OneDrive - AccTech Systems (Pty) Ltd\\SQL Server\\dynamic\\templating\\sdmap-0.16.0\\sdmap\\src\\sdmap\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "C:\\Users\\efras\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net451",
+          "netcoreapp2.0",
+          "netstandard20"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2": {}
+        },
+        "frameworks": {
+          "netcoreapp2.0": {
+            "projectReferences": {}
+          },
+          "net451": {
+            "projectReferences": {}
+          },
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.0": {
+          "dependencies": {
+            "Antlr4.CodeGenerator": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.6.5, )"
+            },
+            "Antlr4.Runtime": {
+              "target": "Package",
+              "version": "[4.6.5, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0-beta-63127-02, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "c:\\env\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        },
+        "net451": {
+          "dependencies": {
+            "Antlr4.CodeGenerator": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.6.5, )"
+            },
+            "Antlr4.Runtime": {
+              "target": "Package",
+              "version": "[4.6.5, )"
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0-beta-63127-02, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "c:\\env\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        },
+        "netstandard2.0": {
+          "dependencies": {
+            "Antlr4.CodeGenerator": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.6.5, )"
+            },
+            "Antlr4.Runtime": {
+              "target": "Package",
+              "version": "[4.6.5, )"
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0-beta-63127-02, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Reflection.Emit.ILGeneration": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Reflection.Emit.Lightweight": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "c:\\env\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "c:\\Users\\efras\\OneDrive - AccTech Systems (Pty) Ltd\\SQL Server\\dynamic\\templating\\sdmap-0.16.0\\sdmap\\test\\sdmap.unittest\\sdmap.unittest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\efras\\OneDrive - AccTech Systems (Pty) Ltd\\SQL Server\\dynamic\\templating\\sdmap-0.16.0\\sdmap\\test\\sdmap.unittest\\sdmap.unittest.csproj",
+        "projectName": "sdmap.unittest",
+        "projectPath": "c:\\Users\\efras\\OneDrive - AccTech Systems (Pty) Ltd\\SQL Server\\dynamic\\templating\\sdmap-0.16.0\\sdmap\\test\\sdmap.unittest\\sdmap.unittest.csproj",
+        "packagesPath": "C:\\Users\\efras\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\efras\\OneDrive - AccTech Systems (Pty) Ltd\\SQL Server\\dynamic\\templating\\sdmap-0.16.0\\sdmap\\test\\sdmap.unittest\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\efras\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2": {}
+        },
+        "frameworks": {
+          "netcoreapp2.0": {
+            "projectReferences": {
+              "c:\\Users\\efras\\OneDrive - AccTech Systems (Pty) Ltd\\SQL Server\\dynamic\\templating\\sdmap-0.16.0\\sdmap\\src\\sdmap\\sdmap.csproj": {
+                "projectPath": "c:\\Users\\efras\\OneDrive - AccTech Systems (Pty) Ltd\\SQL Server\\dynamic\\templating\\sdmap-0.16.0\\sdmap\\src\\sdmap\\sdmap.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.0": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.0.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.0, )",
+              "autoReferenced": true
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "c:\\env\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+﻿CREATE SCHEMA [DSQLT]
+    AUTHORIZATION [dbo];
+
+
+

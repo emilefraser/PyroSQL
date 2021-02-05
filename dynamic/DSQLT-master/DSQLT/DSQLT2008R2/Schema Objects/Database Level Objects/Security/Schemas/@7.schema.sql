@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [@7]
+    AUTHORIZATION [dbo];
+

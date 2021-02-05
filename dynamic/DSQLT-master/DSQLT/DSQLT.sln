@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DSQLT2005", "DSQLT2005\DSQLT2005.sqlproj", "{7E149143-56D5-4D08-9DDD-1827730087FB}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DSQLT2008R2", "DSQLT2008R2\DSQLT2008R2.sqlproj", "{CB7E34DA-43C7-4ABC-AE9C-19C8A99C2ACF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1F5BC463-7C72-4559-806F-F13493053E32}"
+	ProjectSection(SolutionItems) = preProject
+		DSQLT2005_Create.sql = DSQLT2005_Create.sql
+		DSQLT2008R2_Create.sql = DSQLT2008R2_Create.sql
+		DSQLT2012_Create.sql = DSQLT2012_Create.sql
+		UpgradeLog.htm = UpgradeLog.htm
+	EndProjectSection
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DSQLT2012", "DSQLT2012\DSQLT2012.sqlproj", "{02ABDA25-952D-469F-9E36-1AC57D94B789}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs02
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DSQLT2005\\DSQLT2005.sqlproj
+		SccProjectName1 = DSQLT2005
+		SccLocalPath1 = DSQLT2005
+		SccProjectUniqueName2 = DSQLT2008R2\\DSQLT2008R2.sqlproj
+		SccProjectName2 = DSQLT2008R2
+		SccLocalPath2 = DSQLT2008R2
+		SccProjectUniqueName3 = DSQLT2012\\DSQLT2012.sqlproj
+		SccProjectName3 = DSQLT2012
+		SccLocalPath3 = DSQLT2012
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E149143-56D5-4D08-9DDD-1827730087FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E149143-56D5-4D08-9DDD-1827730087FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E149143-56D5-4D08-9DDD-1827730087FB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7E149143-56D5-4D08-9DDD-1827730087FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E149143-56D5-4D08-9DDD-1827730087FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E149143-56D5-4D08-9DDD-1827730087FB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CB7E34DA-43C7-4ABC-AE9C-19C8A99C2ACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB7E34DA-43C7-4ABC-AE9C-19C8A99C2ACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB7E34DA-43C7-4ABC-AE9C-19C8A99C2ACF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CB7E34DA-43C7-4ABC-AE9C-19C8A99C2ACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB7E34DA-43C7-4ABC-AE9C-19C8A99C2ACF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB7E34DA-43C7-4ABC-AE9C-19C8A99C2ACF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{02ABDA25-952D-469F-9E36-1AC57D94B789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02ABDA25-952D-469F-9E36-1AC57D94B789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02ABDA25-952D-469F-9E36-1AC57D94B789}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{02ABDA25-952D-469F-9E36-1AC57D94B789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02ABDA25-952D-469F-9E36-1AC57D94B789}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02ABDA25-952D-469F-9E36-1AC57D94B789}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
