@@ -1,0 +1,516 @@
+# SQL Monitor
+Want to manages sql server performance? Check out SQL Monitor, it can monitor sql server processes and jobs, analyze performance, analyse system, object version control, view executing sql query, kill process / job, object explorer, database shrink/log truncate/backup/detach/attach etc.:
+
+https://github.com/unruledboy/SQLMonitor
+
+
+# Overflow Stack
+The overflow stack family (Web Front End Stack, Database Stack, .NET Stack etc.):
+http://overflowstack.github.io
+
+# Localization
+中文: 
+https://github.com/unruledboy/DatabaseStack/blob/master/README.zh-cn.md
+
+# DatabaseStack
+database technology stack, including MS SQL Server, Azure etc.
+
+![Image of The Database Stack](https://raw.githubusercontent.com/unruledboy/DatabaseStack/master/preview.png)
+
+# What and why?
+Have you ever wondered:
+* what technologies database server really includes? 
+* how many do I possess?
+
+
+I could not find a really comprehensive diagram that shows the database technology stack, so I come up with my own version.
+
+There might be issues here and there, like the category, the individual ones, but the beautity is you can modify it as you want.
+
+
+
+# The Database Stack
+
+You can have a graphical preview here (use mouse to move / zoom): 
+
+https://rawgit.com/unruledboy/DatabaseStack/master/ux/DatabaseStack.htm 
+
+<!--BUILD_START-->
+
+- Database
+	- RDBMS
+		- Simple
+			- [dBase ;-)](https://en.wikipedia.org/wiki/DBase)
+			- Foxbase ;-)
+			- [FoxPro ;-)](https://en.wikipedia.org/wiki/FoxPro)
+			- [Visual FoxPro ;-)](https://msdn.microsoft.com/en-us/vfoxpro/bb190225.aspx)
+			- [Access](https://products.office.com/en-us/access)
+			- [Sqlite](https://www.sqlite.org/)
+		- Basics
+			- [Edgar F. Codd](https://en.wikipedia.org/wiki/Edgar_F._Codd)
+			- [Object/relational mapping (O/RM)](https://en.wikipedia.org/wiki/Object-relational_mapping)
+			- [Normalisation](https://en.wikipedia.org/wiki/Database_normalization)
+				- Normal Form
+					- First Normal Form (1NF)
+					- Second Normal Form (2NF)
+					- Third Normal Form (3NF)
+			- [Transaction](https://en.wikipedia.org/wiki/Database_transaction)
+				- [ACID](https://en.wikipedia.org/wiki/ACID)
+					- Atomicity
+					- Consistency
+					- Isolation
+					- Durability
+		- [MS SQL Server](http://www.microsoft.com/en-us/server-cloud/products/sql-server/)
+			- SQL OS
+				- Memory Management
+				- Buffer Pool
+				- Deadlock detection
+				- Exception handling
+				- Schedulers
+				- InterOp
+			- Storage Engine
+				- Transaction Services
+				- File Manager
+				- Data File
+				- Extents
+				- Pages
+				- Log File
+					- Write Ahead Log (WAL)
+					- Dirty Pages
+					- Lazy Writer
+					- Checkpoint
+					- Log Sequence Number (LSN)
+			- Relational Engine
+				- Query Processing
+					- Parser
+					- Optimizer
+						- Stat
+						- Hinting
+						- Plan
+							- Compilation
+							- Caching
+							- Recompilation
+					- SQL Manager
+					- Database Manager
+					- Query Executor
+				- Memory Management
+				- Thread and Task Management
+				- Buffer Management
+				- Distributed Query Processing
+			- Communication
+				- SQL Server Network Interface (SNI)
+				- Tabular Data Stream (TDS)
+				- Protocols
+					- TCP/IP
+					- Named pipes
+					- Shared memory
+					- Virtual Interface Adapter (VIA, discontinued from 2012)
+					- Web Services
+			- Core Concepts
+				- Instance
+					- Default
+					- Named
+					- Alias
+				- Port
+					- Default: 1433
+					- Dynamic
+				- Transaction
+					- ACID
+						- Atomic
+						- Consistent
+						- Isolated
+						- Durable
+					- Types
+						- Implicit
+							- single UPDATE/DELETE
+						- Explicit
+							- BEGIN/COMMIT/ROLLBACK
+					- Checkpoint
+					- [Isolation Levels (low to high)](https://technet.microsoft.com/en-us/library/ms189122(v=sql.105).aspx)
+						- Read uncommitted
+							- dirty read
+							- same as NOLOCK hint
+						- Read committed (default)
+							- READ_COMMITTED_SNAPSHOT
+								- ON
+									- repeatable read
+								- OFF (default)
+									- Nonrepeatable read, phantom
+						- Repeatable read
+						- Snapshot
+							- Database ALLOW_SNAPSHOT_ISOLATION ON
+							- 2005+
+						- Serializable
+				- Concurrency
+					- Lock
+						- Optimistic
+						- Pessimistic
+						- Exclusive
+						- Shared
+					- Wait
+					- Latch
+					- Deadlock
+						- Kill
+					- sync/async
+					- Blocking
+					- Row versioning
+			- Core Objects
+				- Database
+					- Recovery Models
+						- Purpose
+							- Backup transaction log
+							- Affect backup types
+							- Affect replication types
+						- Models
+							- Simple
+								- Not point-in-time recovery
+								- Minimum space
+							- Full (default)
+								- Point-in-time recovery
+								- Large space
+							- Bulk logged
+								- Point-in-time recovery
+								- No bulk operation logged
+								- Save space
+					- Compatibility Levels
+						- Version Number
+							- Effectively SQL Server version number
+							- @@VERSION
+						- 130: SQL Server 2016
+						- 120: SQL Server 2014
+						- 110: SQL Server 2012
+						- 100: SQL Server 2008
+						- 90: SQL Server 2005
+						- 80: SQL Server 2000
+					- Encryption
+					- Copy
+				- Table
+					- Standard
+						- Partition
+						- Compression
+					- Table Variable
+					- Temp Table
+						- Local
+						- Global
+					- FileTable
+				- View
+					- Standard
+					- Indexed
+					- Partitioned
+				- Stored Procedure (SP)
+				- Function (FN)
+					- Table-valued Function
+					- Scalar-valued Function
+				- Data Type
+					- Types
+						- System Type
+						- User-defined Type (UDT)
+					- Conversion
+					- Precedence
+					- Synonym
+					- Precision/Scale/Length
+					- XML
+					- JSON
+					- Spatial (CLR)
+				- Index
+					- Index Types
+						- Clustered Index
+						- Non-clustered Index
+					- Index Setting
+						- Include
+						- Filter
+					- Index Management
+						- Rebuild
+						- Reorganise
+						- Disable
+						- Enable
+						- Drop
+				- Column
+					- columnstore
+						- Suitable for Data warehouse
+					- NTFS FileStream
+				- Schema
+				- Trigger
+					- Table Trigger
+						- BEFORE
+						- FOR/AFTER
+						- INSTEAD OF
+				- Constraint
+				- Key
+				- Default
+				- Synonym
+				- Sequence
+				- Variable
+					- Local Variable (@)
+					- Global Variable (@@)
+				- Common Table Expression (CTE)
+				- Cursor
+				- Collation
+				- Login
+				- User
+				- Rule
+				- Server role
+				- Endpoint
+				- Job
+					- Job Agent
+					- Job Activity Monitor
+					- Alert
+					- Operator
+					- SQL Job
+						- Step
+						- Schedule
+						- Notification
+				- SQL CLR (.NET CLR)
+					- Assembly
+					- Managed Code Types
+						- Function
+						- Stored Procedure
+						- Trigger
+						- UDF
+						- UDA
+						- UDT
+					- Security Levels
+				- Linked Server
+				- Service Broker
+					- Basics
+						- Transactional message queue
+					- Objects
+						- Message
+						- Contract
+						- Queue
+						- Service
+						- Dialog
+						- Conversation
+			- Standard
+				- ANSI 92
+			- Languages
+				- Query Language
+					- T-SQL (Transact-SQL)
+					- MDX (MultiDimensional eXpressions)
+				- Data Manipulation Language (DML)
+					- CRUD
+						- Create (INSERT)
+						- Retrieve (SELECT)
+						- Update (UPDATE)
+						- Delete (DELETE)
+					- MERGE
+					- TEXT
+						- UPDATETEXT
+						- WRITETEXT
+						- READTEXT
+					- BULK INSERT
+					- EXECUTE
+				- Data Definition Language (DDL)
+					- CREATE
+					- ALTER
+					- DROP
+					- TRUNCATE
+					- RESTORE
+					- RECONFIGURE
+				- Data Control Language (DCL)
+					- GRANT
+					- REVOKE
+				- Transaction Control Language (TCL)
+					- BEGIN TRANSACTION
+					- COMMIT
+					- ROLLBACK
+					- SAVE TRANSACTION
+			- System Databases
+				- master (dbs, logins, configs)
+				- tempdb (temp tables / sps)
+				- msdb (jobs/alerts/backups)
+				- model (template for new db)
+				- resource (invisible, system objects)
+			- File
+				- primary (MDF)
+				- secondary (NDF)
+				- log (LDF)
+				- File/Filegroup
+				- Auto Grow
+			- Runtime
+				- Process
+				- Worker
+				- Connection
+				- Request
+				- Stall
+				- Stats
+				- Query Store
+				- Cache
+					- aging
+				- Catalog Views
+				- Dynamic Management Views (DMV)
+					- Execution count
+					- Execution io/cpu/perf
+				- Full Text Search (FTS)
+					- Integrated Full Text Search (iFTS)
+				- Trace flags
+			- Replication
+				- Log Shipping
+				- Publish/Subscribe
+					- Transactional
+					- Merge
+					- Snapshot
+				- Mirroring (deprecated from 2012)
+					- Core
+						- Principal
+						- Witness
+					- Database Mirroring Monitor
+				- AlwaysOn
+				- Clustering
+					- Core
+						- Shared Disk Array
+						- Quorum
+					- Failover
+						- Active/Active
+						- Active/Passive
+				- Snapshot
+			- Versions
+				- SQL Server 2005
+					- SSIS
+					- SSRS
+					- SSAS
+					- Common Language Runtime (CLR)
+					- XML
+					- Data Service (SOAP)
+					- Service Broker
+					- Common Table Expression (CTE)
+					- Dynamic Management View (DMV)
+					- Database Mirroring (SP1)
+					- TRY/CATCH
+				- SQL Server 2008
+					- Always On
+					- FILESTREAM
+					- Integrated Full-Text Search (iFTS)
+					- Spatial Types
+						- GEOMETRY
+						- GEOGRAPHY
+					- Transparent Data Encryption (TDE)
+					- IntelliSense
+					- SSRS Charting (acquired Dundas charts)
+				- SQL Server 2012
+					- Sequence
+					- THROW
+				- SQL Server 2014
+					- In-memory Table
+					- Clustered Columnstore Index
+				- SQL Server 2016
+					- Columnstore Index
+					- In-memory OLTP
+					- JSON
+					- Query Store
+					- Temporal Tables
+					- Polybase (connector to BigData)
+					- Always Encrypted
+			- Editions
+				- Express
+				- BI
+				- Web
+				- Standard
+				- Enterprise
+				- Datacenter
+				- Local DB
+			- Management
+				- SQL Server Management Studio (SSMS)
+				- SQL Server Command Line Util (sqlcmd)
+				- [SQL Monitor ;-)](https://github.com/unruledboy/SQLMonitor)
+			- Maintenance
+				- Maintenance Plan
+				- Logs
+				- Database Mail
+				- Database
+					- Backup/Restore
+						- Mode
+							- Full
+							- Differential
+							- Transaction log
+					- Online/Offline
+					- Attach/Dettach
+					- Shrink
+				- Import/Export
+				- DBCC
+				- Bulk Copy (bcp command line)
+				- Resource governor
+				- Facets
+			- Business Intelligence (BI)
+				- SQL Server Integration Service (SSIS)
+					- Extract-Transform-Load (ETL)
+				- SQL Server Reporting Service (SSRS)
+				- SQL Server Analysis Service (SSAS)
+					- OLAP
+			- Troubleshoot
+				- Dedicated Administrator Connection (DAC)
+					- ADMIN:INSTANCE
+					- SQL Browser service must be running
+				- SQL Server Profiler
+				- Activity Monitor
+				- Error
+					- Severity Levels
+					- Error Log
+					- sys.xp_readerrorlog
+			- Performance
+				- Seek
+				- Scan
+				- Fragmentation
+				- Partitioning
+				- Database Engine Tuning Advisor
+			- Services
+				- SQL Server
+				- SQL Server Browser
+				- SQL Server Agent
+			- Connectivity
+				- ADO.NET
+				- ODBC
+				- JDBC
+			- Security
+				- Access Control
+				- SQL Inject
+				- Backup
+			- Testing
+				- [tSQLt](http://tsqlt.org/)
+		- [Oracle](https://www.oracle.com/database/)
+		- [MySQL](https://www.mysql.com/)
+		- [PostgreSQL](http://www.postgresql.org/)
+		- [Informix](http://www.ibm.com/software/data/informix)
+		- [DB2](http://www.ibm.com/software/data/db2)
+	- Cloud
+		- [Azure](https://azure.microsoft.com)
+			- Database
+			- Redis Cache
+			- Storage
+				- Blobs
+				- Tables
+				- Queues
+				- Files and Disks
+			- StorSimple
+			- SQL Data Warehouse
+	- [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
+		- Concepts
+			- XML/JSON based
+			- Eventually Consistency
+		- Limitation
+			- [CAPS/Brewer's theorem](https://en.wikipedia.org/wiki/CAP_theorem)
+				- Consistency
+				- Availability
+				- Partition tolerance
+			- Lack of join
+			- Lack of true ACID
+		- Types
+			- Column
+				- [Cassandra](http://cassandra.apache.org/)
+				- [HBase](http://hbase.apache.org/)
+			- Key/Value
+				- [CouchDB](http://couchdb.apache.org/)
+				- [AWS Dynamo](https://aws.amazon.com/dynamodb/)
+				- [MemcacheDB](http://memcachedb.org/)
+				- [Redis](http://redis.io/)
+			- Document
+				- [Apache CouchDB](http://couchdb.apache.org/)
+				- [Couchbase](http://www.couchbase.com/)
+				- [Azure DocumentDB](http://azure.microsoft.com/en-us/services/documentdb/)
+				- [MongoDB](https://www.mongodb.org/)
+			- Graph
+				- [Neo4J](http://neo4j.com/)
+			- Object
+				- [ObjectStore](http://www.objectstore.com/)
+
+<!--BUILD_END-->	
