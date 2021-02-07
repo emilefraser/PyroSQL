@@ -1,8 +1,20 @@
-CREATE FUNCTION [dbo].[fnWordDifference] (
+/*
+{{##
+	(WrittenBy)		Emile Fraser
+	(CreatedDate)	2021-01-22
+	(ModifiedDate)	2021-01-22
+	(Description)	Creates a Dynamic SQL Insert Statement
+
+	(Usage)	
+					SELECT * FROM [template].[ObjectName] (@Parameter1, @Parameter2)
+	(/Usage)
+##}}
+*/
+CREATE OR ALTER FUNCTION [string].[DifferenceBetweenWords] (
 	 @First		VarChar(256)
 	,@Second	VarChar(256)
 	,@Difference	TinyInt	= NULL
-) RETURNS TABLE AS RETURN	-- SELECT * FROM dbo.fnWordDifference('012345679012','012456789012',3)
+) RETURNS TABLE AS RETURN	-- SELECT * FROM string.fnWordDifference('012345679012','012456789012',3)
 WITH Shift(Position,[Left],[Right],[Difference]) AS (
 	SELECT	 0
 		,@First

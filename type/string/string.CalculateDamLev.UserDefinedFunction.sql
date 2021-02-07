@@ -25,7 +25,7 @@
 -- returns int edit distance, >= 0 representing the number of edits required to transform one string to the other.
 -- =============================================
  
-CREATE FUNCTION [dbo].[DamLev](
+CREATE OR ALTER FUNCTION [dbo].[CalcualteDamLev](
  
     @s nvarchar(4000)
   , @t nvarchar(4000)

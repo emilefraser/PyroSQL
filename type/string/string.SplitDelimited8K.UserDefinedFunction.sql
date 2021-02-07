@@ -1,15 +1,5 @@
-use master;
-GO
-IF OBJECT_ID('[dbo].[DelimitedSplit8K]') IS NOT NULL 
-DROP  FUNCTION  [dbo].[DelimitedSplit8K] 
-GO
---#################################################################################################
--- Real World DBA Toolkit version 4.94 Lowell Izaguirre lowell@stormrage.com
---#################################################################################################
---#################################################################################################
---fastest way to split data without a CLR runtime
---#################################################################################################
- CREATE FUNCTION [dbo].[DelimitedSplit8K]
+
+ CREATE OR ALTER FUNCTION [string].[SplitTextWithDelimitedSplit8K]
 --===== Define I/O parameters
         (@pString VARCHAR(8000), @pDelimiter CHAR(1))
 RETURNS TABLE WITH SCHEMABINDING AS
@@ -40,10 +30,4 @@ cteLen(N1,L1) AS(--==== Return start and length (for use in substring)
  SELECT ItemNumber = ROW_NUMBER() OVER(ORDER BY l.N1),
         Item       = SUBSTRING(@pString, l.N1, l.L1)
    FROM cteLen l;
-GO
-
---#################################################################################################
---Public permissions
-GRANT SELECT ON [DelimitedSplit8K] TO PUBLIC
---#################################################################################################
 GO
