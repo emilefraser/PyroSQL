@@ -9,7 +9,7 @@ GO
 	DECSRIPTION: 	    Generates Sql Statements through configuration and parameters
 	TODO:
 */
-CREATE OR ALTER PROCEDURE [schema].[procname]
+CREATE OR ALTER PROCEDURE [template].[DummyDynamicSqlTemplateWithoutRecursion]
 AS
 BEGIN
 

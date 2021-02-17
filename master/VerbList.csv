@@ -1,101 +1,153 @@
-"Verb"|"AliasPrefix"|"Group"|"Description"
-"Add"|"a"|"Common"|"Adds a resource to a container, or attaches an item to another item"
-"Clear"|"cl"|"Common"|"Removes all the resources from a container but does not delete the container"
-"Close"|"cs"|"Common"|"Changes the state of a resource to make it inaccessible, unavailable, or unusable"
-"Copy"|"cp"|"Common"|"Copies a resource to another name or to another container"
-"Enter"|"et"|"Common"|"Specifies an action that allows the user to move into a resource"
-"Exit"|"ex"|"Common"|"Sets the current environment or context to the most recently used context"
-"Find"|"fd"|"Common"|"Looks for an object in a container that is unknown, implied, optional, or specified"
-"Format"|"f"|"Common"|"Arranges objects in a specified form or layout"
-"Get"|"g"|"Common"|"Specifies an action that retrieves a resource"
-"Hide"|"h"|"Common"|"Makes a resource undetectable"
-"Join"|"j"|"Common"|"Combines resources into one resource"
-"Lock"|"lk"|"Common"|"Secures a resource"
-"Move"|"m"|"Common"|"Moves a resource from one location to another"
-"New"|"n"|"Common"|"Creates a resource"
-"Open"|"op"|"Common"|"Changes the state of a resource to make it accessible, available, or usable"
-"Optimize"|"om"|"Common"|"Increases the effectiveness of a resource"
-"Push"|"pu"|"Common"|"Adds an item to the top of a stack"
-"Pop"|"pop"|"Common"|"Removes an item from the top of a stack"
-"Redo"|"re"|"Common"|"Resets a resource to the state that was undone"
-"Remove"|"r"|"Common"|"Deletes a resource from a container"
-"Rename"|"rn"|"Common"|"Changes the name of a resource"
-"Reset"|"rs"|"Common"|"Sets a resource back to its original state"
-"Resize"|"rz"|"Common"|"Changes the size of a resource"
-"Search"|"sr"|"Common"|"Creates a reference to a resource in a container"
-"Select"|"sc"|"Common"|"Locates a resource in a container"
-"Set"|"s"|"Common"|"Replaces data on an existing resource or creates a resource that contains some data"
-"Show"|"sh"|"Common"|"Makes a resource visible to the user"
-"Skip"|"sk"|"Common"|"Bypasses one or more resources or points in a sequence"
-"Split"|"sl"|"Common"|"Separates parts of a resource"
-"Step"|"st"|"Common"|"Moves to the next point or resource in a sequence"
-"Switch"|"sw"|"Common"|"Specifies an action that alternates between two resources, such as to change between two locations, responsibilities, or states"
-"Undo"|"un"|"Common"|"Sets a resource to its previous state"
-"Unlock"|"uk"|"Common"|"Releases a resource that was locked"
-"Watch"|"wc"|"Common"|"Continually inspects or monitors a resource for changes"
-"Connect"|"cc"|"Communications"|"Creates a link between a source and a destination"
-"Disconnect"|"dc"|"Communications"|"Breaks the link between a source and a destination"
-"Read"|"rd"|"Communications"|"Acquires information from a source"
-"Receive"|"rc"|"Communications"|"Accepts information sent from a source"
-"Send"|"sd"|"Communications"|"Delivers information to a destination"
-"Write"|"wr"|"Communications"|"Adds information to a target"
-"Backup"|"ba"|"Data"|"Stores data by replicating it"
-"Checkpoint"|"ch"|"Data"|"Creates a snapshot of the current state of the data or of its configuration"
-"Compare"|"cr"|"Data"|"Evaluates the data from one resource against the data from another resource"
-"Compress"|"cm"|"Data"|"Compacts the data of a resource"
-"Convert"|"cv"|"Data"|"Changes the data from one representation to another when the cmdlet supports bidirectional conversion or when the cmdlet supports conversion between multiple data types"
-"ConvertFrom"|"cf"|"Data"|"Converts one primary type of input (the cmdlet noun indicates the input) to one or more supported output types"
-"ConvertTo"|"ct"|"Data"|"Converts from one or more types of input to a primary output type (the cmdlet noun indicates the output type)"
-"Dismount"|"dm"|"Data"|"Detaches a named entity from a location"
-"Edit"|"ed"|"Data"|"Modifies existing data by adding or removing content"
-"Expand"|"en"|"Data"|"Restores the data of a resource that has been compressed to its original state"
-"Export"|"ep"|"Data"|"Encapsulates the primary input into a persistent data store, such as a file, or into an interchange format"
-"Group"|"gp"|"Data"|"Arranges or associates one or more resources"
-"Import"|"ip"|"Data"|"Creates a resource from data that is stored in a persistent data store (such as a file) or in an interchange format"
-"Initialize"|"in"|"Data"|"Prepares a resource for use, and sets it to a default state"
-"Limit"|"l"|"Data"|"Applies constraints to a resource"
-"Merge"|"mg"|"Data"|"Creates a single resource from multiple resources"
-"Mount"|"mt"|"Data"|"Attaches a named entity to a location"
-"Out"|"o"|"Data"|"Sends data out of the environment"
-"Publish"|"pb"|"Data"|"Makes a resource available to others"
-"Restore"|"rr"|"Data"|"Sets a resource to a predefined state, such as a state set by Checkpoint"
-"Save"|"sv"|"Data"|"Preserves data to avoid loss"
-"Sync"|"sy"|"Data"|"Assures that two or more resources are in the same state"
-"Unpublish"|"ub"|"Data"|"Makes a resource unavailable to others"
-"Update"|"ud"|"Data"|"Brings a resource up-to-date to maintain its state, accuracy, conformance, or compliance"
-"Debug"|"db"|"Diagnostic"|"Examines a resource to diagnose operational problems"
-"Measure"|"ms"|"Diagnostic"|"Identifies resources that are consumed by a specified operation, or retrieves statistics about a resource"
-"Ping"|"pi"|"Diagnostic"|"Use the Test verb"
-"Repair"|"rp"|"Diagnostic"|"Restores a resource to a usable condition"
-"Resolve"|"rv"|"Diagnostic"|"Maps a shorthand representation of a resource to a more complete representation"
-"Test"|"t"|"Diagnostic"|"Verifies the operation or consistency of a resource"
-"Trace"|"tr"|"Diagnostic"|"Tracks the activities of a resource"
-"Approve"|"ap"|"Lifecycle"|"Confirms or agrees to the status of a resource or process"
-"Assert"|"as"|"Lifecycle"|"Affirms the state of a resource"
-"Build"|"bd"|"Lifecycle"|"Creates an artifact (usually a binary or document) out of some set of input files (usually source code or declarative documents)"
-"Complete"|"cmp"|"Lifecycle"|"Concludes an operation"
-"Confirm"|"cn"|"Lifecycle"|"Acknowledges, verifies, or validates the state of a resource or process"
-"Deny"|"dn"|"Lifecycle"|"Refuses, objects, blocks, or opposes the state of a resource or process"
-"Deploy"|"dp"|"Lifecycle"|"Sends an application, website, or solution to a remote target[s] in such a way that a consumer of that solution can access it after deployment is complete"
-"Disable"|"d"|"Lifecycle"|"Configures a resource to an unavailable or inactive state"
-"Enable"|"e"|"Lifecycle"|"Configures a resource to an available or active state"
-"Install"|"is"|"Lifecycle"|"Places a resource in a location, and optionally initializes it"
-"Invoke"|"i"|"Lifecycle"|"Performs an action, such as running a command or a method"
-"Register"|"rg"|"Lifecycle"|"Creates an entry for a resource in a repository such as a database"
-"Request"|"rq"|"Lifecycle"|"Asks for a resource or asks for permissions"
-"Restart"|"rt"|"Lifecycle"|"Stops an operation and then starts it again"
-"Resume"|"ru"|"Lifecycle"|"Starts an operation that has been suspended"
-"Start"|"sa"|"Lifecycle"|"Initiates an operation"
-"Stop"|"sp"|"Lifecycle"|"Discontinues an activity"
-"Submit"|"sb"|"Lifecycle"|"Presents a resource for approval"
-"Suspend"|"ss"|"Lifecycle"|"Pauses an activity"
-"Uninstall"|"us"|"Lifecycle"|"Removes a resource from an indicated location"
-"Unregister"|"ur"|"Lifecycle"|"Removes the entry for a resource from a repository"
-"Wait"|"w"|"Lifecycle"|"Pauses an operation until a specified event occurs"
-"Use"|"u"|"Other"|"Uses or includes a resource to do something"
-"Block"|"bl"|"Security"|"Restricts access to a resource"
-"Grant"|"gr"|"Security"|"Allows access to a resource"
-"Protect"|"pt"|"Security"|"Safeguards a resource from attack or loss"
-"Revoke"|"rk"|"Security"|"Specifies an action that does not allow access to a resource"
-"Unblock"|"ul"|"Security"|"Removes restrictions to a resource"
-"Unprotect"|"up"|"Security"|"Removes safeguards from a resource that were added to prevent it from attack or loss"
+VerbName,VerbAliasPrefix,VerbRegex,VerbType,VerbGroup,VerbDescription,IsActive
+Dummy,,'Dummy%',,Dummy,,0
+Activate,,'Activate%',,,,1
+Aggregate,,'Aggregate%',,,,1
+Append,,'Append%',DML,,,1
+Apply,,'Apply%',,,,1
+Approve,ap,'Approve%',,Lifecycle,Confirms or agrees to the status of a resource or process,1
+Assert,as,'Assert%',,Lifecycle,Affirms the state of a resource,1
+Assign,,'Assign%',,,,1
+Backup,ba,'Backup%',,Data,Stores data by replicating it,1
+Bind,,'Bind%',,,,1
+Block,bl,'Block%',,Security,Restricts access to a resource,1
+Bridge,,'Bridge%',,,,1
+Build,bd,'Build%',,Lifecycle,Creates an artifact (usually a binary or document) out of some set of input files (usually source code or declarative documents),1
+Certify,,'Certify%',,,,1
+Check,,'Check%',,,,1
+Checkpoint,ch,'Checkpoint%',,Data,Creates a snapshot of the current state of the data or of its configuration,1
+Choose,,'Choose%',,,,1
+Clean,,'Clean%',,,,1
+Clear,cl,'Clear%',,Common,Removes all the resources from a container but does not delete the container,1
+Close,cs,'Close%',,Common,"Changes the state of a resource to make it inaccessible, unavailable or unsusable",1
+Compare,cr,'Compare%',,Data,Evaluates the data from one resource against the data from another resource,1
+Complete,cmp,'Complete%',,Lifecycle,Concludes an operation,1
+Compress,cm,'Compress%',,Data,Compacts the data of a resource,1
+Confirm,cn,'Confirm%',,Lifecycle,Acknowledges or validates state,1
+Connect,cc,'Connect%',,Communications,Creates a link between a source and a destination,1
+Continue,,'Continue%',,,,1
+Convert,cv,'Convert%',,Data,Changes the data from one representation to another.,1
+Copy,cp,'Copy%',IOL,Common,Copies a resource to another name or to another container,1
+Create,,'Create%',DDL,,,1
+Deactivate,,'Deactivate%',,,,1
+Debug,db,'Debug%',,Diagnostic,Examines a resource to diagnose operational problems,1
+Decode,,'Decode%',,,,1
+Decrypt,,'Decrypt%',,,,1
+Delete,,'Delete%',DML,,,1
+Deny,dn,'Deny%',,Lifecycle,Refuses objects,1
+Deploy,dp,'Deploy%',,Lifecycle,Sends an application,1
+Deprovision,,'Deprovision%',,,,1
+Disable,d,'Disable%',,Lifecycle,Configures a resource to an unavailable or inactive state,1
+Disconnect,dc,'Disconnect%',,Communications,Breaks the link between a source and a destination,1
+Discover,,'Discover%',,,,1
+Dismount,dm,'Dismount%',,Data,Detaches a named entity from a location,1
+Edit,ed,'Edit%',,Data,Modifies existing data by adding or removing content,1
+Enable,e,'Enable%',,Lifecycle,Configures a resource to an available or active state,1
+Encode,,'Encode%',,,,1
+Encrypt,,'Encrypt%',,,,1
+Enter,et,'Enter%',,Common,Specifies an action that allows the user to move into a resource,1
+Evict,,'Evict%',,,,1
+Exit,ex,'Exit%',,Common,Sets the current environment or context to the most recently used context,1
+Expand,en,'Expand%',,Data,Restores the data of a resource that has been compressed to its original state,1
+Export,ep,'Export%',IOL,Data,Encapsulates the primary input into a persistent data store,1
+Extract,,'Extract%',IOL,,,1
+Failover,,'Failover%',,,,1
+Find,fd,'Find%',,Common,"Looks for an object in a container that is unknown, implied, optional or specified",1
+Format,f,'Format%',,Common,Arranges objects in a specified form or layout,1
+Generate,,'Generate%',,,,1
+Get,g,'Get%',,Common,Specifies an action that retrieves a resource,1
+GoTo,,'GoTo%',,,,1
+Grant,gr,'Grant%',,Security,Allows access to a resource,1
+Group,gp,'Group%',,Data,Arranges or associates one or more resources,1
+Hash,,'Hash%',,,,1
+Heartbeat,,'Heartbeat%',,,,1
+Hide,h,'Hide%',,Common,Makes a resource undetectable,1
+Import,ip,'Import%',IOL,Data,Creates a resource from data that is stored in a persistent data store (such as a file) or in an interchange format,1
+Index,,'Index%',,,,1
+Initialize,in,'Initialize%',,Data,Prepares a resource for use and sets default state,1
+Install,is,'Install%',,Lifecycle,Places a resource in a location and optionally initalizes,1
+Invoke,i,'Invoke%',,Lifecycle,Performs an action such as running a command,1
+Join,j,'Join%',,Common,Combines resources into one resource,1
+Limit,l,'Limit%',,Data,Applies constraints to a resource,1
+Load,,'Load%',,,,1
+Lock,lk,'Lock%',,Common,Secures a resource,1
+Measure,ms,'Measure%',,Diagnostic,Identifies resources that are consumed by a specified operation,1
+Merge,mg,'Merge%',,Data,Creates a single resource from multiple resources,1
+Mount,mt,'Mount%',,Data,Attaches a named entity to a location,1
+Move,m,'Move%',,Common,Moves a resource from one location to another,1
+New,n,'New%',,Common,Creates a resource,1
+Offline,,'Offline%',,,,1
+Online,,'Online%',,,,1
+Open,op,'Open%',,Common,Changes the state of a resource to make it accessible,1
+Optimize,om,'Optimize%',,Common,Increases the effectiveness of a resource,1
+Options,,'Options%',,,,1
+Out,o,'Out%',DQL,Data,Sends data out of the environment,1
+Parse,,'Parse%',DTL,,Parses a piece of Code,1
+Perform,,'Perform%',,,,1
+Ping,pi,'Ping%',,Diagnostic,Use the Test verb,1
+Play,,'Play%',,,,1
+Pop,pop,'Pop%',,Common,Removes an item from the top of a stack,1
+Post,,'Post%',,,,1
+Protect,pt,'Protect%',,Security,Safeguards a resource from attack or loss,1
+Publish,pb,'Publish%',,Data,Makes a resource available to others,1
+Push,pu,'Push%',,Common,Adds an item to the top of a stack,1
+Put,,'Put%',,,,1
+Read,rd,'Read%',,Communications,Acquires information from a source,1
+Receive,rc,'Receive%',,Communications,Accepts information sent from a source,1
+Reconnect,,'Reconnect%',,,,1
+Recover,,'Recover%',,,,1
+Redo,re,'Redo%',,Common,Resets a resource to the state that was undone,1
+Register,rg,'Register%',,Lifecycle,Creates an entry for a resource in a repository such as a database,1
+Reject,,'Reject%',,,,1
+Remove,r,'Remove%',,Common,Deletes a resource from a container,1
+Rename,rn,'Rename%',,Common,Changes the name of a resource,1
+Repair,rp,'Repair%',,Diagnostic,Restores a resource to a usable condition,1
+Replicate,,'Replicate%',,,,1
+Request,rq,'Request%',,Lifecycle,Asks for a resource or asks for permissions,1
+Reseed,,'Reseed%',,,,1
+Reset,rs,'Reset%',,Common,Sets a resource back to its original state,1
+Resize,rz,'Resize%',,Common,Changes the size of a resource,1
+Resolve,rv,'Resolve%',,Diagnostic,Maps a shorthand representation of a resource to a more complete representation,1
+Restart,rt,'Restart%',,Lifecycle,Stops an operation and then starts it again,1
+Restore,rr,'Restore%',,Data,Sets a resource to a predefined state,1
+Resume,ru,'Resume%',,Lifecycle,Starts an operation that has been suspended,1
+Resynchronize,,'Resynchronize%',,,,1
+Retry,,'Retry%',,,,1
+Revoke,rk,'Revoke%',,Security,Specifies an action that does not allow access to a resource,1
+Save,sv,'Save%',,Data,Preserves data to avoid loss,1
+Script,,'Script%',,,,1
+Seal,,'Seal%',,,,1
+Search,sr,'Search%',,Common,Creates a reference to a resource in a container,1
+Seed,,'Seed%',,,,1
+Seek,,'Seek%',,,,1
+Select,sc,'Select%',,Common,Locates a resource in a container,1
+Send,sd,'Send%',,Communications,Delivers information to a destination,1
+Set,s,'Set%',,Common,Replaces data on an existing resource or creates a resource that contains some data,1
+Setup,,'Setup%',,,,1
+Show,sh,'Show%',,Common,Makes a resource visible to the user,1
+Shutdown,,'Shutdown%',,,,1
+Sign,,'Sign%',,,,1
+Skip,sk,'Skip%',,Common,Bypasses one or more resources or points in a sequence,1
+Split,sl,'Split%',,Common,Separates parts of a resource,1
+Start,sa,'Start%',,Lifecycle,Initiates an operation,1
+Step,st,'Step%',,Common,Moves to the next point or resource in a sequence,1
+Stop,sp,'Stop%',,Lifecycle,Discontinues an activity,1
+Submit,sb,'Submit%',,Lifecycle,Presents a resource for approval,1
+Suspend,ss,'Suspend%',,Lifecycle,Pauses an activity,1
+Switch,sw,'Switch%',,Common,Specifies an action that alternates between two resources,1
+Sync,sy,'Sync%',,Data,Assures that two or more resources are in the same state,1
+Test,t,'Test%',DTL,Diagnostic,Verifies the operation or consistency of a resource,1
+Toggle,,'Toggle%',,,,1
+Trace,tr,'Trace%',,Diagnostic,Tracks the activities of a resource,1
+Unbind,,'Unbind%',,,,1
+Unblock,ul,'Unblock%',,Security,Removes restrictions to a resource,1
+Undo,un,'Undo%',TCL,Common,Sets a resource to its previous state,1
+Uninstall,us,'Uninstall%',,Lifecycle,Removes a resource from an indicated location,1
+Unlock,uk,'Unlock%',,Common,Releases a resource that was locked,1
+Unprotect,up,'Unprotect%',,Security,Removes safeguards from a resource that were added to prevent it from attack or loss,1
+Unpublish,ub,'Unpublish%',,Data,Makes a resource unavailable to others,1
+Unregister,ur,'Unregister%',,Lifecycle,Removes the entry for a resource from a repository,1
+Update,ud,'Update%',DML,Data,Brings a resource up-to-date to maintain its state,1
+Use,u,'Use%',,Other,Uses or includes a resource to do something,1
+Verify,,'Verify%',,,,1
+Wait,w,'Wait%',,Lifecycle,Pauses an operation until a specified event occurs,1
+Watch,wc,'Watch%',,Common,Continually inspects or monitors a resource for changes,1
