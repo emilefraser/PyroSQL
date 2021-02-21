@@ -1,17 +1,4 @@
-/*
-{{##
-	(WrittenBy)		Emile Fraser
-	(CreatedDate)	2021-01-22
-	(ModifiedDate)	2021-01-22
-	(Description)	Creates a Dynamic SQL Insert Statement
-
-	(Usage)	
-					SELECT * FROM [string].[ConvertProperCaseScalar]  (@OriginalText)
-	(/Usage)
-##}}
-*/
-
-CREATE OR ALTER FUNCTION [string].[ConvertProperCaseScalar] (
+CREATE OR ALTER FUNCTION [string].[TransformProperCaseScalar] (
 	@OriginalText    VARCHAR(8000)
 )
 RETURNS VARCHAR(8000) 

@@ -1,4 +1,4 @@
-CREATE Function udf_strtok (
+CREATE OR ALTER FUNCTION steing.strtok (
      @sStringToParse    Varchar(max)
     ,@sSeparator        char(1)
     ,@nStartPosition    int

@@ -1,17 +1,4 @@
---=============================================================================================================================================
--- Usage: This is to split string into pieces (supporting earlier 2016
--- Notes: 
--- History:
--- Date			By			Description
--- 2020-04-22	DN			Created.
---=============================================================================================================================================
---use CTUser
-IF OBJECT_ID('StringSplit', 'IF') IS NOT NULL
-	DROP FUNCTION dbo.StringSplit  
-GO
-
-
-CREATE FUNCTION [dbo].[StringSplit] 
+CREATE OR ALTER FUNCTION [string].[StringSplitDelimitedSplitN4K] 
 (    
 	@Text nvarchar(4000),  
 	@Delimiter char(1)

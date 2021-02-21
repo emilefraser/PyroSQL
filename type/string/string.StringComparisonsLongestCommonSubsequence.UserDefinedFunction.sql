@@ -1,30 +1,4 @@
-IF OBJECT_ID (N'LongestCommonSubsequence') IS NOT NULL
-   DROP FUNCTION LongestCommonSubsequence
-GO
- 
-Create FUNCTION LongestCommonSubsequence
-/**
-summary:   >
- The longest common subsequence (LCS) problem is the problem of finding the
- longest subsequence common to all sequences in two sequences. It differs
- from problems of finding common substrings: unlike substrings, subsequences
- are not required to occupy consecutive positions within the original
- sequences. For example, the sequences "1234" and "1224533324" have an LCS
- of "1234":
-Author: Phil Factor
-Revision: 1.0
-date: 05 Dec 2014
-example:
- code: |
-     Select dbo.LongestCommonSubsequence ('1234', '1224533324')
-     Select dbo.LongestCommonSubsequence ('thisisatest', 'testing123testing')
-     Select dbo.LongestCommonSubsequence ( 'XMJYAUZ', 'MZJAWXU') 
-     Select dbo.LongestCommonSubsequence ( 'beginning-middle-ending',
-       'beginning-diddle-dum-ending')
-returns:   >
-  the longest common subsequence as a string
-**/    
-(
+CREATE OR ALTER FUNCTION string.LongestCommonSubsequence (
  @firstString Varchar(max),
  @SecondString Varchar(max)
 )

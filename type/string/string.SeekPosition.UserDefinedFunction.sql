@@ -1,4 +1,4 @@
-CREATE FUNCTION dbo.udf_FindPosition
+CREATE OR ALTER FUNCTION string.SeekPosition
 (
 @strInput varchar ( 8000
                   ) 

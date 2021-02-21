@@ -1,17 +1,4 @@
-/*
-{{##
-	(WrittenBy)		Emile Fraser
-	(CreatedDate)	2021-01-22
-	(ModifiedDate)	2021-01-22
-	(Description)	
-
-	(Usage)	
-					SELECT * FROM string.udf_StringComparisonsLevenshteinFullMatrix(@FirstString, @SecondString)
-	(/Usage)
-##}}
-*/
-
-CREATE OR ALTER FUNCTION [string].[udf_StringComparisonsLevenshteinFullMatrix] (
+CREATE OR ALTER FUNCTION [string].[ComparisonsLevenshteinFullMatrix] (
 	@FirstString     NVARCHAR(255)
   , @SecondString    NVARCHAR(255)) 
 RETURNS INT

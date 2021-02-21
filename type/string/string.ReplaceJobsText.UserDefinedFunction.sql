@@ -1,26 +1,9 @@
-/*
-<documentation>
-  <summary>Replace text in jobs</summary>
-  <returns>No.</returns>
-  <issues>No</issues>
-  <author>Max Vernon</author>
-  <created>2019-04-30</created>
-  <modified>2019-09-06 by Konstantin Taranov</modified>
-  <version>1.1</version>
-  <sourceLink>https://github.com/ktaranov/sqlserver-kit/blob/master/Scripts/Jobs_Find_And_Replace_Text.sql</sourceLink>
-  <originalLink>https://www.sqlserverscience.com/tools/find-and-replace-sql-server-agent-jobs/</originalLink>
-</documentation>
-*/
-
-USE msdb;
-GO
-
-DECLARE @Find nvarchar(max);
-DECLARE @Replace nvarchar(max);
-DECLARE @DebugOnly bit;
-SET @Find = N'\\SERVERA\Backups';
-SET @Replace = N'\\SERVERB\Backups';
-SET @DebugOnly = 1;
+CREATE OR ALTER PROCEDURE string.ReplaceJobText 
+ @Find nvarchar(max) = N'\\SERVERA\Backups'
+, @Replace nvarchar(max) = N'\\SERVERB\Backups'
+, @DebugOnly bit = 1
+AS
+BEGIN
 
 IF OBJECT_ID(N'tempdb..#excludeJobs', N'U') IS NOT NULL
 BEGIN
@@ -115,3 +98,5 @@ BEGIN CATCH
     PRINT ERROR_MESSAGE();
     PRINT ERROR_LINE();
 END CATCH
+
+END

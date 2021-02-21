@@ -1,9 +1,4 @@
-use master;
-GO
-IF OBJECT_ID('[dbo].[StripNonNumeric]') IS NOT NULL 
-DROP  FUNCTION  [dbo].[StripNonNumeric] 
-GO
-CREATE FUNCTION StripNonNumeric(@OriginalText VARCHAR(8000))
+CREATE FUNCTION string.RemoveNonNumeric(@OriginalText VARCHAR(8000))
 RETURNS VARCHAR(8000)  
 BEGIN 
 DECLARE @CleanedText VARCHAR(8000) 
@@ -20,9 +15,3 @@ FROM tally           WHERE Tally.N <= LEN(@OriginalText)
                 
 RETURN @CleanedText 
 END
-GO
---#################################################################################################
---Public permissions
-GRANT EXECUTE ON [StripNonNumeric] TO PUBLIC
---#################################################################################################
-GO

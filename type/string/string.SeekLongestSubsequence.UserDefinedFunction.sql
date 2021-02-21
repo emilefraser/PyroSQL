@@ -1,30 +1,4 @@
-IF OBJECT_ID('dbo.udf_LCS') IS NULL
-   EXECUTE ('CREATE FUNCTION dbo.udf_LCS() RETURNS nvarchar(max) AS RETURN SELECT 1 AS A;');
-GO
-
-
-ALTER FUNCTION dbo.udf_LCS
-  /**
-summary:   >
- The longest common subsequence (LCS) problem is the problem of finding the
- longest subsequence common to all sequences in two sequences. It differs
- from problems of finding common substrings: unlike substrings, subsequences
- are not required to occupy consecutive positions within the original
- sequences. For example, the sequences "1234" and "1224533324" have an LCS of "1234"
-Author: Phil Factor
-Revision: 1.1
-Created Date: 2019-04-05
-Modified date: 2019-07-08 Konstantin Taranov
-Original link: https://www.red-gate.com/simple-talk/blogs/using-json-for-matrices-in-sql-server/
-example:
- code:
-     SELECT dbo.udf_LCS ('1234', '1224533324');
-     SELECT dbo.udf_LCS ('thisisatest', 'testing123testing');
-     SELECT dbo.udf_LCS ( 'XMJYAUZ', 'MZJAWXU');
-     SELECT dbo.udf_LCS ( 'beginning-middle-ending', 'beginning-diddle-dum-ending');
-returns:   >
-  the longest common subsequence as a string
-**/
+CREATE OR ALTER FUNCTION string.SeekLongestCommonSubsequence
   (@xString varchar(max), @yString varchar(max))
 RETURNS varchar(max)
 AS

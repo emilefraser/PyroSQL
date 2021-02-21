@@ -1,9 +1,5 @@
-USE master;
-GO
-IF OBJECT_ID('[dbo].[SplitStrings_Ordered]') IS NOT NULL 
-DROP  FUNCTION  [dbo].[SplitStrings_Ordered] 
-GO
-CREATE FUNCTION [dbo].[SplitStrings_Ordered] (@List      VARCHAR(8000),
+CREATE OR ALTER FUNCTION [string].[SplitStringOrdered] (
+@List      VARCHAR(8000),
                                               @Delimiter VARCHAR(255))
 RETURNS TABLE
 AS
@@ -20,10 +16,3 @@ AS
                        FROM   sys.all_columns) AS n(Number)
                WHERE  Number <= CONVERT(INT, Len(@List))
                       AND Substring(@Delimiter + @List, Number, Len(@Delimiter)) = @Delimiter) AS y); 
-GO
-
---#################################################################################################
---Public permissions
-GRANT SELECT ON [SplitStrings_Ordered] TO PUBLIC
---#################################################################################################
-GO

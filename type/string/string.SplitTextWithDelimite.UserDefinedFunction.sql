@@ -1,19 +1,4 @@
-SET ANSI_NULLS ON;
-SET ANSI_PADDING ON;
-SET ANSI_WARNINGS ON;
-SET CONCAT_NULL_YIELDS_NULL ON;
-SET NUMERIC_ROUNDABORT OFF;
-SET QUOTED_IDENTIFIER ON;
-
-IF OBJECT_ID('[dbo].[FN_SPLIT_INT]') IS NOT NULL
-	DROP FUNCTION [dbo].[FN_SPLIT_INT]
-GO
-
-IF OBJECT_ID('[dbo].[FN_SPLIT]') IS NOT NULL
-	DROP FUNCTION [dbo].[FN_SPLIT]
-GO
-
-CREATE FUNCTION [dbo].[FN_SPLIT] (
+CREATE OR ALTER FUNCTION [string].[SplitTextWithDelimited] (
 	@Text nvarchar(max),  -- Text to split
 	@Delimiter nvarchar(1000)   -- Value to split on, try to only pass a single char. See notes for details.
 )

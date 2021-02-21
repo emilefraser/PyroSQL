@@ -1,6 +1,6 @@
 
-CREATE OR ALTER FUNCTION 
-string.[TrimValue](@String nvarchar(max))
+CREATE OR ALTER FUNCTION string.[TrimValue] (
+@String nvarchar(max))
 RETURNS nvarchar(max)
 AS
 BEGIN

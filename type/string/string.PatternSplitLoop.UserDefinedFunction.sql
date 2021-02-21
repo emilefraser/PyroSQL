@@ -1,8 +1,4 @@
--- PatternSplitLoop will split a string based on a pattern of the form 
--- supported by LIKE and PATINDEX 
--- 
--- Created by: Dwain Camps 11-Oct-2012 
-CREATE FUNCTION [dbo].[udf_PatternSplitLoop]
+CREATE OR ALTER FUNCTION [string].[SplitPatternooLoop]
  (  @String    VARCHAR(400)
    ,@Pattern   VARCHAR(500)
   ) RETURNS 
@@ -32,7 +28,7 @@ WHILE DATALENGTH(@Remaining) > 0
             -- When a+b = 1, then either a=1 and b=0 (the pattern was found but not pattern
             -- was not found) or a=0 and b=1 (the not pattern was found but pattern was
             -- not found).
-            -- This means that no meaninful patterns are found in what remains so we’re done.
+            -- This means that no meaninful patterns are found in what remains so weï¿½re done.
                WHEN a+b = 1 THEN @Remaining
             -- This case returns the chunk up to the start of the next pattern/not pattern
                WHEN (a=1 AND b>0) OR (b=1 AND a>0)                                  THEN SUBSTRING(@Remaining, 1, CASE a

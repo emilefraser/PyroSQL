@@ -1,14 +1,4 @@
-use master;
-GO
-IF OBJECT_ID('[dbo].[StripNonNumeric_ITVF]') IS NOT NULL 
-DROP  FUNCTION  [dbo].[StripNonNumeric_ITVF] 
-GO
---#################################################################################################
---StripNonNumeric_ITVF removes specific characters from a string.
---usage for ITVF requires cross apply or cross join
---ie SELECT TOP 100 fn.CleanedText,MRNumber From EDLogDetail CROSS APPLY dbo.StripNonNumeric_ITVF(MRNumber) fn WHERE MRNumber IS NOT NULL
---#################################################################################################
-CREATE FUNCTION dbo.StripNonNumeric_ITVF(@OriginalText NVARCHAR(4000))
+CREATE  OR ALTER FUNCTION string.RemoveNonNumeric_ITVF(@OriginalText NVARCHAR(4000))
 RETURNS TABLE WITH SCHEMABINDING AS
 RETURN
 
@@ -30,8 +20,4 @@ select STUFF(
 	FOR XML PATH('')
 ), 1 ,0 , '') as CleanedText 
 GO
---#################################################################################################
---Public permissions
-GRANT SELECT ON [StripNonNumeric_ITVF] TO PUBLIC
---#################################################################################################
-GO
+q

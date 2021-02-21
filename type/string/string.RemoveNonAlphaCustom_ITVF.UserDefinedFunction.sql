@@ -1,16 +1,4 @@
-IF OBJECT_ID('[dbo].[StripNonAlphaCustom_ITVF]') IS NOT NULL 
-DROP  FUNCTION  [dbo].[StripNonAlphaCustom_ITVF] 
-GO
---#################################################################################################
--- Real World DBA Toolkit version 4.94 Lowell Izaguirre lowell@stormrage.com
---#################################################################################################
---#################################################################################################
---StripNonAlphaNumeric_ITVF removes specific characters from a string.
---usage for ITVF requires cross apply or cross join
---ie SELECT TOP 100 fn.CleanedText,MRNumber From EDLogDetail CROSS APPLY dbo.StripNonAlphaNumeric_ASCII_ITVF(MRNumber) fn WHERE MRNumber IS NOT NULL
---This custom implementation: a-Z, spaces, dashes converted TO SPACE.
---#################################################################################################
-CREATE FUNCTION dbo.StripNonAlphaCustom_ITVF(@OriginalText NVARCHAR(4000))
+CREATE OR ALTER FUNCTION string.RemoveNonAlphaCustom_ITVF(@OriginalText NVARCHAR(4000))
 RETURNS TABLE WITH SCHEMABINDING AS
 RETURN
 

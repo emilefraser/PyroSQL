@@ -1,9 +1,4 @@
-IF OBJECT_ID('dbo.udf_RemoveNonAlphaCharacters') IS NULL
-   EXECUTE ('CREATE FUNCTION dbo.udf_RemoveNonAlphaCharacters() RETURNS NVARCHAR(MAX) AS RETURN SELECT 1 AS A;');
-GO
-
-
-ALTER FUNCTION dbo.udf_RemoveNonAlphaCharacters(
+CREATE OR ALTER FUNCTION string.RemoveNonAlphaCharacters (
     @inputString NVARCHAR(MAX)
   , @keepValues NVARCHAR(1000) = N'%[^a-z0-9]%'
   )

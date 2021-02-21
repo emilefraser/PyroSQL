@@ -1,15 +1,3 @@
-/*
-{{##
-	(WrittenBy)		Emile Fraser
-	(CreatedDate)	2021-01-22
-	(ModifiedDate)	2021-01-22
-	(Description)	Creates a Dynamic SQL Insert Statement
-
-	(Usage)	
-					SELECT * FROM [template].[ObjectName] (@Parameter1, @Parameter2)
-	(/Usage)
-##}}
-*/
 CREATE OR ALTER FUNCTION [string].[DifferenceBetweenWords] (
 	 @First		VarChar(256)
 	,@Second	VarChar(256)

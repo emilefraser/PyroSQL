@@ -1,17 +1,4 @@
-SET NOEXEC OFF;
-
-IF OBJECT_ID('dbo.sp_foreachdb', 'P') IS NULL
-RAISERROR('Please install before awesome stored procedure https://github.com/ktaranov/SQL-Server-First-Responder-Kit/blob/master/sp_foreachdb.sql', 16, 1);
-SET NOEXEC ON;
-GO
-
-
-IF OBJECT_ID('dbo.usp_SearchStoredProcedureText', 'P') IS NULL
-EXECUTE ('CREATE PROCEDURE dbo.usp_SearchStoredProcedureText AS RETURN');
-GO
-
-
-ALTER PROCEDURE dbo.usp_SearchStoredProcedureText(
+CREATE OR ALTER PROCEDURE string.SearchStoredProcedureText(
     @searchforthis NVARCHAR(512)
   , @object_type VARCHAR(2) = NULL
   , @is_ms_shipped BIT = 0

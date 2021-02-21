@@ -1,15 +1,5 @@
---======================================================
--- Usage: GetNthWord
--- Notes: 
--- Dependencies: dbo.CharIndexWithQuotes
--- History:
--- Date			Author		Description
--- 2019-03-29	Dave		Intial
---======================================================
-IF OBJECT_ID('GetNthWord', 'FN') IS NOT NULL
-	DROP FUNCTION GetNthWord
-GO
-CREATE FUNCTION GetNthWord(	@ExpressionToSearch nvarchar(max), 
+CREATE OR ALTER FUNCTION string.ExtractNthWord (	
+@ExpressionToSearch nvarchar(max), 
 							@ExpressionToFind nvarchar(255) = ',', 
 							@Occurrence INT, 
 							@DoubleQuotesOn BIT = 0)
@@ -62,15 +52,3 @@ BEGIN
 
 	RETURN @vResult;
 END
-GO
-
-/*
-	DECLARE @test nvarchar(max);
-	SET @test = 'This,"is,a",sentence,"which,is,more",than,that,xxx'
-	SELECT dbo.GetNthWord(@test,',', 1, 1)
-	SELECT dbo.GetNthWord(@test,',', 2, 1)
-	SELECT dbo.GetNthWord(@test,',', 3, 1)
-	SELECT dbo.GetNthWord(@test,',', 4, 1)
-	SELECT dbo.GetNthWord(@test,',', 5, 1)
-	SELECT dbo.GetNthWord(@test,',', 6, 1)
-*/
