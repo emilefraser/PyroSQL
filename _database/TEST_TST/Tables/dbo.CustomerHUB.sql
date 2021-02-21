@@ -1,8 +1,0 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-CREATE TABLE [dbo].[CustomerHUB](
-	[CustomerVID] [bigint] IDENTITY(1,1) NOT NULL,
-	[CustomerID] [bigint] NOT NULL
-) ON [PRIMARY]
-
-GO

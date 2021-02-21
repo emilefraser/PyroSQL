@@ -1,7 +1,0 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-CREATE TABLE [dbo].[DimDate](
-	[CalendarDate] [date] NULL
-) ON [PRIMARY]
-
-GO

@@ -1,2 +1,0 @@
-CREATE SCHEMA [tSQLt]
-GO

@@ -1,8 +1,0 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-CREATE TABLE [DMOD].[Hub_DataDomain](
-	[HubID] [int] NOT NULL,
-	[DataDomainID] [int] NOT NULL
-) ON [PRIMARY]
-
-GO

@@ -1,8 +1,0 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-CREATE PROCEDURE [dbo].[ListSubscriptionIDs]
-AS
-
-SELECT [SubscriptionID]
-FROM [dbo].[Subscriptions] WITH (XLOCK, TABLOCK)
-GO

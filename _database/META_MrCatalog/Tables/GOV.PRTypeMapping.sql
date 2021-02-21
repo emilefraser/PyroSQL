@@ -1,9 +1,0 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-CREATE TABLE [GOV].[PRTypeMapping](
-	[PRTypeMappingID] [int] IDENTITY(1,1) NOT NULL,
-	[DetailID] [int] NULL,
-	[IsUniquePRTypeMapping] [bit] NULL
-) ON [PRIMARY]
-
-GO

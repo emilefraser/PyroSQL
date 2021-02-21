@@ -1,8 +1,0 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-
-CREATE VIEW [dbo].[vw_ReportRegister] AS
-SELECT *
-FROM DataManager_2020723.REPREG.vw_ReportRegister
-
-GO

@@ -1,5 +1,4 @@
 -- SELECT THE OLD PATH 
-
 SELECT name, physical_name AS NewLocation, state_desc AS OnlineStatus
 FROM sys.master_files  
 WHERE database_id = DB_ID(N'AcAzMetadataDB')  

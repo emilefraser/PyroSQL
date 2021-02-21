@@ -1,8 +1,0 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-CREATE TABLE [dbo].[DTA_reports_tableview](
-	[TableID] [int] NOT NULL,
-	[ViewID] [int] NOT NULL
-) ON [PRIMARY]
-
-GO
