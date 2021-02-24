@@ -1,9 +1,4 @@
-IF OBJECT_ID('dbo.udf_INSTR', 'IF') IS NULL
-EXECUTE ('CREATE FUNCTION dbo.udf_INSTR() RETURNS TABLE AS RETURN SELECT 1 AS A;');
-GO
-
-
-ALTER FUNCTION dbo.udf_INSTR(
+CREATE OR ALTER FUNCTION string.SeekInString (
     @str       NVARCHAR(4000),
     @substr    NVARCHAR(4000),
     @start     INT,
@@ -11,17 +6,7 @@ ALTER FUNCTION dbo.udf_INSTR(
 )
 RETURNS TABLE
 AS
-/*
-Note
-    Author: Hannan Kravitz
-    Original link: http://www.sqlservercentral.com/scripts/SUBSTRING/148570/
-    Modified Date: 2016-11-17
-Example:
-    SELECT Loc FROM dbo.udf_INSTR ('Hello World', 'l', 1, 1) -- return 3
-    SELECT Loc FROM dbo.udf_INSTR ('Hello World', 'l', 1, 3) -- return 10
-    SELECT Loc FROM dbo.udf_INSTR ('Hello World', 'l', 1, 4) -- return NULL
-    SELECT Loc FROM dbo.udf_INSTR ('Ёжик - это моё имя','ё', 1, 1) -- return 14
-*/
+
 RETURN
     WITH Tally(N) AS
     (
@@ -38,7 +23,7 @@ RETURN
          THEN MAX(N - @start + 1) OVER (PARTITION BY CHARINDEX(@substr, @str, N))
          ELSE 0
          END [Loc]
-    FROM Tally
+    FROM dbo.Number
     WHERE CHARINDEX(@substr, @str, N) > 0
     )
     SELECT Loc= MAX(Loc)

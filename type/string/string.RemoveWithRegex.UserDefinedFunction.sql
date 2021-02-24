@@ -1,14 +1,5 @@
---======================================================
--- Usage: 	Regex remove characters that not existing in pattern
---			Result is a table with 1 ROW only
--- Notes: 
--- History:
--- Date			Author		Description
--- 2020-04-22	Dave		Intial
---======================================================
-DROP FUNCTION IF EXISTS [dbo].[RegexRemove]
-GO
-CREATE FUNCTION [dbo].[RegexRemove] (@Input NVARCHAR(4000), @Pattern VARCHAR(256))
+CREATE OR ALTER FUNCTION [string].[RemoveWithRegex] (
+@Input NVARCHAR(4000), @Pattern VARCHAR(256))
 RETURNS TABLE
 AS
 RETURN
@@ -44,7 +35,3 @@ RETURN
         ) S ([Output])
     )
 GO
-/*
-SELECT [Output] FROM [dbo].[RegexRemove] ('ANNDH--Ass+%1826', '[a-zA-Z0-9]')
---Output = ANNDHAss1826
-*/

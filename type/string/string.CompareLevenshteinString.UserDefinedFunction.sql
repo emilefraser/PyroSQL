@@ -1,4 +1,5 @@
-alter function LEVENSHTEIN ( @SourceString nvarchar(100), @TargetString nvarchar(100) ) 
+CREATE OR ALTER string.CompareLevenshteinString ( 
+@SourceString nvarchar(100), @TargetString nvarchar(100) ) 
 --Returns the Levenshtein Distance between @SourceString string and @TargetString
 --Translated to TSQL by Joseph Gama
 --Updated slightly by Phil Factor
@@ -74,4 +75,3 @@ return unicode(substring(
    @Matrix,@SourceStringLength*(@TargetStringLength+1)+@TargetStringLength+1,1
    ))
 END
-go

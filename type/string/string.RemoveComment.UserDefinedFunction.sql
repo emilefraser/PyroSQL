@@ -1,15 +1,9 @@
-IF OBJECT_ID('[dbo].[StripComments]') IS NOT NULL 
-DROP  FUNCTION  [dbo].[StripComments] 
-GO
-CREATE FUNCTION StripComments(@StringToStrip varchar(max))
+CREATE OR ALTER FUNCTION string.RemoveComments(
+@StringToStrip varchar(max))
 RETURNS varchar(max)
 AS
 BEGIN
-    -- This bit strips out block comments.  We need to strip them out BEFORE
-    -- single line comments (like this one), because you could theoretically have
-    -- a block comment like this:
-    /* My Comment
-    -- Is malformed */
+
 
     -- Variables to hold the first and last character's positions in the "next" block 
     -- comment in the string
@@ -69,5 +63,3 @@ BEGIN
     -- Return the uncommented string    
     RETURN @StringToStrip
 END
-
-GO

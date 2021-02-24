@@ -1,19 +1,6 @@
-﻿IF OBJECT_ID('dbo.udf_InitCap') IS NULL
-   EXECUTE ('CREATE FUNCTION dbo.udf_InitCap() RETURNS nvarchar(max) AS RETURN SELECT 1 AS A;');
-GO
-
-ALTER FUNCTION dbo.udf_InitCap(
+CREATE OR ALTER FUNCTION string.TransformInitialUppercase (
     @StrStr nvarchar(max)
     )
-/*
-SELECT dbo.udf_InitCap(N'test STRING ß');
-
-Source link: https://github.com/ktaranov/sqlserver-kit/blob/master/User_Defined_Function/dbo.udf_InitCap.sql
-Original link: https://gist.github.com/jef-sure/f67bc2c06c4804ca832f1dc5550c8db4
-Author: Anton Petrusevich
-Created Date: 2018-09-24
-Modified Date: 2019-07-23 by Konstantin Taranov
-*/
 RETURNS nvarchar(max) AS
 BEGIN
      DECLARE @StrNew nvarchar(max);

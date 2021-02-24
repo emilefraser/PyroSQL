@@ -1,27 +1,4 @@
-IF  OBJECT_ID('dbo.Metaphone','FN') IS NOT NULL --drop any existing metaphone function
-   DROP FUNCTION dbo.Metaphone
-go
-CREATE FUNCTION dbo.Metaphone
-/**
-summary:   >
-The Metaphone  phonetic algorithm was devised by Lawrence Philips in 1990.
-It reduces words to their basic sounds, but produces a more accurate encoding,
-than Soundex for matching words that sound similar. 
-Metaphone is a built-in operator in a number of systems such as PHP but there
-seemed to be no available SQL Version until I wrote this. It is merely
-a reverse engineering of the original published algorithm but tweaked to ensure
-that it gave the same result as the PHP version.
-Author: Phil Factor
-Revision: 1.0
-date: 21 Jan 2017
-example: >
-    Select dbo.Metaphone ('opportunities')
-    --OPRTNTS
-Parameters: 
-    -- @String (a word -all punctuation will be stripped out)
-  A string representing the Metaphone equivalent of the word. 
-**/  
-(
+CREATE OR ALTER FUNCTION string.CompareMetaphoneAlgorithm (
     @String VARCHAR(30)
 )
 RETURNS VARCHAR(10)

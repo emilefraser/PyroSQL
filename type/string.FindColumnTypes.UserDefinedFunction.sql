@@ -1,13 +1,4 @@
-/* 
-
-Find the column types by name: Only change where the comment is below this
-
-*/
-
--- STEP ONE: Change OurDatabaseName to the database name
-
-USE OurDatabaseName
-GO
+CREATE
 
 SELECT 
     sc.name AS [Columne Name], 

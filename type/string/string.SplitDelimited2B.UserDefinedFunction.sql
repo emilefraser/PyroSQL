@@ -1,29 +1,13 @@
-IF OBJECT_ID('[dbo].[DelimitedSplit2B]') IS NOT NULL 
-
-DROP  FUNCTION  [dbo].[DelimitedSplit2B] 
-
-GO
---#################################################################################################
--- Real World DBA Toolkit version 4.94 Lowell Izaguirre lowell@stormrage.com
---#################################################################################################
-CREATE FUNCTION dbo.DelimitedSplit2B
-
-(
-
+CREATE OR ALTER FUNCTION string.SplitDelimitedSplit2B (
   @pString    varchar(max), 
-
   @pDelimiter char(1)
-
 )
-
-RETURNS TABLE WITH SCHEMABINDING AS RETURN
-
+RETURNS TABLE WITH SCHEMABINDING 
+AS 
+RETURN
 WITH L1(N) AS 
-
 (
-
   SELECT N 
-
   FROM (VALUES 
 
    (0),(0),(0),(0),(0),(0),(0),(0),(0),(0),(0),(0),(0),(0),(0),(0),(0),(0),(0),(0),
@@ -53,11 +37,8 @@ WITH L1(N) AS
  cteTally(N) AS 
 
 (
-
   SELECT 0 UNION ALL
-
   SELECT TOP (DATALENGTH(ISNULL(@pString,1))) ROW_NUMBER() OVER (ORDER BY (SELECT NULL))
-
   FROM L1 a CROSS JOIN L1 b CROSS JOIN L1 c
 
   --2,176,782,336 rows: enough to handle  2,147,483,647 characters (the varchar(max) limit)

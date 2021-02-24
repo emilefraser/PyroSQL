@@ -1,34 +1,4 @@
-IF OBJECT_ID (N'dbo.usp_String_Search', N'P') IS NULL
-EXECUTE ('CREATE PROCEDURE dbo.usp_String_Search AS SELECT 1 AS shell')
-GO
-
-
------------------------------------------------------------------------------------------------------------------------------
---	Stored Procedure Details: Listing Of Standard Details Related To The Stored Procedure
------------------------------------------------------------------------------------------------------------------------------
-
---	Purpose: Search For A String Value Within Columns Of Data Types CHAR, NCHAR, NTEXT, NVARCHAR, TEXT, VARCHAR, XML
---	Create Date (MM/DD/YYYY): 03/20/2012
---	Developer: Sean Smith (s.smith.sql AT gmail DOT com)
---	Additional Notes: N/A
-
-
------------------------------------------------------------------------------------------------------------------------------
---	Modification History: Listing Of All Modifications Since Original Implementation
------------------------------------------------------------------------------------------------------------------------------
-
---	Description: Added "is_ms_shipped" Field
---	           : Added Option To Include System Objects In Search
---	Date (MM/DD/YYYY): 12/06/2015
---	Developer: Sean Smith (s.smith.sql AT gmail DOT com)
---	Additional Notes: N/A
-
-
------------------------------------------------------------------------------------------------------------------------------
---	Main Query: Create Procedure
------------------------------------------------------------------------------------------------------------------------------
-
-ALTER PROCEDURE dbo.usp_String_Search(
+CREATE OR ALTER PROCEDURE string.SearchString (
      @Search_String AS NVARCHAR (500)
     ,@Database_Name AS NVARCHAR (300)
     ,@Object_Types AS NVARCHAR (10) = NULL

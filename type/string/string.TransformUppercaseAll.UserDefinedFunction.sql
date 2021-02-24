@@ -1,20 +1,6 @@
-﻿/*
- ------- Uppercase All String Columns (and in a Single Query!) -------
-
-Created By: Solomon Rutzky / Sql Quantum Leap
-Created On: 2019-03-20
-Updated On: n/a
-
-Location:          https://pastebin.com/vbzz0LqN
-Related blog post: https://sqlquantumleap.com/2019/03/20/uppercase-all-characters-and-in-a-single-query/
-----------------------------------------------------------------------
-*/
-
-
-USE [tempdb];
-SET NOCOUNT ON;
-
-
+CREATE OR ALTER PROCEDURE string.TransformUppercaseAll
+AS
+BEGIN
 IF (OBJECT_ID(N'dbo.One''Column') IS NULL)
 BEGIN
   CREATE TABLE dbo.[One'Column]
@@ -284,5 +270,5 @@ BEGIN
   DROP TABLE dbo.[DatabaseCollation];
 END;
 
-GO
+END
 ----------------------------------------------------------------------------------------------------------

@@ -1,25 +1,6 @@
-IF OBJECT_ID (N'dbo.FuzzySearchOf') IS NOT NULL
-     DROP FUNCTION dbo.FuzzySearchOf
-  GO
-  CREATE FUNCTION dbo.FuzzySearchOf(@Searchterm VARCHAR(40))
-  /**
-  summary:  >
-  Returns all candidate words even if the input word is misspelt
-  Author: Phil Factor
-  Revision: 1.0
-  date: 16/02/2017
-  example:
-  Select * from dbo.FuzzySearchOf('sossyjez')
-  Select * from dbo.FuzzySearchOf('acheeve')
-  Select * from dbo.FuzzySearchOf('deevyate')--does a 
-  returns:  >
-   a table containing words
-  Dependency: 
-  Words: A table of common words
-  DamLev http://blog.softwx.net/2015/01/optimizing-damerau-levenshtein_19.html
-  dbo.OneEditDifferenceTo(@word)
-  dbo.metaphone(@searchterm)
-  **/
+CREATE OR ALTER FUNCTION string.SearchFuzzy(
+@Searchterm VARCHAR(40))
+  
   RETURNS @candidates TABLE(Candidate VARCHAR(40))
   AS
     -- body of the function

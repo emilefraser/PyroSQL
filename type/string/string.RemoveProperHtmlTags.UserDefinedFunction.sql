@@ -1,11 +1,4 @@
-IF OBJECT_ID('[dbo].[StripProperHtmlTags]') IS NOT NULL 
-DROP  FUNCTION  [dbo].[StripProperHtmlTags] 
-GO
---#################################################################################################
--- 2017-05-04 10:44:28.315 SFCCN\lizaguirre SFCCN\lizaguirre
--- Context: HorizonSSEG | SUNPRDBI01 ODS
---#################################################################################################
-CREATE FUNCTION dbo.StripProperHtmlTags
+CREATE OR ALTER FUNCTION string.RemoveProperHtmlTags
         (@HtmlText XML )
 RETURNS NVARCHAR(MAX)
      AS 
@@ -18,7 +11,4 @@ RETURNS NVARCHAR(MAX)
         )
 END
 GO
-grant execute on dbo.StripProperHtmlTags to public
-
-
 

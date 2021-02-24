@@ -1,9 +1,4 @@
-IF OBJECT_ID('dbo.udf_SplitStringByDelimiter', 'IF') IS NULL
-EXECUTE('CREATE FUNCTION dbo.udf_SplitStringByDelimiter() RETURNS TABLE WITH SCHEMABINDING AS RETURN SELECT 1 AS A;');
-GO
-
-
-ALTER FUNCTION dbo.udf_SplitStringByDelimiter(
+CREATE OR ALTER FUNCTION string.SplitStringByDelimiter(
    @List NVARCHAR(MAX),
    @Delimiter NVARCHAR(MAX)
 )

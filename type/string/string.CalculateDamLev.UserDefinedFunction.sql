@@ -1,31 +1,4 @@
--- =============================================
--- Computes and returns the Damerau-Levenshtein edit distance between two strings, 
--- i.e. the number of insertion, deletion, substitution, and transposition edits
--- required to transform one string to the other.  This value will be >= 0, where
--- 0 indicates identical strings. Comparisons use the case-sensitivity configured
--- in SQL Server (case-insensitive by default). This algorithm is basically the
--- Levenshtein algorithm with a modification that considers transposition of two
--- adjacent characters as a single edit.
--- http://blog.softwx.net/2015/01/optimizing-damerau-levenshtein_19.html
--- See http://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance
--- Note that this uses Sten Hjelmqvist's "Fast, memory efficient" algorithm, described
--- at http://www.codeproject.com/Articles/13525/Fast-memory-efficient-Levenshtein-algorithm.
--- This version differs by including some optimizations, and extending it to the Damerau-
--- Levenshtein algorithm.
--- Note that this is the simpler and faster optimal string alignment (aka restricted edit) distance
--- that difers slightly from the full Damerau-Levenshtein algorithm by imposing the restriction
--- that no substring is edited more than once. So for example, "CA" to "ABC" has an edit distance
--- of 2 by a complete application of Damerau-Levenshtein, but a distance of 3 by this method that
--- uses the optimal string alignment algorithm. See wikipedia article for more detail on this
--- distinction.
--- 
--- @s - String being compared for distance.
--- @t - String being compared against other string.
--- @max - Maximum distance allowed, or NULL if no maximum is desired. Returns NULL if distance will exceed @max.
--- returns int edit distance, >= 0 representing the number of edits required to transform one string to the other.
--- =============================================
- 
-CREATE OR ALTER FUNCTION [dbo].[CalcualteDamLev](
+CREATE OR ALTER FUNCTION [string].[CalcualteDamLev](
  
     @s nvarchar(4000)
   , @t nvarchar(4000)

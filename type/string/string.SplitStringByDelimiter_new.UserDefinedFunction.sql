@@ -1,20 +1,4 @@
-
-/****** Object:  UserDefinedFunction [dbo].[udf_split_String]    Script Date: 2020/05/24 11:08:54 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
---/*
---	Written by: Emile Fraser
---	Date		:	2020-05-20
---	Function	:	Splits a string based on a delimeter and retuns a certain chunk based on the ChunkNumber
-
---	Chunk Number 3 ways:		1	Positive	Start from 1 ...n
---								0	N/A			Last chunk
---								-1	Negative	Last Chunk less the number (from the back)
---*/
-ALTER  FUNCTION [dbo].[udf_split_String] (
+CREATE OR ALTER  FUNCTION [string].[SplitStringByDelimiter] (
 	@StringValue	NVARCHAR(MAX)
 ,   @Delimiter		NVARCHAR(30)
 ,	@ChunkNumber	SMALLINT		= NULL

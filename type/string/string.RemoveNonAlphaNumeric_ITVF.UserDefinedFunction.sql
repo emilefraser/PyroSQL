@@ -1,14 +1,5 @@
-use master;
-GO
-IF OBJECT_ID('[dbo].[StripNonAlphaNumeric_ITVF]') IS NOT NULL 
-DROP  FUNCTION  [dbo].[StripNonAlphaNumeric_ITVF] 
-GO
---#################################################################################################
---StripNonAlphaNumeric_ITVF removes specific characters from a string.
---usage for ITVF requires cross apply or cross join
---ie SELECT TOP 100 fn.CleanedText,MRNumber From EDLogDetail CROSS APPLY dbo.StripNonAlphaNumeric_ASCII_ITVF(MRNumber) fn WHERE MRNumber IS NOT NULL
---#################################################################################################
-CREATE FUNCTION dbo.StripNonAlphaNumeric_ITVF(@OriginalText NVARCHAR(4000))
+CREATE OR ALTER FUNCTION string.StripNonAlphaNumeric_ITVF(
+@OriginalText NVARCHAR(4000))
 RETURNS TABLE WITH SCHEMABINDING AS
 RETURN
 
@@ -56,9 +47,4 @@ SELECT REPLACE(   --replacing known HTML entities that are an artifact of using 
            ,'&#x0D;',' ')
          ,'&#x0A;',' '),
       '&amp;','&') AS CleanedText FROM WithHTMLEntities
-GO
---#################################################################################################
---Public permissions
-GRANT SELECT ON [StripNonAlphaNumeric_ITVF] TO PUBLIC
---#################################################################################################
 GO

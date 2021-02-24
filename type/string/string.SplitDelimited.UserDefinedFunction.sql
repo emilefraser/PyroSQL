@@ -1,16 +1,4 @@
-use master;
-GO
-IF OBJECT_ID('[dbo].[DelimitedSplit]') IS NOT NULL 
-DROP  FUNCTION  [dbo].[DelimitedSplit] 
-GO
---#################################################################################################
--- Real World DBA Toolkit version 4.94 Lowell Izaguirre lowell@stormrage.com
---#################################################################################################
---#################################################################################################
---fastest way to split data without a CLR runtime
---expanded to support larger delimiter and varchar(max)
---#################################################################################################
-CREATE function [dbo].[DelimitedSplit] (
+CREATE OR ALTER FUNCTION [string].[SplitDelimited] (
     @pString varchar(max),
     @pDelimiter varchar(500)
 )
@@ -68,8 +56,3 @@ from
     ItemSplit
 GO
 
---#################################################################################################
---Public permissions
-GRANT SELECT ON [DelimitedSplit] TO PUBLIC
---#################################################################################################
-GO

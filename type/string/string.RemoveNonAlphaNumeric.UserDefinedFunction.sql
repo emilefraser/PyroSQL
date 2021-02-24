@@ -1,14 +1,4 @@
-use master;
-GO
-IF OBJECT_ID('[dbo].[StripNonAlphaNumeric]') IS NOT NULL 
-DROP  FUNCTION  [dbo].[StripNonAlphaNumeric] 
-GO
---#################################################################################################
--- Author:  Lowell Izaguirre
--- Create date: 08/15/2013
--- Description:   Function stripping whitespace and non-alpha chars from input
--- =============================================
-CREATE FUNCTION dbo.StripNonAlphaNumeric(@OriginalText VARCHAR(8000))
+CREATE  OR ALTER FUNCTION string.RemoveNonAlphaNumeric(@OriginalText VARCHAR(8000))
 RETURNS VARCHAR(8000)
 BEGIN
   DECLARE @CleanedText VARCHAR(8000)
@@ -33,9 +23,4 @@ BEGIN
   WHERE Tally.N <= LEN(@OriginalText)
   RETURN @CleanedText
 END --PROC
-GO
---#################################################################################################
---Public permissions
-GRANT EXECUTE ON [StripNonAlphaNumeric] TO PUBLIC
---#################################################################################################
 GO
