@@ -1,0 +1,4 @@
+
+CREATE PROCEDURE SimpleProc
+AS
+RETURN 1

@@ -1,0 +1,4 @@
+
+CREATE PROCEDURE dbo.TestOnePartNamedSelect
+AS
+	SELECT NAME FROM MyTable

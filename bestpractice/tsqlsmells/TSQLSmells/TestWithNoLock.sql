@@ -1,0 +1,4 @@
+CREATE PROCEDURE dbo.TestWithNoLock
+AS
+SELECT NAME FROM sys.objects WITH(NOLOCK)
+GO

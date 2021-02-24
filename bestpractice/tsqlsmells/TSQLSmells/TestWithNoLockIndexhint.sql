@@ -1,0 +1,4 @@
+CREATE PROCEDURE dbo.TestWithNoLockIndexhint
+AS
+SELECT NAME FROM sys.objects WITH(NOLOCK,INDEX = 0)
+GO

@@ -1,0 +1,5 @@
+
+CREATE PROCEDURE dbo.Exec1
+AS
+
+EXEC MyProc

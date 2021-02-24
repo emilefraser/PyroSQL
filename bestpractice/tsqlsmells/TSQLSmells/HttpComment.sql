@@ -1,0 +1,1 @@
+-- Goto http://blogs.technet.com/b/heyscriptingguy/archive/2011/10/15/automatically-create-a-powershell-hash-table-10-15-11.aspx
