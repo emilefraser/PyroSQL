@@ -23,15 +23,10 @@ execute dbo.sp_executesql @statement = N'
 ======================================================================================================================== */
 
 -- Changelog & TODO --
-/* ========================================================================================================================
-	 2020-06-30	:	
-
-	 TODO		:	
-
-======================================================================================================================== */
-
--- Execution & Testing --
-/* ========================================================================================================================
+/* =========================================================================================================================
+	 2020-06-30	:		Created this function
+	 2021-02-24 :		Changed the scalar function to just return the value
+/* ========================================================================================================================*/
     
 	DECLARE @FirstDayOfWeekName			VARCHAR(10)		= ''Monday''
 	SELECT [dimension].[GetDayOfWeekIndex](@FirstDayOfWeekName)
@@ -43,15 +38,7 @@ CREATE   FUNCTION [dimension].[GetDayOfWeekIndex] (
 RETURNS SMALLINT
 AS
 BEGIN
-	
-	DECLARE @returnValue SMALLINT	
-
-	-- Gets the Abbreviated first day of the month
-	DECLARE @FirstDayOfWeekNameAbbreviation VARCHAR(3)	= UPPER(SUBSTRING(@FirstDayOfWeekName, 1, 3))
-	SET @returnValue 									= CHARINDEX(@FirstDayOfWeekNameAbbreviation, ''SUN MON TUE WED THU FRI SAT'')/ 4.00 + 1
-
-	RETURN @returnValue
-
+	RETURN CHARINDEX(UPPER(SUBSTRING(@FirstDayOfWeekName,1 ,3)), ''SUN MON TUE WED THU FRI SAT'')/ 4.00 + 1
 END
 ' 
 END

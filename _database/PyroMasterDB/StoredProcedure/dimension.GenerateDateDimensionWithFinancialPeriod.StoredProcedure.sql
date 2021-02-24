@@ -15,13 +15,38 @@ GO
 ALTER   PROCEDURE [dimension].[GenerateDateDimensionWithFinancialPeriod]
 AS
 BEGIN
+	DECLARE 
+		@StartOfDateDimension	 DATE	= '2015-01-01'
+	,	@EndOfDateDimension		DATE	= '2030-12-31'
 
-	
-	DECLARE @StartOfDateDimension DATE = '2015-01-01'
-	, @EndOfDateDimension DATE = '2030-12-31'
+	-- Today Adjustment Factory used if you want to report yesterdays figures as today (captured as days)
+	DECLARE
+		@TodayAdjustmentFactory INT = 0
+		
+	-- DECLARE FIRST DAY OF THE WEEK AND GET ITS INDEX
+	DECLARE 
+		@FirstDayOfWeek			NVARCHAR(10)	= 'MONDAY'
+	DECLARE
+		@FirstDayOfWeekValue	INT				= [dimension].[GetDayOfWeekIndex] (@FirstDayOfWeek)
 
-	-- Monday first day of week
-	SET DATEFIRST 1
+	--DECLARE
+	--	@FirstDayOfWeekAdjustmentValue INT 
+	--,	@FirstDayOfWeekAdjustmentString NVARCHAR(2)
+
+	-- Corrects the First day of the week Value, which cant be set through SET DATEFIRST as the dynamic queries in different scope
+	--SET @FirstDayOfWeekAdjustmentValue =   ((DATEPART(WEEKDAY, GETDATE()) + @@DATEFIRST + 6 - @FirstDayOfWeekValue)  % 7 + 1) - ((DATEPART(WEEKDAY, GETDATE()) + @FirstDayOfWeekValue + 6 - @FirstDayOfWeekValue)  % 7 + 1)
+	--SELECT @FirstDayOfWeekAdjustmentValue
+
+	--SET @FirstDayOfWeekAdjustmentValue = DATEPART(WEEKDAY, GETDATE()) + @FirstDayOfWeekAdjustmentValue
+	--SELECT @FirstDayOfWeekAdjustmentValue
+
+	--SET @FirstDayOfWeekAdjustmentString = CONVERT(NVARCHAR(2), @FirstDayOfWeekAdjustmentValue)
+	--SELECT  @@DATEFIRST, @FirstDayOfWeekValue, @FirstDayOfWeekAdjustmentString, DATEPART(WEEKDAY, GETDATE())
+
+
+	--SELECT ((DATEPART(WEEKDAY, GETDATE()) + @@DATEFIRST + 6 - 1)  % 7 + 1)	= 7
+	--SELECT ((DATEPART(WEEKDAY, GETDATE()) + 7 + 6 - 7)  % 7 + 1)				= 1
+	--SELECT DATEPART(WEEKDAY, GETDATE())										= 1
 
 	-- Drops existing dimension
 	DROP TABLE IF EXISTS dimension.[DateDimension2]
@@ -67,6 +92,7 @@ BEGIN
 	,	@sql_log BIT = 1
 	,   @sql_rc INT = 0
 	,   @sql_template_altertable NVARCHAR(MAX)
+	,	@sql_parameter NVARCHAR(MAX)
 	,	@sql_statement NVARCHAR(MAX)
 	,	@sql_message NVARCHAR(MAX)
 	,	@sql_crlf NVARCHAR(2) = CHAR(13) + CHAR(10)
@@ -107,10 +133,10 @@ BEGIN
 	*					DAY OF 				 *
 	******************************************
 	*****************************************/
-
+	
 	-- ADD DayOfWeek
-	SET @column_name		= N'DayOfWeek'
-	SET @calculated_value		=  'CONVERT(VARCHAR(2),	DATEPART(WEEKDAY,  [CalendarDate]))'
+	SET @column_name			= N'DayOfWeek'
+	SET @calculated_value		=  'CONVERT(VARCHAR(2),	[dbo].[AdjustedDayOfWeek] ([CalendarDate]))'
 
 	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
 	PRINT(@sql_template_altertable)
@@ -118,7 +144,7 @@ BEGIN
 
 	-- ADD DayOfWeekValue
 	SET @column_name			=	 N'DayOfWeekValue'
-	SET @calculated_value		=  'CONVERT(TINYINT, DATEPART(WEEKDAY,  [CalendarDate]))'
+	SET @calculated_value		=  'CONVERT(TINYINT, [dbo].[AdjustedDayOfWeek] ([CalendarDate]))'
 
 	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
 	PRINT(@sql_template_altertable)
@@ -223,7 +249,7 @@ BEGIN
 	
 	-- ADD WeekOfMonth
 	SET @column_name			= N'WeekOfMonth'
-	SET @calculated_value		= 'CONVERT(VARCHAR(1), FORMAT(DATEDIFF(WEEK, DATEADD(MONTH, DATEDIFF(MONTH, 0, [CalendarDate]), 0), [CalendarDate]) + 1, ''0''))'
+	SET @calculated_value		= 'CONVERT(VARCHAR(1), FORMAT(CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, DATEPART(MONTH, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, DATEPART(MONTH, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, DATEPART(MONTH, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, DATEPART(MONTH, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)))) = 1, 0, 1), ''0''))'
 
 	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
 	PRINT(@sql_template_altertable)
@@ -231,7 +257,7 @@ BEGIN
 
 	-- ADD WeekOfMonthValue
 	SET @column_name			= N'WeekOfMonthValue'
-	SET @calculated_value		= 'CONVERT(TINYINT, DATEDIFF(WEEK, DATEADD(MONTH, DATEDIFF(MONTH, 0, [CalendarDate]), 0), [CalendarDate]) + 1)'
+	SET @calculated_value		= 'CONVERT(TINYINT, CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, DATEPART(MONTH, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, DATEPART(MONTH, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, DATEPART(MONTH, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, DATEPART(MONTH, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)))) = 1, 0, 1))'
 
 	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
 	PRINT(@sql_template_altertable)
@@ -239,7 +265,7 @@ BEGIN
 
 	-- ADD WeekOfQuarter
 	SET @column_name			= N'WeekOfQuarter'
-	SET @calculated_value		= 'CONVERT(VARCHAR(2), FORMAT(DATEDIFF(WEEK, DATEADD(QUARTER, DATEDIFF(QUARTER, 0, [CalendarDate]), 0), [CalendarDate]) + 1, ''00''))'
+	SET @calculated_value		= 'CONVERT(VARCHAR(2), FORMAT(CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(QUARTER, DATEPART(QUARTER, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(QUARTER, DATEPART(QUARTER, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(QUARTER, DATEPART(QUARTER, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(QUARTER, DATEPART(QUARTER, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)))) = 1, 0, 1), ''0''))'
 
 	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
 	PRINT(@sql_template_altertable)
@@ -247,7 +273,7 @@ BEGIN
 
 	-- ADD WeekOfQuarterValue
 	SET @column_name			= N'WeekOfQuarterValue'
-	SET @calculated_value		= 'CONVERT(TINYINT,	DATEDIFF(WEEK, DATEADD(QUARTER, DATEDIFF(QUARTER, 0, [CalendarDate]), 0), [CalendarDate]) + 1)'
+	SET @calculated_value		= 'CONVERT(TINYINT,	CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(QUARTER, DATEPART(QUARTER, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(QUARTER, DATEPART(QUARTER, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(QUARTER, DATEPART(QUARTER, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(QUARTER, DATEPART(QUARTER, [CalendarDate]) - 1, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)))) = 1, 0, 1))'
 
 	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
 	PRINT(@sql_template_altertable)
@@ -255,7 +281,11 @@ BEGIN
 
 	-- ADD WeekOfHalfYear
 	SET @column_name			= N'WeekOfHalfYear'
-	SET @calculated_value		= 'CONVERT(VARCHAR(3), FORMAT(IIF(MONTH([CalendarDate]) <= 6,  DATEPART(WEEK, [CalendarDate]), DATEDIFF(WEEK, DATEADD(MONTH, 6, DATEADD(YEAR, DATEDIFF(YEAR, 0, [CalendarDate]), 0)), [CalendarDate]) + 1), ''00''))'
+	SET @calculated_value		= 'CONVERT(VARCHAR(2), FORMAT(
+									IIF(MONTH([CalendarDate]) <= 6  
+									, CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) = 1, 0, 1)
+									, CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, (6), DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, (6), DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, (6), DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)))) = 1, 0, 1))
+									, ''00''))'
 
 	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
 	PRINT(@sql_template_altertable)
@@ -263,7 +293,11 @@ BEGIN
 
 	-- ADD WeekOfHalfYearValue
 	SET @column_name			= N'WeekOfHalfYearValue'
-	SET @calculated_value		= 'CONVERT(TINYINT,	IIF(MONTH([CalendarDate]) <= 6,  DATEPART(WEEK, [CalendarDate]), DATEDIFF(WEEK, DATEADD(MONTH, 6, DATEADD(YEAR, DATEDIFF(YEAR, 0, [CalendarDate]), 0)), [CalendarDate]) + 1))'
+	SET @calculated_value		= 'CONVERT(TINYINT,	
+									IIF(MONTH([CalendarDate]) <= 6  
+									, CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) = 1, 0, 1)
+									, CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, (6), DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, (6), DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, (6), DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)))) = 1, 0, 1))
+									)'
 
 	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
 	PRINT(@sql_template_altertable)
@@ -271,7 +305,7 @@ BEGIN
 
 	-- ADD WeekOfYear
 	SET @column_name			= N'WeekOfYear'
-	SET @calculated_value		= 'CONVERT(VARCHAR(3), FORMAT(DATEPART(WEEK, [CalendarDate]), ''00''))'
+	SET @calculated_value		= 'CONVERT(VARCHAR(2), CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) = 1, 0, 1))'
 
 	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
 	PRINT(@sql_template_altertable)
@@ -279,7 +313,7 @@ BEGIN
 
 	-- ADD WeekOfYearValue
 	SET @column_name			= N'WeekOfYearValue'
-	SET @calculated_value		= 'CONVERT(SMALLINT, DATEPART(WEEK, [CalendarDate]))'
+	SET @calculated_value		= 'CONVERT(SMALLINT, CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) = 1, 0, 1))'
 
 	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
 	PRINT(@sql_template_altertable)
@@ -287,7 +321,7 @@ BEGIN
 
 	-- ADD WeekOfYearCode
 	SET @column_name			= N'WeekOfYearCode'
-	SET @calculated_value		= 'CONVERT(VARCHAR(4), ''W'' + FORMAT(DATEPART(WEEK, [CalendarDate]), ''00''))'
+	SET @calculated_value		= 'CONVERT(VARCHAR(3), ''W'' + FORMAT(CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) = 1, 0, 1), ''00''))'
 
 	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
 	PRINT(@sql_template_altertable)
@@ -518,6 +552,385 @@ BEGIN
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
 
+	/*****************************************
+	******************************************
+	*	     PREVIOUS AND NEXT YEAR			*
+	******************************************
+	*****************************************/
+	-- ADD PreviousYear
+	SET @column_name			= N'PreviousYear'
+	SET @calculated_value		= 'CONVERT(SMALLINT, YEAR([CalendarDate]) - 1)'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD NextYear
+	SET @column_name			= N'NextYear'
+	SET @calculated_value		= 'CONVERT(SMALLINT, YEAR([CalendarDate]) + 1)'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	/*****************************************
+	******************************************
+	*	Same Day Next and Previous Year		*
+	******************************************
+	*****************************************/
+	-- ADD SameDayPreviousYear
+	SET @column_name			= N'SameDayPreviousYear'
+	SET @calculated_value		= 'CONVERT(DATE, DATEADD(DAY, DATEPART(WEEKDAY, [CalendarDate]), DATEADD(WEEK, DATEPART(WEEK, [CalendarDate]) - 1, DATEADD(DAY, -DATEPART(WEEKDAY, CONVERT(DATE, DATEADD(YEAR, DATEDIFF(YEAR, 0, [CalendarDate]) - 1, 0))), CONVERT(DATE, DATEADD(YEAR, DATEDIFF(YEAR, 0, [CalendarDate]) - 1, 0))))))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD SameDayNextYear
+	SET @column_name			= N'SameDayNextYear'
+	SET @calculated_value		= 'CONVERT(DATE, DATEADD(DAY, DATEPART(WEEKDAY, [CalendarDate]), DATEADD(WEEK, DATEPART(WEEK, [CalendarDate]) - 1, DATEADD(DAY, -DATEPART(WEEKDAY, CONVERT(DATE, DATEADD(YEAR, DATEDIFF(YEAR, 0, [CalendarDate]) + 1, 0))), CONVERT(DATE, DATEADD(YEAR, DATEDIFF(YEAR, 0, [CalendarDate]) + 1, 0))))))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	/*****************************************
+	******************************************
+	*	     Indexes Per Period				*
+	******************************************
+	*****************************************/
+
+	-- ADD DayOfYearIndex
+	SET @column_name			= N'DayOfYearIndex'
+	SET @calculated_value		= 'CONVERT(INT, DATEDIFF(DAY, ''' + CONVERT(NVARCHAR(10), @StartOfDateDimension, 121) + ''',  [CalendarDate]))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD WeekOfYearIndex
+	SET @column_name			= N'WeekOfYearIndex'
+	SET @calculated_value		= 'CONVERT(INT, DATEDIFF(WEEK, ''' + CONVERT(NVARCHAR(10), @StartOfDateDimension, 121) + ''',  [CalendarDate]))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD MonthOfYearIndex
+	SET @column_name			= N'MonthOfYearIndex'
+	SET @calculated_value		= 'CONVERT(INT, DATEDIFF(MONTH, ''' + CONVERT(NVARCHAR(10), @StartOfDateDimension, 121) + ''',  [CalendarDate]))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD QuarterOfYearIndex
+	SET @column_name			= N'QuarterOfYearIndex'
+	SET @calculated_value		= 'CONVERT(INT, DATEDIFF(QUARTER, ''' + CONVERT(NVARCHAR(10), @StartOfDateDimension, 121) + ''',  [CalendarDate]))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD HalfYearOfYearIndex
+	SET @column_name			= N'HalfYearOfYearIndex'
+	SET @calculated_value		= 'CONVERT(INT, DATEDIFF(QUARTER, ''' + CONVERT(NVARCHAR(10), @StartOfDateDimension, 121) + ''',  [CalendarDate]) / 2)'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD YearIndex
+	SET @column_name			= N'YearIndex'
+	SET @calculated_value		= 'CONVERT(INT, DATEDIFF(YEAR, ''' + CONVERT(NVARCHAR(10), @StartOfDateDimension, 121) + ''',  [CalendarDate]))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+
+	/*****************************************
+	******************************************
+	*			 Combanitronics				*
+	******************************************
+	*****************************************/
+
+	-- ADD YearDayOfYear
+	SET @column_name			= N'YearDayOfYear'
+	SET @calculated_value		= 'CONVERT(VARCHAR(7), CONVERT(NVARCHAR(4), DATEPART(YEAR, [CalendarDate])) + FORMAT(DATEPART(DAY, [CalendarDate]), ''000''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD YearDayOfYearValue
+	SET @column_name			= N'YearDayOfYearValue'
+	SET @calculated_value		= 'CONVERT(INT, CONVERT(NVARCHAR(4), DATEPART(YEAR, [CalendarDate])) + FORMAT(DATEPART(DAY, [CalendarDate]), ''000''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD YearWeekOfYear
+	SET @column_name			= N'YearWeekOfYear'
+	SET @calculated_value		= 'CONVERT(VARCHAR(7), CONVERT(NVARCHAR(4), DATEPART(YEAR, [CalendarDate]))  + FORMAT(DATEPART(WEEK, [CalendarDate]), ''000''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+	
+	-- ADD YearWeekOfYearValue
+	SET @column_name			= N'YearWeekOfYearValue'
+	SET @calculated_value		= 'CONVERT(INT, CONVERT(NVARCHAR(4), DATEPART(YEAR, [CalendarDate]))  + FORMAT(DATEPART(WEEK, [CalendarDate]), ''000''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD YearMonthOfYear
+	SET @column_name			= N'YearMonthOfYear'
+	SET @calculated_value		= 'CONVERT(VARCHAR(7), CONVERT(NVARCHAR(4), DATEPART(YEAR, [CalendarDate]))  + FORMAT(DATEPART(MONTH, [CalendarDate]), ''000''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD YearMonthOfYearValue
+	SET @column_name			= N'YearMonthOfYearValue'
+	SET @calculated_value		= 'CONVERT(INT, CONVERT(NVARCHAR(4), DATEPART(YEAR, [CalendarDate]))  + FORMAT(DATEPART(MONTH, [CalendarDate]), ''000''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD YearQuarterOfYear
+	SET @column_name			= N'YearQuarterOfYear'
+	SET @calculated_value		= 'CONVERT(VARCHAR(7), CONVERT(NVARCHAR(4), DATEPART(YEAR, [CalendarDate])) + FORMAT(DATEPART(QUARTER, [CalendarDate]), ''000''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD YearQuarterOfYearValue
+	SET @column_name			= N'YearQuarterOfYearValue'
+	SET @calculated_value		= 'CONVERT(INT, CONVERT(NVARCHAR(4), DATEPART(YEAR, [CalendarDate])) + FORMAT(DATEPART(QUARTER, [CalendarDate]), ''000''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD YearHalfYearOfYear
+	SET @column_name			= N'YearHalfYearOfYear'
+	SET @calculated_value		= 'CONVERT(VARCHAR(7), CONVERT(NVARCHAR(4), DATEPART(YEAR, [CalendarDate])) + FORMAT(IIF(MONTH([CalendarDate]) <= 6, 1, 2), ''000''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD YearHalfYearOfYearValue
+	SET @column_name			= N'YearHalfYearOfYearValue'
+	SET @calculated_value		= 'CONVERT(INT, CONVERT(NVARCHAR(4), DATEPART(YEAR, [CalendarDate])) + FORMAT(IIF(MONTH([CalendarDate]) <= 6, 1, 2), ''000''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+
+	/*****************************************
+	******************************************
+	*		FinancialYear Attributes		*		
+	******************************************
+	*****************************************/
+
+	  -- ADD DAY OF FINANAICAL YEAR
+	  SET @column_name		= N'DayOfFinancialYear'
+	  SET @data_type		= N''
+	  SET @isnullable		= 0
+	  SET @calculated_value	= 'CONVERT(NVARCHAR(3), DATEDIFF(DAY, CASE WHEN MONTH([CalendarDate]) >= ' + @FinancialYearStartMonthOfYearString + '
+																			THEN CONVERT(DATE, CONCAT_WS(''-'', YEAR([CalendarDate]), ''' + FORMAT(@FinancialYearStartMonthOfYearValue, '00') + ''', ''01''))
+																			ELSE DATEADD(YEAR, -1, CONVERT(DATE, CONCAT_WS(''-'', YEAR([CalendarDate]), ''' + FORMAT(@FinancialYearStartMonthOfYearValue, '00') + ''', ''01''))) 
+																  END, [CalendarDate]) + 1)'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+
+	  -- ADD DAY OF FINANCIAL YEAR CODE
+	  SET @column_name		= N'DayOfFinancialYearCode'
+	  SET @data_type		= N''
+	  SET @isnullable		= 0
+	  SET @calculated_value	=  'CONVERT(NVARCHAR(5), ''FD'' + FORMAT( DATEDIFF(DAY,  CASE WHEN MONTH([CalendarDate]) >= ' + @FinancialYearStartMonthOfYearString + '
+																										THEN CONVERT(DATE, CONCAT_WS(''-'', YEAR([CalendarDate]), ''' + FORMAT(@FinancialYearStartMonthOfYearValue, '00') + ''', ''01''))
+																									ELSE DATEADD(YEAR, -1, CONVERT(DATE, CONCAT_WS(''-'', YEAR([CalendarDate]), ''' + FORMAT(@FinancialYearStartMonthOfYearValue, '00') + ''', ''01''))) END
+																									, [CalendarDate]) +1, ''000''))'
+
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD WEEK OF FINANCIAL YEAR
+	SET @column_name			= N'WeekOfFinancialYear'
+	SET @calculated_value		= 'CONVERT(VARCHAR(2), 
+								   CASE 
+										WHEN MONTH([CalendarDate]) >= ' + @FinancialYearStartMonthOfYearString 
+											+ ' THEN CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)))) = 1, 0, 1)
+										WHEN MONTH([CalendarDate]) < ' + @FinancialYearStartMonthOfYearString 
+											+ ' THEN CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0)))) = 1, 0, 1) 
+												ELSE 0 
+									END
+								   )'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+
+	-- ADD WEEK OF FINANCIAL YEAR
+	SET @column_name			= N'WeekOfFinancialYearValue'
+	SET @calculated_value		= 'CONVERT(TINYINT, 
+								   CASE 
+										WHEN MONTH([CalendarDate]) >= ' + @FinancialYearStartMonthOfYearString 
+											+ ' THEN CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)))) = 1, 0, 1)
+										WHEN MONTH([CalendarDate]) < ' + @FinancialYearStartMonthOfYearString 
+											+ ' THEN CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0)))) = 1, 0, 1) 
+												ELSE 0 
+									END
+								   )'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+
+	-- ADD WEEK OF FINANCIAL YEAR CODE
+	SET @column_name			= N'WeekOfFinancialYearCode'
+	SET @calculated_value		= 'CONVERT(VARCHAR(4), ''FW'' + FORMAT( 
+								   CASE 
+										WHEN MONTH([CalendarDate]) >= ' + @FinancialYearStartMonthOfYearString 
+											+ ' THEN CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)))) = 1, 0, 1)
+										WHEN MONTH([CalendarDate]) < ' + @FinancialYearStartMonthOfYearString 
+											+ ' THEN CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0)))) = 1, 0, 1) 
+												ELSE 0 
+									END, ''00'')
+								   )'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+
+	
+	  -- ADD MONTH OF FINANCIAL YEAR
+	  SET @column_name		= N'MonthOfFinancialYear'
+	  SET @data_type		= N''
+	  SET @isnullable		= 0
+	  SET @calculated_value	= 'CONVERT(NVARCHAR(2), CASE WHEN MONTH(CalendarDate) >= ' + @FinancialYearStartMonthOfYearString + ' THEN MONTH(CalendarDate) - ' + @FinancialYearStartMonthOfYearString + ' + 1 ELSE MONTH(CalendarDate) + ' + @FinancialYearStartMonthOfYearString + ' - 1 END)'
+
+	  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	  PRINT(@sql_template_altertable)
+	  EXEC sp_executesql @stmt = @sql_template_altertable
+
+	  -- ADD MONTH OF FINANCIAL YEAR VALUE
+	  SET @column_name		= N'MonthOfFinancialYearValue'
+	  SET @data_type		= N''
+	  SET @isnullable		= 0
+	  SET @calculated_value	=  'CONVERT(TINYINT, FORMAT(CASE WHEN MONTH(CalendarDate) >= ' + @FinancialYearStartMonthOfYearString + ' THEN MONTH(CalendarDate) - ' + @FinancialYearStartMonthOfYearString + ' + 1 ELSE MONTH(CalendarDate) + ' + @FinancialYearStartMonthOfYearString + ' - 1 END, ''00''))'
+
+	  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	  PRINT(@sql_template_altertable)
+	  EXEC sp_executesql @stmt = @sql_template_altertable
+
+	/*****************************************
+	******************************************
+	*			IsPeriod Booleans			*
+	******************************************
+	*****************************************/
+
+	-- ADD IsToday
+	SET @column_name			= N'IsToday'
+	SET @calculated_value		= 'CONVERT(BIT, IIF(CONVERT(DATE, DATEADD(DAY, ' + CONVERT(NVARCHAR(3), @TodayAdjustmentFactory) + ', GETDATE())) = [CalendarDate], 1, 0))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD IsPastDate
+	SET @column_name			= N'IsPastDate'
+	SET @calculated_value		= 'CONVERT(BIT, IIF(CONVERT(DATE, DATEADD(DAY, ' + CONVERT(NVARCHAR(3), @TodayAdjustmentFactory) + ', GETDATE())) > [CalendarDate], 1, 0))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD IsFutureDate
+	SET @column_name			= N'IsFutureDate'
+	SET @calculated_value		= 'CONVERT(BIT, IIF(CONVERT(DATE, DATEADD(DAY, ' + CONVERT(NVARCHAR(3), @TodayAdjustmentFactory) + ', GETDATE())) < [CalendarDate], 1, 0))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD IsWeekDay
+	SET @column_name			= N'IsWeekDay'
+	SET @calculated_value		= 'CONVERT(BIT, CASE WHEN DATEPART(WEEKDAY, [CalendarDate]) = 6 THEN 0 WHEN DATEPART(WEEKDAY, [CalendarDate]) = 7  THEN 0 ELSE 1 END)'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD IsPublicHoliday
+	SET @column_name			= N'IsPublicHoliday'
+	SET @calculated_value		= 'CONVERT(BIT, 0)'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD IsWorkDay
+	SET @column_name			= N'IsWorkDay'
+	SET @calculated_value		= 'CONVERT(BIT, 0)'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+	
+
+	-- ADD IsInLast7Days
+	SET @column_name			= N'IsInLast7Days'
+	SET @calculated_value		= 'CONVERT(BIT, IIF([CalendarDate] BETWEEN DATEADD(DAY, -7, CONVERT(DATE, DATEADD(DAY, ' + CONVERT(NVARCHAR(3), @TodayAdjustmentFactory) + ', GETDATE()))) AND DATEADD(DAY, -1, CONVERT(DATE, DATEADD(DAY, ' + CONVERT(NVARCHAR(3), @TodayAdjustmentFactory) + ', GETDATE())))  , 1 , 0))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD IsInLast7DaysIncludingToday
+	SET @column_name			= N'IsInLast7DaysIncludingToday'
+	SET @calculated_value		= 'CONVERT(BIT, IIF([CalendarDate] BETWEEN DATEADD(DAY, -7, CONVERT(DATE, DATEADD(DAY, ' + CONVERT(NVARCHAR(3), @TodayAdjustmentFactory) + ', GETDATE()))) AND DATEADD(DAY, 0, CONVERT(DATE, DATEADD(DAY, ' + CONVERT(NVARCHAR(3), @TodayAdjustmentFactory) + ', GETDATE())))  , 1 , 0))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+
+	-- ADD IsInLast30Days
+	SET @column_name			= N'IsInLast30Days'
+	SET @calculated_value		= 'CONVERT(BIT, IIF([CalendarDate] BETWEEN DATEADD(DAY, -30, CONVERT(DATE, DATEADD(DAY, ' + CONVERT(NVARCHAR(3), @TodayAdjustmentFactory) + ', GETDATE()))) AND DATEADD(DAY, -1, CONVERT(DATE, DATEADD(DAY, ' + CONVERT(NVARCHAR(3), @TodayAdjustmentFactory) + ', GETDATE())))  , 1 , 0))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD IsInLast30DaysIncludingToday
+	SET @column_name			= N'IsInLast30DaysIncludingToday'
+	SET @calculated_value		= 'CONVERT(BIT, IIF([CalendarDate] BETWEEN DATEADD(DAY, -30, CONVERT(DATE, DATEADD(DAY, ' + CONVERT(NVARCHAR(3), @TodayAdjustmentFactory) + ', GETDATE()))) AND DATEADD(DAY, 0, CONVERT(DATE, DATEADD(DAY, ' + CONVERT(NVARCHAR(3), @TodayAdjustmentFactory) + ', GETDATE())))  , 1 , 0))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+
 	/*
 
 	FORMAT(DATEDIFF(d, DATEADD(qq, 
@@ -570,8 +983,8 @@ DATEADD(mm,((DATEPART(mm,@dt)-1)/6 * 6) + 6,DATEADD(yy,YEAR(@dt)-1900,-1)) AS Ha
   --SET @calculated_value	= 		
 
   /*
-  -- ADD FINANCIAL Day OF YEAR
-  SET @column_name		= N'FinancialDayOfYear'
+  -- ADD DAY OF FINANAICAL YEAR
+  SET @column_name		= N'DayOfFinancialYear'
   SET @data_type		= N''
   SET @isnullable		= 0
   SET @calculated_value	= 'CONVERT(NVARCHAR(3), DATEDIFF(DAY, CASE WHEN MONTH([CalendarDate]) >= 7 

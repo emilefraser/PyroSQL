@@ -14,7 +14,12 @@ RETURNS NVARCHAR(MAX)
 AS 
 
 BEGIN
-DECLARE @sql_template_altertable NVARCHAR(MAX) = ''ALTER TABLE '' + QUOTENAME(''{{SchemaName}}'') + ''.'' + QUOTENAME(''{{EntityName}}'') + CHAR(13) + CHAR(10) +
+
+DECLARE @sql_template_altertable NVARCHAR(MAX)
+
+--SET @sql_template_altertable = ''SET DATEFIRST 1'' + CHAR(13) + CHAR(10)
+
+SET @sql_template_altertable = ''ALTER TABLE '' + QUOTENAME(''{{SchemaName}}'') + ''.'' + QUOTENAME(''{{EntityName}}'') + CHAR(13) + CHAR(10) +
 												 ''ADD '' + QUOTENAME(''{{ColumnName}}'') + '' AS {{CalculatedValue}}''
 
 SET  @sql_template_altertable = REPLACE(@sql_template_altertable, ''{{SchemaName}}'', @schema_name)
