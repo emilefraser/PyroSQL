@@ -11,6 +11,7 @@ GO
  EXEC dimension.GenerateDateDimensionWithFinancialPeriod
 
  SELECT * FROM dimension.[DateDimension2] 
+ where calendardate between '2020-07-01' and '2021-06-30'
  */
 ALTER   PROCEDURE [dimension].[GenerateDateDimensionWithFinancialPeriod]
 AS
@@ -772,15 +773,15 @@ BEGIN
 
 	-- ADD WEEK OF FINANCIAL YEAR
 	SET @column_name			= N'WeekOfFinancialYear'
-	SET @calculated_value		= 'CONVERT(VARCHAR(2), 
+	SET @calculated_value		= 'CONVERT(VARCHAR(2), FORMAT(
 								   CASE 
 										WHEN MONTH([CalendarDate]) >= ' + @FinancialYearStartMonthOfYearString 
 											+ ' THEN CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900, 0)))) = 1, 0, 1)
 										WHEN MONTH([CalendarDate]) < ' + @FinancialYearStartMonthOfYearString 
 											+ ' THEN CEILING(1.00 * (DATEDIFF(DAY, DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0))), [CalendarDate]) + 1 ) / 7) + IIF(DAY(DATEADD(DAY, (@@DATEFIRST - DATEPART(WEEKDAY, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0))) + (8 - @@DATEFIRST) * 2) % 7, DATEADD(MONTH, ' + @FinancialYearEndMonthOfYearString + ', DATEADD(YEAR, DATEPART(YEAR, [CalendarDate]) - 1900 - 1, 0)))) = 1, 0, 1) 
 												ELSE 0 
-									END
-								   )'
+									END,''00'')
+									)'
 
 	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
 	PRINT(@sql_template_altertable)
@@ -820,27 +821,158 @@ BEGIN
 	PRINT(@sql_template_altertable)
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
+	-- ADD MONTH OF FINANCIAL YEAR
+	SET @column_name		= N'MonthOfFinancialYear'
+	SET @data_type			= N''
+	SET @isnullable			= 0
+	SET @calculated_value	= 'CONVERT(NVARCHAR(2), FORMAT(CASE WHEN DATEPART(MONTH, CalendarDate) >= ' + @FinancialYearStartMonthOfYearString + ' THEN DATEPART(MONTH, CalendarDate) - ' + @FinancialYearStartMonthOfYearString + ' + 1 ELSE DATEPART(MONTH, CalendarDate) + ' + @FinancialYearStartMonthOfYearString + ' - 1 END, ''00''))'
 
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD MONTH OF FINANCIAL YEAR VALUE
+	SET @column_name		= N'MonthOfFinancialYearValue'
+	SET @data_type		=	 N''
+	SET @isnullable			= 0
+	SET @calculated_value	=  'CONVERT(TINYINT, FORMAT(CASE WHEN DATEPART(MONTH, CalendarDate) >= ' + @FinancialYearStartMonthOfYearString + ' THEN DATEPART(MONTH, CalendarDate) - ' + @FinancialYearStartMonthOfYearString + ' + 1 ELSE DATEPART(MONTH, CalendarDate)+ ' + @FinancialYearStartMonthOfYearString + ' - 1 END, ''00''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD MONTH OF FINANCIAL YEAR CODE
+	SET @column_name		= N'MonthOfFinancialYearCode'
+	SET @data_type			= N''
+	SET @isnullable			= 0
+	SET @calculated_value	=  'CONVERT(NVARCHAR(4), ''FM'' + FORMAT(CASE WHEN DATEPART(MONTH, CalendarDate) >= ' + @FinancialYearStartMonthOfYearString + ' THEN DATEPART(MONTH, CalendarDate) - ' + @FinancialYearStartMonthOfYearString + ' + 1 ELSE DATEPART(MONTH, CalendarDate) + ' + @FinancialYearStartMonthOfYearString + ' - 1 END, ''00''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD QUARTER OF FINANCIAL YEAR
+	SET @column_name		= N'QuarterOfFinancialYear'
+	SET @data_type			= N''
+	SET @isnullable			= 0
+	SET @calculated_value	= 'CONVERT(NVARCHAR(2), FORMAT(CASE WHEN DATEPART(MONTH, CalendarDate)  >= ' + @FinancialYearStartMonthOfYearString + ' THEN DATEPART(QUARTER, CalendarDate)  - ' + CONVERT(NVARCHAR(1), @FinancialYearEndMonthOfYearValue / 3) + ' ELSE DATEPART(QUARTER, CalendarDate) + ' + CONVERT(NVARCHAR(1), @FinancialYearEndMonthOfYearValue / 3)  + ' END, ''0''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD QUARTER OF FINANCIAL YEAR VALUE
+	SET @column_name		= N'QuarterOfFinancialYearValue'
+	SET @data_type			= N''
+	SET @isnullable			= 0
+	SET @calculated_value	= 'CONVERT(TINYINT, CASE WHEN DATEPART(MONTH, CalendarDate)  >= ' + @FinancialYearStartMonthOfYearString + ' THEN DATEPART(QUARTER, CalendarDate)  - ' + CONVERT(NVARCHAR(1), @FinancialYearEndMonthOfYearValue / 3) + ' ELSE DATEPART(QUARTER, CalendarDate) + ' + CONVERT(NVARCHAR(1), @FinancialYearEndMonthOfYearValue / 3)  + ' END)'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+		-- ADD QUARTER OF FINANCIAL YEAR CODE
+	SET @column_name		= N'QuarterOfFinancialYearCode'
+	SET @data_type			= N''
+	SET @isnullable			= 0
+	SET @calculated_value	= 'CONVERT(NVARCHAR(4), ''FQ'' + FORMAT(CASE WHEN DATEPART(MONTH, CalendarDate)  >= ' + @FinancialYearStartMonthOfYearString + ' THEN DATEPART(QUARTER, CalendarDate)  - ' + CONVERT(NVARCHAR(1), @FinancialYearEndMonthOfYearValue / 3) + ' ELSE DATEPART(QUARTER, CalendarDate) + ' + CONVERT(NVARCHAR(1), @FinancialYearEndMonthOfYearValue / 3)  + ' END, ''0''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD HALFYEAR OF FINANCIAL YEAR
+	SET @column_name		= N'HalfYearOfFinancialYear'
+	SET @data_type			= N''
+	SET @isnullable			= 0
+	SET @calculated_value	= 'CONVERT(NVARCHAR(2), FORMAT(CASE WHEN DATEPART(MONTH, CalendarDate)  >= ' + @FinancialYearStartMonthOfYearString + ' THEN CEILING(DATEPART(QUARTER, CalendarDate) / 2.00)  - ' + CONVERT(NVARCHAR(1), @FinancialYearEndMonthOfYearValue / 3) + ' + 1 ELSE CEILING(DATEPART(QUARTER, CalendarDate) / 2.00) + 1 END, ''0''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD HALFYEAR OF FINANCIAL YEAR VALUE
+	SET @column_name		= N'HalfYearOfFinancialYearValue'
+	SET @data_type			= N''
+	SET @isnullable			= 0
+	SET @calculated_value	= 'CONVERT(TINYINT, CASE WHEN DATEPART(MONTH, CalendarDate)  >= ' + @FinancialYearStartMonthOfYearString + ' THEN CEILING(DATEPART(QUARTER, CalendarDate) / 2.00)  - ' + CONVERT(NVARCHAR(1), @FinancialYearEndMonthOfYearValue / 3) + ' + 1 ELSE CEILING(DATEPART(QUARTER, CalendarDate) / 2.00) + 1 END)'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+		-- ADD HALFYEAR OF FINANCIAL YEAR CODE
+	SET @column_name		= N'HalfYearOfFinancialYearCode'
+	SET @data_type			= N''
+	SET @isnullable			= 0
+	SET @calculated_value	= 'CONVERT(NVARCHAR(4), ''HY'' + FORMAT(CASE WHEN DATEPART(MONTH, CalendarDate)  >= ' + @FinancialYearStartMonthOfYearString + ' THEN CEILING(DATEPART(QUARTER, CalendarDate) / 2.00)  - ' + CONVERT(NVARCHAR(1), @FinancialYearEndMonthOfYearValue / 3) + ' + 1 ELSE CEILING(DATEPART(QUARTER, CalendarDate) / 2.00) END + 1, ''00''))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD FINANCIAL YEAR
+	SET @column_name		= N'FinancialYear'
+	SET @data_type			= N''
+	SET @isnullable			= 0
+	SET @calculated_value	= 'CONVERT(NVARCHAR(4), FORMAT(CASE WHEN DATEPART(MONTH, CalendarDate)  >= ' + @FinancialYearStartMonthOfYearString + ' THEN DATEPART(YEAR, CalendarDate) + 1 ELSE DATEPART(YEAR, CalendarDate) END, ''0000''))' 
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD FINANCIAL YEAR
+	SET @column_name		= N'FinancialYearValue'
+	SET @data_type			= N''
+	SET @isnullable			= 0
+	SET @calculated_value	= 'CONVERT(INT, CASE WHEN DATEPART(MONTH, CalendarDate)  >= ' + @FinancialYearStartMonthOfYearString + ' THEN DATEPART(YEAR, CalendarDate) + 1 ELSE DATEPART(YEAR, CalendarDate) END)' 
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD FINANCIAL YEAR CODE
+	SET @column_name		= N'FinancialYearCode'
+	SET @data_type			= N''
+	SET @isnullable			= 0
+	SET @calculated_value	= 'CONVERT(NVARCHAR(6), ''FY'' + FORMAT(CASE WHEN DATEPART(MONTH, CalendarDate)  >= ' + @FinancialYearStartMonthOfYearString + ' THEN DATEPART(YEAR, CalendarDate) + 1 ELSE DATEPART(YEAR, CalendarDate) END, ''0000''))' 
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+	-- ADD NUMBER OF DAYS IN MONTH
+	SET @column_name			= N'NumberOfDaysInMonth'
+	SET @calculated_value		= 'DATEDIFF(DAY, EOMONTH([CalendarDate], - 1), CONVERT(DATE, EOMONTH([CalendarDate])))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
 	
-	  -- ADD MONTH OF FINANCIAL YEAR
-	  SET @column_name		= N'MonthOfFinancialYear'
-	  SET @data_type		= N''
-	  SET @isnullable		= 0
-	  SET @calculated_value	= 'CONVERT(NVARCHAR(2), CASE WHEN MONTH(CalendarDate) >= ' + @FinancialYearStartMonthOfYearString + ' THEN MONTH(CalendarDate) - ' + @FinancialYearStartMonthOfYearString + ' + 1 ELSE MONTH(CalendarDate) + ' + @FinancialYearStartMonthOfYearString + ' - 1 END)'
+	-- ADD NUMBER OF DAYS IN QUARTER
+	SET @column_name			= N'NumbersOfDaysInQuarter'
+	SET @calculated_value		= 'DATEDIFF(DAY, DATEADD(QUARTER, DATEDIFF(QUARTER, 0, [CalendarDate]), 0), DATEADD(DAY, -1, DATEADD(QUARTER, DATEDIFF(QUARTER, 0, [CalendarDate]) + 1, 0)))'
 
-	  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
-	  PRINT(@sql_template_altertable)
-	  EXEC sp_executesql @stmt = @sql_template_altertable
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
 
-	  -- ADD MONTH OF FINANCIAL YEAR VALUE
-	  SET @column_name		= N'MonthOfFinancialYearValue'
-	  SET @data_type		= N''
-	  SET @isnullable		= 0
-	  SET @calculated_value	=  'CONVERT(TINYINT, FORMAT(CASE WHEN MONTH(CalendarDate) >= ' + @FinancialYearStartMonthOfYearString + ' THEN MONTH(CalendarDate) - ' + @FinancialYearStartMonthOfYearString + ' + 1 ELSE MONTH(CalendarDate) + ' + @FinancialYearStartMonthOfYearString + ' - 1 END, ''00''))'
+	-- ADD NUMBER OF DAYS IN HALFYEAR
+	SET @column_name			= N'NumbersOfDaysInHalfYear'
+	SET @calculated_value		= 'DATEDIFF(DAY, DATEADD(MONTH,(DATEPART(MONTH, [CalendarDate]) - 1) / 6 * 6,DATEADD(YEAR,YEAR([CalendarDate])-1900,0)), DATEADD(MONTH,((DATEPART(MONTH, [CalendarDate]) - 1 ) / 6 * 6) + 6,DATEADD(YEAR, YEAR([CalendarDate])-1900,-1)))'
 
-	  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
-	  PRINT(@sql_template_altertable)
-	  EXEC sp_executesql @stmt = @sql_template_altertable
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
+		-- ADD NUMBER OF DAYS IN HALFYEAR
+	SET @column_name			= N'NumbersOfDaysInYear'
+	SET @calculated_value		= 'DATEDIFF(DAY, DATEADD(YEAR, DATEDIFF(YEAR, 0, [CalendarDate]), 0), DATEADD(DAY, -1, DATEADD(YEAR, DATEDIFF(YEAR, 0, [CalendarDate]) + 1, 0)))'
+
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
+	PRINT(@sql_template_altertable)
+	EXEC sp_executesql @stmt = @sql_template_altertable
+
 
 	/*****************************************
 	******************************************
@@ -946,16 +1078,6 @@ BEGIN
 DATEADD(mm,((DATEPART(mm,@dt)-1)/6 * 6) + 6,DATEADD(yy,YEAR(@dt)-1900,-1)) AS HalfYearEnd
 
 
-	SELECT (DATEPART(MONTH, GETDATE()) - 1) / 6
-
-
-	SELECT DATEADD(yy, YEAR(GETDATE())- 1900 ,0)
-
-
-	SELECT YEAR(GETDATE()) - 1900  --121
-
-
-
 
 	-- ADD DayOfMonthAlternate
 	SET @column_name		= N'DayOfMonthValue'
@@ -964,16 +1086,6 @@ DATEADD(mm,((DATEPART(mm,@dt)-1)/6 * 6) + 6,DATEADD(yy,YEAR(@dt)-1900,-1)) AS Ha
   SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @calculated_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
-
-
-
-
-
-
-
-
-
-
 
 
   -- ADD DAYOF VALUE
