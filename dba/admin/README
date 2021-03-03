@@ -1,0 +1,69 @@
+sqlpath by tim@timwarnock.com
+sqlplus utility scripts
+
+Set your $SQLPATH to include the directory containing these files. Each of these is a sql script to allow for a more user friendly sqlplus environment.
+
+All scripts are accessed via @<script> on the sqlplus command-line, the login.sql is autoloaded when sqlplus is loaded.
+
+
+USAGE
+
+user@DB> @show databases
+user@DB> @show schemas
+
+	list all available schemas, effectively running the following,
+	SELECT username AS schema FROM all_users ORDER BY username;
+
+user@DB> @use <schema>
+
+	switch to a different schema/user, effectively running the following,
+
+	ALTER SESSION SET CURRENT_SCHEMA = <schema>;
+
+	And will also reset the SQLPROMPT to reflect the new schema
+
+user@DB> @show tables
+user@DB> @show tables <filter>
+
+	list tables that match <filter>
+	e.g., '@show tables tax' will list all tables in the current schema that
+	have 'tax' anywhere in the name, effectively running the following,
+
+	SELECT table_name FROM tabs WHERE table_name LIKE UPPER('%filter%');
+
+user@DB> @show packages
+user@DB> @show packages <filter>
+
+	list packages of stored procedures/functions that match <filter>
+	e.g., '@show packages tax' will list all packages with 'tax' anywhere in
+	the name, effectively running the following,
+
+	SELECT DISTINCT name
+	FROM user_source
+	WHERE type = 'PACKAGE' AND name LIKE UPPER('%filter%');
+
+user@DB> @show code <package>
+
+	display the code for <package>
+	e.g., '@show code PROCS_DATE' will display all source code for the 
+	PROCS_DATE package, effectively running the following,
+
+	SELECT text 
+	FROM user_source 
+	WHERE name = UPPER('package') 
+	ORDER BY type,line;
+
+user@DB> @editcode <package>
+
+	retrieve the source code for <package> and open the default editor (vim)
+	e.g., '@editcode PROCS_DATE' will create PROCS_DATE.sql in the current 
+		directory, and open PROCS_DATE.sql in vim, and recompile after
+		exiting vim
+
+user@DB> @explain
+
+	shortcut to run the following,
+
+	SELECT PLAN_TABLE_OUTPUT FROM TABLE(DBMS_XPLAN.DISPLAY());
+
+

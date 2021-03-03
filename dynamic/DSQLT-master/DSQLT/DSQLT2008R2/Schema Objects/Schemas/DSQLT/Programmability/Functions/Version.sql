@@ -1,8 +1,0 @@
-﻿
-CREATE FUNCTION [DSQLT].[Version]
-( )
-RETURNS CHAR (4)
-AS
-BEGIN
-	RETURN '2.05'
-END

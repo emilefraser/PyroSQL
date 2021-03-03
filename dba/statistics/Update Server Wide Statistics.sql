@@ -1,0 +1,1 @@
+sp_MSforeachdb 'use [?]; exec sp_updatestats'
