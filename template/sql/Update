@@ -1,0 +1,6 @@
+UPDATE <table name>
+	SET { <column name> = <value_expression> }
+	{[ WHERE <predicate> ]}
+	
+--example
+update pet set owner = 'John Doe' where pet_id = 1

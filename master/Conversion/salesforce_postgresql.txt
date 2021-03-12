@@ -1,0 +1,22 @@
+id,varchar,50
+boolean,varchar,5
+reference,varchar,50
+string,varchar,-1
+picklist,varchar,-1
+textarea,varchar,-1
+double,double precision,NONE
+phone,varchar,25
+url,varchar,250
+currency,double precision,NONE
+int,integer,NONE
+datetime,varchar,40
+date,date,NONE
+base64,varchar,-1
+anytype,varchar,-1
+combobox,varchar,-1
+time,varchar,-1
+percent,double precision,NONE
+datacategorygroupreference,varchar,-1
+email,varchar,100
+multipicklist,varchar,-1
+address,varchar,2000

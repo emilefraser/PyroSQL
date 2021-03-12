@@ -1,0 +1,23 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[adf].[vw_LoadCycle]'))
+EXEC dbo.sp_executesql @statement = N'CREATE   VIEW [adf].[vw_LoadCycle]
+AS
+SELECT
+	LoadCycleID = CONVERT(INT, 1)
+UNION ALL
+SELECT
+	LoadCycleID = CONVERT(INT, 2)
+UNION ALL
+SELECT
+	LoadCycleID = CONVERT(INT, 3)
+UNION ALL
+SELECT
+	LoadCycleID = CONVERT(INT, 4)
+UNION ALL
+SELECT
+	LoadCycleID = CONVERT(INT, 5)
+' 
+GO

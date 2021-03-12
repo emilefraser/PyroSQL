@@ -1,0 +1,671 @@
+<!DOCTYPE>~Document Type
+@HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"
+@HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"
+@HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"
+@html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+@html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+@html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"
+<a>|</a>~Anchor
+@charset
+@coords
+@href
+@hreflang
+@name
+@rel
+@rev
+@shape
+@target
+@type
+@STANDARD:id, class, title, style, dir, lang, xml:lang, tabindex, accesskey
+@EVENT:onfocus, onblur, onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<abbr>|</abbr>~Abbreviation
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<acronym>|</acronym>~Acronym
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<address>|</address>~Address
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<applet>|</applet>~Applet
+@height
+@width
+@align
+@alt
+@archive
+@code
+@codebase
+@hspace
+@name
+@object
+@title
+@vspace
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:accesskey, tabindex, onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<area>~Area
+@alt
+@coords
+@href
+@nohref
+@shape
+@target
+@STANDARD:id, class, title, style, dir, lang, xml:lang, tabindex, accesskey
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup, onfocus, onblur
+<article>|</article>~Article (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<aside>|</aside>~Aside (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<audio>|</audio>~Audio (HTML 5)
+@autoplay
+@controls
+@loop
+@preload
+@src
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<b>|</b>~Bold
+@STANDARD:id, class, title, style, dir, lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<base>~Base Address
+@href
+@target
+<basefont>~Base Font
+@size
+@color
+@face
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+<bdo>|</bdo>~Text Direction
+@dir
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+<big>|</big>~Big
+@STANDARD:id, class, title, style, dir, lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown onkeyup
+<blockquote>|</blockqoute>~Block Quote
+@cite
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<body>|</body>~Body
+@alink
+@background
+@bgcolor
+@link
+@text
+@vlink
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onload, onunload, onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<br>~Line Break
+@STANDARD:id, class, title, style
+<button>|</button>~Button
+@disable
+@name
+@type
+@value
+@STANDARD:id, class, title, style, dir, lang, xml:lang, accesskey, tabindex
+@EVENT:onfocus, onblur, onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<caption>|</caption>~Table Caption
+@align
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<canvas>|</canvas>~Canvas (HTML 5)
+@height
+@width
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<center>|</center>~Center
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<cite>|</cite>~Cite
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<code>|</code>~Code
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<col>~Column
+@align
+@char
+@charoff
+@span
+@valign
+@width
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<colgroup>|</colgroup>~Column Group
+@align
+@char
+@charoff
+@span
+@valign
+@width
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<command>|</command>~Command (HTML 5)
+@checked
+@disabled
+@icon
+@label
+@radiogroup
+@type
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<datalist>|</datalist>~Data List (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<dd>|</dd>~Definition Description
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<del>|</del>~Delete
+@cite
+@datetime
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<details>|</details>~Details (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<dfn>|</dfn>~Definition Term
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<dir>|</dir>~Directory List
+@compact
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onfocus, onblur, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<div>|</div>~Div
+@align
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<dl>|</dl>~Definition List
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<dt>|</dt>~Definition Term
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<em>|</em>~Emphasis
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<embed>~Embed
+@src
+@width
+@height
+@align
+@name
+@pluginspage
+@pluginurl
+@hidden
+@href
+@target
+@autostart
+@loop
+@playcount
+@volume
+@controls
+@controller
+@mastersound
+@starttime
+@endtime
+<fieldset>|</fieldset>~Field Set
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:accesskey, onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<figcaption>|</figcaption>~Figure Caption (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<figure>|</figure>~Figure (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<font>|</font>~Font
+@size
+@color
+@face
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+<footer>|</footer>~Footer (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<form>|</form>~Form
+@action
+@accept
+@accept-charset
+@enctype
+@method
+@name
+@target
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onsubmit, onreset, onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<frame>~Frame
+@frameborder
+@longdesc
+@marginheight
+@marginwidth
+@name
+@noresize
+@scrolling
+@src
+@STANDARD:id, class, title, style
+<frameset>|</frameset>~Frame Set
+@cols
+@rows
+@STANDARD:id, class, title, style
+<h1>|</h1>~Header
+@align
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<h2>|</h2>~Header
+@align
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<h3>|</h3>~Header
+@align
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<h4>|</h4>~Header
+@align
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<h5>|</h5>~Header
+@align
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<h6>|</h6>~Header
+@align
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<head>|</head>~Head
+@profile
+@STANDARD:dir, lang, xml:lang
+<header>|</header>~Header (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<hgroup>|</hgroup>~Heading Group (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<hr>~Horizontal Rule
+@align
+@noshade
+@size
+@width
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<html>&lt;html&gt;|</html>~HTML
+@xmlns
+@STANDARD:dir, lang, xml:lang
+<i>|</i>~Italics
+@STANDARD:id, class, title, style, dir, lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown onkeyup
+<iframe>|</iframe>~Inline Frame
+@align
+@frameborder
+@height
+@longdesc
+@marginheight
+@marginwidth
+@name
+@scrolling
+@src
+@width
+@STANDARD:id, class, title, style
+<img>~Image
+@alt
+@src
+@align
+@border
+@height
+@hspace
+@ismap
+@longdesc
+@usemap
+@vspace
+@width
+@STANDARD:id, class, title, style, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<input>~Input
+@accept
+@align
+@alt
+@checked
+@disabled
+@maxlength
+@name
+@readonly
+@size
+@src
+@type
+@value
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:tabindex, accesskey, onfocus, onblur, onselect, onchange, onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<ins>|</ins>~Delete
+@cite
+@datetime
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<kbd>|</kbd>~Keyboard
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<keygen>|</keygen>~Generated Key (HTML 5)
+@autofocus
+@challenge
+@disabled
+@form
+@keytype
+@name
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<label>|</label>~Label
+@for
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:accesskey, onfocus, onblur, onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<legend>|</legend>~Legend
+@align
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:accesskey, onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<li>|</li>~List Item
+@type
+@value
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<link>~Link
+@charset
+@href
+@hreflang
+@media
+@rel
+@rev
+@target
+@type
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<map>|</map>~Map
+@id
+@name
+@STANDARD:class, title, style, dir, lang, xml:lang
+@EVENT:tabindex, accesskey, onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup, onfocus, onblur
+<mark>|</mark>~Mark (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<marquee>|</marquee>~Marquee
+@width
+@height
+@direction
+@behavior
+@scrolldelay
+@scrollamount
+@loop
+@bgcolor
+@hspace
+@vspace
+<menu>|</menu>~Menu
+@compact
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onfocus, onblur, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<meta>~Meta
+@content
+@http-equiv
+@name
+@scheme
+@STANDARD:dir, lang, xml:lang
+<meter>~</meter>~Meter (HTML 5)
+@high
+@low
+@max
+@min
+@optimum
+@value
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<nav>|</nav>~Nav (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<nobr>|</nobr>~No Break
+<noembed>|</noembed>~No Embed
+<noframes>|</noframes>~No Frames
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+<noscript>|</noscript>~No Script
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+<object>|</object>~Object
+@align
+@archive
+@border
+@classid
+@codebase
+@codetype
+@data
+@declare
+@height
+@hspace
+@name
+@standby
+@type
+@usemap
+@vspace
+@width
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:accesskey, tabindex, onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<ol>|</ol>~Ordered List
+@compact
+@start
+@type
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<optgroup>|</optgroup>~Option Group
+@label
+@disabled
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:tabindex, onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<option>~Option
+@disabled
+@label
+@selected
+@value
+@STANDARD:id, class, title, style, dir, lang, xml:lang, tabindex
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<output>|</output>~Output (HTML 5)
+@for
+@form
+@name
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<p>|</p>~Paragraph
+@align
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<param>~Parameter
+@name
+@type
+@value
+@valuetype
+@STANDARD:id
+<pre>|</pre>~Preformatted Text
+@width
+@STANDARD:id, class, title, style, dir, lang, xml:lang, xml:space
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<progress>|</progress>~Progress
+@max
+@value
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<q>|</q>~Quotation
+@cite
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<rp>|</rp>~rp (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<rt>|</rt>~rt (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<ruby>|</ruby>~ruby (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<s>|</s>~Strikeout
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<samp>|</samp>~Sample	 
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<script>|</script>~Script
+@type
+@charset
+@defer
+@language
+@src
+@STANDARD:xml:space
+<section>|</section>~Section (HTML 5)
+@cite
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<select>|</select>~Select
+@disabled
+@multiple
+@name
+@size
+@STANDARD:id, class, title, style, dir, lang, xml:lang, accesskey, tabindex
+@EVENT:onfocus, onblur, onchange
+<small>|</small>~Small
+@STANDARD:id, class, title, style, dir, lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown onkeyup
+<source>|</source>~Source (HTML 5)
+@media
+@src
+@type
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<spacer>~Spacer
+@type
+@align
+@size
+@width
+@height
+<span>|</span>~Span
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<strike>|</strike>~Strikeout
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<strong>|</strong>~Strong
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<style>|</style>~Style
+@type
+@media
+@STANDARD:title, dir, lang, xml:space
+<sub>|</sub>~Subscript
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<summary>|</summary>~Summary (HTML 5)
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<sup>|</sup>~Superscript
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<table>|</table>~Table
+@align
+@bgcolor
+@border
+@cellpadding
+@cellspacing
+@frame
+@rules
+@summary
+@width
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<tbody>|</tbody>~Table Body
+@align
+@char
+@charoff
+@valign
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<td>|</td>~Table Data
+@abbr
+@align
+@axis
+@bgcolor
+@char
+@charoff
+@colspan
+@headers
+@height
+@nowrap
+@rowspan
+@scope
+@valign
+@width
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<textarea>|</textarea>~Text Area
+@cols
+@rows
+@disabled
+@name
+@readonly
+@STANDARD:id, class, title, style, dir, lang, xml:lang, tabindex, accesskey
+@EVENT:onfocus, onblur, onselect, onchange, onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<tfoot>|</tfoot>~Table Footer Section
+@align
+@char
+@charoff
+@valign
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<th>|</th>~Table Header
+@abbr
+@align
+@axis
+@bgcolor
+@char
+@charoff
+@colspan
+@headers
+@height
+@nowrap
+@rowspan
+@scope
+@valign
+@width
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<thead>|</thead>~Table Header Section
+@align
+@char
+@charoff
+@valign
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<time>|</time>~Time (HTML 5)
+@datetime
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<title>|</title>~Title
+@STANDARD:id, class, dir, lang, style, xml:lang
+<tr>|</tr>~Table Row
+@align
+@bgcolor
+@char
+@charoff
+@valign
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<tt>|</tt>~Teletype
+@STANDARD:id, class, title, style, dir, lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown onkeyup
+<u>|</u>~Underline
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<ul>|</ul>~Unordered List
+@compact
+@type
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+<var>|</var>~Variable
+@STANDARD:id, class, title, style, dir, lang, xml:lang
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover
+<video>|</video>~Video (HTML 5)
+@autoplay
+@controls
+@height
+@loop
+@preload
+@src
+@width
+@STANDARD:accesskey,class,dir,id,lang,style,tabindex,title
+@EVENT:onclick, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+[END]

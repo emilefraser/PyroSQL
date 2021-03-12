@@ -1,0 +1,150 @@
+alert <Window>
+anchor <String>
+big <String>
+blink <String>
+blur <Window>
+bold <String>
+charAt <String>
+charCodeAt <String>
+clearInterval <Window>
+clearTimeout <Window>
+close <Window>
+compile <RegExp>
+concat <Array,String>
+confirm <Window>
+createPopup <Window>
+decodeURI
+decodeURIComponent
+document.close
+document.getElementById
+document.getElementsByName
+document.getElementsByTagName
+document.open
+document.write
+document.writeln
+encodeURI
+encodeURIComponent
+escape
+eval
+exec <RegExp>
+fixed <String>
+focus <Window>
+fontcolor <String>
+fontsize <String>
+fromCharCode <String>
+getDate <Date>
+getDay <Date>
+getFullYear <Date>
+getHours <Date>
+getMilliseconds <Date>
+getMinutes <Date>
+getMonth <Date>
+getSeconds <Date>
+getTime <Date>
+getTimezoneOffset <Date>
+getUTCDate <Date>
+getUTCDay <Date>
+getUTCFullYear <Date>
+getUTCHours <Date>
+getUTCMilliseconds <Date>
+getUTCMinutes <Date>
+getUTCMonth <Date>
+getUTCSeconds <Date>
+getYear <Date>
+history.back
+history.forward
+history.go
+indexOf <String>
+isFinite
+isNaN
+italics <String>
+join <Array>
+lastIndexOf <String>
+link <String>
+location.assign
+location.reload
+location.replace
+match <String>
+Math.abs
+Math.acos
+Math.asin
+Math.atan
+Math.atan2
+Math.ceil
+Math.cos
+Math.exp
+Math.floor
+Math.log
+Math.max
+Math.min
+Math.pow
+Math.random
+Math.round
+Math.sin
+Math.sqrt
+Math.tan
+Math.toSource
+Math.valueOf
+moveBy <Window>
+moveTo <Window>
+navigator.javaEnabled
+navigator.taintEnabled
+open <Window>
+parse <Date>
+parseFloat
+parseInt
+pop <Array>
+print <Window>
+prompt <Window>
+push <Array>
+replace <String>
+resizeBy <Window>
+resizeTo <Window>
+reverse <Array>
+scrollBy <Window>
+scrollTo <Window>
+search <String>
+setDate <Date>
+setFullYear <Date>
+setHours <Date>
+setInterval  <Window>
+setMilliseconds <Date>
+setMinutes <Date>
+setMonth <Date>
+setSeconds <Date>
+setTime <Date>
+setTimeout  <Window>
+setUTCDate <Date>
+setUTCFullYear <Date>
+setUTCHours <Date>
+setUTCMilliseconds <Date>
+setUTCMinutes <Date>
+setUTCMonth <Date>
+setUTCSeconds <Date>
+setYear <Date>
+shift <Array>
+slice <Array,String>
+small <String>
+sort <Array>
+splice <Array>
+split <String>
+strike <String>
+sub <String>
+substr <String>
+substring <String>
+sup <String>
+test <RegExp>
+toExponential <Number>
+toFixed <Number>
+toGMTString <Date>
+toLocaleString <Date>
+toLowerCase <String>
+toPrecision <Number>
+toSource
+toString
+toUTCString <Date>
+toUpperCase <String>
+unescape
+unshift <Array>
+UTC <Date>
+valueOf

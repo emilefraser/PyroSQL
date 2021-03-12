@@ -1,0 +1,9 @@
+CREATE TRIGGER employee_trigger
+ON Employee
+FOR INSERT 
+AS
+DECLARE @newssn VARCHAR(50)
+SELECT @newssn = (SELECT ssn FROM Inserted)
+BEGIN
+	INSERT INTO Employee_Trigger_Test values (@newssn)
+END

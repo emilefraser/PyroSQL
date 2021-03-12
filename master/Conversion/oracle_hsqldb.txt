@@ -1,0 +1,21 @@
+varchar*,VARCHAR,-1
+nvarchar*,VARCHAR,-1
+char*,CHARACTER,-1
+nchar*,CHARACTER,-1
+number*,DECIMAL,-1
+*float,FLOAT,-1
+*double,DOUBLE-1
+date*,TIMESTAMP,-1
+timestamp*,TIMESTAMP,-1
+long raw,LONGVARBINARY,-1
+*raw,LONGVARBINARY,-1
+long,VARCHAR,-1
+int*,DECIMAL,-1
+interval*,VARCHAR,100
+real*,FLOAT,-1
+*rowid,CHAR,18
+*blob,LONGVARBINARY,-1
+*nclob,VARCHAR,2147483647
+*clob,VARCHAR,2147483647
+decimal,numeric,-1
+xmltype,VARCHAR,2147483647

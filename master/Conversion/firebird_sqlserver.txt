@@ -1,0 +1,15 @@
+bigint,bigint,-1
+char*,char,-1
+date,date,NONE
+decimal*,decimal,-1
+*numeric,numeric,-1
+*double,double,-1
+*float,float,-1
+int*,int,-1
+smallint,int,-1
+time,time,NONE
+*timestamp,varchar,30,null
+*varchar,varchar,-1
+blob sub_type 0,varbinary,max
+blob sub_type 1,varbinary,max
+blob*,varbinary,max

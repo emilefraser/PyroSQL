@@ -1,0 +1,17 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[TaskHosting].[Schedule]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [TaskHosting].[Schedule](
+	[ScheduleId] [int] IDENTITY(1,1) NOT NULL,
+	[FreqType] [int] NOT NULL,
+	[FreqInterval] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ScheduleId] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO

@@ -1,0 +1,2 @@
+CREATE FUNCTION get_salary (varchar(25)) RETURNS integer AS 'SELECT salary FROM employee WHERE ssn = $1; ' 
+	LANGUAGE SQL;

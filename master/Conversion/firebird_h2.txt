@@ -1,0 +1,15 @@
+bigint,BIGINT,-1
+char*,CHARACTER,-1
+date,DATE,-1
+decimal*,DECIMAL,-1
+*numeric,DECIMAL,-1
+*double,DOUBLE,-1
+*float,FLOAT,-1
+int*,INTEGER,-1
+smallint,INTEGER,-1
+time,TIME,-1
+*timestamp,TIMESTAMP,-1,null
+*varchar,VARCHAR,-1
+blob sub_type 0,LONGVARBINARY,-1
+blob sub_type 1,LONGVARBINARY,-1
+blob*,LONGVARBINARY,-1

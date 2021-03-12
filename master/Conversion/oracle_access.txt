@@ -1,0 +1,21 @@
+varchar*,varchar,-1
+nvarchar*,varchar,-1
+char*,char,-1
+nchar*,char,-1
+number*,numeric,-1
+*float,float,-1
+*double,double,-1
+date*,datetime,-1
+timestamp*,datetime,-1
+long raw,longbinary,-1
+*raw,longbinary,-1
+long,longtext,-1
+int*,integer,-1
+interval*,varchar,50
+real*,float,-1
+*rowid,char,18
+*blob,longbinary,-1
+*nclob,longtext,-1
+*clob,longtext,-1
+decimal,numeric,-1
+xmltype,longtext,-1

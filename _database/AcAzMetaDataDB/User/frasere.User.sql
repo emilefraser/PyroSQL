@@ -1,0 +1,2 @@
+CREATE USER [frasere] WITH DEFAULT_SCHEMA=[adf]
+GO

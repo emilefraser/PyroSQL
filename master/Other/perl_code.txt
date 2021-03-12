@@ -1,0 +1,744 @@
+fn: chomp
+fs: chomp VARIABLE or chomp LIST
+fd: remove a trailing record separator from a string
+pt: String
+fn: chop
+fs: chop VARIABLE or chop LIST
+fd: remove the last character from a string
+pt: String
+fn: chr
+fs: chr NUMBER
+fd: Returns the character represented by that NUMBER in the character set.
+pt: String
+fn: crypt
+fs: crypt PLAINTEXT,SALT
+fd: Encrypts a string
+pt: String
+fn: lc
+fs: lc EXPR
+fd: Returns an lowercased version of EXPR.
+pt: String
+fn: lcfirst
+fs: lcfirst EXPR
+fd: Returns the value of EXPR with the first character lowercased.
+pt: String
+fn: length
+fs: length EXPR
+fd: Returns the length in bytes of the value of EXPR.
+pt: String
+fn: ord
+fs: ord EXPR
+fd: Returns the numeric ascii value of the first character of EXPR.
+pt: String
+fn: pack
+fs: pack TEMPLATE,LIST
+fd: convert a list into a binary representation
+pt: String
+fn: reverse
+fs: reverse LIST
+fd: flip a string or a list
+pt: String
+fn: rindex
+fs: rindex STR,SUBSTR,POSITION or rindex STR,SUBSTR
+fd: right-to-left substring search
+pt: String
+fn: sprintf
+fs: sprintf FORMAT, LIST
+fd: formatted print into a string
+pt: String
+fn: substr
+fs: substr EXPR,OFFSET or substr EXPR,OFFSET,LEN or substr EXPR,OFFSET,LEN,REPLACEMENT
+fd: get or alter a portion of a string
+pt: String
+fn: uc
+fs: uc EXPR
+fd: returns upper case version of string
+pt: String
+fn: ucfirst
+fs: ucfirst EXPR
+fd: Returns the value of EXPR with the first character uppercased.
+pt: String
+fn: vec
+fs: vec EXPR,OFFSET,BITS
+fd: Treats the string in EXPR as a vector of unsigned integers, and returns the value of the bit field specified by OFFSET
+pt: String
+fn: pos
+fs: pos SCALAR
+fd: find or set the offset for the last/next m//g search
+pt: Regular Expression
+fn: quotemeta
+fs: quotemeta EXPR
+fd: Returns the value of EXPR with all non-alphanumeric characters backslashed.
+pt: Regular Expression
+fn: split
+fs: split /PATTERN/,EXPR,LIMIT or split /PATTERN/,EXPR or split /PATTERN/
+fd: Splits a string into an array of strings, and returns it.
+pt: Regular Expression
+fn: study
+fs: study SCALAR
+fd: Takes extra time to study SCALAR ($_ if unspecified) in anticipation of doing many pattern matches on the string before it is next modified.
+pt: Regular Expression
+fn: abs
+fs: abs VALUE
+fd: Returns the absolute value of its argument.
+pt: Numeric
+fn: atan2
+fs: atan2 Y,X
+fd: Returns the arctangent of Y/X in the range -PI to PI.
+pt: Numeric
+fn: cos
+fs: cos EXPR
+fd: Returns the cosine of EXPR (expressed in radians).
+pt: Numeric 
+fn: exp
+fs: exp EXPR
+fd: Returns e (the natural logarithm base) to the power of EXPR. 
+pt: Numeric
+fn: hex
+fs: hex EXPR
+fd: Interprets EXPR as a hex string and returns the corresponding value. 
+pt: Numeric
+fn: int
+fs: int EXPR
+fd: Returns the integer portion of EXPR.
+pt: Numeric
+fn: log
+fs: log EXPR
+fd: Returns the natural logarithm (base e) of EXPR.
+pt: Numeric
+fn: oct
+fs: oct EXPR
+fd: Interprets EXPR as an octal string and returns the corresponding value.
+pt: Numeric
+fn: rand
+fs: rand EXPR
+fd: Returns a random fractional number greater than or equal to 0 and less than the value of EXPR.
+pt: Numeric
+fn: sin
+fs: sin EXPR
+fd: Returns the sine of EXPR (expressed in radians).
+pt: Numeric
+fn: sqrt
+fs: sqrt EXPR
+fd: Return the square root of EXPR.
+pt: Numeric
+fn: srand
+fs: srand EXPR
+fd: Sets the random number seed for the rand() operator.
+pt: Numeric
+fn: pop
+fs: pop ARRAY
+fd: Pops and returns the last value of the array, shortening the array by 1.
+pt: Array
+fn: push
+fs: push ARRAY,LIST
+fd: Treats ARRAY as a stack, and pushes the values of LIST onto the end of ARRAY.
+pt: Array
+fn: shift
+fs: shift ARRAY
+fd: Shifts the first value of the array off and returns it, shortening the array by 1 and moving everything down.
+pt: Array
+fn: splice
+fs: splice ARRAY,OFFSET or splice ARRAY,OFFSET,LENGTH or splice ARRAY,OFFSET,LENGTH,LIST
+fd: Removes the elements designated by OFFSET and LENGTH from an array, and replaces them with the elements of LIST, if any. 
+pt: Array
+fn: unshift
+fs: unshift ARRAY,LIST
+fd: repends list to the front of the array, and returns the new number of elements in the array.
+pt: Array
+fn: grep
+fs: grep BLOCK LIST or grep EXPR,LIST
+fd: Evaluates the BLOCK or EXPR for each element of LIST (locally setting $_ to each element) and returns the list value consisting of those elements for which the expression evaluated to TRUE.
+pt: List
+fn: join
+fs: join EXPR,LIST
+fd: Joins the separate strings of LIST into a single string with fields separated by the value of EXPR, and returns the string.
+pt: List
+fn: map
+fs: map BLOCK LIST or map EXPR,LIST
+fd: Evaluates the BLOCK or EXPR for each element of LIST (locally setting $_ to each element) and returns the list value composed of the results of each such evaluation. 
+pt: List
+fn: reverse
+fs: reverse LIST
+fd: In list context, returns a list value consisting of the elements of LIST in the opposite order. In scalar context, concatenates the elements of LIST, and returns a string value consisting of those bytes, but in the opposite order.
+pt: List
+fn: sort
+fs: sort LIST or sort BLOCK LIST or sort SUBNAME LIST
+fd: Sorts the LIST and returns the sorted list value. 
+pt: List
+fn: unpack
+fs: upack TEMPLATE,EXPR
+fd: Takes a string representing a structure and expands it out into a list value, returning the array value.
+pt: List
+fn: delete
+fs: delete EXPR
+fd: Deletes the specified key(s) and their associated values from a hash. 
+pt: Hash
+fn: each
+fs: each HASH
+fd: When called in list context, returns a 2-element list consisting of the key and value for the next element of a hash, so that you can iterate over it. When called in scalar context, returns the key for only the next element in the hash.
+pt: Hash
+fn: exists
+fs: exists EXPR
+fd: Returns TRUE if the specified hash key exists in its hash array, even if the corresponding value is undefined.
+pt: Hash
+fn: keys
+fs: keys HASH
+fd: Returns a list consisting of all the keys of the named hash.
+pt: Hash
+fn: values
+fs: values HASH
+fd: Returns a list consisting of all the values of the named hash. 
+pt: Hash
+fn: binmode
+fs: binmode FILEHANDLE
+fd: Arranges for the file to be read or written in binary mode in operating systems that distinguish between binary and text files. 
+pt: Input / Output
+fn: close
+fs: close FILEHANDLE
+fd: Closes the file or pipe associated with the file handle, returning TRUE only if stdio successfully flushes buffers and closes the system file descriptor. 
+pt: Input / Output
+fn: closedir
+fs: closedir DIRHANDLE
+fd: Closes a directory opened by opendir() and returns the success of that system call.
+pt: Input / Output
+fn: dbmclose
+fs: dbmclose HASH
+fd: Breaks the binding between a DBM file and a hash.
+pt: Input / Output
+fn: dbmopen
+fs: dbmopen HASH,DBNAME,MODE
+fd: This binds a dbm(3), ndbm(3), sdbm(3), gdbm(3), or Berkeley DB file to a hash. 
+pt: Input / Output
+fn: die
+fs: die LIST
+fd: Outside an eval(), prints the value of LIST to STDERR and exits with the current value of $! (errno). If $! is 0, exits with the value of ($? >> 8) (backtick `command` status). If ($? >> 8) is 0, exits with 255. Inside an eval(), the error message is stuffed into $@ and the eval() is terminated with the undefined value. 
+pt: Input / Output
+fn: eof
+fs: eof FILEHANDLE
+fd: Returns 1 if the next read on FILEHANDLE will return end of file, or if FILEHANDLE is not open.
+pt: Input / Output
+fn: fileno
+fs: fileno FILEHANDLE
+fd: Returns the file descriptor for a filehandle. 
+pt: Input / Output
+fn: flock
+fs: flock FILEHANDLE,OPERATION
+fd: Calls flock(2), or an emulation of it, on FILEHANDLE. Returns TRUE for success, FALSE on failure.
+pt: Input / Output
+fn: format
+fs: format
+fd: Declare a picture format for use by the write() function. 
+pt: Input / Output
+fn: getc
+fs: getc FILEHANDLE
+fd: Returns the next character from the input file attached to FILEHANDLE, or the undefined value at end of file, or if there was an error.
+pt: Input / Output
+fn: print
+fs: print FILEHANDLE LIST
+fd: Prints a string or a comma-separated list of strings. Returns TRUE if successful.
+pt: Input / Output
+fn: printf
+fs: printf FILEHANDLE,FORMAT,LIST or printf FORMAT,LIST
+fd: 
+pt: Input / Output
+fn: read
+fs: read FILEHANDLE,SCALAR,LENGTH or read FILEHANDLE,SCALAR,LENGTH,OFFSET
+fd: Attempts to read LENGTH bytes of data into variable SCALAR from the specified FILEHANDLE.
+pt: Input / Output
+fn: readdir
+fs: readdir DIRHANDLE
+fd: Returns the next directory entry for a directory opened by opendir(). 
+pt: Input / Output
+fn: rewinddir
+fs: rewinddir DIRHANDLE
+fd: Sets the current position to the beginning of the directory for the readdir() routine on DIRHANDLE.
+pt: Input / Output
+fn: seek
+fs: seek FILEHANDLE,POSITION,WHENCE
+fd: Sets FILEHANDLE's position
+pt: Input / Output
+fn: seekdir
+fs: seekdir DIRHANDLE,POS
+fd: Sets the current position for the readdir() routine on DIRHANDLE.
+pt: Input / Output
+fn: select
+fs: select FILEHANDLE or select RBITS,WBITS,EBITS,TIMEOUT
+fd: Returns the currently selected filehandle. 
+pt: Input / Output
+fn: syscall
+fs: syscall LIST
+fd: Calls the system call specified as the first element of the list, passing the remaining elements as arguments to the system call.
+pt: Input / Output
+fn: sysread
+fs: sysread FILEHANDLE,SCALAR,LENGTH or sysread FILEHANDLE,SCALAR,LENGTH,OFFSET
+fd: Attempts to read LENGTH bytes of data into variable SCALAR from the specified FILEHANDLE, using the system call read(2).
+pt: Input / Output
+fn: sysseek
+fs: 
+fd: 
+pt: Input / Output
+fn: syswrite
+fs: syswrite FILEHANDLE,SCALAR,LENGTH or syswrite FILEHANDLE,SCALAR,LENGTH,OFFSET
+fd: Attempts to write LENGTH bytes of data from variable SCALAR to the specified FILEHANDLE, using the system call write(2).
+pt: Input / Output
+fn: tell
+fs: tell FILEHANDLE
+fd: Returns the current position for FILEHANDLE. 
+pt: Input / Output
+fn: telldir
+fs: telldir DIRHANDLE
+fd: Returns the current position of the readdir() routines on DIRHANDLE. 
+pt: Input / Output
+fn: truncate
+fs: truncate FILEHANDLE,LENGTH or truncate EXPR,LENGTH
+fd: Truncates the file opened on FILEHANDLE, or named by EXPR, to the specified length.
+pt: Input / Output
+fn: warn
+fs: warn LIST
+fd: Produces a message on STDERR just like die(), but doesn't exit or throw an exception.
+pt: Input / Output
+fn: write
+fs: write FILEHANDLE or write EXPR
+fd: Writes a formatted record (possibly multi-line) to the specified FILEHANDLE, using the format associated with that file.
+pt: Input / Output
+fn: chdir
+fs: chdir EXPR
+fd: Changes the working directory to EXPR, if possible. If EXPR is omitted, changes to home directory. Returns TRUE upon success, FALSE otherwise.
+pt: File
+fn: chmod
+fs: chmod LIST
+fd: Changes the permissions of a list of files. 
+pt: File
+fn: chown
+fs: chown LIST
+fd: Changes the owner (and group) of a list of files.
+pt: File
+fn: chroot
+fs: chroot FILENAME
+fd: Makes the named directory the new root directory for all further pathnames that begin with a "/" by your process and all its children.
+pt: File
+fn: fcntl
+fs: fcntl FILEHANDLE,FUNCTION,SCALAR
+fd: 
+pt: File
+fn: glob
+fs: glob EXPR
+fd: Returns the value of EXPR with filename expansions such as the standard Unix shell /bin/sh would do. 
+pt: File
+fn: ioctl
+fs: ioctl FILEHANDLE,FUNCTION,SCALAR
+fd: 
+pt: File
+fn: link
+fs: link OLDFILE,NEWFILE
+fd: Creates a new filename linked to the old filename. Returns TRUE for success, FALSE otherwise.
+pt: File
+fn: lstat
+fs: lstat EXPR or lstat FILEHANDLE
+fd: 
+pt: File
+fn: mkdir
+fs: mkdir FILENAME,MODE
+fd: Creates the directory specified by FILENAME, with permissions specified by MODE (as modified by umask). If it succeeds it returns TRUE, otherwise it returns FALSE and sets $! (errno).
+pt: File
+fn: open
+fs: open FILEHANDLE or open FILEHANDLE,EXPR
+fd: Opens the file whose filename is given by EXPR, and associates it with FILEHANDLE.
+pt: File
+fn: opendir
+fs: opendir DIRHANDLE,EXPR
+fd: Opens a directory named EXPR for processing by readdir(), telldir(), seekdir(), rewinddir(), and closedir(). Returns TRUE if successful. 
+pt: File
+fn: readlink
+fs: readlink EXPR
+fd: Returns the value of a symbolic link, if symbolic links are implemented. If not, gives a fatal error. 
+pt: File
+fn: rename
+fs: rename OLDNAME,NEWNAME
+fd: Changes the name of a file. Returns 1 for success, 0 otherwise. 
+pt: File
+fn: rmdir
+fs: rmdir FILENAME
+fd: Deletes the directory specified by FILENAME if that directory is empty. If it succeeds it returns TRUE, otherwise it returns FALSE and sets $! (errno). 
+pt: File
+fn: stat
+fs: stat FILEHANDLE or stat EXPR
+fd: Returns a 13-element list giving the status info for a file, either the file opened via FILEHANDLE, or named by EXPR. 
+pt: File
+fn: symlink
+fs: symlink OLDFILE,NEWFILE
+fd: Creates a new filename symbolically linked to the old filename. Returns 1 for success, 0 otherwise. 
+pt: File
+fn: umask
+fs: umask EXPR
+fd: Sets the umask for the process to EXPR and returns the previous value. 
+pt: File
+fn: unlink
+fs: unlink LIST
+fd: Deletes a list of files. Returns the number of files successfully deleted.
+pt: File
+fn: utime
+fs: utime LIST
+fd: Changes the access and modification times on each file of a list of files. The first two elements of the list must be the NUMERICAL access and modification times, in that order. Returns the number of files successfully changed.
+pt: File
+fn: bless
+fs: bless REF or bless REF,CLASSNAME
+fd: This function tells the thingy referenced by REF that it is now an object in the CLASSNAME package--or the current package if no CLASSNAME is specified
+pt: Miscellaneous
+fn: caller
+fs: caller EXPR
+fd: Returns the context of the current subroutine call. 
+pt: Miscellaneous
+fn: defined
+fs: defined EXPR
+fd: Returns a Boolean value telling whether EXPR has a value other than the undefined value undef. 
+pt: Miscellaneous
+fn: dump
+fs: dump LABEL
+fd: This causes an immediate core dump.
+pt: Miscellaneous
+fn: eval
+fs: eval EXPR or eval BLOCK
+fd: The value returned is the value of the last expression evaluated
+pt: Miscellaneous
+fn: exit
+fs: exit EXPR
+fd: Evaluates EXPR and exits immediately with that value. 
+pt: Miscellaneous
+fn: formline
+fs: formline PICTURE,LIST
+fd: This is an internal function used by formats
+pt: Miscellaneous
+fn: local
+fs: local EXPR
+fd: A local modifies the listed variables to be local to the enclosing block, file, or eval. 
+pt: Miscellaneous
+fn: my
+fs: my EXPR
+fd: A my() declares the listed variables to be local (lexically) to the enclosing block, file, or eval(). 
+pt: Miscellaneous
+fn: ref
+fs: ref EXPR
+fd: Returns a TRUE value if EXPR is a reference, FALSE otherwise.
+pt: Miscellaneous
+fn: reset
+fs: reset EXPR 
+fd: clear all variables of a given name
+pt: Miscellaneous
+fn: scalar
+fs: scalar EXPR
+fd: Forces EXPR to be interpreted in scalar context and returns the value of EXPR.
+pt: Miscellaneous
+fn: tie
+fs: tie VARIABLE,CLASSNAME,LIST
+fd: bind a variable to an object class
+pt: Miscellaneous
+fn: tied
+fs: tied
+fd: 
+pt: Miscellaneous
+fn: undef
+fs: undef EXPR
+fd: Undefines the value of EXPR, which must be an lvalue. 
+pt: Miscellaneous
+fn: untie
+fs: untie VARIABLE
+fd: Breaks the binding between a variable and a package.
+pt: Miscellaneous
+fn: wantarray
+fs: wantarray
+fd: Returns TRUE if the context of the currently executing subroutine is looking for a list value. Returns FALSE if the context is looking for a scalar. Returns the undefined value if the context is looking for no value (void context).
+pt: Miscellaneous
+fn: alarm
+fs: alarm SECONDS
+fd: Arranges to have a SIGALRM delivered to this process after the specified number of seconds have elapsed.
+pt: Process
+fn: exec
+fs: exec LIST or exec PROGRAM LIST
+fd: The exec() function executes a system command AND NEVER RETURNS
+pt: Process
+fn: fork
+fs: fork
+fd: create a new process just like this one
+pt: Process
+fn: getpgrp
+fs: getpgrp PID
+fd: Returns the current process group for the specified PID.
+pt: Process
+fn: getppid
+fs: getppid
+fd: Returns the process id of the parent process.
+pt: Process
+fn: getpriority
+fs: getpriority WHICH,WHO
+fd: Returns the current priority for a process, a process group, or a user. 
+pt: Process
+fn: kill
+fs: kill LIST
+fd: Sends a signal to a list of processes. 
+pt: Process
+fn: pipe
+fs: pipe READHANDLE,WRITEHANDLE
+fd: Opens a pair of connected pipes like the corresponding system call.
+pt: Process
+fn: setpgrp
+fs: setpgrp PID,PGRP
+fd: Sets the current process group for the specified PID, 0 for the current process. 
+pt: Process
+fn: setpriority
+fs: setpriority WHICH,WHO,PRIORITY
+fd: Sets the current priority for a process, a process group, or a user. 
+pt: Process
+fn: sleep
+fs: sleep EXPR
+fd: Causes the script to sleep for EXPR seconds, or forever if no EXPR. 
+pt: Process
+fn: system
+fs: system LIST or system PROGRAM LIST
+fd: run a separate program
+pt: Process
+fn: times
+fs: times
+fd: Returns a four-element list giving the user and system times, in seconds, for this process and the children of this process.
+pt: Process
+fn: wait
+fs: wait
+fd: Waits for a child process to terminate and returns the pid of the deceased process, or -1 if there are no child processes. The status is returned in $?.
+pt: Process
+fn: waitpid
+fs: waitpid PID,FLAGS
+fd: Waits for a particular child process to terminate and returns the pid of the deceased process, or -1 if there is no such child process. The status is returned in $?.
+pt: Process
+fn: accept
+fs: accept NEWSOCKET,GENERICSOCKET
+fd: Accepts an incoming socket connect
+pt: Socket
+fn: bind
+fs: bind SOCKET,NAME
+fd: Binds a network address to a socket, just as the bind system call does. Returns TRUE if it succeeded, FALSE otherwise. 
+pt: Socket
+fn: connect
+fs: connect SOCKET,NAME
+fd: Attempts to connect to a remote socket, just as the connect system call does. Returns TRUE if it succeeded, FALSE otherwise.
+pt: Socket
+fn: getpeername
+fs: getpeername SOCKET
+fd: Returns the packed sockaddr address of other end of the SOCKET connection.
+pt: Socket
+fn: getsockname
+fs: getsockname SOCKET
+fd: Returns the packed sockaddr address of this end of the SOCKET connection.
+pt: Socket
+fn: getsockopt
+fs: getsockopt SOCKET,LEVEL,OPTNAME
+fd: Returns the socket option requested, or undef if there is an error.
+pt: Socket
+fn: listen
+fs: listen SOCKET,QUEUESIZE
+fd: Does the same thing that the listen system call does. Returns TRUE if it succeeded, FALSE otherwise.
+pt: Socket
+fn: recv
+fs: recv SOCKET,SCALAR,LEN,FLAGS
+fd: Receives a message on a socket. Attempts to receive LENGTH bytes of data into variable SCALAR from the specified SOCKET filehandle.
+pt: Socket
+fn: send
+fs: send SOCKET,MSG,FLAGS or send SOCKET,MSG,FLAGS,TO
+fd: Sends a message on a socket.
+pt: Socket
+fn: setsockopt
+fs: setsockopt SOCKET,LEVEL,OPTNAME,OPTVAL
+fd: Sets the socket option requested. Returns undefined if there is an error.
+pt: Socket
+fn: shutdown
+fs: shutdown SOCKET,HOW
+fd: Shuts down a socket connection in the manner indicated by HOW
+pt: Socket
+fn: socket
+fs: socket SOCKET,DOMAIN,TYPE,PROTOCOL
+fd: Opens a socket of the specified kind and attaches it to filehandle 
+pt: Socket
+fn: socketpair
+fs: socketpair SOCKET1,SOCKET2,DOMAIN,TYPE,PROTOCOL
+fd: Creates an unnamed pair of sockets in the specified domain, of the specified type.
+pt: Socket
+fn: msgctl
+fs: msgctl ID,CMD,ARG
+fd: 
+pt: System V
+fn: msgget
+fs: msgget KEY,FLAGS
+fd: 
+pt: System V
+fn: msgrcv
+fs: msgrcv ID,VAR,SIZE,TYPE,FLAGS
+fd: 
+pt: System V
+fn: msgsnd
+fs: msgsnd ID,MSG,FLAGS
+fd: 
+pt: System V
+fn: semctl
+fs: semctl ID,SEMNUM,CMD,ARG
+fd: 
+pt: System V
+fn: semget
+fs: semget KEY,NSEMS,FLAGS
+fd: 
+pt: System V
+fn: semop
+fs: semop KEY,OPSTRING
+fd: 
+pt: System V
+fn: shmctl
+fs: shmctl ID,CMD,ARG
+fd: 
+pt: System V
+fn: shmget
+fs: shmget KEY,SIZE,FLAGS
+fd: 
+pt: System V
+fn: shmread
+fs: shmread ID,VAR,POS,SIZE
+fd: 
+pt: System V
+fn: shmwrite
+fs: shmwrite ID,STRING,POS,SIZE
+fd: 
+pt: System V
+fn: endgrent
+fs: 
+fd: 
+pt: User and Group Info
+fn: endhostent
+fs: 
+fd: 
+pt: User and Group Info
+fn: endnetent
+fs: 
+fd: 
+pt: User and Group Info
+fn: endpwent
+fs: 
+fd: 
+pt: User and Group Info
+fn: getgrent
+fs: 
+fd: 
+pt: User and Group Info
+fn: getgrgid
+fs: 
+fd: 
+pt: User and Group Info
+fn: getgrnam
+fs: 
+fd: 
+pt: User and Group Info
+fn: getlogin
+fs: 
+fd: 
+pt: User and Group Info
+fn: getpwent
+fs: 
+fd: 
+pt: User and Group Info
+fn: getpwnam
+fs: 
+fd: 
+pt: User and Group Info
+fn: getpwuid
+fs: 
+fd: 
+pt: User and Group Info
+fn: setgrent
+fs: 
+fd: 
+pt: User and Group Info
+fn: setpwent
+fs: 
+fd: 
+pt: User and Group Info
+fn: endprotoent
+fs: 
+fd: 
+pt: Network Info
+fn: endservent
+fs: 
+fd: 
+pt: Network Info
+fn: gethostbyaddr
+fs: 
+fd: 
+pt: Network Info
+fn: gethostbyname
+fs: 
+fd: 
+pt: Network Info
+fn: gethostent
+fs: 
+fd: 
+pt: Network Info
+fn: getnetbyaddr
+fs: 
+fd: 
+pt: Network Info
+fn: getnetbyname
+fs: 
+fd: 
+pt: Network Info
+fn: getnetent
+fs: 
+fd: 
+pt: Network Info
+fn: getprotobyname
+fs: 
+fd: 
+pt: Network Info
+fn: getprotobynumber
+fs: 
+fd: 
+pt: Network Info
+fn: getprotoent
+fs: 
+fd: 
+pt: Network Info
+fn: getservbyname
+fs: 
+fd: 
+pt: Network Info
+fn: getservbyport
+fs: 
+fd: 
+pt: Network Info
+fn: getservent
+fs: 
+fd: 
+pt: Network Info
+fn: sethostent
+fs: 
+fd: 
+pt: Network Info
+fn: setnetent
+fs: 
+fd: 
+pt: Network Info
+fn: setprotoent
+fs: 
+fd: 
+pt: Network Info
+fn: setservent
+fs: 
+fd: 
+pt: Network Info
+fn: gmtime
+fs: gmtime EXPR
+fd: Converts a time as returned by the time function to a 9-element array with the time localized for the standard Greenwich time zone.
+pt: Time
+fn: localtime
+fs: localtime EXPR
+fd: Converts a time as returned by the time function to a 9-element array with the time analyzed for the local time zone.
+pt: Time
+fn: time
+fs: time
+fd: Returns the number of non-leap seconds since whatever time the system considers to be the epoch
+pt: Time

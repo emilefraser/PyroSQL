@@ -1,0 +1,20 @@
+varchar*,VARCHAR,-1
+nvarchar*,VARCHAR,-1
+char*,CHAR,-1
+nchar*,CHAR,-1
+number*,DECIMAL,-1
+*float,FLOAT,-1
+*double,DOUBLE-1
+date*,datetime,-1
+timestamp*,TIMESTAMP,-1
+*raw,BLOB,-1
+*blob,LONGBLOB,-1
+*clob,LONGTEXT,-1
+long raw,LONGBLOB,-1
+long,LONGTEXT,-1
+int*,DECIMAL,-1
+interval*,TIMESTAMP,-1
+real*,FLOAT,-1
+*rowid,CHAR,18
+decimal,numeric,-1
+xmltype,LONGTEXT,-1

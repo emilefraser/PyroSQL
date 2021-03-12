@@ -1,0 +1,7 @@
+ingres=http://esd.ingres.com/product/Community_Projects/Drivers/java/JDBC
+teradata=http://downloads.teradata.com/download/connectivity/jdbc-driver
+mimer sql=http://developer.mimer.com/downloads/index.htm
+pervasive=http://www.pervasivedb.com/support/Pages/PSQLSDK-Archives.aspx
+h2=http://www.h2database.com/
+frontbase=http://www.frontbase.com/cgi-bin/WebObjects/FBWebSite.woa
+openbase=http://www.openbase.com/index.php/home/tag/JDBC

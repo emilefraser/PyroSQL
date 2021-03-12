@@ -1,0 +1,15 @@
+*int,int,-1
+*varchar,varchar,-1
+*char,char,-1
+*text,varchar,max
+*clob,varchar,max
+*real,float,-1
+*float,float,-1
+*double,float,53
+*numeric,decimal,-1
+*decimal,decimal,-1
+*blob,varbinary,max
+*binary,varbinary,max
+*date,varchar,25
+*boolean,varchar,4
+*image,image,-1

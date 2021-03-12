@@ -1,0 +1,109 @@
+postgresql:name=ssl;value=true;value=false;default_value= !!The PostgreSQL server must be configured to use SSL for this to work correctly.
+postgresql:name=sslfactory;value=org.postgresql.ssl.NonValidatingFactory;value=org.postgresql.ssl.DefaultJavaSSLFactory;default_value= !!Use this option to forego certificate validation, i.e. if using self-signed certificates.
+postgresql:name=charSet;value= ;default_value= !!The character set used for sending or receiving data
+postgresql:name=tcpKeepAlive;value=true;value=false;default_value= !!Keep the network connection alive
+mysql:name=autoReconnect;value=true;value=false;default_value=true!!Set to true to tell the driver to re-establish stale or dead connections.
+mysql:name=useCompression;value=true;value=false;default_value= !!Set to true to use zlib compression when communicating with the server.
+mysql:name=noDatetimeStringSync;value=true;value=false;default_value=true!!Set to true to allow driver to handle all zero date time values without throwing an error.
+mysql:name=useSSL;value=true;value=false;default_value= !!Set to true to connect using SSL. Requires an SSL enabled database.
+mysql:name=verifyServerCertificate;value=true;value=false;default_value= !!Set to false to bypass certificate verfication.
+mysql:name=useUnicode;value=true;value=false;default_value= !!Set to true, especially when using an encoding such as UTF-8
+mysql:name=characterEncoding;value=UTF-8;default_value= !!Set to override the server default character encoding. Set useUnicode to true and characterEncoding to UTF-8 to insert UTF8 characters
+mysql:name=useCursorFetch;value=true;value=false;default_value=true!!Set to stream result sets instead of pulling entire result set over the network
+mariadb:name=autoReconnect;value=true;value=false;default_value=true!!Set to true to tell the driver to re-establish stale or dead connections.
+mariadb:name=serverSslCert;value= ;default_value= !!full path to certificate pem file
+mariadb:name=useCompression;value=true;value=false;default_value= !!Set to true to use zlib compression when communicating with the server.
+mariadb:name=useSSL;value=true;value=false;default_value= !!Set to true to connect using SSL. Requires an SSL enabled database.
+mariadb:name=trustServerCertificate;value=true;value=false;default_value= !!Set to true to bypass certificate verfication.
+microsoft sql server:name=bindAddress;value= ;default_value= !!Specifies the local IP address to bind to for outgoing TCP/IP connections to the database.
+microsoft sql server:name=instance;value= ;default_value= !!Named instance to connect to.
+microsoft sql server:name=ssl;value=off;value=request;value=require;value=authenticate;default_value= !!Specifies if and how to use SSL for secure communication.
+microsoft sql server:name=appName;value=RazorSQL;default_value=RazorSQL!!Application Name
+microsoft sql server:name=useCursors;value=true;default_value=true!!Use Server-side cursors instead of direct selects
+microsoft sql server:name=namedPipe;value=true;value=false;default_value= !!Use Named Pipes for communication instead of TCP/IP
+microsoft sql server:name=charset;value= ;default_value= !!Determines byte value to character mapping for char, varchar, and text
+microsoft sql server:name=useNTLMv2;value=true;value=false;default_value= !!Determines what version of NTLM protocol to use for Windows domain sign-on
+mssqlserver:name=authenticationScheme;value=NativeAuthentication;value=JavaKerberos;default_value= !!<HTML><BODY>Indicates which kind of integrated security to use. <BR>For JavaKerberos, the fully-qualified domain name must be set in the serverName property.</BODY></HTML>
+mssqlserver:name=encrypt;value=true;value=false;default_value= !!Set to "true" to specify that the SQL Server uses Secure Sockets Layer (SSL) encryption 
+mssqlserver:name=hostNameInCertificate;value= ;default_value= !!See http://technet.microsoft.com/en-us/library/ms378988.aspx for more information
+mssqlserver:name=instanceName;value= ;default_value= !!The SQL Server instance name to connect to. When it is not specified, a connection is made to the default instance.
+mssqlserver:name=integratedSecurity;value=true;value=false;default_value= !!Set to "true" to indicate that Windows credentials will be used by SQL Server to authenticate the user of the application.
+mssqlserver:name=selectMethod;value=direct;value=cursor;default_value=cursor!!Determines whether a database cursor is issued for each query
+mssqlserver:name=serverName;value= ;default_value= !!The computer running SQL Server.
+mssqlserver:name=trustServerCertificate;value=true;value=false;default_value=true!!Set to "true" to specify that the Microsoft JDBC Driver for SQL Server will not validate the SQL Server SSL certificate.
+mssqlserver:name=authentication;value=ActiveDirectoryIntegrated;value=ActiveDirectoryPassword;value=SqlPassword;default_value= !!Use this property to indicate which SQL authentication method to use for connection
+mssqlserver:name=columnEncryptionSetting;value=Enabled;value=Disabled;default_value= !!Set columnEncryptionSetting to Enabled if querying against tables with encrypted columns
+mssqlserver:name=keyStoreAuthentication;default_value= !!Identifies the Java Key Store to use if using the Java Keystore provider for column encyrption
+mssqlserver:name=keyStoreLocation;default_value= !!The path to the Java Key Store file that stores the column master key. The path includes the keystore filename
+mssqlserver:name=keyStoreSecret;default_value= !!The secret/password to use for the keystore as well as for the key. For using the Java Key Store, the keystore and the key password must be the same
+azurewarehouse:name=authenticationScheme;value=NativeAuthentication;value=JavaKerberos;default_value= !!<HTML><BODY>Indicates which kind of integrated security to use. <BR>For JavaKerberos, the fully-qualified domain name must be set in the serverName property.</BODY></HTML>
+azurewarehouse:name=encrypt;value=true;value=false;default_value= !!Set to "true" to specify that the SQL Server uses Secure Sockets Layer (SSL) encryption 
+azurewarehouse:name=hostNameInCertificate;value= ;default_value= !!See http://technet.microsoft.com/en-us/library/ms378988.aspx for more information
+azurewarehouse:name=instanceName;value= ;default_value= !!The SQL Server instance name to connect to. When it is not specified, a connection is made to the default instance.
+azurewarehouse:name=integratedSecurity;value=true;value=false;default_value= !!Set to "true" to indicate that Windows credentials will be used by SQL Server to authenticate the user of the application.
+azurewarehouse:name=serverName;value= ;default_value= !!The computer running SQL Server.
+azurewarehouse:name=trustServerCertificate;value=true;value=false;default_value=true!!Set to "true" to specify that the Microsoft JDBC Driver for SQL Server will not validate the SQL Server SSL certificate.
+azurewarehouse:name=selectMethod;value=direct;value=cursor;default_value=direct!!Determines whether a database cursor is issued for each query
+sql azure:name=bindAddress;value= ;default_value= !!Specifies the local IP address to bind to for outgoing TCP/IP connections to the database.
+sql azure:name=ssl;value=off;value=request;value=require;value=authenticate;default_value=request!!Specifies if and how to use SSL for secure communication.
+sql azure:name=useCursors;value=true;default_value=true!!Use Server-side cursors instead of direct selects
+sql azure:name=charset;value= ;default_value= !!Determines byte value to character mapping for char, varchar, and text
+sybase (ase):name=JAVA_CHARSET_MAPPING;value=utf8;default_value= !!Override the default character set
+sybase (ase):name=CHARSET;value=utf8;default_value= !!Override the default character set for sending data
+sybase (ase):name=ENCRYPT_PASSWORD;value=True;value=False;default_value= !!Determines whether to send password in encrypted format
+sybase (ase):name=NEWPASSWORD;value= ;default_value= !!For expired passwords, put the new password value in this field to change the expired password
+sybase (ase):name=JCE_PROVIDER_CLASS;value=org.bouncycastle.jce.provider.BouncyCastleProvider;default_value= !!Set the JCE_PROVIDER_CLASS if net password encryption required uses only the RSA algorithm
+db2:name=currentSchema;value= ;default_value= !!Sets the schema after the connection is made
+db2:name=connectNode;value= ;default_value= !!Specifies the target database partition server that an application connects to
+db2:name=currentLockTimeout;value= ;default_value= !!Specifies whether DB2 Database for Linux, UNIX, and Windows servers wait for a lock when the lock cannot be obtained immediately
+db2:name=dateFormat;value= ;default_value= !!1 - yyyy-mm-dd, 2-mm/dd/yyyy 3-dd.mm.yyyy 4-yyyy-mm-dd
+db2:name=readOnly;value= ;default_value= !!Specifies whether the connection is read-only. The data type of this property is boolean. The default is false.
+db2:name=sslConnection;value=true;value=false;default_value= !!If sslConnection is set to true, the connection uses an SSL socket.
+teradata:name=CHARSET;value= ;default_value= !!Character set for a particular session to the Teradata Database
+teradata:name=COP;value=ON;value=OFF;default_value= !!This parameter determines whether COP discovery is performed.
+teradata:name=LOGMECH;value=TD1;value=TD2;value=LDAP;value=KRB5;default_value= !!Sets the logon mechanism when connecting to Teradata
+teradata:name=LOGDATA;value= ;default_value= !!If additional data is needed by the LOGMECH mechanism, it is contained in this property
+teradata:name=ENCRYPTDATA;value=ON;value=OFF;default_value= !!When set to ON, data sent between the JDBC driver and Teradata is encrypted.
+teradata:name=LOB_SUPPORT;value=ON;value=OFF;default_value= !!LOB_SUPPORT=ON enables Large Object (LOB) support when connecting to a Teradata Database.
+teradata:name=NEW_PASSWORD;value= ;default_value= !!This connection parameter enables an application to change an expired password automatically.
+sqlite:name=foreign_keys;value=true;value=false;default_value=true!!Set to true to enable foreign key support
+redshift:name=ssl;value=true;value=false;default_value= !!Set to true to encrypt data sent to and from the database
+redshift:name=sslfactory;value=com.amazon.redshift.ssl.NonValidatingFactory;default_value= !!Use this option to forego certificate validation, i.e. if using self-signed certificates.
+redshift:name=charSet;value= ;default_value= !!The character set used for sending or receiving data
+redshift:name=tcpKeepAlive;value=true;value=false;default_value=true!!Keep the network connection alive
+firebird:name=encoding;value=UTF8;default_value= !!Sets the character encoding for the connection, for example, UTF8
+aurora (mysql):name=autoReconnect;value=true;value=false;default_value=true!!Set to true to tell the driver to re-establish stale or dead connections.
+aurora (mysql):name=serverSslCert;value= ;default_value= !!full path to certificate pem file
+aurora (mysql):name=useCompression;value=true;value=false;default_value= !!Set to true to use zlib compression when communicating with the server.
+aurora (mysql):name=useSSL;value=true;value=false;default_value= !!Set to true to connect using SSL. Requires an SSL enabled database.
+aurora (mysql):name=verifyServerCertificate;value=true;value=false;default_value= !!Set to false to bypass certificate verfication.
+aurora (postgresql):name=ssl;value=true;value=false;default_value= !!The PostgreSQL server must be configured to use SSL for this to work correctly.
+aurora (postgresql):name=sslfactory;value=org.postgresql.ssl.NonValidatingFactory;default_value= !!Use this option to forego certificate validation, i.e. if using self-signed certificates.
+aurora (postgresql):name=charSet;value= ;default_value= !!The character set used for sending or receiving data
+aurora (postgresql):name=tcpKeepAlive;value=true;value=false;default_value= !!Keep the network connection alive
+snowflake:name=authenticator;value=snowflake;value=externalbrowser;value=https://<your_okta_account_name>.okta.com;default_value= !!Specifies the authenticator to use for verifying user login credentials
+snowflake:name=role;value= ;default_value= !!Specifies the default access control role to use in the Snowflake session initiated by the driver
+snowflake:name=db;value= ;default_value= !!Specifies the default database to use once connected, or nodb
+snowflake:name=schema;value= ;default_value= !!Specifies the default schema to use for the specified database once connected or noschema
+snowflake:name=warehouse;value= ;default_value= !!Specifies the virtual warehouse to use once connected, or nowarehouse
+snowflake:name=tracing;value= ;default_value= !!Specifies the log level for the driver
+snowflake:name=passcode;value= ;default_value= !!Specifies the passcode to use for multi-factor authentication
+snowflake:name=passcodeInPassword;value= ;default_value= !!Specifies whether the passcode for multi-factor authentication is appended to the password
+snowflake:name=loginTimeout;value= ;default_value= !!Specifies how long to wait for a response when connecting to the Snowflake service before returning a login failure error
+snowflake:name=networkTimeout;value= ;default_value= !!Specifies how long to wait for a response when interacting with the Snowflake service before returning an error. Zero (0) indicates no network timeout is set
+snowflake:name=queryTimeout;value= ;default_value= !!Specifies how long to wait for a query to complete before returning an error. Zero (0) indicates to wait indefinitely
+cassandra:name=connectTimeout;value= ;default_value= !!The connect timeout in seconds
+cassandra:name=readTimeout;value= ;default_value= !!The read timeout in seconds
+cassandra:name=consistency;value=ALL;value=ANY;value=EACH_QUORUM;value=LOCAL_ONE;value=LOCAL_QUORUM;value=LOCAL_SERIAL;value=ONE;value=QUORUM;value=SERIAL;value=THREE;value=TWO;default_value= !!The consistency level for statements executed on the connection
+cassandra:name=timestampFormat;value=utc;value=local;value=local_date;default_value=utc!!<HTML><BODY>utc displays timestamps using the UTC timezone.<BR>local displays them using the local timezone of the machine running RazorSQL. local_date uses a local timezone date string</BODY></HTML>
+yellowbrick:name=ssl;value=true;value=false;default_value= !!The Yellowbrick server must be configured to use SSL for this to work correctly.
+yellowbrick:name=sslfactory;value=org.postgresql.ssl.NonValidatingFactory;default_value= !!Use this option to forego certificate validation, i.e. if using self-signed certificates.
+yellowbrick:name=charSet;value= ;default_value= !!The character set used for sending or receiving data
+yellowbrick:name=tcpKeepAlive;value=true;value=false;default_value= !!Keep the network connection alive
+keyspaces:name=connectTimeout;value= ;default_value= !!The connect timeout in seconds
+keyspaces:name=readTimeout;value= ;default_value= !!The read timeout in seconds
+keyspaces:name=consistency;value=ALL;value=ANY;value=EACH_QUORUM;value=LOCAL_ONE;value=LOCAL_QUORUM;value=LOCAL_SERIAL;value=ONE;value=QUORUM;value=SERIAL;value=THREE;value=TWO;default_value=LOCAL_QUORUM!!The consistency level for statements executed on the connection
+keyspaces:name=timestampFormat;value=utc;value=local;value=local_date;default_value=utc!!<HTML><BODY>utc displays timestamps using the UTC timezone.<BR>local displays them using the local timezone of the machine running RazorSQL. local_date uses a local timezone date string</BODY></HTML>
+athena (amazon):name=Schema;value= ;default_value= !!The default schema to use for the connection
+athena (amazon):name=Workgroup;value= ;default_value= !!The Workgroup to use when connecting
+athena (amazon):name=EndpointOverride;value= ;default_value= !!The Athena instance to connect to

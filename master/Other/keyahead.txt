@@ -1,0 +1,44 @@
+bat,@echo off
+c,#include 
+c,int main()
+cpp,#include 
+cpp,int main()
+cpp,using 
+csharp,static void Main()
+html,<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+html,<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+html,<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+java,public class
+java,public final static
+js,</script>
+js,<script>
+js,function
+jsp,%>
+jsp,<%
+jsp,<%=
+php,<?php
+php,?>
+plsql,dbms_output.
+plsql,dbms_output.put_line('
+plsql,delete
+plsql,insert into
+plsql,select
+plsql,select * from
+plsql,update
+sh,#!/bin/sh
+sql,delete
+sql,insert into
+sql,select
+sql,select * from
+sql,update
+sqlpl,delete
+sqlpl,insert into
+sqlpl,select
+sqlpl,select * from
+sqlpl,update
+transactsql,delete
+transactsql,insert into
+transactsql,select
+transactsql,select * from
+transactsql,update
+xml,<?xml version="1.0" standalone="yes"?>

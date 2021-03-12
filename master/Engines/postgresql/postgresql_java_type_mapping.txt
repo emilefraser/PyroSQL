@@ -1,0 +1,92 @@
+dataType: bigserial
+sqlType: BIGINT
+literalPrefix: 
+literalSuffix: 
+dataType: bit
+sqlType: BIT
+literalPrefix: 
+literalSuffix: 
+dataType: bool
+sqlType: BIT
+literalPrefix: 
+literalSuffix: 
+dataType: bpchar
+sqlType: CHAR
+literalPrefix: '
+literalSuffix: '
+dataType: bytea
+sqlType: BINARY
+literalPrefix: 
+literalSuffix: 
+dataType: char
+sqlType: CHAR
+literalPrefix: ' 
+literalSuffix: '
+dataType: date
+sqlType: DATE
+literalPrefix: 
+literalSuffix: 
+dataType: float4
+sqlType: REAL
+literalPrefix: 
+literalSuffix: 
+dataType: float8
+sqlType: DOUBLE
+literalPrefix: 
+literalSuffix: 
+dataType: int2
+sqlType: SMALLINT
+literalPrefix: 
+literalSuffix: 
+dataType: int4
+sqlType: INTEGER
+literalPrefix: 
+literalSuffix: 
+dataType: int8
+sqlType: BIGINT
+literalPrefix: 
+literalSuffix: 
+dataType: money
+sqlType: DOUBLE
+literalPrefix: 
+literalSuffix: 
+dataType: name
+sqlType: VARCHAR
+literalPrefix: '
+literalSuffix: '
+dataType: numeric
+sqlType: NUMERIC
+literalPrefix: 
+literalSuffix: 
+dataType: oid
+sqlType: INTEGER
+literalPrefix: 
+literalSuffix: 
+dataType: serial
+sqlType: INTEGER
+literalPrefix: 
+literalSuffix: 
+dataType: text
+sqlType: VARCHAR
+literalPrefix: '
+literalSuffix: '
+dataType: time
+sqlType: TIME
+literalPrefix: 
+literalSuffix: 
+dataType: timestamp
+sqlType: TIMESTAMP
+literalPrefix: 
+literalSuffix: 
+dataType: timestamptz
+sqlType: TIMESTAMP
+literalPrefix: 
+literalSuffix: 
+dataType: timetz
+sqlType: TIME
+literalPrefix: 
+literalSuffix: 
+dataType: varchar
+sqlType: VARCHAR
+literalPrefix: '
+literalSuffix: '

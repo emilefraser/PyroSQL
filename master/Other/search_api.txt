@@ -1,0 +1,3 @@
+PHP:http://php.net/manual-lookup.php?pattern=
+Python:http://docs.python.org/search.html?q=
+Perl:http://perldoc.perl.org/search.html?q=

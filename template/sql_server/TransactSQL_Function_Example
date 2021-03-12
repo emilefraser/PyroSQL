@@ -1,0 +1,8 @@
+create function dbo.get_salary(@e_ssn varchar(25))
+	RETURNS int
+AS
+BEGIN
+	DECLARE @sal int
+	select @sal = salary from employee where ssn = @e_ssn
+	return (@sal)
+END

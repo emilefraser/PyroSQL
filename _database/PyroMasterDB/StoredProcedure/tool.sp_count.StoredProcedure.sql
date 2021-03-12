@@ -7,15 +7,7 @@ BEGIN
 EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [tool].[sp_count] AS' 
 END
 GO
-
---#################################################################################################
--- Real World DBA Toolkit version 4.94 Lowell Izaguirre lowell@stormrage.com
---#################################################################################################
---#################################################################################################
---developer utility function added by Lowell, used in SQL Server Management Studio 
---Purpose: count rows on all tables
---exec sp_count
---#################################################################################################   
+   
 ALTER PROCEDURE [tool].[sp_count](@searchTerm VARCHAR(50)=NULL)
 AS
 --DECLARE @searchTerm VARCHAR(50) = NULL

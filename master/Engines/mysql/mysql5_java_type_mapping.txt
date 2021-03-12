@@ -1,0 +1,136 @@
+dataType: BIGINT
+sqlType: BIG INT
+literalPrefix: 
+literalSuffix: 
+dataType: BINARY
+sqlType: BINARY
+literalPrefix: '
+literalSuffix: '
+dataType: BIT
+sqlType: BIT
+literalPrefix: 
+literalSuffix: 
+dataType: BLOB
+sqlType: LONGVARBINARY
+literalPrefix: '
+literalSuffix: '
+dataType: BOOL
+sqlType: BIT
+literalPrefix: 
+literalSuffix: 
+dataType: CHAR
+sqlType: CHAR
+literalPrefix: '
+literalSuffix: '
+dataType: DATE
+sqlType: DATE
+literalPrefix: '
+literalSuffix: '
+dataType: DATETIME
+sqlType: TIMESTAMP
+literalPrefix: '
+literalSuffix: '
+dataType: DECIMAL
+sqlType: DECIMAL
+literalPrefix: 
+literalSuffix: 
+dataType: DOUBLE
+sqlType: DOUBLE
+literalPrefix: 
+literalSuffix: 
+dataType: DOUBLE PRECISION
+sqlType: DOUBLE
+literalPrefix: 
+literalSuffix: 
+dataType: ENUM
+sqlType: VARCHAR
+literalPrefix: '
+literalSuffix: '
+dataType: FLOAT
+sqlType: REAL
+literalPrefix: 
+literalSuffix: 
+dataType: INT
+sqlType: INTEGER
+literalPrefix: 
+literalSuffix: 
+dataType: INTEGER
+sqlType: INTEGER
+literalPrefix: 
+literalSuffix: 
+dataType: LONG VARBINARY
+sqlType: LONGVARBINARY
+literalPrefix: '
+literalSuffix: '
+dataType: LONG VARCHAR
+sqlType: LONGVARCHAR
+literalPrefix: '
+literalSuffix: '
+dataType: LONGBLOB
+sqlType: LONGVARBINARY
+literalPrefix: '
+literalSuffix: '
+dataType: LONGTEXT
+sqlType: LONGVARCHAR
+literalPrefix: '
+literalSuffix: '
+dataType: MEDIUMBLOB
+sqlType: LONGVARBINARY
+literalPrefix: '
+literalSuffix: '
+dataType: MEDIUMINT
+sqlType: INTEGER
+literalPrefix: 
+literalSuffix: 
+dataType: MEDIUMTEXT
+sqlType: LONGVARCHAR
+literalPrefix: '
+literalSuffix: '
+dataType: NUMERIC
+sqlType: NUMERIC
+literalPrefix: 
+literalSuffix: 
+dataType: REAL
+sqlType: DOUBLE
+literalPrefix: 
+literalSuffix: 
+dataType: SET
+sqlType: VARCHAR
+literalPrefix: '
+literalSuffix: '
+dataType: SMALLINT
+sqlType: SMALL INT
+literalPrefix: 
+literalSuffix: 
+dataType: TEXT
+sqlType: LONGVARCHAR
+literalPrefix: '
+literalSuffix: '
+dataType: TIME
+sqlType: TIME
+literalPrefix: '
+literalSuffix: '
+dataType: TIMESTAMP
+sqlType: TIMESTAMP
+literalPrefix: '
+literalSuffix: '
+dataType: TINYBLOB
+sqlType: LONGVARBINARY
+literalPrefix: '
+literalSuffix: '
+dataType: TINYINT
+sqlType: TINY INT
+literalPrefix: 
+literalSuffix: 
+dataType: TINYTEXT
+sqlType: LONGVARCHAR
+literalPrefix: '
+literalSuffix: '
+dataType: VARBINARY
+sqlType: VARBINARY
+literalPrefix: '
+literalSuffix: '
+dataType: VARCHAR
+sqlType: VARCHAR
+literalPrefix: '
+literalSuffix: '

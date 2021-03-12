@@ -1,0 +1,21 @@
+varchar*,VARCHAR,-1
+nvarchar*,NVARCHAR,-1
+char*,CHAR,-1
+nchar*,NCHAR,-1
+number*,DECIMAL,-1
+*float,FLOAT,-1
+*double,FLOAT,53
+date*,DATETIME,-1
+timestamp*,DATETIME,-1
+long raw,IMAGE,-1
+*raw,VARBINARY,-1
+*nclob,NVARCHAR,max
+*blob,VARBINARY,max
+*clob,VARCHAR,max
+long,VARCHAR,max
+int*,DECIMAL,-1
+interval*,VARCHAR,100
+real*,FLOAT,-1
+*rowid,CHAR,18
+decimal,numeric,-1
+xmltype,VARCHAR,max

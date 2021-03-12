@@ -1,0 +1,4 @@
+DELETE FROM <table name> [WHERE <predicate>]
+
+--example
+delete from pet where pet_id = 1

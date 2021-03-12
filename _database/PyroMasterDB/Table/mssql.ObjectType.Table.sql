@@ -9,6 +9,8 @@ CREATE TABLE [mssql].[ObjectType](
 	[ObjectTypeName] [nvarchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[ObjectTypeDescription] [nvarchar](150) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	[CreatedDT] [datetime2](7) NOT NULL,
+	[ObjectClassCode] [nvarchar](3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[IsUserDefined] [bit] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[ObjectTypeCode] ASC

@@ -1,0 +1,13 @@
+ascii
+char
+concat
+lcase
+left
+length
+ltrim
+repeat
+replace
+rtrim
+space
+substring
+ucase

@@ -1,0 +1,4 @@
+*int,INTEGER,-1
+*char,VARCHAR,-1
+*doub,DOUBLE,-1
+*date,TIMESTAMP,-1

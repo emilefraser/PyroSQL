@@ -1,0 +1,104 @@
+dataType: bigint
+sqlType: BIGINT
+literalPrefix: 
+literalSuffix: 
+dataType: binary
+sqlType: BINARY
+literalPrefix: 0x
+literalSuffix: 
+dataType: bit
+sqlType: BIT
+literalPrefix: 
+literalSuffix: 
+dataType: char
+sqlType: CHAR
+literalPrefix: '
+literalSuffix: '
+dataType: datetime
+sqlType: TIMESTAMP
+literalPrefix: '
+literalSuffix: '
+dataType: decimal
+sqlType: DECIMAL
+literalPrefix: 
+literalSuffix: 
+dataType: float
+sqlType: DOUBLE
+literalPrefix: 
+literalSuffix: 
+dataType: image
+sqlType: BLOB
+literalPrefix: 0x
+literalSuffix: 
+dataType: int
+sqlType: INTEGER
+literalPrefix: 
+literalSuffix: 
+dataType: money
+sqlType: DECIMAL
+literalPrefix: $
+literalSuffix: 
+dataType: nchar
+sqlType: CHAR
+literalPrefix: N'
+literalSuffix: '
+dataType: ntext
+sqlType: CLOB
+literalPrefix: N'
+literalSuffix: '
+dataType: numeric
+sqlType: NUMERIC
+literalPrefix: 
+literalSuffix: 
+dataType: nvarchar
+sqlType: VARCHAR
+literalPrefix: N'
+literalSuffix: '
+dataType: real
+sqlType: REAL
+literalPrefix: 
+literalSuffix: 
+dataType: smalldatetime
+sqlType: TIMESTAMP
+literalPrefix: '
+literalSuffix: '
+dataType: smallint
+sqlType: SMALLINT
+literalPrefix: 
+literalSuffix: 
+dataType: smallmoney
+sqlType: DECIMAL
+literalPrefix: $
+literalSuffix: 
+dataType: sql_variant
+sqlType: VARCHAR
+literalPrefix: '
+literalSuffix: '
+dataType: sysname
+sqlType: VARCHAR
+literalPrefix: N'
+literalSuffix: '
+dataType: text
+sqlType: CLOB
+literalPrefix: '
+literalSuffix: '
+dataType: timestamp
+sqlType: BINARY
+literalPrefix: 0x
+literalSuffix: 
+dataType: tinyint
+sqlType: TINYINT
+literalPrefix: 
+literalSuffix: 
+dataType: uniqueidentifier
+sqlType: CHAR
+literalPrefix: '
+literalSuffix: '
+dataType: varbinary
+sqlType: VARBINARY
+literalPrefix: 0x
+literalSuffix: 
+dataType: varchar
+sqlType: VARCHAR
+literalPrefix: '
+literalSuffix: '

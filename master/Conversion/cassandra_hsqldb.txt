@@ -1,0 +1,14 @@
+ascii,VARCHAR,-1
+bigint,DOUBLE,-1
+blob,LONGVARBINARY,-1
+boolean,BOOLEAN,-1
+decimal,DECIMAL,-1
+double,DOUBLE,-1
+float,FLOAT,-1
+int,INTEGER,-1
+text,VARCHAR,-1
+timestamp,VARCHAR,-1
+timeuuid, VARCHAR,-1
+uuid,VARCHAR,-1
+varchar,VARCHAR,-1
+varint,INTEGER,-1

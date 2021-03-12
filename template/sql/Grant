@@ -1,0 +1,9 @@
+GRANT ALL [PRIVILEGES]
+	| {SELECT
+	| INSERT
+	| DELETE
+	| UPDATE [(<column list>)]
+	| REFERENCES [(<column list>)] }
+	ON <table name> .,..
+	TO PUBLIC | <authorization id> .,..
+	[WITH GRANT OPTION]

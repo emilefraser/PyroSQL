@@ -1,0 +1,2603 @@
+fn: @@CONNECTIONS
+fs: 
+fd: Returns the number of attempted connections, either successful or unsuccessful since SQL Server was last started.
+pt: Built-in
+fn: @@CPU_BUSY
+fs: 
+fd: Returns the time that SQL Server has spent working since it was last started. Result is in CPU time increments, or "ticks," and is cumulative for all CPUs, so it may exceed the actual elapsed time. Multiply by @@TIMETICKS to convert to microseconds.
+pt: Built-in
+fn: @@CURSOR_ROWS
+fs: 
+fd: Returns the number of qualifying rows currently in the last cursor opened on the connection. To improve performance, Microsoft SQL Server can populate large keyset and static cursors asynchronously. @@CURSOR_ROWS can be called to determine that the number of the rows that qualify for a cursor are retrieved at the time @@CURSOR_ROWS is called.
+pt: Built-in
+fn: @@DATEFIRST
+fs: 
+fd: Returns the current value, for the session, of SET DATEFIRST.
+pt: Built-in
+fn: @@DBTS
+fs: 
+fd: Returns the value of the current timestamp data type for the current database. This timestamp is guaranteed to be unique in the database.
+pt: Built-in
+fn: @@ERROR
+fs: 
+fd: Returns the error number for the last Transact-SQL statement executed.
+pt: Built-in
+fn: @@FETCH_STATUS
+fs: 
+fd:  Returns the status of the last cursor FETCH statement issued against any cursor currently opened by the connection.
+pt: Built-in
+fn: @@IDENTITY
+fs: 
+fd: Is a system function that returns the last-inserted identity value.
+pt: Built-in
+fn: @@IDLE
+fs: 
+fd: Returns the time that SQL Server has been idle since it was last started. The result is in CPU time increments, or "ticks," and is cumulative for all CPUs, so it may exceed the actual elapsed time. Multiply by @@TIMETICKS to convert to microseconds.
+pt: Built-in
+fn: @@IO_BUSY
+fs: 
+fd: Returns the time that SQL Server has spent performing input and output operations since SQL Server was last started. The result is in CPU time increments ("ticks"), and is cumulative for all CPUs, so it may exceed the actual elapsed time. Multiply by @@TIMETICKS to convert to microseconds.
+pt: Built-in
+fn: @@LANGID
+fs: 
+fd: Returns the local language identifier (ID) of the language that is currently being used.
+pt: Built-in
+fn: @@LANGUAGE
+fs: 
+fd: Returns the name of the language currently being used.
+pt: Built-in
+fn: @@LOCK_TIMEOUT
+fs: 
+fd: Returns the current lock time-out setting in milliseconds for the current session.
+pt: Built-in
+fn: @@MAX_CONNECTIONS
+fs: 
+fd: Returns the maximum number of simultaneous user connections allowed on an instance of SQL Server. The number returned is not necessarily the number currently configured.
+pt: Built-in
+fn: @@MAX_PRECISION
+fs: 
+fd: Returns the precision level used by decimal and numeric data types as currently set in the server.
+pt: Built-in
+fn: @@NESTLEVEL
+fs: 
+fd: Returns the nesting level of the current stored procedure execution (initially 0) on the local server. For information about nesting levels, see Nesting Stored Procedures.
+pt: Built-in
+fn: @@OPTIONS
+fs: 
+fd: Returns information about the current SET options.
+pt: Built-in
+fn: @@PACKET_ERRORS
+fs: 
+fd: Returns the number of network packet errors that have occurred on SQL Server connections since SQL Server was last started.
+pt: Built-in
+fn: @@PACK_RECEIVED
+fs: 
+fd: Returns the number of input packets read from the network by SQL Server since it was last started.
+pt: Built-in
+fn: @@PACK_SENT
+fs: 
+fd: Returns the number of output packets written to the network by SQL Server since it was last started.
+pt: Built-in
+fn: @@PROCID
+fs: 
+fd: Returns the object identifier (ID) of the current Transact-SQL module. A Transact-SQL module can be a stored procedure, user-defined function, or trigger. @@PROCID cannot be specified in CLR modules or the in-process data access provider.
+pt: Built-in
+fn: @@REMSERVER
+fs: 
+fd: Returns the name of the remote SQL Server database server as it appears in the login record.
+pt: Built-in
+fn: @@ROWCOUNT
+fs: 
+fd: Returns the number of rows affected by the last statement. If the number of rows is more than 2 billion, use ROWCOUNT_BIG.
+pt: Built-in
+fn: @@SERVERNAME
+fs: 
+fd: Returns the name of the local server that is running SQL Server.
+pt: Built-in
+fn: @@SERVICENAME
+fs: 
+fd: Returns the name of the registry key under which SQL Server is running. @@SERVICENAME returns 'MSSQLSERVER' if the current instance is the default instance; this function returns the instance name if the current instance is a named instance.
+pt: Built-in
+fn: @@SPID
+fs: 
+fd: Returns the session ID of the current user process.
+pt: Built-in
+fn: @@TEXTSIZE
+fs: 
+fd: Returns the current value of the TEXTSIZE option of the SET statement. This specifies the maximum length, in bytes, of varchar(max), nvarchar(max), varbinary(max), text, or image data that a SELECT statement returns.
+pt: Built-in
+fn: @@TIMETICKS
+fs: 
+fd: Returns the number of microseconds per tick.
+pt: Built-in
+fn: @@TOTAL_ERRORS
+fs: 
+fd: Returns the number of disk write errors encountered by SQL Server since SQL Server last started.
+pt: Built-in
+fn: @@TOTAL_READ
+fs: 
+fd: Returns the number of disk reads, not cache reads, by SQL Server since SQL Server was last started.
+pt: Built-in
+fn: @@TOTAL_WRITE
+fs: 
+fd: Returns the number of disk writes by SQL Server since SQL Server was last started.
+pt: Built-in
+fn: @@TRANCOUNT
+fs: 
+fd: Returns the number of active transactions for the current connection.
+pt: Built-in
+fn: @@VERSION
+fs: 
+fd: Returns version, processor architecture, build date, and operating system for the current installation of SQL Server.
+pt: Built-in
+fn: ABS
+fs: ABS ( numeric_expression )
+fd: A mathematical function that returns the absolute (positive) value of the specified numeric expression.
+pt: Built-in
+fn: ACOS
+fs: ACOS ( float_expression )
+fd: A mathematical function that returns the angle, in radians, whose cosine is the specified float expression; also called arccosine.
+pt: Built-in
+fn: APP_NAME
+fs: APP_NAME ( )
+fd: Returns the application name for the current session if set by the application.
+pt: Built-in
+fn: ASCII
+fs: ASCII ( character_expression )
+fd: Returns the ASCII code value of the leftmost character of a character expression.
+pt: Built-in
+fn: ASIN
+fs: ASIN ( float_expression) 
+fd: Returns the angle, in radians, whose sine is the specified float expression. This is also called arcsine.
+pt: Built-in
+fn: ATAN
+fs: ATAN ( float_expression )
+fd: Returns the angle in radians whose tangent is a specified float expression. This is also called arctangent.
+pt: Built-in
+fn: ATN2
+fs: ATN2 ( float_expression , float_expression )
+fd: Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions.
+pt: Built-in
+fn: AVG
+fs: AVG ( [ ALL | DISTINCT ] expression )
+fd: Returns the average of the values in a group. Null values are ignored. May be followed by the OVER 
+pt: Built-in
+fn: CAST
+fs: CAST ( expression AS data_type [ (length ) ])
+fd: Converts an expression of one data type to another.
+pt: Built-in
+fn: CEILING
+fs: CEILING ( numeric_expression )
+fd: Returns the smallest integer greater than, or equal to, the specified numeric expression.
+pt: Built-in
+fn: CHAR
+fs: CHAR ( integer_expression )
+fd: Converts an int ASCII code to a character.
+pt: Built-in
+fn: CHARINDEX
+fs: CHARINDEX ( expression1 ,expression2 [ , start_location ] )
+fd: Searches expression2 for expression1 and returns its starting position if found. The search starts at start_location.
+pt: Built-in
+fn: CHECKSUM
+fs: CHECKSUM ( * | expression [ ,...n ] )
+fd: Returns the checksum value computed over a row of a table, or over a list of expressions. CHECKSUM is intended for use in building hash indexes.
+pt: Built-in
+fn: CHECKSUM_AGG
+fs: CHECKSUM_AGG ( [ ALL | DISTINCT ] expression )
+fd: Returns the checksum of the values in a group. Null values are ignored. Can be followed by the OVER clause.
+pt: Built-in
+fn: COALESCE
+fs: COALESCE ( expression [ ,...n ] )
+fd: Returns the first nonnull expression among its arguments.
+pt: Built-in
+fn: COLLATIONPROPERTY
+fs: COLLATIONPROPERTY( collation_name , property )
+fd: Returns the property of a specified collation.
+pt: Built-in
+fn: COLUMNPROPERTY
+fs: COLUMNPROPERTY ( id , column , property )
+fd: Returns information about a column or procedure parameter.
+pt: Built-in
+fn: COL_LENGTH
+fs: COL_LENGTH ( 'table' , 'column' )
+fd: Returns the defined length, in bytes, of a column.
+pt: Built-in
+fn: COL_NAME
+fs: COL_NAME ( table_id , column_id )
+fd: Returns the name of a column from a specified corresponding table identification number and column identification number.
+pt: Built-in
+fn: CONVERT
+fs: CONVERT ( data_type [ ( length ) ] , expression [ , style ] ) 
+fd: Converts an expression of one data type to another.
+pt: Built-in
+fn: COS
+fs: COS ( float_expression )
+fd: Is a mathematical function that returns the trigonometric cosine of the specified angle, in radians, in the specified expression.
+pt: Built-in
+fn: COT
+fs: COT ( float_expression )
+fd: A mathematical function that returns the trigonometric cotangent of the specified angle, in radians, in the specified float expression.
+pt: Built-in
+fn: COUNT
+fs: COUNT ( { [ [ ALL | DISTINCT ] expression ] | * } )
+fd: Returns the number of items in a group. COUNT works like the COUNT_BIG function. The only difference between the two functions is their return values. COUNT always returns an int data type value. COUNT_BIG always returns a bigint data type value. May be followed by the OVER clause.
+pt: Built-in
+fn: COUNT_BIG
+fs: COUNT_BIG ( { [ ALL | DISTINCT ] expression } | * )
+fd: Returns the number of items in a group. COUNT_BIG works like the COUNT function. The only difference between the two functions is their return values. COUNT_BIG always returns a bigint data type value. COUNT always returns an int data type value. May be followed by the OVER Clause (Transact-SQL).
+pt: Built-in
+fn: CURRENT_USER
+fs: CURRENT_USER 
+fd: Returns the name of the current user. This function is equivalent to USER_NAME()
+pt: Built-in
+fn: CURSOR_STATUS
+fs: CURSOR_STATUS ({ 'local' , 'cursor_name' }| { 'global' , 'cursor_name' } | { 'variable' , 'cursor_variable' } )
+fd: A scalar function that allows the caller of a stored procedure to determine whether or not the procedure has returned a cursor and result set for a given parameter.
+pt: Built-in
+fn: DATABASEPROPERTY
+fs: DATABASEPROPERTY ( database , property )
+fd: Returns the named database property value for the specified database and property name.
+pt: Built-in
+fn: DATABASEPROPERTYEX
+fs: DATABASEPROPERTYEX ( database , property )
+fd: Returns the current setting of the specified database option or property for the specified database.
+pt: Built-in
+fn: DATALENGTH
+fs: DATALENGTH ( expression )
+fd: Returns the number of bytes used to represent any expression.
+pt: Built-in
+fn: DATEADD
+fs: DATEADD (datepart , number, date )
+fd: Returns a specified date with the specified number interval (signed integer) added to a specified datepart of that date.
+pt: Built-in
+fn: DATEDIFF
+fs: DATEDIFF ( datepart , startdate , enddate )
+fd: Returns the count (signed integer) of the specified datepart boundaries crossed between the specified startdate and enddate.
+pt: Built-in
+fn: DATENAME
+fs: DATENAME ( datepart , date )
+fd: Returns a character string that represents the specified datepart of the specified date
+pt: Built-in
+fn: DATEPART
+fs: DATEPART ( datepart , date )
+fd: Returns an integer that represents the specified datepart of the specified date.
+pt: Built-in
+fn: DAY
+fs: DAY ( date )
+fd: Returns an integer representing the day (day of the month) of the specified date.
+pt: Built-in
+fn: DB_ID
+fs: DB_ID ( [ 'database_name' ] )
+fd: Returns the database identification (ID) number.
+pt: Built-in
+fn: DB_NAME
+fs: DB_NAME ( [ database_id ] )
+fd: Returns the database name.
+pt: Built-in
+fn: DEGREES
+fs: DEGREES ( numeric_expression )
+fd: Returns the corresponding angle in degrees for an angle specified in radians.
+pt: Built-in
+fn: DIFFERENCE
+fs: DIFFERENCE ( character_expression , character_expression )
+fd: Returns an integer value that indicates the difference between the SOUNDEX values of two character expressions.
+pt: Built-in
+fn: EXP
+fs: EXP ( float_expression )
+fd: Returns the exponential value of the specified float expression.
+pt: Built-in
+fn: FILEGROUPPROPERTY
+fs: FILEGROUPPROPERTY ( filegroup_name , property )
+fd: Returns the specified filegroup property value when supplied with a filegroup and property name
+pt: Built-in
+fn: FILEGROUP_ID
+fs: FILEGROUP_ID ( 'filegroup_name' )
+fd: Returns the filegroup identification (ID) number for a specified filegroup name.
+pt: Built-in
+fn: FILEGROUP_NAME
+fs: FILEGROUP_NAME ( filegroup_id )
+fd: Returns the filegroup name for the specified filegroup identification (ID) number.
+pt: Built-in
+fn: FILEPROPERTY
+fs: FILEPROPERTY ( file_name , property )
+fd: Returns the specified file name property value when a file name and property name are specified.
+pt: Built-in
+fn: FILE_ID
+fs: FILE_ID ( file_name )
+fd: Returns the file identification (ID) number for the given logical file name in the current database.
+pt: Built-in
+fn: FILE_IDEX
+fs: FILE_IDEX ( file_name )
+fd: Returns the file identification (ID) number for the specified logical file name of the data, log, or full-text file in the current database.
+pt: Built-in
+fn: FILE_NAME
+fs: FILE_NAME ( file_id )
+fd: Returns the logical file name for the given file identification (ID) number.
+pt: Built-in
+fn: FLOOR
+fs: FLOOR ( numeric_expression )
+fd: Returns the largest integer less than or equal to the specified numeric expression.
+pt: Built-in
+fn: FORMATMESSAGE
+fs: FORMATMESSAGE ( msg_number , [ param_value [ ,...n ] ] )
+fd: Constructs a message from an existing message in sys.messages. 
+pt: Built-in
+fn: FULLTEXTCATALOGPROPERTY
+fs: FULLTEXTCATALOGPROPERTY ('catalog_name' ,'property' )
+fd: Returns information about full-text catalog properties.
+pt: Built-in
+fn: FULLTEXTSERVICEPROPERTY
+fs: FULLTEXTSERVICEPROPERTY ('property' )
+fd: Returns information about full-text service-level properties. Full-Text Search services are provided by Microsoft SQL Server (MSSQLSERVER). These properties may be set and retrieved by using sp_fulltext_service.
+pt: Built-in
+fn: GETANSINULL
+fs: GETANSINULL ( [ 'database' ] )
+fd: Returns the default nullability for the database for this session.
+pt: Built-in
+fn: GETDATE
+fs: GETDATE ( )
+fd: Returns the current database system timestamp as a datetime value without the database time zone offset. This value is derived from the operating system of the computer on which the instance of SQL Server is running.
+pt: Built-in
+fn: GETUTCDATE
+fs: GETUTCDATE( )
+fd: Returns the current database system timestamp as a datetime value. The database time zone offset is not included. This value represents the current UTC time (Coordinated Universal Time). This value is derived from the operating system of the computer on which the instance of SQL Server is running.
+pt: Built-in
+fn: GROUPING
+fs: GROUPING ( <column_expression> )
+fd: Indicates whether a specified column expression in a GROUP BY list is aggregated or not. GROUPING returns 1 for aggregated or 0 for not aggregated in the result set. 
+pt: Built-in
+fn: HAS_DBACCESS
+fs: HAS_DBACCESS ( 'database_name' ) 
+fd: Returns information about whether the user has access to the specified database.
+pt: Built-in
+fn: HOST_ID
+fs: HOST_ID()
+fd: Returns the workstation identification number.
+pt: Built-in
+fn: HOST_NAME
+fs: HOST_NAME()
+fd: Returns the workstation name.
+pt: Built-in
+fn: IDENTITY
+fs: IDENTITY (data_type [ , seed , increment ] ) AS column_name
+fd: Is used only in a SELECT statement with an INTO table clause to insert an identity column into a new table.
+pt: Built-in
+fn: IDENT_CURRENT
+fs: IDENT_CURRENT( 'table_name' )
+fd: Returns the last identity value generated for a specified table or view in any session and any scope.
+pt: Built-in
+fn: IDENT_INCR
+fs: IDENT_INCR ( 'table_or_view' )
+fd: Returns the increment value (returned as numeric (@@MAXPRECISION,0)) specified during the creation of an identity column in a table or view that has an identity column.
+pt: Built-in
+fn: IDENT_SEED
+fs: IDENT_SEED ( 'table_or_view' )
+fd: Returns the seed value (returned as numeric(@@MAXPRECISION,0)) that was specified when an identity column in a table or a view that has an identity column was created.
+pt: Built-in
+fn: INDEXKEY_PROPERTY
+fs: INDEXKEY_PROPERTY ( object_ID ,index_ID ,key_ID ,property )
+fd: Returns information about the index key. Returns NULL for XML indexes.
+pt: Built-in
+fn: INDEXPROPERTY
+fs: INDEXPROPERTY ( object_ID , index_or_statistics_name , property ) 
+fd: Returns the named index or statistics property value of a specified table identification number, index or statistics name, and property name. Returns NULL for XML indexes.
+pt: Built-in
+fn: INDEX_COL
+fs: INDEX_COL ( '[ database_name . [ schema_name ] .| schema_name ]  table_or_view_name', index_id , key_id ) 
+fd: Returns the indexed column name. Returns NULL for XML indexes.
+pt: Built-in
+fn: ISDATE
+fs: ISDATE ( expression )
+fd: Returns 1 if an input expression is a valid date or time value of datetime or smalldatetime data types; otherwise, 0.
+pt: Built-in
+fn: ISNULL
+fs: ISNULL ( check_expression , replacement_value )
+fd: Replaces NULL with the specified replacement value.
+pt: Built-in
+fn: ISNUMERIC
+fs: ISNUMERIC ( expression )
+fd: Determines whether an expression is a valid numeric type.
+pt: Built-in
+fn: IS_MEMBER
+fs: IS_MEMBER ( { 'group' | 'role' } )
+fd: Indicates whether the current user is a member of the specified Microsoft Windows group or Microsoft SQL Server database role.
+pt: Built-in
+fn: IS_SRVROLEMEMBER
+fs: IS_SRVROLEMEMBER ('role' [ , 'login' ] )
+fd: Indicates whether a SQL Server login is a member of the specified fixed server role.
+pt: Built-in
+fn: LEFT
+fs: LEFT ( character_expression , integer_expression )
+fd: Returns the left part of a character string with the specified number of characters.
+pt: Built-in
+fn: LEN
+fs: LEN ( string_expression )
+fd: Returns the number of characters of the specified string expression, excluding trailing blanks.
+pt: Built-in
+fn: LOG
+fs: LOG ( float_expression )
+fd: Returns the natural logarithm of the specified float expression.
+pt: Built-in
+fn: LOG10
+fs: LOG10 ( float_expression )
+fd: Returns the base-10 logarithm of the specified float expression.
+pt: Built-in
+fn: LOWER
+fs: LOWER ( character_expression )
+fd: Returns a character expression after converting uppercase character data to lowercase.
+pt: Built-in
+fn: LTRIM
+fs: LTRIM ( character_expression )
+fd: Returns a character expression after it removes leading blanks.
+pt: Built-in
+fn: MAX
+fs: MAX ( [ ALL | DISTINCT ] expression )  
+fd: Returns the maximum value in the expression.
+pt: Built-in
+fn: MIN
+fs: MIN ( [ ALL | DISTINCT ] expression ) 
+fd: Returns the minimum value in the expression.
+pt: Built-in
+fn: MONTH
+fs: MONTH ( date )
+fd: Returns an integer that represents the month of the specified date.
+pt: Built-in
+fn: NCHAR
+fs: NCHAR ( integer_expression )
+fd: Returns the Unicode character with the specified integer code, as defined by the Unicode standard.
+pt: Built-in
+fn: NEWID
+fs: NEWID ( )
+fd: Creates a unique value of type uniqueidentifier.
+pt: Built-in
+fn: NULLIF
+fs: NULLIF ( expression , expression )
+fd: Returns a null value if the two specified expressions are equal.
+pt: Built-in
+fn: OBJECTPROPERTY
+fs: OBJECTPROPERTY ( id , property ) 
+fd: Returns information about schema-scoped objects in the current database.
+pt: Built-in
+fn: OBJECT_ID
+fs: OBJECT_ID ( '[ database_name . [ schema_name ] . | schema_name . ] object_name' [ ,'object_type' ] )
+fd: Returns the database object identification number of a schema-scoped object.
+pt: Built-in
+fn: OBJECT_NAME
+fs: OBJECT_NAME ( object_id [, database_id ] )
+fd: Returns the database object name for schema-scoped objects.
+pt: Built-in
+fn: OPENDATASOURCE
+fs: OPENDATASOURCE ( provider_name, init_string )
+fd: Provides ad hoc connection information as part of a four-part object name without using a linked server name.
+pt: Built-in
+fn: OPENQUERY
+fs: OPENQUERY ( linked_server ,'query' )
+fd: Executes the specified pass-through query on the specified linked server. 
+pt: Built-in
+fn: OPENROWSET
+fs: OPENROWSET ( . . . )
+fd: ncludes all connection information that is required to access remote data from an OLE DB data source. 
+pt: Built-in
+fn: OPENXML
+fs: OPENXML( idoc int [ in] , rowpattern nvarchar [ in ] , [ flags byte [ in ] ] ) [ WITH ( SchemaDeclaration | TableName ) ]
+fd: OPENXML provides a rowset view over an XML document.
+pt: Built-in
+fn: PARSENAME
+fs: PARSENAME ( 'object_name' , object_piece ) 
+fd: Returns the specified part of an object name. Parts of an object that can be retrieved are the object name, owner name, database name, and server name.
+pt: Built-in
+fn: PATINDEX
+fs: PATINDEX ( '%pattern%' , expression )
+fd: Returns the starting position of the first occurrence of a pattern in a specified expression, or zeros if the pattern is not found, on all valid text and character data types.
+pt: Built-in
+fn: PERMISSIONS
+fs: PERMISSIONS ( [ objectid [ , 'column' ] ] )
+fd: Returns a value containing a bitmap that indicates the statement, object, or column permissions of the current user.
+pt: Built-in
+fn: PI
+fs: PI()
+fd: Returns the constant value of PI.
+pt: Built-in
+fn: POWER
+fs: POWER ( float_expression , y )
+fd: Returns the value of the specified expression to the specified power.
+pt: Built-in
+fn: QUOTENAME
+fs: QUOTENAME ( 'character_string' [ , 'quote_character' ] ) 
+fd: Returns a Unicode string with the delimiters added to make the input string a valid Microsoft SQL Server delimited identifier.
+pt: Built-in
+fn: RADIANS
+fs: RADIANS ( numeric_expression )
+fd: Returns radians when a numeric expression, in degrees, is entered.
+pt: Built-in
+fn: RAND
+fs: RAND ( [ seed ] )
+fd: Returns a random float value from 0 through 1.
+pt: Built-in
+fn: REPLACE
+fs: REPLACE ( string_expression1 , string_expression2 , string_expression3 )
+fd: Replaces all occurrences of a specified string value with another string value.
+pt: Built-in
+fn: REPLICATE
+fs: REPLICATE ( string_expression ,integer_expression ) 
+fd: Repeats a string value a specified number of times.
+pt: Built-in
+fn: REVERSE
+fs: REVERSE ( character_expression )
+fd: Returns the reverse of a character expression.
+pt: Built-in
+fn: RIGHT
+fs: RIGHT ( character_expression , integer_expression )
+fd: Returns the right part of a character string with the specified number of characters.
+pt: Built-in
+fn: ROUND
+fs: ROUND ( numeric_expression , length [ ,function ] )
+fd: Returns a numeric value, rounded to the specified length or precision.
+pt: Built-in
+fn: ROWCOUNT_BIG
+fs: ROWCOUNT_BIG ( )
+fd: Returns the number of rows affected by the last statement executed.
+pt: Built-in
+fn: RTRIM
+fs: RTRIM ( character_expression )
+fd: Returns a character string after truncating all trailing blanks.
+pt: Built-in
+fn: SCHEMA_ID
+fs: SCHEMA_ID( [ schema_name ] ) 
+fd: Returns the schema ID associated with a schema name.
+pt: Built-in
+fn: SCHEMA_NAME
+fs: SCHEMA_NAME ( [ schema_id ] )
+fd: Returns the schema name associated with a schema ID.
+pt: Built-in
+fn: SCOPE_IDENTITY
+fs: SCOPE_IDENTITY()
+fd: Returns the last identity value inserted into an identity column in the same scope.
+pt: Built-in
+fn: SERVERPROPERTY
+fs: SERVERPROPERTY ( propertyname )
+fd: Returns property information about the server instance.
+pt: Built-in
+fn: SESSIONPROPERTY
+fs: SESSIONPROPERTY (option)
+fd: Returns the SET options settings of a session.
+pt: Built-in
+fn: SESSION_USER
+fs: SESSION_USER
+fd: SESSION_USER returns the user name of the current context in the current database.
+pt: Built-in
+fn: SIGN
+fs: SIGN ( numeric_expression )
+fd: Returns the positive (+1), zero (0), or negative (-1) sign of the specified expression.
+pt: Built-in
+fn: SIN
+fs: SIN ( float_expression )
+fd: Returns the trigonometric sine of the specified angle, in radians, and in an approximate numeric, float, expression.
+pt: Built-in
+fn: SOUNDEX
+fs: SOUNDEX ( character_expression )
+fd: Returns a four-character (SOUNDEX) code to evaluate the similarity of two strings.
+pt: Built-in
+fn: SPACE
+fs: SPACE ( integer_expression )
+fd: Returns a string of repeated spaces.
+pt: Built-in
+fn: SQL_VARIANT_PROPERTY
+fs: SQL_VARIANT_PROPERTY ( expression , property )
+fd: Returns the base data type and other information about a sql_variant value.
+pt: Built-in
+fn: SQRT
+fs: SQRT ( float_expression )
+fd: Returns the square root of the specified float value.
+pt: Built-in
+fn: SQUARE
+fs: SQUARE ( float_expression )
+fd: Returns the square of the specified float value.
+pt: Built-in
+fn: STATS_DATE
+fs: STATS_DATE ( table_id , stats_id )
+fd: Returns the date that the statistics for the specified table were last updated.
+pt: Built-in
+fn: STDEV
+fs: STDEV ( [ ALL | DISTINCT ] expression ) 
+fd: Returns the statistical standard deviation of all values in the specified expression. 
+pt: Built-in
+fn: STDEVP
+fs: STDEVP ( [ ALL | DISTINCT ] expression ) 
+fd: Returns the statistical standard deviation for the population for all values in the specified expression. 
+pt: Built-in
+fn: STR
+fs: STR ( float_expression [ , length [ , decimal ] ] )
+fd: Returns character data converted from numeric data.
+pt: Built-in
+fn: STUFF
+fs: STUFF ( character_expression , start , length ,character_expression )
+fd: The STUFF function inserts a string into another string. It deletes a specified length of characters in the first string at the start position and then inserts the second string into the first string at the start position.
+pt: Built-in
+fn: SUBSTRING
+fs: SUBSTRING ( value_expression ,start_expression , length_expression )
+fd: Returns part of a character, binary, text, or image expression. 
+pt: Built-in
+fn: SUM
+fs: SUM ( [ ALL | DISTINCT ] expression )
+fd: Returns the sum of all the values, or only the DISTINCT values, in the expression. 
+pt: Built-in
+fn: SUSER_SID
+fs: SUSER_ID ( [ 'login' ] ) 
+fd: Returns the login identification number of the user.
+pt: Built-in
+fn: SUSER_SNAME
+fs: SUSER_NAME ( [ server_user_id ] ) 
+fd: Returns the login identification name of the user.
+pt: Built-in
+fn: SYSTEM_USER
+fs: SYSTEM_USER
+fd: Allows a system-supplied value for the current login to be inserted into a table when no default value is specified.
+pt: Built-in
+fn: TAN
+fs: TAN ( float_expression )
+fd: Returns the tangent of the input expression.
+pt: Built-in
+fn: TEXTPTR
+fs: TEXTPTR ( column )
+fd: Returns the text-pointer value that corresponds to a text, ntext, or image column in varbinary format. The retrieved text pointer value can be used in READTEXT, WRITETEXT, and UPDATETEXT statements.
+pt: Built-in
+fn: TEXTVALID
+fs: TEXTVALID ( 'table.column' ,text_ ptr )
+fd: A text, ntext, or image function that checks whether a specific text pointer is valid.
+pt: Built-in
+fn: TYPEPROPERTY
+fs: TYPEPROPERTY (type , property)
+fd: Returns information about a data type.
+pt: Built-in
+fn: TYPE_ID
+fs: TYPE_ID ( [ schema_name ] type_name ) 
+fd: Returns the ID for a specified data type name.
+pt: Built-in
+fn: TYPE_NAME
+fs: TYPE_NAME ( type_id ) 
+fd: Returns the unqualified type name of a specified type ID.
+pt: Built-in
+fn: UNICODE
+fs: UNICODE ( 'ncharacter_expression' )
+fd: Returns the integer value, as defined by the Unicode standard, for the first character of the input expression.
+pt: Built-in
+fn: UPPER
+fs: UPPER ( character_expression )
+fd: Returns a character expression with lowercase character data converted to uppercase.
+pt: Built-in
+fn: USER
+fs: USER
+fd: Allows a system-supplied value for the database user name of the current user to be inserted into a table when no default value is specified.
+pt: Built-in
+fn: USER_ID
+fs: USER_ID ( [ 'user' ] )
+fd: Returns the identification number for a database user.
+pt: Built-in
+fn: USER_NAME
+fs: USER_NAME ( [ id ] )
+fd: Returns a database user name from a specified identification number.
+pt: Built-in
+fn: VAR
+fs: VAR ( [ ALL | DISTINCT ] expression ) 
+fd: Returns the statistical variance of all values in the specified expression.
+pt: Built-in
+fn: VARP
+fs: VARP ( [ ALL | DISTINCT ] expression ) 
+fd: Returns the statistical variance for the population for all values in the specified expression. 
+pt: Built-in
+fn: YEAR
+fs: YEAR ( date )
+fd: Returns an integer that represents the year of the specified date.
+pt: Built-in
+fn: sp_ActiveDirectory_Obj
+fs: sp_ActiveDirectory_Obj(@RETURN_VALUE int RETURN,@Action nvarchar IN,@ObjType nvarchar IN,@ObjName sysname IN,@DatabaseName sysname IN,@GUIDName sysname IN)
+pt: System Procedures
+fn: sp_ActiveDirectory_SCP
+fs: sp_ActiveDirectory_SCP(@RETURN_VALUE int RETURN,@Action nvarchar IN,@Startup int IN)
+pt: System Procedures
+fn: sp_ActiveDirectory_Start
+fs: sp_ActiveDirectory_Start(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_IHScriptIdxFile
+fs: sp_IHScriptIdxFile(@RETURN_VALUE int RETURN,@article_id int IN)
+pt: System Procedures
+fn: sp_IHScriptSchFile
+fs: sp_IHScriptSchFile(@RETURN_VALUE int RETURN,@article_id int IN)
+pt: System Procedures
+fn: sp_IHValidateRowFilter
+fs: sp_IHValidateRowFilter(@RETURN_VALUE int RETURN,@publisher sysname IN,@owner sysname IN,@table sysname IN,@columnmask binary IN,@rowfilter ntext IN)
+pt: System Procedures
+fn: sp_IHXactSetJob
+fs: sp_IHXactSetJob(@RETURN_VALUE int RETURN,@publisher sysname IN,@enabled bit IN,@interval int IN,@threshold int IN,@LRinterval int IN,@LRthreshold int IN)
+pt: System Procedures
+fn: sp_IH_LR_GetCacheData
+fs: sp_IH_LR_GetCacheData(@RETURN_VALUE int RETURN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_IHadd_sync_command
+fs: sp_IHadd_sync_command(@RETURN_VALUE int RETURN,@publisher_id smallint IN,@publisher_db sysname IN,@xact_id varbinary IN,@xact_seqno varbinary IN,@originator sysname IN,@originator_db sysname IN,@article_id int IN,@command_id int IN,@type int IN,@partial_command bit IN,@command varbinary IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_IHarticlecolumn
+fs: sp_IHarticlecolumn(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@column sysname IN,@operation nvarchar IN,@refresh_synctran_procs bit IN,@ignore_distributor bit IN,@change_active int IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN,@publisher sysname IN,@publisher_type sysname IN,@publisher_dbms sysname IN,@publisher_version sysname IN)
+pt: System Procedures
+fn: sp_IHget_loopback_detection
+fs: sp_IHget_loopback_detection(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN)
+pt: System Procedures
+fn: sp_ORbitmap
+fs: sp_ORbitmap(@RETURN_VALUE int RETURN,@inputbitmap1 varbinary IN,@inputbitmap2 varbinary IN,@resultbitmap3 varbinary OUT)
+pt: System Procedures
+fn: sp_SetAutoSAPasswordAndDisable
+fs: sp_SetAutoSAPasswordAndDisable(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_add_agent_parameter
+fs: sp_add_agent_parameter(@RETURN_VALUE int RETURN,@profile_id int IN,@parameter_name sysname IN,@parameter_value nvarchar IN)
+pt: System Procedures
+fn: sp_add_agent_profile
+fs: sp_add_agent_profile(@RETURN_VALUE int RETURN,@profile_id int OUT,@profile_name sysname IN,@agent_type int IN,@profile_type int IN,@description nvarchar IN,@default bit IN)
+pt: System Procedures
+fn: sp_add_data_file_recover_suspect_db
+fs: sp_add_data_file_recover_suspect_db(@RETURN_VALUE int RETURN,@dbName sysname IN,@filegroup nvarchar IN,@name nvarchar IN,@filename nvarchar IN,@size nvarchar IN,@maxsize nvarchar IN,@filegrowth nvarchar IN)
+pt: System Procedures
+fn: sp_add_log_file_recover_suspect_db
+fs: sp_add_log_file_recover_suspect_db(@RETURN_VALUE int RETURN,@dbName sysname IN,@name nvarchar IN,@filename nvarchar IN,@size nvarchar IN,@maxsize nvarchar IN,@filegrowth nvarchar IN)
+pt: System Procedures
+fn: sp_add_log_shipping_alert_job
+fs: sp_add_log_shipping_alert_job(@RETURN_VALUE int RETURN,@alert_job_id uniqueidentifier OUT)
+pt: System Procedures
+fn: sp_add_log_shipping_primary_database
+fs: sp_add_log_shipping_primary_database(@RETURN_VALUE int RETURN,@database sysname IN,@backup_directory nvarchar IN,@backup_share nvarchar IN,@backup_job_name sysname IN,@backup_retention_period int IN,@monitor_server sysname IN,@monitor_server_security_mode bit IN,@monitor_server_login sysname IN,@monitor_server_password sysname IN,@backup_threshold int IN,@threshold_alert int IN,@threshold_alert_enabled bit IN,@history_retention_period int IN,@backup_job_id uniqueidentifier OUT,@primary_id uniqueidentifier OUT,@overwrite bit IN,@ignoreremotemonitor bit IN)
+pt: System Procedures
+fn: sp_add_log_shipping_primary_secondary
+fs: sp_add_log_shipping_primary_secondary(@RETURN_VALUE int RETURN,@primary_database sysname IN,@secondary_server sysname IN,@secondary_database sysname IN,@overwrite bit IN)
+pt: System Procedures
+fn: sp_add_log_shipping_secondary_database
+fs: sp_add_log_shipping_secondary_database(@RETURN_VALUE int RETURN,@secondary_database sysname IN,@primary_server sysname IN,@primary_database sysname IN,@restore_delay int IN,@restore_all bit IN,@restore_mode bit IN,@disconnect_users bit IN,@block_size int IN,@buffer_count int IN,@max_transfer_size int IN,@restore_threshold int IN,@threshold_alert int IN,@threshold_alert_enabled bit IN,@history_retention_period int IN,@overwrite bit IN,@ignoreremotemonitor bit IN)
+pt: System Procedures
+fn: sp_add_log_shipping_secondary_primary
+fs: sp_add_log_shipping_secondary_primary(@RETURN_VALUE int RETURN,@primary_server sysname IN,@primary_database sysname IN,@backup_source_directory nvarchar IN,@backup_destination_directory nvarchar IN,@copy_job_name sysname IN,@restore_job_name sysname IN,@file_retention_period int IN,@monitor_server sysname IN,@monitor_server_security_mode bit IN,@monitor_server_login sysname IN,@monitor_server_password sysname IN,@copy_job_id uniqueidentifier OUT,@restore_job_id uniqueidentifier OUT,@secondary_id uniqueidentifier OUT,@overwrite bit IN,@ignoreremotemonitor bit IN)
+pt: System Procedures
+fn: sp_addalias
+fs: sp_addalias(@RETURN_VALUE int RETURN,@loginame sysname IN,@name_in_db sysname IN)
+pt: System Procedures
+fn: sp_addapprole
+fs: sp_addapprole(@RETURN_VALUE int RETURN,@rolename sysname IN,@password sysname IN)
+pt: System Procedures
+fn: sp_addarticle
+fs: sp_addarticle(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@source_table nvarchar IN,@destination_table sysname IN,@vertical_partition nchar IN,@type sysname IN,@filter nvarchar IN,@sync_object nvarchar IN,@ins_cmd nvarchar IN,@del_cmd nvarchar IN,@upd_cmd nvarchar IN,@creation_script nvarchar IN,@description nvarchar IN,@pre_creation_cmd nvarchar IN,@filter_clause ntext IN,@schema_option varbinary IN,@destination_owner sysname IN,@status tinyint IN,@source_owner sysname IN,@sync_object_owner sysname IN,@filter_owner sysname IN,@source_object sysname IN,@artid int OUT,@auto_identity_range nvarchar IN,@pub_identity_range bigint IN,@identity_range bigint IN,@threshold int IN,@force_invalidate_snapshot bit IN,@use_default_datatypes bit IN,@identityrangemanagementoption nvarchar IN,@publisher sysname IN,@fire_triggers_on_snapshot nvarchar IN)
+pt: System Procedures
+fn: sp_adddatatype
+fs: sp_adddatatype(@RETURN_VALUE int RETURN,@dbms sysname IN,@version sysname IN,@type sysname IN,@createparams int IN)
+pt: System Procedures
+fn: sp_adddatatypemapping
+fs: sp_adddatatypemapping(@RETURN_VALUE int RETURN,@source_dbms sysname IN,@source_version varchar IN,@source_type sysname IN,@source_length_min bigint IN,@source_length_max bigint IN,@source_precision_min bigint IN,@source_precision_max bigint IN,@source_scale_min int IN,@source_scale_max int IN,@source_nullable bit IN,@destination_dbms sysname IN,@destination_version varchar IN,@destination_type sysname IN,@destination_length bigint IN,@destination_precision bigint IN,@destination_scale int IN,@destination_nullable bit IN,@destination_createparams int IN,@dataloss bit IN,@is_default bit IN)
+pt: System Procedures
+fn: sp_adddistpublisher
+fs: sp_adddistpublisher(@RETURN_VALUE int RETURN,@publisher sysname IN,@distribution_db sysname IN,@security_mode int IN,@login sysname IN,@password sysname IN,@working_directory nvarchar IN,@trusted nvarchar IN,@encrypted_password bit IN,@thirdparty_flag bit IN,@publisher_type sysname IN)
+pt: System Procedures
+fn: sp_adddistributiondb
+fs: sp_adddistributiondb(@RETURN_VALUE int RETURN,@database sysname IN,@data_folder nvarchar IN,@data_file nvarchar IN,@data_file_size int IN,@log_folder nvarchar IN,@log_file nvarchar IN,@log_file_size int IN,@min_distretention int IN,@max_distretention int IN,@history_retention int IN,@security_mode int IN,@login sysname IN,@password sysname IN,@createmode int IN,@from_scripting bit IN)
+pt: System Procedures
+fn: sp_adddistributor
+fs: sp_adddistributor(@RETURN_VALUE int RETURN,@distributor sysname IN,@heartbeat_interval int IN,@password sysname IN,@from_scripting bit IN)
+pt: System Procedures
+fn: sp_adddynamicsnapshot_job
+fs: sp_adddynamicsnapshot_job(@RETURN_VALUE int RETURN,@publication sysname IN,@suser_sname sysname IN,@host_name sysname IN,@dynamic_snapshot_jobname sysname OUT,@dynamic_snapshot_jobid uniqueidentifier OUT,@frequency_type int IN,@frequency_interval int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@active_start_date int IN,@active_end_date int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN)
+pt: System Procedures
+fn: sp_addextendedproc
+fs: sp_addextendedproc(@RETURN_VALUE int RETURN,@functname nvarchar IN,@dllname varchar IN)
+pt: System Procedures
+fn: sp_addextendedproperty
+fs: sp_addextendedproperty(@RETURN_VALUE int RETURN,@name sysname IN,@value sql_variant IN,@level0type varchar IN,@level0name sysname IN,@level1type varchar IN,@level1name sysname IN,@level2type varchar IN,@level2name sysname IN)
+pt: System Procedures
+fn: sp_addgroup
+fs: sp_addgroup(@RETURN_VALUE int RETURN,@grpname sysname IN)
+pt: System Procedures
+fn: sp_addlinkedserver
+fs: sp_addlinkedserver(@RETURN_VALUE int RETURN,@server sysname IN,@srvproduct nvarchar IN,@provider nvarchar IN,@datasrc nvarchar IN,@location nvarchar IN,@provstr nvarchar IN,@catalog sysname IN)
+pt: System Procedures
+fn: sp_addlinkedsrvlogin
+fs: sp_addlinkedsrvlogin(@RETURN_VALUE int RETURN,@rmtsrvname sysname IN,@useself varchar IN,@locallogin sysname IN,@rmtuser sysname IN,@rmtpassword sysname IN)
+pt: System Procedures
+fn: sp_addlogin
+fs: sp_addlogin(@RETURN_VALUE int RETURN,@loginame sysname IN,@passwd sysname IN,@defdb sysname IN,@deflanguage sysname IN,@sid varbinary IN,@encryptopt varchar IN)
+pt: System Procedures
+fn: sp_addlogreader_agent
+fs: sp_addlogreader_agent(@RETURN_VALUE int RETURN,@job_login nvarchar IN,@job_password sysname IN,@job_name sysname IN,@publisher_security_mode smallint IN,@publisher_login sysname IN,@publisher_password sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_addmergealternatepublisher
+fs: sp_addmergealternatepublisher(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@alternate_publisher sysname IN,@alternate_publisher_db sysname IN,@alternate_publication sysname IN,@alternate_distributor sysname IN,@friendly_name nvarchar IN,@reserved nvarchar IN)
+pt: System Procedures
+fn: sp_addmergearticle
+fs: sp_addmergearticle(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@source_object sysname IN,@type sysname IN,@description nvarchar IN,@column_tracking nvarchar IN,@status nvarchar IN,@pre_creation_cmd nvarchar IN,@creation_script nvarchar IN,@schema_option varbinary IN,@subset_filterclause nvarchar IN,@article_resolver nvarchar IN,@resolver_info nvarchar IN,@source_owner sysname IN,@destination_owner sysname IN,@vertical_partition nvarchar IN,@auto_identity_range nvarchar IN,@pub_identity_range bigint IN,@identity_range bigint IN,@threshold int IN,@verify_resolver_signature int IN,@destination_object sysname IN,@allow_interactive_resolver nvarchar IN,@fast_multicol_updateproc nvarchar IN,@check_permissions int IN,@force_invalidate_snapshot bit IN,@published_in_tran_pub nvarchar IN,@force_reinit_subscription bit IN,@logical_record_level_conflict_detection nvarchar IN,@logical_record_level_conflict_resolution nvarchar IN,@partition_options tinyint IN,@processing_order int IN,@subscriber_upload_options tinyint IN,@identityrangemanagementoption nvarchar IN,@delete_tracking nvarchar IN,@compensate_for_errors nvarchar IN,@stream_blob_columns nvarchar IN)
+pt: System Procedures
+fn: sp_addmergefilter
+fs: sp_addmergefilter(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@filtername sysname IN,@join_articlename sysname IN,@join_filterclause nvarchar IN,@join_unique_key int IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN,@filter_type tinyint IN)
+pt: System Procedures
+fn: sp_addmergelogsettings
+fs: sp_addmergelogsettings(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@support_options int IN,@web_server sysname IN,@log_severity int IN,@log_modules int IN,@log_file_path nvarchar IN,@log_file_name sysname IN,@log_file_size int IN,@no_of_log_files int IN,@upload_interval int IN,@delete_after_upload int IN,@custom_script nvarchar IN,@message_pattern nvarchar IN)
+pt: System Procedures
+fn: sp_addmergepartition
+fs: sp_addmergepartition(@RETURN_VALUE int RETURN,@publication sysname IN,@suser_sname sysname IN,@host_name sysname IN)
+pt: System Procedures
+fn: sp_addmergepublication
+fs: sp_addmergepublication(@RETURN_VALUE int RETURN,@publication sysname IN,@description nvarchar IN,@retention int IN,@sync_mode nvarchar IN,@allow_push nvarchar IN,@allow_pull nvarchar IN,@allow_anonymous nvarchar IN,@enabled_for_internet nvarchar IN,@centralized_conflicts nvarchar IN,@dynamic_filters nvarchar IN,@snapshot_in_defaultfolder nvarchar IN,@alt_snapshot_folder nvarchar IN,@pre_snapshot_script nvarchar IN,@post_snapshot_script nvarchar IN,@compress_snapshot nvarchar IN,@ftp_address sysname IN,@ftp_port int IN,@ftp_subdirectory nvarchar IN,@ftp_login sysname IN,@ftp_password sysname IN,@conflict_retention int IN,@keep_partition_changes nvarchar IN,@allow_subscription_copy nvarchar IN,@allow_synctoalternate nvarchar IN,@validate_subscriber_info nvarchar IN,@add_to_active_directory nvarchar IN,@max_concurrent_merge int IN,@max_concurrent_dynamic_snapshots int IN,@use_partition_groups nvarchar IN,@publication_compatibility_level nvarchar IN,@replicate_ddl int IN,@allow_subscriber_initiated_snapshot nvarchar IN,@allow_web_synchronization nvarchar IN,@web_synchronization_url nvarchar IN,@allow_partition_realignment nvarchar IN,@retention_period_unit nvarchar IN,@generation_leveling_threshold int IN,@automatic_reinitialization_policy bit IN,@conflict_logging nvarchar IN)
+pt: System Procedures
+fn: sp_addmergepullsubscription
+fs: sp_addmergepullsubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN,@publisher_db sysname IN,@subscriber_type nvarchar IN,@subscription_priority real IN,@sync_type nvarchar IN,@description nvarchar IN)
+pt: System Procedures
+fn: sp_addmergepullsubscription_agent
+fs: sp_addmergepullsubscription_agent(@RETURN_VALUE int RETURN,@name sysname IN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@publisher_security_mode int IN,@publisher_login sysname IN,@publisher_password sysname IN,@publisher_encrypted_password bit IN,@subscriber sysname IN,@subscriber_db sysname IN,@subscriber_security_mode int IN,@subscriber_login sysname IN,@subscriber_password sysname IN,@distributor sysname IN,@distributor_security_mode int IN,@distributor_login sysname IN,@distributor_password sysname IN,@encrypted_password bit IN,@frequency_type int IN,@frequency_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@active_start_date int IN,@active_end_date int IN,@optional_command_line nvarchar IN,@merge_jobid binary OUT,@enabled_for_syncmgr nvarchar IN,@ftp_address sysname IN,@ftp_port int IN,@ftp_login sysname IN,@ftp_password sysname IN,@alt_snapshot_folder nvarchar IN,@working_directory nvarchar IN,@use_ftp nvarchar IN,@reserved nvarchar IN,@use_interactive_resolver nvarchar IN,@offloadagent nvarchar IN,@offloadserver sysname IN,@job_name sysname IN,@dynamic_snapshot_location nvarchar IN,@use_web_sync bit IN,@internet_url nvarchar IN,@internet_login sysname IN,@internet_password nvarchar IN,@internet_security_mode int IN,@internet_timeout int IN,@hostname sysname IN,@job_login nvarchar IN,@job_password sysname IN)
+pt: System Procedures
+fn: sp_addmergepushsubscription_agent
+fs: sp_addmergepushsubscription_agent(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@subscriber_security_mode smallint IN,@subscriber_login sysname IN,@subscriber_password sysname IN,@publisher_security_mode smallint IN,@publisher_login sysname IN,@publisher_password sysname IN,@job_login nvarchar IN,@job_password sysname IN,@job_name sysname IN,@frequency_type int IN,@frequency_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@active_start_date int IN,@active_end_date int IN,@enabled_for_syncmgr nvarchar IN)
+pt: System Procedures
+fn: sp_addmergesubscription
+fs: sp_addmergesubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@subscription_type nvarchar IN,@subscriber_type nvarchar IN,@subscription_priority real IN,@sync_type nvarchar IN,@frequency_type int IN,@frequency_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@active_start_date int IN,@active_end_date int IN,@optional_command_line nvarchar IN,@description nvarchar IN,@enabled_for_syncmgr nvarchar IN,@offloadagent bit IN,@offloadserver sysname IN,@use_interactive_resolver nvarchar IN,@merge_job_name sysname IN,@hostname sysname IN)
+pt: System Procedures
+fn: sp_addmessage
+fs: sp_addmessage(@RETURN_VALUE int RETURN,@msgnum int IN,@severity smallint IN,@msgtext nvarchar IN,@lang sysname IN,@with_log varchar IN,@replace varchar IN)
+pt: System Procedures
+fn: sp_addpublication
+fs: sp_addpublication(@RETURN_VALUE int RETURN,@publication sysname IN,@taskid int IN,@restricted nvarchar IN,@sync_method nvarchar IN,@repl_freq nvarchar IN,@description nvarchar IN,@status nvarchar IN,@independent_agent nvarchar IN,@immediate_sync nvarchar IN,@enabled_for_internet nvarchar IN,@allow_push nvarchar IN,@allow_pull nvarchar IN,@allow_anonymous nvarchar IN,@allow_sync_tran nvarchar IN,@autogen_sync_procs nvarchar IN,@retention int IN,@allow_queued_tran nvarchar IN,@snapshot_in_defaultfolder nvarchar IN,@alt_snapshot_folder nvarchar IN,@pre_snapshot_script nvarchar IN,@post_snapshot_script nvarchar IN,@compress_snapshot nvarchar IN,@ftp_address sysname IN,@ftp_port int IN,@ftp_subdirectory nvarchar IN,@ftp_login sysname IN,@ftp_password sysname IN,@allow_dts nvarchar IN,@allow_subscription_copy nvarchar IN,@conflict_policy nvarchar IN,@centralized_conflicts nvarchar IN,@conflict_retention int IN,@queue_type nvarchar IN,@add_to_active_directory nvarchar IN,@logreader_job_name sysname IN,@qreader_job_name sysname IN,@publisher sysname IN,@allow_initialize_from_backup nvarchar IN,@replicate_ddl int IN,@enabled_for_p2p nvarchar IN,@publish_local_changes_only nvarchar IN,@enabled_for_het_sub nvarchar IN)
+pt: System Procedures
+fn: sp_addpublication_snapshot
+fs: sp_addpublication_snapshot(@RETURN_VALUE int RETURN,@publication sysname IN,@frequency_type int IN,@frequency_interval int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@active_start_date int IN,@active_end_date int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@snapshot_job_name nvarchar IN,@publisher_security_mode int IN,@publisher_login sysname IN,@publisher_password sysname IN,@job_login nvarchar IN,@job_password sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_addpullsubscription
+fs: sp_addpullsubscription(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@independent_agent nvarchar IN,@subscription_type nvarchar IN,@description nvarchar IN,@update_mode nvarchar IN,@immediate_sync bit IN)
+pt: System Procedures
+fn: sp_addpullsubscription_agent
+fs: sp_addpullsubscription_agent(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@subscriber_security_mode int IN,@subscriber_login sysname IN,@subscriber_password sysname IN,@distributor sysname IN,@distribution_db sysname IN,@distributor_security_mode int IN,@distributor_login sysname IN,@distributor_password sysname IN,@optional_command_line nvarchar IN,@frequency_type int IN,@frequency_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@active_start_date int IN,@active_end_date int IN,@distribution_jobid binary OUT,@encrypted_distributor_password bit IN,@enabled_for_syncmgr nvarchar IN,@ftp_address sysname IN,@ftp_port int IN,@ftp_login sysname IN,@ftp_password sysname IN,@alt_snapshot_folder nvarchar IN,@working_directory nvarchar IN,@use_ftp nvarchar IN,@publication_type tinyint IN,@dts_package_name sysname IN,@dts_package_password sysname IN,@dts_package_location nvarchar IN,@reserved nvarchar IN,@offloadagent nvarchar IN,@offloadserver sysname IN,@job_name sysname IN,@job_login nvarchar IN,@job_password sysname IN)
+pt: System Procedures
+fn: sp_addpushsubscription_agent
+fs: sp_addpushsubscription_agent(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@subscriber_security_mode smallint IN,@subscriber_login sysname IN,@subscriber_password sysname IN,@job_login nvarchar IN,@job_password sysname IN,@job_name sysname IN,@frequency_type int IN,@frequency_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@active_start_date int IN,@active_end_date int IN,@dts_package_name sysname IN,@dts_package_password sysname IN,@dts_package_location nvarchar IN,@enabled_for_syncmgr nvarchar IN,@distribution_job_name sysname IN,@publisher sysname IN,@subscriber_provider sysname IN,@subscriber_datasrc nvarchar IN,@subscriber_location nvarchar IN,@subscriber_provider_string nvarchar IN,@subscriber_catalog sysname IN)
+pt: System Procedures
+fn: sp_addqreader_agent
+fs: sp_addqreader_agent(@RETURN_VALUE int RETURN,@job_login nvarchar IN,@job_password sysname IN,@job_name sysname IN,@frompublisher bit IN)
+pt: System Procedures
+fn: sp_addqueued_artinfo
+fs: sp_addqueued_artinfo(@RETURN_VALUE int RETURN,@artid int IN,@article sysname IN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@dest_table sysname IN,@owner sysname IN,@cft_table sysname IN,@columns binary IN)
+pt: System Procedures
+fn: sp_addremotelogin
+fs: sp_addremotelogin(@RETURN_VALUE int RETURN,@remoteserver sysname IN,@loginame sysname IN,@remotename sysname IN)
+pt: System Procedures
+fn: sp_addrole
+fs: sp_addrole(@RETURN_VALUE int RETURN,@rolename sysname IN,@ownername sysname IN)
+pt: System Procedures
+fn: sp_addrolemember
+fs: sp_addrolemember(@RETURN_VALUE int RETURN,@rolename sysname IN,@membername sysname IN)
+pt: System Procedures
+fn: sp_addscriptexec
+fs: sp_addscriptexec(@RETURN_VALUE int RETURN,@publication sysname IN,@scriptfile nvarchar IN,@skiperror bit IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_addserver
+fs: sp_addserver(@RETURN_VALUE int RETURN,@server sysname IN,@local varchar IN,@duplicate_ok varchar IN)
+pt: System Procedures
+fn: sp_addsrvrolemember
+fs: sp_addsrvrolemember(@RETURN_VALUE int RETURN,@loginame sysname IN,@rolename sysname IN)
+pt: System Procedures
+fn: sp_addsubscriber
+fs: sp_addsubscriber(@RETURN_VALUE int RETURN,@subscriber sysname IN,@type tinyint IN,@login sysname IN,@password nvarchar IN,@commit_batch_size int IN,@status_batch_size int IN,@flush_frequency int IN,@frequency_type int IN,@frequency_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@active_start_date int IN,@active_end_date int IN,@description nvarchar IN,@security_mode int IN,@encrypted_password bit IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_addsubscriber_schedule
+fs: sp_addsubscriber_schedule(@RETURN_VALUE int RETURN,@subscriber sysname IN,@agent_type smallint IN,@frequency_type int IN,@frequency_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@active_start_date int IN,@active_end_date int IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_addsubscription
+fs: sp_addsubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@subscriber sysname IN,@destination_db sysname IN,@sync_type nvarchar IN,@status sysname IN,@subscription_type nvarchar IN,@update_mode nvarchar IN,@loopback_detection nvarchar IN,@frequency_type int IN,@frequency_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@active_start_date int IN,@active_end_date int IN,@optional_command_line nvarchar IN,@reserved nvarchar IN,@enabled_for_syncmgr nvarchar IN,@offloadagent bit IN,@offloadserver sysname IN,@dts_package_name sysname IN,@dts_package_password sysname IN,@dts_package_location nvarchar IN,@distribution_job_name sysname IN,@publisher sysname IN,@backupdevicetype nvarchar IN,@backupdevicename nvarchar IN,@mediapassword sysname IN,@password sysname IN,@fileidhint int IN,@unload bit IN,@subscriptionlsn binary IN,@subscriptionstreams tinyint IN,@subscriber_type tinyint IN)
+pt: System Procedures
+fn: sp_addsynctriggers
+fs: sp_addsynctriggers(@RETURN_VALUE int RETURN,@sub_table sysname IN,@sub_table_owner sysname IN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@ins_proc sysname IN,@upd_proc sysname IN,@del_proc sysname IN,@cftproc sysname IN,@proc_owner sysname IN,@identity_col sysname IN,@ts_col sysname IN,@filter_clause nvarchar IN,@primary_key_bitmap varbinary IN,@identity_support bit IN,@independent_agent bit IN,@distributor sysname IN,@pubversion int IN,@dump_cmds bit IN)
+pt: System Procedures
+fn: sp_addsynctriggerscore
+fs: sp_addsynctriggerscore(@RETURN_VALUE int RETURN,@sub_table sysname IN,@sub_table_owner sysname IN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@ins_proc sysname IN,@upd_proc sysname IN,@del_proc sysname IN,@cftproc sysname IN,@proc_owner sysname IN,@identity_col sysname IN,@ts_col sysname IN,@filter_clause nvarchar IN,@primary_key_bitmap varbinary IN,@identity_support bit IN,@independent_agent bit IN,@pubversion int IN,@ins_trig sysname IN,@upd_trig sysname IN,@del_trig sysname IN,@alter bit IN,@dump_cmds bit IN)
+pt: System Procedures
+fn: sp_addtabletocontents
+fs: sp_addtabletocontents(@RETURN_VALUE int RETURN,@table_name sysname IN,@owner_name sysname IN,@filter_clause nvarchar IN)
+pt: System Procedures
+fn: sp_addtype
+fs: sp_addtype(@RETURN_VALUE int RETURN,@typename sysname IN,@phystype sysname IN,@nulltype varchar IN,@owner sysname IN)
+pt: System Procedures
+fn: sp_addumpdevice
+fs: sp_addumpdevice(@RETURN_VALUE int RETURN,@devtype varchar IN,@logicalname sysname IN,@physicalname nvarchar IN,@cntrltype smallint IN,@devstatus varchar IN)
+pt: System Procedures
+fn: sp_adduser
+fs: sp_adduser(@RETURN_VALUE int RETURN,@loginame sysname IN,@name_in_db sysname IN,@grpname sysname IN)
+pt: System Procedures
+fn: sp_adjustpublisheridentityrange
+fs: sp_adjustpublisheridentityrange(@RETURN_VALUE int RETURN,@publication sysname IN,@table_name sysname IN,@table_owner sysname IN)
+pt: System Procedures
+fn: sp_altermessage
+fs: sp_altermessage(@RETURN_VALUE int RETURN,@message_id int IN,@parameter sysname IN,@parameter_value varchar IN)
+pt: System Procedures
+fn: sp_approlepassword
+fs: sp_approlepassword(@RETURN_VALUE int RETURN,@rolename sysname IN,@newpwd sysname IN)
+pt: System Procedures
+fn: sp_article_validation
+fs: sp_article_validation(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@rowcount_only smallint IN,@full_or_fast tinyint IN,@shutdown_agent bit IN,@subscription_level bit IN,@reserved int IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_articlecolumn
+fs: sp_articlecolumn(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@column sysname IN,@operation nvarchar IN,@refresh_synctran_procs bit IN,@ignore_distributor bit IN,@change_active int IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN,@publisher sysname IN,@internal bit IN)
+pt: System Procedures
+fn: sp_articlefilter
+fs: sp_articlefilter(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@filter_name nvarchar IN,@filter_clause ntext IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_articleview
+fs: sp_articleview(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@view_name nvarchar IN,@filter_clause ntext IN,@change_active int IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN,@publisher sysname IN,@refreshsynctranprocs bit IN,@internal bit IN)
+pt: System Procedures
+fn: sp_assemblies_rowset2
+fs: sp_assemblies_rowset2(@RETURN_VALUE int RETURN,@assembly_schema sysname IN,@assembly_id int IN)
+pt: System Procedures
+fn: sp_assemblies_rowset
+fs: sp_assemblies_rowset(@RETURN_VALUE int RETURN,@assembly_name sysname IN,@assembly_schema sysname IN,@assembly_id int IN)
+pt: System Procedures
+fn: sp_assemblies_rowset_rmt
+fs: sp_assemblies_rowset_rmt(@RETURN_VALUE int RETURN,@server_name sysname IN,@catalog_name sysname IN,@assembly_name sysname IN,@assembly_schema sysname IN,@assembly_id int IN)
+pt: System Procedures
+fn: sp_assembly_dependencies_rowset2
+fs: sp_assembly_dependencies_rowset2(@RETURN_VALUE int RETURN,@assembly_schema sysname IN,@assembly_referenced int IN)
+pt: System Procedures
+fn: sp_assembly_dependencies_rowset
+fs: sp_assembly_dependencies_rowset(@RETURN_VALUE int RETURN,@assembly_id int IN,@assembly_schema sysname IN,@assembly_referenced int IN)
+pt: System Procedures
+fn: sp_assembly_dependencies_rowset_rmt
+fs: sp_assembly_dependencies_rowset_rmt(@RETURN_VALUE int RETURN,@server sysname IN,@catalog sysname IN,@assembly_id int IN,@assembly_schema sysname IN,@assembly_referenced int IN)
+pt: System Procedures
+fn: sp_attach_db
+fs: sp_attach_db(@RETURN_VALUE int RETURN,@dbname sysname IN,@filename1 nvarchar IN,@filename2 nvarchar IN,@filename3 nvarchar IN,@filename4 nvarchar IN,@filename5 nvarchar IN,@filename6 nvarchar IN,@filename7 nvarchar IN,@filename8 nvarchar IN,@filename9 nvarchar IN,@filename10 nvarchar IN,@filename11 nvarchar IN,@filename12 nvarchar IN,@filename13 nvarchar IN,@filename14 nvarchar IN,@filename15 nvarchar IN,@filename16 nvarchar IN)
+pt: System Procedures
+fn: sp_attach_single_file_db
+fs: sp_attach_single_file_db(@RETURN_VALUE int RETURN,@dbname sysname IN,@physname nvarchar IN)
+pt: System Procedures
+fn: sp_attachsubscription
+fs: sp_attachsubscription(@RETURN_VALUE int RETURN,@dbname sysname IN,@filename nvarchar IN,@subscriber_security_mode int IN,@subscriber_login sysname IN,@subscriber_password sysname IN,@distributor_security_mode int IN,@distributor_login sysname IN,@distributor_password sysname IN,@publisher_security_mode int IN,@publisher_login sysname IN,@publisher_password sysname IN,@job_login nvarchar IN,@job_password sysname IN,@db_master_key_password nvarchar IN)
+pt: System Procedures
+fn: sp_autostats
+fs: sp_autostats(@RETURN_VALUE int RETURN,@tblname nvarchar IN,@flagc varchar IN,@indname sysname IN)
+pt: System Procedures
+fn: sp_bcp_dbcmptlevel
+fs: sp_bcp_dbcmptlevel(@RETURN_VALUE int RETURN,@dbname sysname IN)
+pt: System Procedures
+fn: sp_bindefault
+fs: sp_bindefault(@RETURN_VALUE int RETURN,@defname nvarchar IN,@objname nvarchar IN,@futureonly varchar IN)
+pt: System Procedures
+fn: sp_bindrule
+fs: sp_bindrule(@RETURN_VALUE int RETURN,@rulename nvarchar IN,@objname nvarchar IN,@futureonly varchar IN)
+pt: System Procedures
+fn: sp_browsemergesnapshotfolder
+fs: sp_browsemergesnapshotfolder(@RETURN_VALUE int RETURN,@publication sysname IN)
+pt: System Procedures
+fn: sp_browsereplcmds
+fs: sp_browsereplcmds(@RETURN_VALUE int RETURN,@xact_seqno_start nchar IN,@xact_seqno_end nchar IN,@originator_id int IN,@publisher_database_id int IN,@article_id int IN,@command_id int IN,@agent_id int IN,@compatibility_level int IN)
+pt: System Procedures
+fn: sp_browsesnapshotfolder
+fs: sp_browsesnapshotfolder(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_can_tlog_be_applied
+fs: sp_can_tlog_be_applied(@RETURN_VALUE int RETURN,@backup_file_name nvarchar IN,@database_name sysname IN,@result bit OUT,@verbose bit IN)
+pt: System Procedures
+fn: sp_catalogs
+fs: sp_catalogs(@RETURN_VALUE int RETURN,@server_name sysname IN)
+pt: System Procedures
+fn: sp_catalogs_rowset2
+fs: sp_catalogs_rowset2(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_catalogs_rowset
+fs: sp_catalogs_rowset(@RETURN_VALUE int RETURN,@catalog_name sysname IN)
+pt: System Procedures
+fn: sp_catalogs_rowset_rmt
+fs: sp_catalogs_rowset_rmt(@RETURN_VALUE int RETURN,@server_name sysname IN,@catalog_name sysname IN)
+pt: System Procedures
+fn: sp_certify_removable
+fs: sp_certify_removable(@RETURN_VALUE int RETURN,@dbname sysname IN,@autofix nvarchar IN)
+pt: System Procedures
+fn: sp_change_agent_parameter
+fs: sp_change_agent_parameter(@RETURN_VALUE int RETURN,@profile_id int IN,@parameter_name sysname IN,@parameter_value nvarchar IN)
+pt: System Procedures
+fn: sp_change_agent_profile
+fs: sp_change_agent_profile(@RETURN_VALUE int RETURN,@profile_id int IN,@property sysname IN,@value nvarchar IN)
+pt: System Procedures
+fn: sp_change_log_shipping_primary_database
+fs: sp_change_log_shipping_primary_database(@RETURN_VALUE int RETURN,@database sysname IN,@backup_directory nvarchar IN,@backup_share nvarchar IN,@backup_retention_period int IN,@monitor_server_security_mode bit IN,@monitor_server_login sysname IN,@monitor_server_password sysname IN,@backup_threshold int IN,@threshold_alert int IN,@threshold_alert_enabled bit IN,@history_retention_period int IN,@ignoreremotemonitor bit IN)
+pt: System Procedures
+fn: sp_change_log_shipping_secondary_database
+fs: sp_change_log_shipping_secondary_database(@RETURN_VALUE int RETURN,@secondary_database sysname IN,@restore_delay int IN,@restore_all bit IN,@restore_mode bit IN,@disconnect_users bit IN,@block_size int IN,@buffer_count int IN,@max_transfer_size int IN,@restore_threshold int IN,@threshold_alert int IN,@threshold_alert_enabled bit IN,@history_retention_period int IN,@ignoreremotemonitor bit IN)
+pt: System Procedures
+fn: sp_change_log_shipping_secondary_primary
+fs: sp_change_log_shipping_secondary_primary(@RETURN_VALUE int RETURN,@primary_server sysname IN,@primary_database sysname IN,@backup_source_directory nvarchar IN,@backup_destination_directory nvarchar IN,@file_retention_period int IN,@monitor_server_security_mode bit IN,@monitor_server_login sysname IN,@monitor_server_password sysname IN)
+pt: System Procedures
+fn: sp_change_subscription_properties
+fs: sp_change_subscription_properties(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@property sysname IN,@value nvarchar IN,@publication_type int IN)
+pt: System Procedures
+fn: sp_change_users_login
+fs: sp_change_users_login(@RETURN_VALUE int RETURN,@Action varchar IN,@UserNamePattern sysname IN,@LoginName sysname IN,@Password sysname IN)
+pt: System Procedures
+fn: sp_changearticle
+fs: sp_changearticle(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@property nvarchar IN,@value nvarchar IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_changearticlecolumndatatype
+fs: sp_changearticlecolumndatatype(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@column sysname IN,@mapping_id int IN,@type sysname IN,@length bigint IN,@precision bigint IN,@scale bigint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_changedbowner
+fs: sp_changedbowner(@RETURN_VALUE int RETURN,@loginame sysname IN,@map varchar IN)
+pt: System Procedures
+fn: sp_changedistpublisher
+fs: sp_changedistpublisher(@RETURN_VALUE int RETURN,@publisher sysname IN,@property sysname IN,@value nvarchar IN)
+pt: System Procedures
+fn: sp_changedistributiondb
+fs: sp_changedistributiondb(@RETURN_VALUE int RETURN,@database sysname IN,@property sysname IN,@value nvarchar IN)
+pt: System Procedures
+fn: sp_changedistributor_password
+fs: sp_changedistributor_password(@RETURN_VALUE int RETURN,@password sysname IN)
+pt: System Procedures
+fn: sp_changedistributor_property
+fs: sp_changedistributor_property(@RETURN_VALUE int RETURN,@property sysname IN,@value nvarchar IN)
+pt: System Procedures
+fn: sp_changedynamicsnapshot_job
+fs: sp_changedynamicsnapshot_job(@RETURN_VALUE int RETURN,@publication sysname IN,@dynamic_snapshot_jobname sysname IN,@dynamic_snapshot_jobid uniqueidentifier IN,@frequency_type int IN,@frequency_interval int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@active_start_date int IN,@active_end_date int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@job_login nvarchar IN,@job_password sysname IN)
+pt: System Procedures
+fn: sp_changegroup
+fs: sp_changegroup(@RETURN_VALUE int RETURN,@grpname sysname IN,@username sysname IN)
+pt: System Procedures
+fn: sp_changelogreader_agent
+fs: sp_changelogreader_agent(@RETURN_VALUE int RETURN,@job_login nvarchar IN,@job_password sysname IN,@publisher_security_mode smallint IN,@publisher_login sysname IN,@publisher_password sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_changemergearticle
+fs: sp_changemergearticle(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@property sysname IN,@value nvarchar IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN)
+pt: System Procedures
+fn: sp_changemergefilter
+fs: sp_changemergefilter(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@filtername sysname IN,@property sysname IN,@value nvarchar IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN)
+pt: System Procedures
+fn: sp_changemergelogsettings
+fs: sp_changemergelogsettings(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@support_options int IN,@web_server sysname IN,@log_severity int IN,@log_modules int IN,@log_file_path nvarchar IN,@log_file_name sysname IN,@log_file_size int IN,@no_of_log_files int IN,@upload_interval int IN,@delete_after_upload int IN,@custom_script nvarchar IN,@message_pattern nvarchar IN)
+pt: System Procedures
+fn: sp_changemergepublication
+fs: sp_changemergepublication(@RETURN_VALUE int RETURN,@publication sysname IN,@property sysname IN,@value nvarchar IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN)
+pt: System Procedures
+fn: sp_changemergepullsubscription
+fs: sp_changemergepullsubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN,@publisher_db sysname IN,@property sysname IN,@value nvarchar IN)
+pt: System Procedures
+fn: sp_changemergesubscription
+fs: sp_changemergesubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@property sysname IN,@value nvarchar IN,@force_reinit_subscription bit IN)
+pt: System Procedures
+fn: sp_changeobjectowner
+fs: sp_changeobjectowner(@RETURN_VALUE int RETURN,@objname nvarchar IN,@newowner sysname IN)
+pt: System Procedures
+fn: sp_changepublication
+fs: sp_changepublication(@RETURN_VALUE int RETURN,@publication sysname IN,@property nvarchar IN,@value nvarchar IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_changepublication_snapshot
+fs: sp_changepublication_snapshot(@RETURN_VALUE int RETURN,@publication sysname IN,@frequency_type int IN,@frequency_interval int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@active_start_date int IN,@active_end_date int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@snapshot_job_name nvarchar IN,@publisher_security_mode int IN,@publisher_login sysname IN,@publisher_password sysname IN,@job_login nvarchar IN,@job_password sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_changeqreader_agent
+fs: sp_changeqreader_agent(@RETURN_VALUE int RETURN,@job_login nvarchar IN,@job_password sysname IN,@frompublisher bit IN)
+pt: System Procedures
+fn: sp_changereplicationserverpasswords
+fs: sp_changereplicationserverpasswords(@RETURN_VALUE int RETURN,@login_type tinyint IN,@login nvarchar IN,@password sysname IN,@server sysname IN)
+pt: System Procedures
+fn: sp_changesubscriber
+fs: sp_changesubscriber(@RETURN_VALUE int RETURN,@subscriber sysname IN,@type tinyint IN,@login sysname IN,@password sysname IN,@commit_batch_size int IN,@status_batch_size int IN,@flush_frequency int IN,@frequency_type int IN,@frequency_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@active_start_date int IN,@active_end_date int IN,@description nvarchar IN,@security_mode int IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_changesubscriber_schedule
+fs: sp_changesubscriber_schedule(@RETURN_VALUE int RETURN,@subscriber sysname IN,@agent_type smallint IN,@frequency_type int IN,@frequency_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@active_start_date int IN,@active_end_date int IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_changesubscription
+fs: sp_changesubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@subscriber sysname IN,@destination_db sysname IN,@property nvarchar IN,@value nvarchar IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_changesubscriptiondtsinfo
+fs: sp_changesubscriptiondtsinfo(@RETURN_VALUE int RETURN,@job_id varbinary IN,@dts_package_name sysname IN,@dts_package_password sysname IN,@dts_package_location nvarchar IN)
+pt: System Procedures
+fn: sp_changesubstatus
+fs: sp_changesubstatus(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@subscriber sysname IN,@status sysname IN,@previous_status sysname IN,@destination_db sysname IN,@frequency_type int IN,@frequency_interval int IN,@frequency_relative_interval int IN,@frequency_recurrence_factor int IN,@frequency_subday int IN,@frequency_subday_interval int IN,@active_start_time_of_day int IN,@active_end_time_of_day int IN,@active_start_date int IN,@active_end_date int IN,@optional_command_line nvarchar IN,@distribution_jobid binary OUT,@from_auto_sync bit IN,@ignore_distributor bit IN,@offloadagent bit IN,@offloadserver sysname IN,@dts_package_name sysname IN,@dts_package_password nvarchar IN,@dts_package_location int IN,@skipobjectactivation int IN,@distribution_job_name sysname IN,@publisher sysname IN,@ignore_distributor_failure bit IN)
+pt: System Procedures
+fn: sp_checkOraclepackageversion
+fs: sp_checkOraclepackageversion(@RETURN_VALUE int RETURN,@publisher sysname IN,@versionsmatch bit OUT)
+pt: System Procedures
+fn: sp_check_constbytable_rowset2
+fs: sp_check_constbytable_rowset2(@RETURN_VALUE int RETURN,@table_schema sysname IN,@constraint_name sysname IN,@constraint_schema sysname IN)
+pt: System Procedures
+fn: sp_check_constbytable_rowset
+fs: sp_check_constbytable_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN,@constraint_name sysname IN,@constraint_schema sysname IN)
+pt: System Procedures
+fn: sp_check_constraints_rowset2
+fs: sp_check_constraints_rowset2(@RETURN_VALUE int RETURN,@constraint_schema sysname IN)
+pt: System Procedures
+fn: sp_check_constraints_rowset
+fs: sp_check_constraints_rowset(@RETURN_VALUE int RETURN,@constraint_name sysname IN,@constraint_schema sysname IN)
+pt: System Procedures
+fn: sp_check_dynamic_filters
+fs: sp_check_dynamic_filters(@RETURN_VALUE int RETURN,@publication sysname IN)
+pt: System Procedures
+fn: sp_check_for_sync_trigger
+fs: sp_check_for_sync_trigger(@RETURN_VALUE int RETURN,@tabid int IN,@trigger_op char OUT,@fonpublisher bit IN)
+pt: System Procedures
+fn: sp_check_join_filter
+fs: sp_check_join_filter(@RETURN_VALUE int RETURN,@filtered_table nvarchar IN,@join_table nvarchar IN,@join_filterclause nvarchar IN)
+pt: System Procedures
+fn: sp_check_log_shipping_monitor_alert
+fs: sp_check_log_shipping_monitor_alert(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_check_publication_access
+fs: sp_check_publication_access(@RETURN_VALUE int RETURN,@publication sysname IN,@given_login sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_check_removable
+fs: sp_check_removable(@RETURN_VALUE int RETURN,@autofix varchar IN)
+pt: System Procedures
+fn: sp_check_subset_filter
+fs: sp_check_subset_filter(@RETURN_VALUE int RETURN,@filtered_table nvarchar IN,@subset_filterclause nvarchar IN,@has_dynamic_filters bit OUT,@dynamic_filters_function_list nvarchar OUT)
+pt: System Procedures
+fn: sp_check_sync_trigger
+fs: sp_check_sync_trigger(@RETURN_VALUE int RETURN,@trigger_procid int IN,@trigger_op char OUT,@owner sysname IN)
+pt: System Procedures
+fn: sp_checkinvalidivarticle
+fs: sp_checkinvalidivarticle(@RETURN_VALUE int RETURN,@mode tinyint IN,@publication sysname IN)
+pt: System Procedures
+fn: sp_cleanmergelogfiles
+fs: sp_cleanmergelogfiles(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@publisher sysname IN,@publisher_db sysname IN,@web_server sysname IN,@id int IN)
+pt: System Procedures
+fn: sp_cleanup_log_shipping_history
+fs: sp_cleanup_log_shipping_history(@RETURN_VALUE int RETURN,@agent_id uniqueidentifier IN,@agent_type tinyint IN)
+pt: System Procedures
+fn: sp_cleanupdbreplication
+fs: sp_cleanupdbreplication(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_cleanupwebtask
+fs: sp_cleanupwebtask(@RETURN_VALUE int RETURN,@taskid int IN)
+pt: System Procedures
+fn: sp_column_privileges
+fs: sp_column_privileges(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_owner sysname IN,@table_qualifier sysname IN,@column_name nvarchar IN)
+pt: System Procedures
+fn: sp_column_privileges_ex
+fs: sp_column_privileges_ex(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_name sysname IN,@table_schema sysname IN,@table_catalog sysname IN,@column_name sysname IN)
+pt: System Procedures
+fn: sp_column_privileges_rowset2
+fs: sp_column_privileges_rowset2(@RETURN_VALUE int RETURN,@table_schema sysname IN,@column_name sysname IN,@grantor sysname IN,@grantee sysname IN)
+pt: System Procedures
+fn: sp_column_privileges_rowset
+fs: sp_column_privileges_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN,@column_name sysname IN,@grantor sysname IN,@grantee sysname IN)
+pt: System Procedures
+fn: sp_column_privileges_rowset_rmt
+fs: sp_column_privileges_rowset_rmt(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_catalog sysname IN,@table_name sysname IN,@table_schema sysname IN,@column_name sysname IN,@grantor sysname IN,@grantee sysname IN)
+pt: System Procedures
+fn: sp_columns
+fs: sp_columns(@RETURN_VALUE int RETURN,@table_name nvarchar IN,@table_owner nvarchar IN,@table_qualifier sysname IN,@column_name nvarchar IN,@ODBCVer int IN)
+pt: System Procedures
+fn: sp_columns_90
+fs: sp_columns_90(@RETURN_VALUE int RETURN,@table_name nvarchar IN,@table_owner nvarchar IN,@table_qualifier sysname IN,@column_name nvarchar IN,@ODBCVer int IN,@fUsePattern bit IN)
+pt: System Procedures
+fn: sp_columns_90_rowset2
+fs: sp_columns_90_rowset2(@RETURN_VALUE int RETURN,@table_schema sysname IN,@column_name sysname IN)
+pt: System Procedures
+fn: sp_columns_90_rowset
+fs: sp_columns_90_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN,@column_name sysname IN)
+pt: System Procedures
+fn: sp_columns_90_rowset_rmt
+fs: sp_columns_90_rowset_rmt(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_catalog sysname IN,@table_name sysname IN,@table_schema sysname IN,@column_name sysname IN)
+pt: System Procedures
+fn: sp_columns_ex
+fs: sp_columns_ex(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_name sysname IN,@table_schema sysname IN,@table_catalog sysname IN,@column_name sysname IN,@ODBCVer int IN)
+pt: System Procedures
+fn: sp_columns_ex_90
+fs: sp_columns_ex_90(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_name sysname IN,@table_schema sysname IN,@table_catalog sysname IN,@column_name sysname IN,@ODBCVer int IN,@fUsePattern bit IN)
+pt: System Procedures
+fn: sp_columns_rowset2
+fs: sp_columns_rowset2(@RETURN_VALUE int RETURN,@table_schema sysname IN,@column_name sysname IN)
+pt: System Procedures
+fn: sp_columns_rowset
+fs: sp_columns_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN,@column_name sysname IN)
+pt: System Procedures
+fn: sp_columns_rowset_rmt
+fs: sp_columns_rowset_rmt(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_catalog sysname IN,@table_name sysname IN,@table_schema sysname IN,@column_name sysname IN)
+pt: System Procedures
+fn: sp_configure
+fs: sp_configure(@RETURN_VALUE int RETURN,@configname varchar IN,@configvalue int IN)
+pt: System Procedures
+fn: sp_constr_col_usage_rowset2
+fs: sp_constr_col_usage_rowset2(@RETURN_VALUE int RETURN,@table_schema sysname IN,@column_name sysname IN,@constr_catalog sysname IN,@constr_schema sysname IN,@constr_name sysname IN)
+pt: System Procedures
+fn: sp_constr_col_usage_rowset
+fs: sp_constr_col_usage_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN,@column_name sysname IN,@constr_catalog sysname IN,@constr_schema sysname IN,@constr_name sysname IN)
+pt: System Procedures
+fn: sp_convertwebtasks
+fs: sp_convertwebtasks(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_copymergesnapshot
+fs: sp_copymergesnapshot(@RETURN_VALUE int RETURN,@publication sysname IN,@destination_folder nvarchar IN)
+pt: System Procedures
+fn: sp_copysnapshot
+fs: sp_copysnapshot(@RETURN_VALUE int RETURN,@publication sysname IN,@destination_folder nvarchar IN,@subscriber sysname IN,@subscriber_db sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_copysubscription
+fs: sp_copysubscription(@RETURN_VALUE int RETURN,@filename nvarchar IN,@temp_dir nvarchar IN,@overwrite_existing_file bit IN)
+pt: System Procedures
+fn: sp_create_removable
+fs: sp_create_removable(@RETURN_VALUE int RETURN,@dbname sysname IN,@syslogical sysname IN,@sysphysical nvarchar IN,@syssize int IN,@loglogical sysname IN,@logphysical nvarchar IN,@logsize int IN,@datalogical1 sysname IN,@dataphysical1 nvarchar IN,@datasize1 int IN,@datalogical2 sysname IN,@dataphysical2 nvarchar IN,@datasize2 int IN,@datalogical3 sysname IN,@dataphysical3 nvarchar IN,@datasize3 int IN,@datalogical4 sysname IN,@dataphysical4 nvarchar IN,@datasize4 int IN,@datalogical5 sysname IN,@dataphysical5 nvarchar IN,@datasize5 int IN,@datalogical6 sysname IN,@dataphysical6 nvarchar IN,@datasize6 int IN,@datalogical7 sysname IN,@dataphysical7 nvarchar IN,@datasize7 int IN,@datalogical8 sysname IN,@dataphysical8 nvarchar IN,@datasize8 int IN,@datalogical9 sysname IN,@dataphysical9 nvarchar IN,@datasize9 int IN,@datalogical10 sysname IN,@dataphysical10 nvarchar IN,@datasize10 int IN,@datalogical11 sysname IN,@dataphysical11 nvarchar IN,@datasize11 int IN,@datalogical12 sysname IN,@dataphysical12 nvarchar IN,@datasize12 int IN,@datalogical13 sysname IN,@dataphysical13 nvarchar IN,@datasize13 int IN,@datalogical14 sysname IN,@dataphysical14 nvarchar IN,@datasize14 int IN,@datalogical15 sysname IN,@dataphysical15 nvarchar IN,@datasize15 int IN,@datalogical16 sysname IN,@dataphysical16 nvarchar IN,@datasize16 int IN)
+pt: System Procedures
+fn: sp_createmergepalrole
+fs: sp_createmergepalrole(@RETURN_VALUE int RETURN,@publication sysname IN)
+pt: System Procedures
+fn: sp_createstats
+fs: sp_createstats(@RETURN_VALUE int RETURN,@indexonly char IN,@fullscan char IN,@norecompute char IN)
+pt: System Procedures
+fn: sp_createtranpalrole
+fs: sp_createtranpalrole(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_cursor_list
+fs: sp_cursor_list(@RETURN_VALUE int RETURN,@cursor_return int OUT,@cursor_scope int IN)
+pt: System Procedures
+fn: sp_cycle_errorlog
+fs: sp_cycle_errorlog(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_databases
+fs: sp_databases(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_datatype_info
+fs: sp_datatype_info(@RETURN_VALUE int RETURN,@data_type int IN,@ODBCVer tinyint IN)
+pt: System Procedures
+fn: sp_datatype_info_90
+fs: sp_datatype_info_90(@RETURN_VALUE int RETURN,@data_type int IN,@ODBCVer tinyint IN)
+pt: System Procedures
+fn: sp_dbcmptlevel
+fs: sp_dbcmptlevel(@RETURN_VALUE int RETURN,@dbname sysname IN,@new_cmptlevel tinyint OUT)
+pt: System Procedures
+fn: sp_dbfixedrolepermission
+fs: sp_dbfixedrolepermission(@RETURN_VALUE int RETURN,@rolename sysname IN)
+pt: System Procedures
+fn: sp_dbmmonitoraddmonitoring
+fs: sp_dbmmonitoraddmonitoring(@RETURN_VALUE int RETURN,@update_period int IN)
+pt: System Procedures
+fn: sp_dbmmonitorchangealert
+fs: sp_dbmmonitorchangealert(@RETURN_VALUE int RETURN,@database_name sysname IN,@alert_id int IN,@threshold int IN,@enabled bit IN)
+pt: System Procedures
+fn: sp_dbmmonitorchangemonitoring
+fs: sp_dbmmonitorchangemonitoring(@RETURN_VALUE int RETURN,@parameter_id int IN,@value int IN)
+pt: System Procedures
+fn: sp_dbmmonitordropalert
+fs: sp_dbmmonitordropalert(@RETURN_VALUE int RETURN,@database_name sysname IN,@alert_id int IN)
+pt: System Procedures
+fn: sp_dbmmonitordropmonitoring
+fs: sp_dbmmonitordropmonitoring(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_dbmmonitorhelpalert
+fs: sp_dbmmonitorhelpalert(@RETURN_VALUE int RETURN,@database_name sysname IN,@alert_id int IN)
+pt: System Procedures
+fn: sp_dbmmonitorhelpmonitoring
+fs: sp_dbmmonitorhelpmonitoring(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_dbmmonitorresults
+fs: sp_dbmmonitorresults(@RETURN_VALUE int RETURN,@database_name sysname IN,@mode int IN,@update_table int IN)
+pt: System Procedures
+fn: sp_dbmmonitorupdate
+fs: sp_dbmmonitorupdate(@RETURN_VALUE int RETURN,@database_name sysname IN)
+pt: System Procedures
+fn: sp_dboption
+fs: sp_dboption(@RETURN_VALUE int RETURN,@dbname sysname IN,@optname varchar IN,@optvalue varchar IN)
+pt: System Procedures
+fn: sp_dbremove
+fs: sp_dbremove(@RETURN_VALUE int RETURN,@dbname sysname IN,@dropdev varchar IN)
+pt: System Procedures
+fn: sp_ddopen
+fs: sp_ddopen(@RETURN_VALUE int RETURN,@handle int OUT,@procname sysname IN,@scrollopt int OUT,@ccopt int OUT,@rows int OUT,@p1 nvarchar IN,@p2 nvarchar IN,@p3 nvarchar IN,@p4 nvarchar IN,@p5 nvarchar IN,@p6 nvarchar IN,@p7 int IN,@ODBCVer int IN,@fUsePattern bit IN)
+pt: System Procedures
+fn: sp_defaultdb
+fs: sp_defaultdb(@RETURN_VALUE int RETURN,@loginame sysname IN,@defdb sysname IN)
+pt: System Procedures
+fn: sp_defaultlanguage
+fs: sp_defaultlanguage(@RETURN_VALUE int RETURN,@loginame sysname IN,@language sysname IN)
+pt: System Procedures
+fn: sp_delete_log_shipping_alert_job
+fs: sp_delete_log_shipping_alert_job(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_delete_log_shipping_primary_database
+fs: sp_delete_log_shipping_primary_database(@RETURN_VALUE int RETURN,@database sysname IN,@ignoreremotemonitor bit IN)
+pt: System Procedures
+fn: sp_delete_log_shipping_primary_secondary
+fs: sp_delete_log_shipping_primary_secondary(@RETURN_VALUE int RETURN,@primary_database sysname IN,@secondary_server sysname IN,@secondary_database sysname IN)
+pt: System Procedures
+fn: sp_delete_log_shipping_secondary_database
+fs: sp_delete_log_shipping_secondary_database(@RETURN_VALUE int RETURN,@secondary_database sysname IN,@ignoreremotemonitor bit IN)
+pt: System Procedures
+fn: sp_delete_log_shipping_secondary_primary
+fs: sp_delete_log_shipping_secondary_primary(@RETURN_VALUE int RETURN,@primary_server sysname IN,@primary_database sysname IN)
+pt: System Procedures
+fn: sp_deletemergeconflictrow
+fs: sp_deletemergeconflictrow(@RETURN_VALUE int RETURN,@conflict_table sysname IN,@source_object nvarchar IN,@rowguid uniqueidentifier IN,@origin_datasource varchar IN,@drop_table_if_empty varchar IN)
+pt: System Procedures
+fn: sp_deletepeerrequesthistory
+fs: sp_deletepeerrequesthistory(@RETURN_VALUE int RETURN,@publication sysname IN,@request_id int IN,@cutoff_date datetime IN)
+pt: System Procedures
+fn: sp_deletetracertokenhistory
+fs: sp_deletetracertokenhistory(@RETURN_VALUE int RETURN,@publication sysname IN,@tracer_id int IN,@cutoff_date datetime IN,@publisher sysname IN,@publisher_db sysname IN)
+pt: System Procedures
+fn: sp_denylogin
+fs: sp_denylogin(@RETURN_VALUE int RETURN,@loginame sysname IN)
+pt: System Procedures
+fn: sp_depends
+fs: sp_depends(@RETURN_VALUE int RETURN,@objname nvarchar IN)
+pt: System Procedures
+fn: sp_describe_cursor
+fs: sp_describe_cursor(@RETURN_VALUE int RETURN,@cursor_return int OUT,@cursor_source nvarchar IN,@cursor_identity nvarchar IN)
+pt: System Procedures
+fn: sp_describe_cursor_columns
+fs: sp_describe_cursor_columns(@RETURN_VALUE int RETURN,@cursor_return int OUT,@cursor_source nvarchar IN,@cursor_identity nvarchar IN)
+pt: System Procedures
+fn: sp_describe_cursor_tables
+fs: sp_describe_cursor_tables(@RETURN_VALUE int RETURN,@cursor_return int OUT,@cursor_source nvarchar IN,@cursor_identity nvarchar IN)
+pt: System Procedures
+fn: sp_detach_db
+fs: sp_detach_db(@RETURN_VALUE int RETURN,@dbname sysname IN,@skipchecks nvarchar IN,@keepfulltextindexfile nvarchar IN)
+pt: System Procedures
+fn: sp_disableagentoffload
+fs: sp_disableagentoffload(@RETURN_VALUE int RETURN,@job_id varbinary IN,@offloadserver sysname IN,@agent_type sysname IN)
+pt: System Procedures
+fn: sp_distcounters
+fs: sp_distcounters(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_drop_agent_parameter
+fs: sp_drop_agent_parameter(@RETURN_VALUE int RETURN,@profile_id int IN,@parameter_name sysname IN)
+pt: System Procedures
+fn: sp_drop_agent_profile
+fs: sp_drop_agent_profile(@RETURN_VALUE int RETURN,@profile_id int IN)
+pt: System Procedures
+fn: sp_dropalias
+fs: sp_dropalias(@RETURN_VALUE int RETURN,@loginame sysname IN)
+pt: System Procedures
+fn: sp_dropanonymousagent
+fs: sp_dropanonymousagent(@RETURN_VALUE int RETURN,@subid uniqueidentifier IN,@type int IN)
+pt: System Procedures
+fn: sp_dropanonymoussubscription
+fs: sp_dropanonymoussubscription(@RETURN_VALUE int RETURN,@agent_id int IN,@type int IN)
+pt: System Procedures
+fn: sp_dropapprole
+fs: sp_dropapprole(@RETURN_VALUE int RETURN,@rolename sysname IN)
+pt: System Procedures
+fn: sp_droparticle
+fs: sp_droparticle(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@ignore_distributor bit IN,@force_invalidate_snapshot bit IN,@publisher sysname IN,@from_drop_publication bit IN)
+pt: System Procedures
+fn: sp_dropdatatypemapping
+fs: sp_dropdatatypemapping(@RETURN_VALUE int RETURN,@mapping_id int IN,@source_dbms sysname IN,@source_version sysname IN,@source_type sysname IN,@source_length_min bigint IN,@source_length_max bigint IN,@source_precision_min bigint IN,@source_precision_max bigint IN,@source_scale_min int IN,@source_scale_max int IN,@source_nullable bit IN,@destination_dbms sysname IN,@destination_version sysname IN,@destination_type sysname IN,@destination_length bigint IN,@destination_precision bigint IN,@destination_scale int IN,@destination_nullable bit IN)
+pt: System Procedures
+fn: sp_dropdevice
+fs: sp_dropdevice(@RETURN_VALUE int RETURN,@logicalname sysname IN,@delfile varchar IN)
+pt: System Procedures
+fn: sp_dropdistpublisher
+fs: sp_dropdistpublisher(@RETURN_VALUE int RETURN,@publisher sysname IN,@no_checks bit IN,@ignore_distributor bit IN)
+pt: System Procedures
+fn: sp_dropdistributiondb
+fs: sp_dropdistributiondb(@RETURN_VALUE int RETURN,@database sysname IN)
+pt: System Procedures
+fn: sp_dropdistributor
+fs: sp_dropdistributor(@RETURN_VALUE int RETURN,@no_checks bit IN,@ignore_distributor bit IN)
+pt: System Procedures
+fn: sp_dropdynamicsnapshot_job
+fs: sp_dropdynamicsnapshot_job(@RETURN_VALUE int RETURN,@publication sysname IN,@dynamic_snapshot_jobname sysname IN,@dynamic_snapshot_jobid uniqueidentifier IN,@ignore_distributor bit IN)
+pt: System Procedures
+fn: sp_dropextendedproc
+fs: sp_dropextendedproc(@RETURN_VALUE int RETURN,@functname nvarchar IN)
+pt: System Procedures
+fn: sp_dropextendedproperty
+fs: sp_dropextendedproperty(@RETURN_VALUE int RETURN,@name sysname IN,@level0type varchar IN,@level0name sysname IN,@level1type varchar IN,@level1name sysname IN,@level2type varchar IN,@level2name sysname IN)
+pt: System Procedures
+fn: sp_dropgroup
+fs: sp_dropgroup(@RETURN_VALUE int RETURN,@rolename sysname IN)
+pt: System Procedures
+fn: sp_droplinkedsrvlogin
+fs: sp_droplinkedsrvlogin(@RETURN_VALUE int RETURN,@rmtsrvname sysname IN,@locallogin sysname IN)
+pt: System Procedures
+fn: sp_droplogin
+fs: sp_droplogin(@RETURN_VALUE int RETURN,@loginame sysname IN)
+pt: System Procedures
+fn: sp_dropmergealternatepublisher
+fs: sp_dropmergealternatepublisher(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@alternate_publisher sysname IN,@alternate_publisher_db sysname IN,@alternate_publication sysname IN)
+pt: System Procedures
+fn: sp_dropmergearticle
+fs: sp_dropmergearticle(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@ignore_distributor bit IN,@reserved bit IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN,@ignore_merge_metadata bit IN)
+pt: System Procedures
+fn: sp_dropmergefilter
+fs: sp_dropmergefilter(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@filtername sysname IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN)
+pt: System Procedures
+fn: sp_dropmergelogsettings
+fs: sp_dropmergelogsettings(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@web_server sysname IN)
+pt: System Procedures
+fn: sp_dropmergepartition
+fs: sp_dropmergepartition(@RETURN_VALUE int RETURN,@publication sysname IN,@suser_sname sysname IN,@host_name sysname IN)
+pt: System Procedures
+fn: sp_dropmergepublication
+fs: sp_dropmergepublication(@RETURN_VALUE int RETURN,@publication sysname IN,@ignore_distributor bit IN,@reserved bit IN,@ignore_merge_metadata bit IN)
+pt: System Procedures
+fn: sp_dropmergepullsubscription
+fs: sp_dropmergepullsubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN,@publisher_db sysname IN,@reserved bit IN)
+pt: System Procedures
+fn: sp_dropmergesubscription
+fs: sp_dropmergesubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@subscription_type nvarchar IN,@ignore_distributor bit IN,@reserved bit IN)
+pt: System Procedures
+fn: sp_dropmessage
+fs: sp_dropmessage(@RETURN_VALUE int RETURN,@msgnum int IN,@lang sysname IN)
+pt: System Procedures
+fn: sp_droppublication
+fs: sp_droppublication(@RETURN_VALUE int RETURN,@publication sysname IN,@ignore_distributor bit IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_droppublisher
+fs: sp_droppublisher(@RETURN_VALUE int RETURN,@publisher sysname IN,@type nvarchar IN)
+pt: System Procedures
+fn: sp_droppullsubscription
+fs: sp_droppullsubscription(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@reserved bit IN)
+pt: System Procedures
+fn: sp_dropremotelogin
+fs: sp_dropremotelogin(@RETURN_VALUE int RETURN,@remoteserver sysname IN,@loginame sysname IN,@remotename sysname IN)
+pt: System Procedures
+fn: sp_dropreplsymmetrickey
+fs: sp_dropreplsymmetrickey(@RETURN_VALUE int RETURN,@check_replication bit IN,@throw_error bit IN)
+pt: System Procedures
+fn: sp_droprole
+fs: sp_droprole(@RETURN_VALUE int RETURN,@rolename sysname IN)
+pt: System Procedures
+fn: sp_droprolemember
+fs: sp_droprolemember(@RETURN_VALUE int RETURN,@rolename sysname IN,@membername sysname IN)
+pt: System Procedures
+fn: sp_dropserver
+fs: sp_dropserver(@RETURN_VALUE int RETURN,@server sysname IN,@droplogins char IN)
+pt: System Procedures
+fn: sp_dropsrvrolemember
+fs: sp_dropsrvrolemember(@RETURN_VALUE int RETURN,@loginame sysname IN,@rolename sysname IN)
+pt: System Procedures
+fn: sp_dropsubscriber
+fs: sp_dropsubscriber(@RETURN_VALUE int RETURN,@subscriber sysname IN,@reserved nvarchar IN,@ignore_distributor bit IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_dropsubscription
+fs: sp_dropsubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@subscriber sysname IN,@destination_db sysname IN,@ignore_distributor bit IN,@reserved nvarchar IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_droptype
+fs: sp_droptype(@RETURN_VALUE int RETURN,@typename sysname IN)
+pt: System Procedures
+fn: sp_dropuser
+fs: sp_dropuser(@RETURN_VALUE int RETURN,@name_in_db sysname IN)
+pt: System Procedures
+fn: sp_dropwebtask
+fs: sp_dropwebtask(@RETURN_VALUE int RETURN,@procname nvarchar IN,@outputfile nvarchar IN)
+pt: System Procedures
+fn: sp_dsninfo
+fs: sp_dsninfo(@RETURN_VALUE int RETURN,@dsn varchar IN,@infotype varchar IN,@login varchar IN,@password varchar IN,@dso_type int IN)
+pt: System Procedures
+fn: sp_enable_heterogeneous_subscription
+fs: sp_enable_heterogeneous_subscription(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_enableagentoffload
+fs: sp_enableagentoffload(@RETURN_VALUE int RETURN,@job_id varbinary IN,@offloadserver sysname IN,@agent_type sysname IN)
+pt: System Procedures
+fn: sp_enum_oledb_providers
+fs: sp_enum_oledb_providers(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_enumcodepages
+fs: sp_enumcodepages(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_enumcustomresolvers
+fs: sp_enumcustomresolvers(@RETURN_VALUE int RETURN,@distributor sysname IN)
+pt: System Procedures
+fn: sp_enumdsn
+fs: sp_enumdsn(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_enumeratependingschemachanges
+fs: sp_enumeratependingschemachanges(@RETURN_VALUE int RETURN,@publication sysname IN,@starting_schemaversion int IN)
+pt: System Procedures
+fn: sp_enumerrorlogs
+fs: sp_enumerrorlogs(@RETURN_VALUE int RETURN,@p1 int IN)
+pt: System Procedures
+fn: sp_enumfullsubscribers
+fs: sp_enumfullsubscribers(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_enumoledbdatasources
+fs: sp_enumoledbdatasources(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_expired_subscription_cleanup
+fs: sp_expired_subscription_cleanup(@RETURN_VALUE int RETURN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_firstonly_bitmap
+fs: sp_firstonly_bitmap(@RETURN_VALUE int RETURN,@inputbitmap1 varbinary IN,@inputbitmap2 varbinary IN,@resultbitmap3 varbinary OUT)
+pt: System Procedures
+fn: sp_fkeys
+fs: sp_fkeys(@RETURN_VALUE int RETURN,@pktable_name sysname IN,@pktable_owner sysname IN,@pktable_qualifier sysname IN,@fktable_name sysname IN,@fktable_owner sysname IN,@fktable_qualifier sysname IN)
+pt: System Procedures
+fn: sp_foreign_keys_rowset2
+fs: sp_foreign_keys_rowset2(@RETURN_VALUE int RETURN,@foreignkey_tab_name sysname IN,@foreignkey_tab_schema sysname IN,@pk_table_name sysname IN,@pk_table_schema sysname IN,@pk_table_catalog sysname IN)
+pt: System Procedures
+fn: sp_foreign_keys_rowset3
+fs: sp_foreign_keys_rowset3(@RETURN_VALUE int RETURN,@pk_table_schema sysname IN,@pk_table_catalog sysname IN,@foreignkey_tab_schema sysname IN,@foreignkey_tab_catalog sysname IN)
+pt: System Procedures
+fn: sp_foreign_keys_rowset
+fs: sp_foreign_keys_rowset(@RETURN_VALUE int RETURN,@pk_table_name sysname IN,@pk_table_schema sysname IN,@foreignkey_tab_name sysname IN,@foreignkey_tab_schema sysname IN,@foreignkey_tab_catalog sysname IN)
+pt: System Procedures
+fn: sp_foreign_keys_rowset_rmt
+fs: sp_foreign_keys_rowset_rmt(@RETURN_VALUE int RETURN,@server_name sysname IN,@pk_table_name sysname IN,@pk_table_schema sysname IN,@pk_table_catalog sysname IN,@foreignkey_tab_name sysname IN,@foreignkey_tab_schema sysname IN,@foreignkey_tab_catalog sysname IN)
+pt: System Procedures
+fn: sp_foreignkeys
+fs: sp_foreignkeys(@RETURN_VALUE int RETURN,@table_server sysname IN,@pktab_name sysname IN,@pktab_schema sysname IN,@pktab_catalog sysname IN,@fktab_name sysname IN,@fktab_schema sysname IN,@fktab_catalog sysname IN)
+pt: System Procedures
+fn: sp_fulltext_catalog
+fs: sp_fulltext_catalog(@RETURN_VALUE int RETURN,@ftcat sysname IN,@action varchar IN,@path nvarchar IN)
+pt: System Procedures
+fn: sp_fulltext_column
+fs: sp_fulltext_column(@RETURN_VALUE int RETURN,@tabname nvarchar IN,@colname sysname IN,@action varchar IN,@language int IN,@type_colname sysname IN)
+pt: System Procedures
+fn: sp_fulltext_database
+fs: sp_fulltext_database(@RETURN_VALUE int RETURN,@action varchar IN)
+pt: System Procedures
+fn: sp_fulltext_recycle_crawl_log
+fs: sp_fulltext_recycle_crawl_log(@RETURN_VALUE int RETURN,@ftcat sysname IN)
+pt: System Procedures
+fn: sp_fulltext_service
+fs: sp_fulltext_service(@RETURN_VALUE int RETURN,@action nvarchar IN,@value sql_variant IN)
+pt: System Procedures
+fn: sp_fulltext_table
+fs: sp_fulltext_table(@RETURN_VALUE int RETURN,@tabname nvarchar IN,@action varchar IN,@ftcat sysname IN,@keyname sysname IN)
+pt: System Procedures
+fn: sp_generate_agent_parameter
+fs: sp_generate_agent_parameter(@RETURN_VALUE int RETURN,@profile_id int IN,@real_profile_id int IN)
+pt: System Procedures
+fn: sp_generatefilters
+fs: sp_generatefilters(@RETURN_VALUE int RETURN,@publication sysname IN)
+pt: System Procedures
+fn: sp_get_Oracle_publisher_metadata
+fs: sp_get_Oracle_publisher_metadata(@RETURN_VALUE int RETURN,@database_name sysname IN)
+pt: System Procedures
+fn: sp_get_distributor
+fs: sp_get_distributor(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_get_job_status_mergesubscription_agent
+fs: sp_get_job_status_mergesubscription_agent(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@agent_name nvarchar IN)
+pt: System Procedures
+fn: sp_get_mergepublishedarticleproperties
+fs: sp_get_mergepublishedarticleproperties(@RETURN_VALUE int RETURN,@source_object sysname IN,@source_owner sysname IN)
+pt: System Procedures
+fn: sp_getagentparameterlist
+fs: sp_getagentparameterlist(@RETURN_VALUE int RETURN,@agent_type int IN)
+pt: System Procedures
+fn: sp_getapplock
+fs: sp_getapplock(@RETURN_VALUE int RETURN,@Resource nvarchar IN,@LockMode varchar IN,@LockOwner varchar IN,@LockTimeout int IN,@DbPrincipal sysname IN)
+pt: System Procedures
+fn: sp_getdefaultdatatypemapping
+fs: sp_getdefaultdatatypemapping(@RETURN_VALUE int RETURN,@source_dbms sysname IN,@source_version varchar IN,@source_type sysname IN,@source_length bigint IN,@source_precision int IN,@source_scale int IN,@source_nullable bit IN,@destination_dbms sysname IN,@destination_version varchar IN,@destination_type sysname OUT,@destination_length bigint OUT,@destination_precision int OUT,@destination_scale int OUT,@destination_nullable bit OUT,@dataloss bit OUT)
+pt: System Procedures
+fn: sp_getmergedeletetype
+fs: sp_getmergedeletetype(@RETURN_VALUE int RETURN,@source_object nvarchar IN,@rowguid uniqueidentifier IN,@delete_type int OUT)
+pt: System Procedures
+fn: sp_getpublisherlink
+fs: sp_getpublisherlink(@RETURN_VALUE int RETURN,@trigger_id int IN,@connect_string nvarchar OUT,@islocalpublisher bit OUT)
+pt: System Procedures
+fn: sp_getqueuedarticlesynctraninfo
+fs: sp_getqueuedarticlesynctraninfo(@RETURN_VALUE int RETURN,@publication sysname IN,@artid int IN)
+pt: System Procedures
+fn: sp_getqueuedrows
+fs: sp_getqueuedrows(@RETURN_VALUE int RETURN,@tablename sysname IN,@owner sysname IN,@tranid nvarchar IN)
+pt: System Procedures
+fn: sp_getsqlqueueversion
+fs: sp_getsqlqueueversion(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@version int OUT)
+pt: System Procedures
+fn: sp_getsubscription_status_hsnapshot
+fs: sp_getsubscription_status_hsnapshot(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_getsubscriptiondtspackagename
+fs: sp_getsubscriptiondtspackagename(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN)
+pt: System Procedures
+fn: sp_grant_publication_access
+fs: sp_grant_publication_access(@RETURN_VALUE int RETURN,@publication sysname IN,@login sysname IN,@reserved nvarchar IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_grantdbaccess
+fs: sp_grantdbaccess(@RETURN_VALUE int RETURN,@loginame sysname IN,@name_in_db sysname OUT)
+pt: System Procedures
+fn: sp_grantlogin
+fs: sp_grantlogin(@RETURN_VALUE int RETURN,@loginame sysname IN)
+pt: System Procedures
+fn: sp_help
+fs: sp_help(@RETURN_VALUE int RETURN,@objname nvarchar IN)
+pt: System Procedures
+fn: sp_help_agent_default
+fs: sp_help_agent_default(@RETURN_VALUE int RETURN,@profile_id int OUT,@agent_type int IN)
+pt: System Procedures
+fn: sp_help_agent_parameter
+fs: sp_help_agent_parameter(@RETURN_VALUE int RETURN,@profile_id int IN)
+pt: System Procedures
+fn: sp_help_agent_profile
+fs: sp_help_agent_profile(@RETURN_VALUE int RETURN,@agent_type int IN,@profile_id int IN)
+pt: System Procedures
+fn: sp_help_datatype_mapping
+fs: sp_help_datatype_mapping(@RETURN_VALUE int RETURN,@dbms_name sysname IN,@dbms_version sysname IN,@sql_type sysname IN,@source_prec int IN)
+pt: System Procedures
+fn: sp_help_fulltext_catalog_components
+fs: sp_help_fulltext_catalog_components(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_help_fulltext_catalogs
+fs: sp_help_fulltext_catalogs(@RETURN_VALUE int RETURN,@fulltext_catalog_name sysname IN)
+pt: System Procedures
+fn: sp_help_fulltext_catalogs_cursor
+fs: sp_help_fulltext_catalogs_cursor(@RETURN_VALUE int RETURN,@cursor_return int OUT,@fulltext_catalog_name sysname IN)
+pt: System Procedures
+fn: sp_help_fulltext_columns
+fs: sp_help_fulltext_columns(@RETURN_VALUE int RETURN,@table_name nvarchar IN,@column_name sysname IN)
+pt: System Procedures
+fn: sp_help_fulltext_columns_cursor
+fs: sp_help_fulltext_columns_cursor(@RETURN_VALUE int RETURN,@cursor_return int OUT,@table_name nvarchar IN,@column_name sysname IN)
+pt: System Procedures
+fn: sp_help_fulltext_system_components
+fs: sp_help_fulltext_system_components(@RETURN_VALUE int RETURN,@component_type sysname IN,@param sysname IN)
+pt: System Procedures
+fn: sp_help_fulltext_tables
+fs: sp_help_fulltext_tables(@RETURN_VALUE int RETURN,@fulltext_catalog_name sysname IN,@table_name nvarchar IN)
+pt: System Procedures
+fn: sp_help_fulltext_tables_cursor
+fs: sp_help_fulltext_tables_cursor(@RETURN_VALUE int RETURN,@cursor_return int OUT,@fulltext_catalog_name sysname IN,@table_name nvarchar IN)
+pt: System Procedures
+fn: sp_help_log_shipping_alert_job
+fs: sp_help_log_shipping_alert_job(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_help_log_shipping_monitor
+fs: sp_help_log_shipping_monitor(@RETURN_VALUE int RETURN,@verbose bit IN)
+pt: System Procedures
+fn: sp_help_log_shipping_monitor_primary
+fs: sp_help_log_shipping_monitor_primary(@RETURN_VALUE int RETURN,@primary_server sysname IN,@primary_database sysname IN)
+pt: System Procedures
+fn: sp_help_log_shipping_monitor_secondary
+fs: sp_help_log_shipping_monitor_secondary(@RETURN_VALUE int RETURN,@secondary_server sysname IN,@secondary_database sysname IN)
+pt: System Procedures
+fn: sp_help_log_shipping_primary_database
+fs: sp_help_log_shipping_primary_database(@RETURN_VALUE int RETURN,@database sysname IN,@primary_id uniqueidentifier IN)
+pt: System Procedures
+fn: sp_help_log_shipping_primary_secondary
+fs: sp_help_log_shipping_primary_secondary(@RETURN_VALUE int RETURN,@primary_database sysname IN)
+pt: System Procedures
+fn: sp_help_log_shipping_secondary_database
+fs: sp_help_log_shipping_secondary_database(@RETURN_VALUE int RETURN,@secondary_database sysname IN,@secondary_id uniqueidentifier IN)
+pt: System Procedures
+fn: sp_help_log_shipping_secondary_primary
+fs: sp_help_log_shipping_secondary_primary(@RETURN_VALUE int RETURN,@primary_server sysname IN,@primary_database sysname IN)
+pt: System Procedures
+fn: sp_help_publication_access
+fs: sp_help_publication_access(@RETURN_VALUE int RETURN,@publication sysname IN,@return_granted bit IN,@login sysname IN,@initial_list bit IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_helpallowmerge_publication
+fs: sp_helpallowmerge_publication(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_helparticle
+fs: sp_helparticle(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@returnfilter bit IN,@publisher sysname IN,@found int OUT)
+pt: System Procedures
+fn: sp_helparticlecolumns
+fs: sp_helparticlecolumns(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_helparticledts
+fs: sp_helparticledts(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN)
+pt: System Procedures
+fn: sp_helpconstraint
+fs: sp_helpconstraint(@RETURN_VALUE int RETURN,@objname nvarchar IN,@nomsg varchar IN)
+pt: System Procedures
+fn: sp_helpdatatypemap
+fs: sp_helpdatatypemap(@RETURN_VALUE int RETURN,@source_dbms sysname IN,@source_version varchar IN,@source_type sysname IN,@destination_dbms sysname IN,@destination_version varchar IN,@destination_type sysname IN,@defaults_only bit IN)
+pt: System Procedures
+fn: sp_helpdb
+fs: sp_helpdb(@RETURN_VALUE int RETURN,@dbname sysname IN)
+pt: System Procedures
+fn: sp_helpdbfixedrole
+fs: sp_helpdbfixedrole(@RETURN_VALUE int RETURN,@rolename sysname IN)
+pt: System Procedures
+fn: sp_helpdevice
+fs: sp_helpdevice(@RETURN_VALUE int RETURN,@devname sysname IN)
+pt: System Procedures
+fn: sp_helpdistpublisher
+fs: sp_helpdistpublisher(@RETURN_VALUE int RETURN,@publisher sysname IN,@check_user bit IN)
+pt: System Procedures
+fn: sp_helpdistributiondb
+fs: sp_helpdistributiondb(@RETURN_VALUE int RETURN,@database sysname IN)
+pt: System Procedures
+fn: sp_helpdistributor
+fs: sp_helpdistributor(@RETURN_VALUE int RETURN,@distributor sysname OUT,@distribdb sysname OUT,@directory nvarchar OUT,@account nvarchar OUT,@min_distretention int OUT,@max_distretention int OUT,@history_retention int OUT,@history_cleanupagent nvarchar OUT,@distrib_cleanupagent nvarchar OUT,@publisher sysname IN,@local nvarchar IN,@rpcsrvname sysname OUT,@publisher_type sysname OUT)
+pt: System Procedures
+fn: sp_helpdistributor_properties
+fs: sp_helpdistributor_properties(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_helpdynamicsnapshot_job
+fs: sp_helpdynamicsnapshot_job(@RETURN_VALUE int RETURN,@publication sysname IN,@dynamic_snapshot_jobname sysname IN,@dynamic_snapshot_jobid uniqueidentifier IN)
+pt: System Procedures
+fn: sp_helpextendedproc
+fs: sp_helpextendedproc(@RETURN_VALUE int RETURN,@funcname sysname IN)
+pt: System Procedures
+fn: sp_helpfile
+fs: sp_helpfile(@RETURN_VALUE int RETURN,@filename sysname IN)
+pt: System Procedures
+fn: sp_helpfilegroup
+fs: sp_helpfilegroup(@RETURN_VALUE int RETURN,@filegroupname sysname IN)
+pt: System Procedures
+fn: sp_helpgroup
+fs: sp_helpgroup(@RETURN_VALUE int RETURN,@grpname sysname IN)
+pt: System Procedures
+fn: sp_helpindex
+fs: sp_helpindex(@RETURN_VALUE int RETURN,@objname nvarchar IN)
+pt: System Procedures
+fn: sp_helplanguage
+fs: sp_helplanguage(@RETURN_VALUE int RETURN,@language sysname IN)
+pt: System Procedures
+fn: sp_helplinkedsrvlogin
+fs: sp_helplinkedsrvlogin(@RETURN_VALUE int RETURN,@rmtsrvname sysname IN,@locallogin sysname IN)
+pt: System Procedures
+fn: sp_helplogins
+fs: sp_helplogins(@RETURN_VALUE int RETURN,@LoginNamePattern sysname IN)
+pt: System Procedures
+fn: sp_helplogreader_agent
+fs: sp_helplogreader_agent(@RETURN_VALUE int RETURN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_helpmergealternatepublisher
+fs: sp_helpmergealternatepublisher(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN)
+pt: System Procedures
+fn: sp_helpmergearticle
+fs: sp_helpmergearticle(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN)
+pt: System Procedures
+fn: sp_helpmergearticlecolumn
+fs: sp_helpmergearticlecolumn(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN)
+pt: System Procedures
+fn: sp_helpmergearticleconflicts
+fs: sp_helpmergearticleconflicts(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN,@publisher_db sysname IN)
+pt: System Procedures
+fn: sp_helpmergeconflictrows
+fs: sp_helpmergeconflictrows(@RETURN_VALUE int RETURN,@publication sysname IN,@conflict_table sysname IN,@publisher sysname IN,@publisher_db sysname IN,@logical_record_conflicts int IN)
+pt: System Procedures
+fn: sp_helpmergedeleteconflictrows
+fs: sp_helpmergedeleteconflictrows(@RETURN_VALUE int RETURN,@publication sysname IN,@source_object nvarchar IN,@publisher sysname IN,@publisher_db sysname IN,@logical_record_conflicts int IN)
+pt: System Procedures
+fn: sp_helpmergefilter
+fs: sp_helpmergefilter(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@filtername sysname IN)
+pt: System Procedures
+fn: sp_helpmergelogfiles
+fs: sp_helpmergelogfiles(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@publisher sysname IN,@publisher_db sysname IN,@web_server sysname IN)
+pt: System Procedures
+fn: sp_helpmergelogfileswithdata
+fs: sp_helpmergelogfileswithdata(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@publisher sysname IN,@publisher_db sysname IN,@web_server sysname IN,@id int IN)
+pt: System Procedures
+fn: sp_helpmergelogsettings
+fs: sp_helpmergelogsettings(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@publisher sysname IN,@publisher_db sysname IN)
+pt: System Procedures
+fn: sp_helpmergepartition
+fs: sp_helpmergepartition(@RETURN_VALUE int RETURN,@publication sysname IN,@suser_sname sysname IN,@host_name sysname IN)
+pt: System Procedures
+fn: sp_helpmergepublication
+fs: sp_helpmergepublication(@RETURN_VALUE int RETURN,@publication sysname IN,@found int OUT,@publication_id uniqueidentifier OUT,@reserved nvarchar IN,@publisher sysname IN,@publisher_db sysname IN)
+pt: System Procedures
+fn: sp_helpmergepullsubscription
+fs: sp_helpmergepullsubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN,@publisher_db sysname IN,@subscription_type nvarchar IN)
+pt: System Procedures
+fn: sp_helpmergesubscription
+fs: sp_helpmergesubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@publisher sysname IN,@publisher_db sysname IN,@subscription_type nvarchar IN,@found int OUT)
+pt: System Procedures
+fn: sp_helpntgroup
+fs: sp_helpntgroup(@RETURN_VALUE int RETURN,@ntname sysname IN)
+pt: System Procedures
+fn: sp_helppeerrequests
+fs: sp_helppeerrequests(@RETURN_VALUE int RETURN,@publication sysname IN,@description nvarchar IN)
+pt: System Procedures
+fn: sp_helppeerresponses
+fs: sp_helppeerresponses(@RETURN_VALUE int RETURN,@request_id int IN)
+pt: System Procedures
+fn: sp_helppublication
+fs: sp_helppublication(@RETURN_VALUE int RETURN,@publication sysname IN,@found int OUT,@publisher sysname IN)
+pt: System Procedures
+fn: sp_helppublication_snapshot
+fs: sp_helppublication_snapshot(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_helppublicationsync
+fs: sp_helppublicationsync(@RETURN_VALUE int RETURN,@publication sysname IN)
+pt: System Procedures
+fn: sp_helppullsubscription
+fs: sp_helppullsubscription(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@show_push nvarchar IN)
+pt: System Procedures
+fn: sp_helpqreader_agent
+fs: sp_helpqreader_agent(@RETURN_VALUE int RETURN,@frompublisher bit IN)
+pt: System Procedures
+fn: sp_helpremotelogin
+fs: sp_helpremotelogin(@RETURN_VALUE int RETURN,@remoteserver sysname IN,@remotename sysname IN)
+pt: System Procedures
+fn: sp_helpreplfailovermode
+fs: sp_helpreplfailovermode(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@failover_mode_id tinyint OUT,@failover_mode nvarchar OUT)
+pt: System Procedures
+fn: sp_helpreplicationdb
+fs: sp_helpreplicationdb(@RETURN_VALUE int RETURN,@dbname sysname IN,@type sysname IN)
+pt: System Procedures
+fn: sp_helpreplicationdboption
+fs: sp_helpreplicationdboption(@RETURN_VALUE int RETURN,@dbname sysname IN,@type sysname IN,@reserved bit IN)
+pt: System Procedures
+fn: sp_helpreplicationoption
+fs: sp_helpreplicationoption(@RETURN_VALUE int RETURN,@optname sysname IN)
+pt: System Procedures
+fn: sp_helprole
+fs: sp_helprole(@RETURN_VALUE int RETURN,@rolename sysname IN)
+pt: System Procedures
+fn: sp_helprolemember
+fs: sp_helprolemember(@RETURN_VALUE int RETURN,@rolename sysname IN)
+pt: System Procedures
+fn: sp_helprotect
+fs: sp_helprotect(@RETURN_VALUE int RETURN,@name nvarchar IN,@username sysname IN,@grantorname sysname IN,@permissionarea varchar IN)
+pt: System Procedures
+fn: sp_helpserver
+fs: sp_helpserver(@RETURN_VALUE int RETURN,@server sysname IN,@optname varchar IN,@show_topology varchar IN)
+pt: System Procedures
+fn: sp_helpsort
+fs: sp_helpsort(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_helpsrvrole
+fs: sp_helpsrvrole(@RETURN_VALUE int RETURN,@srvrolename sysname IN)
+pt: System Procedures
+fn: sp_helpsrvrolemember
+fs: sp_helpsrvrolemember(@RETURN_VALUE int RETURN,@srvrolename sysname IN)
+pt: System Procedures
+fn: sp_helpstats
+fs: sp_helpstats(@RETURN_VALUE int RETURN,@objname nvarchar IN,@results nvarchar IN)
+pt: System Procedures
+fn: sp_helpsubscriberinfo
+fs: sp_helpsubscriberinfo(@RETURN_VALUE int RETURN,@subscriber sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_helpsubscription
+fs: sp_helpsubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@subscriber sysname IN,@destination_db sysname IN,@found int OUT,@publisher sysname IN)
+pt: System Procedures
+fn: sp_helpsubscription_properties
+fs: sp_helpsubscription_properties(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@publication_type int IN)
+pt: System Procedures
+fn: sp_helpsubscriptionerrors
+fs: sp_helpsubscriptionerrors(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN)
+pt: System Procedures
+fn: sp_helptext
+fs: sp_helptext(@RETURN_VALUE int RETURN,@objname nvarchar IN,@columnname sysname IN)
+pt: System Procedures
+fn: sp_helptracertokenhistory
+fs: sp_helptracertokenhistory(@RETURN_VALUE int RETURN,@publication sysname IN,@tracer_id int IN,@publisher sysname IN,@publisher_db sysname IN)
+pt: System Procedures
+fn: sp_helptracertokens
+fs: sp_helptracertokens(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN,@publisher_db sysname IN)
+pt: System Procedures
+fn: sp_helptrigger
+fs: sp_helptrigger(@RETURN_VALUE int RETURN,@tabname nvarchar IN,@triggertype char IN)
+pt: System Procedures
+fn: sp_helpuser
+fs: sp_helpuser(@RETURN_VALUE int RETURN,@name_in_db sysname IN)
+pt: System Procedures
+fn: sp_helpxactsetjob
+fs: sp_helpxactsetjob(@RETURN_VALUE int RETURN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_http_generate_wsdl_defaultcomplexorsimple
+fs: sp_http_generate_wsdl_defaultcomplexorsimple(@RETURN_VALUE int RETURN,@EndpointID int IN,@IsSSL bit IN,@Host nvarchar IN,@QueryString nvarchar IN,@UserAgent nvarchar IN)
+pt: System Procedures
+fn: sp_http_generate_wsdl_defaultsimpleorcomplex
+fs: sp_http_generate_wsdl_defaultsimpleorcomplex(@RETURN_VALUE int RETURN,@EndpointID int IN,@IsSSL bit IN,@Host nvarchar IN,@QueryString nvarchar IN,@UserAgent nvarchar IN)
+pt: System Procedures
+fn: sp_identitycolumnforreplication
+fs: sp_identitycolumnforreplication(@RETURN_VALUE int RETURN,@object_id int IN,@value bit IN)
+pt: System Procedures
+fn: sp_indexes
+fs: sp_indexes(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_name sysname IN,@table_schema sysname IN,@table_catalog sysname IN,@index_name sysname IN,@is_unique bit IN)
+pt: System Procedures
+fn: sp_indexes_90_rowset2
+fs: sp_indexes_90_rowset2(@RETURN_VALUE int RETURN,@index_name sysname IN,@table_schema sysname IN)
+pt: System Procedures
+fn: sp_indexes_90_rowset
+fs: sp_indexes_90_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@index_name sysname IN,@table_schema sysname IN)
+pt: System Procedures
+fn: sp_indexes_90_rowset_rmt
+fs: sp_indexes_90_rowset_rmt(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_catalog sysname IN,@table_name sysname IN,@index_name sysname IN,@table_schema sysname IN)
+pt: System Procedures
+fn: sp_indexes_rowset2
+fs: sp_indexes_rowset2(@RETURN_VALUE int RETURN,@index_name sysname IN,@table_schema sysname IN)
+pt: System Procedures
+fn: sp_indexes_rowset
+fs: sp_indexes_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@index_name sysname IN,@table_schema sysname IN)
+pt: System Procedures
+fn: sp_indexes_rowset_rmt
+fs: sp_indexes_rowset_rmt(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_catalog sysname IN,@table_name sysname IN,@index_name sysname IN,@table_schema sysname IN)
+pt: System Procedures
+fn: sp_indexoption
+fs: sp_indexoption(@RETURN_VALUE int RETURN,@IndexNamePattern nvarchar IN,@OptionName varchar IN,@OptionValue varchar IN)
+pt: System Procedures
+fn: sp_invalidate_textptr
+fs: sp_invalidate_textptr(@RETURN_VALUE int RETURN,@TextPtrValue varbinary IN)
+pt: System Procedures
+fn: sp_ivindexhasnullcols
+fs: sp_ivindexhasnullcols(@RETURN_VALUE int RETURN,@viewname sysname IN,@fhasnullcols bit OUT)
+pt: System Procedures
+fn: sp_lightweightmergemetadataretentioncleanup
+fs: sp_lightweightmergemetadataretentioncleanup(@RETURN_VALUE int RETURN,@num_rowtrack_rows int OUT)
+pt: System Procedures
+fn: sp_link_publication
+fs: sp_link_publication(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@security_mode int IN,@login sysname IN,@password sysname IN,@distributor sysname IN)
+pt: System Procedures
+fn: sp_linkedservers
+fs: sp_linkedservers(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_linkedservers_rowset2
+fs: sp_linkedservers_rowset2(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_linkedservers_rowset
+fs: sp_linkedservers_rowset(@RETURN_VALUE int RETURN,@srvname sysname IN)
+pt: System Procedures
+fn: sp_lock
+fs: sp_lock(@RETURN_VALUE int RETURN,@spid1 int IN,@spid2 int IN)
+pt: System Procedures
+fn: sp_logshippinginstallmetadata
+fs: sp_logshippinginstallmetadata(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_lookupcustomresolver
+fs: sp_lookupcustomresolver(@RETURN_VALUE int RETURN,@article_resolver nvarchar IN,@resolver_clsid nvarchar OUT,@is_dotnet_assembly bit OUT,@dotnet_assembly_name nvarchar OUT,@dotnet_class_name nvarchar OUT,@publisher sysname IN)
+pt: System Procedures
+fn: sp_makewebtask
+fs: sp_makewebtask(@RETURN_VALUE int RETURN,@outputfile nvarchar IN,@query ntext IN,@fixedfont tinyint IN,@bold tinyint IN,@italic tinyint IN,@colheaders tinyint IN,@lastupdated tinyint IN,@HTMLheader tinyint IN,@username nvarchar IN,@dbname nvarchar IN,@templatefile nvarchar IN,@webpagetitle nvarchar IN,@resultstitle nvarchar IN,@URL nvarchar IN,@reftext nvarchar IN,@table_urls tinyint IN,@url_query nvarchar IN,@whentype tinyint IN,@targetdate int IN,@targettime int IN,@dayflags tinyint IN,@numunits tinyint IN,@unittype tinyint IN,@procname nvarchar IN,@maketask int IN,@rowcnt int IN,@tabborder tinyint IN,@singlerow tinyint IN,@blobfmt ntext IN,@nrowsperpage int IN,@datachg ntext IN,@charset nvarchar IN,@codepage int IN)
+pt: System Procedures
+fn: sp_mapdown_bitmap
+fs: sp_mapdown_bitmap(@RETURN_VALUE int RETURN,@mapdownbm varbinary IN,@bm varbinary OUT)
+pt: System Procedures
+fn: sp_markpendingschemachange
+fs: sp_markpendingschemachange(@RETURN_VALUE int RETURN,@publication sysname IN,@schemaversion int IN,@status nvarchar IN)
+pt: System Procedures
+fn: sp_marksubscriptionvalidation
+fs: sp_marksubscriptionvalidation(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@destination_db sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_mergearticlecolumn
+fs: sp_mergearticlecolumn(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@column sysname IN,@operation nvarchar IN,@schema_replication nvarchar IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN)
+pt: System Procedures
+fn: sp_mergecleanupmetadata
+fs: sp_mergecleanupmetadata(@RETURN_VALUE int RETURN,@publication sysname IN,@reinitialize_subscriber nvarchar IN)
+pt: System Procedures
+fn: sp_mergedummyupdate
+fs: sp_mergedummyupdate(@RETURN_VALUE int RETURN,@source_object nvarchar IN,@rowguid uniqueidentifier IN)
+pt: System Procedures
+fn: sp_mergemetadataretentioncleanup
+fs: sp_mergemetadataretentioncleanup(@RETURN_VALUE int RETURN,@num_genhistory_rows int OUT,@num_contents_rows int OUT,@num_tombstone_rows int OUT,@aggressive_cleanup_only bit IN)
+pt: System Procedures
+fn: sp_mergesubscription_cleanup
+fs: sp_mergesubscription_cleanup(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN)
+pt: System Procedures
+fn: sp_mergesubscriptionsummary
+fs: sp_mergesubscriptionsummary(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN)
+pt: System Procedures
+fn: sp_monitor
+fs: sp_monitor(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_objectfilegroup
+fs: sp_objectfilegroup(@RETURN_VALUE int RETURN,@objid int IN)
+pt: System Procedures
+fn: sp_oledb_database
+fs: sp_oledb_database(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_oledb_defdb
+fs: sp_oledb_defdb(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_oledb_deflang
+fs: sp_oledb_deflang(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_oledb_language
+fs: sp_oledb_language(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_oledb_ro_usrname
+fs: sp_oledb_ro_usrname(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_oledbinfo
+fs: sp_oledbinfo(@RETURN_VALUE int RETURN,@server nvarchar IN,@infotype nvarchar IN,@login nvarchar IN,@password nvarchar IN)
+pt: System Procedures
+fn: sp_password
+fs: sp_password(@RETURN_VALUE int RETURN,@old sysname IN,@new sysname IN,@loginame sysname IN)
+pt: System Procedures
+fn: sp_pkeys
+fs: sp_pkeys(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_owner sysname IN,@table_qualifier sysname IN)
+pt: System Procedures
+fn: sp_posttracertoken
+fs: sp_posttracertoken(@RETURN_VALUE int RETURN,@publication sysname IN,@tracer_token_id int OUT,@publisher sysname IN)
+pt: System Procedures
+fn: sp_primary_keys_rowset2
+fs: sp_primary_keys_rowset2(@RETURN_VALUE int RETURN,@table_schema sysname IN)
+pt: System Procedures
+fn: sp_primary_keys_rowset
+fs: sp_primary_keys_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN)
+pt: System Procedures
+fn: sp_primary_keys_rowset_rmt
+fs: sp_primary_keys_rowset_rmt(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_catalog sysname IN,@table_name sysname IN,@table_schema sysname IN)
+pt: System Procedures
+fn: sp_primarykeys
+fs: sp_primarykeys(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_name sysname IN,@table_schema sysname IN,@table_catalog sysname IN)
+pt: System Procedures
+fn: sp_procedure_params_90_rowset2
+fs: sp_procedure_params_90_rowset2(@RETURN_VALUE int RETURN,@procedure_schema sysname IN,@parameter_name sysname IN)
+pt: System Procedures
+fn: sp_procedure_params_90_rowset
+fs: sp_procedure_params_90_rowset(@RETURN_VALUE int RETURN,@procedure_name sysname IN,@group_number int IN,@procedure_schema sysname IN,@parameter_name sysname IN)
+pt: System Procedures
+fn: sp_procedure_params_managed
+fs: sp_procedure_params_managed(@RETURN_VALUE int RETURN,@procedure_name sysname IN,@group_number int IN,@procedure_schema sysname IN,@parameter_name sysname IN)
+pt: System Procedures
+fn: sp_procedure_params_rowset2
+fs: sp_procedure_params_rowset2(@RETURN_VALUE int RETURN,@procedure_schema sysname IN,@parameter_name sysname IN)
+pt: System Procedures
+fn: sp_procedure_params_rowset
+fs: sp_procedure_params_rowset(@RETURN_VALUE int RETURN,@procedure_name sysname IN,@group_number int IN,@procedure_schema sysname IN,@parameter_name sysname IN)
+pt: System Procedures
+fn: sp_procedures_rowset2
+fs: sp_procedures_rowset2(@RETURN_VALUE int RETURN,@procedure_schema sysname IN)
+pt: System Procedures
+fn: sp_procedures_rowset
+fs: sp_procedures_rowset(@RETURN_VALUE int RETURN,@procedure_name sysname IN,@group_number int IN,@procedure_schema sysname IN)
+pt: System Procedures
+fn: sp_processlogshippingmonitorhistory
+fs: sp_processlogshippingmonitorhistory(@RETURN_VALUE int RETURN,@mode tinyint IN,@agent_id uniqueidentifier IN,@agent_type tinyint IN,@session_id int IN,@session_status tinyint IN,@monitor_server sysname IN,@monitor_server_security_mode bit IN,@database sysname IN,@log_time datetime IN,@log_time_utc datetime IN,@message nvarchar IN)
+pt: System Procedures
+fn: sp_processlogshippingmonitorprimary
+fs: sp_processlogshippingmonitorprimary(@RETURN_VALUE int RETURN,@mode tinyint IN,@primary_id uniqueidentifier IN,@primary_server sysname IN,@monitor_server sysname IN,@monitor_server_security_mode bit IN,@primary_database sysname IN,@backup_threshold int IN,@threshold_alert int IN,@threshold_alert_enabled bit IN,@last_backup_file nvarchar IN,@last_backup_date datetime IN,@last_backup_date_utc datetime IN,@history_retention_period int IN)
+pt: System Procedures
+fn: sp_processlogshippingmonitorsecondary
+fs: sp_processlogshippingmonitorsecondary(@RETURN_VALUE int RETURN,@mode tinyint IN,@secondary_server sysname IN,@secondary_database sysname IN,@secondary_id uniqueidentifier IN,@primary_server sysname IN,@monitor_server sysname IN,@monitor_server_security_mode bit IN,@primary_database sysname IN,@restore_threshold int IN,@threshold_alert int IN,@threshold_alert_enabled bit IN,@last_copied_file nvarchar IN,@last_copied_date datetime IN,@last_copied_date_utc datetime IN,@last_restored_file nvarchar IN,@last_restored_date datetime IN,@last_restored_date_utc datetime IN,@last_restored_latency int IN,@history_retention_period int IN)
+pt: System Procedures
+fn: sp_processlogshippingretentioncleanup
+fs: sp_processlogshippingretentioncleanup(@RETURN_VALUE int RETURN,@agent_id uniqueidentifier IN,@agent_type tinyint IN,@monitor_server sysname IN,@monitor_server_security_mode bit IN,@history_retention_period int IN,@curdate_utc datetime IN)
+pt: System Procedures
+fn: sp_processmail
+fs: sp_processmail(@RETURN_VALUE int RETURN,@subject varchar IN,@filetype varchar IN,@separator varchar IN,@set_user varchar IN,@dbuse varchar IN)
+pt: System Procedures
+fn: sp_procoption
+fs: sp_procoption(@RETURN_VALUE int RETURN,@ProcName nvarchar IN,@OptionName varchar IN,@OptionValue varchar IN)
+pt: System Procedures
+fn: sp_prop_oledb_provider
+fs: sp_prop_oledb_provider(@RETURN_VALUE int RETURN,@p1 nvarchar IN)
+pt: System Procedures
+fn: sp_provider_types_90_rowset
+fs: sp_provider_types_90_rowset(@RETURN_VALUE int RETURN,@data_type smallint IN,@best_match tinyint IN)
+pt: System Procedures
+fn: sp_provider_types_rowset
+fs: sp_provider_types_rowset(@RETURN_VALUE int RETURN,@data_type smallint IN,@best_match tinyint IN)
+pt: System Procedures
+fn: sp_publication_validation
+fs: sp_publication_validation(@RETURN_VALUE int RETURN,@publication sysname IN,@rowcount_only smallint IN,@full_or_fast tinyint IN,@shutdown_agent bit IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_publicationsummary
+fs: sp_publicationsummary(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_publishdb
+fs: sp_publishdb(@RETURN_VALUE int RETURN,@dbname sysname IN,@value nvarchar IN)
+pt: System Procedures
+fn: sp_publisherproperty
+fs: sp_publisherproperty(@RETURN_VALUE int RETURN,@publisher sysname IN,@propertyname sysname IN,@propertyvalue sysname IN)
+pt: System Procedures
+fn: sp_readerrorlog
+fs: sp_readerrorlog(@RETURN_VALUE int RETURN,@p1 int IN,@p2 int IN,@p3 varchar IN,@p4 varchar IN)
+pt: System Procedures
+fn: sp_readwebtask
+fs: sp_readwebtask(@RETURN_VALUE int RETURN,@procname nvarchar IN)
+pt: System Procedures
+fn: sp_recompile
+fs: sp_recompile(@RETURN_VALUE int RETURN,@objname nvarchar IN)
+pt: System Procedures
+fn: sp_refresh_heterogeneous_publisher
+fs: sp_refresh_heterogeneous_publisher(@RETURN_VALUE int RETURN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_refresh_log_shipping_monitor
+fs: sp_refresh_log_shipping_monitor(@RETURN_VALUE int RETURN,@agent_id uniqueidentifier IN,@agent_type tinyint IN,@database sysname IN,@mode tinyint IN)
+pt: System Procedures
+fn: sp_refreshsubscriptions
+fs: sp_refreshsubscriptions(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_register_custom_scripting
+fs: sp_register_custom_scripting(@RETURN_VALUE int RETURN,@type varchar IN,@value nvarchar IN,@publication sysname IN,@article sysname IN)
+pt: System Procedures
+fn: sp_registercustomresolver
+fs: sp_registercustomresolver(@RETURN_VALUE int RETURN,@article_resolver nvarchar IN,@resolver_clsid nvarchar IN,@is_dotnet_assembly nvarchar IN,@dotnet_assembly_name nvarchar IN,@dotnet_class_name nvarchar IN)
+pt: System Procedures
+fn: sp_reinitmergepullsubscription
+fs: sp_reinitmergepullsubscription(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@upload_first nvarchar IN)
+pt: System Procedures
+fn: sp_reinitmergesubscription
+fs: sp_reinitmergesubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@upload_first nvarchar IN)
+pt: System Procedures
+fn: sp_reinitpullsubscription
+fs: sp_reinitpullsubscription(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN)
+pt: System Procedures
+fn: sp_reinitsubscription
+fs: sp_reinitsubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@subscriber sysname IN,@destination_db sysname IN,@for_schema_change bit IN,@publisher sysname IN,@ignore_distributor_failure bit IN,@invalidate_snapshot bit IN)
+pt: System Procedures
+fn: sp_releaseapplock
+fs: sp_releaseapplock(@RETURN_VALUE int RETURN,@Resource nvarchar IN,@LockOwner varchar IN,@DbPrincipal sysname IN)
+pt: System Procedures
+fn: sp_remoteoption
+fs: sp_remoteoption(@RETURN_VALUE int RETURN,@remoteserver sysname IN,@loginame sysname IN,@remotename sysname IN,@optname varchar IN,@optvalue varchar IN)
+pt: System Procedures
+fn: sp_removedbreplication
+fs: sp_removedbreplication(@RETURN_VALUE int RETURN,@dbname sysname IN,@type nvarchar IN)
+pt: System Procedures
+fn: sp_removedistpublisherdbreplication
+fs: sp_removedistpublisherdbreplication(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN)
+pt: System Procedures
+fn: sp_removesrvreplication
+fs: sp_removesrvreplication(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_rename
+fs: sp_rename(@RETURN_VALUE int RETURN,@objname nvarchar IN,@newname sysname IN,@objtype varchar IN)
+pt: System Procedures
+fn: sp_renamedb
+fs: sp_renamedb(@RETURN_VALUE int RETURN,@dbname sysname IN,@newname sysname IN)
+pt: System Procedures
+fn: sp_repladdcolumn
+fs: sp_repladdcolumn(@RETURN_VALUE int RETURN,@source_object nvarchar IN,@column sysname IN,@typetext nvarchar IN,@publication_to_add nvarchar IN,@from_agent int IN,@schema_change_script nvarchar IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN)
+pt: System Procedures
+fn: sp_replcleanupccsprocs
+fs: sp_replcleanupccsprocs(@RETURN_VALUE int RETURN,@publication sysname IN)
+pt: System Procedures
+fn: sp_repldeletequeuedtran
+fs: sp_repldeletequeuedtran(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@tranid sysname IN,@orderkeylow bigint IN,@orderkeyhigh bigint IN)
+pt: System Procedures
+fn: sp_repldropcolumn
+fs: sp_repldropcolumn(@RETURN_VALUE int RETURN,@source_object nvarchar IN,@column sysname IN,@from_agent int IN,@schema_change_script nvarchar IN,@force_invalidate_snapshot bit IN,@force_reinit_subscription bit IN)
+pt: System Procedures
+fn: sp_replgetparsedddlcmd
+fs: sp_replgetparsedddlcmd(@RETURN_VALUE int RETURN,@ddlcmd ntext OUT,@FirstToken sysname IN,@objectType sysname IN,@dbname sysname IN,@owner sysname IN,@objname sysname IN,@targetobject nvarchar IN)
+pt: System Procedures
+fn: sp_replica
+fs: sp_replica(@RETURN_VALUE int RETURN,@tabname nvarchar IN,@replicated nvarchar IN)
+pt: System Procedures
+fn: sp_replication_agent_checkup
+fs: sp_replication_agent_checkup(@RETURN_VALUE int RETURN,@heartbeat_interval int IN)
+pt: System Procedures
+fn: sp_replicationdboption
+fs: sp_replicationdboption(@RETURN_VALUE int RETURN,@dbname sysname IN,@optname sysname IN,@value sysname IN,@ignore_distributor bit IN,@from_scripting bit IN)
+pt: System Procedures
+fn: sp_replincrementlsn
+fs: sp_replincrementlsn(@RETURN_VALUE int RETURN,@xact_seqno binary OUT,@publisher sysname IN)
+pt: System Procedures
+fn: sp_replmonitorchangepublicationthreshold
+fs: sp_replmonitorchangepublicationthreshold(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@publication_type int IN,@metric_id int IN,@thresholdmetricname sysname IN,@value int IN,@shouldalert bit IN,@mode tinyint IN)
+pt: System Procedures
+fn: sp_replmonitorhelpmergesession
+fs: sp_replmonitorhelpmergesession(@RETURN_VALUE int RETURN,@agent_name nvarchar IN,@hours int IN,@session_type int IN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN)
+pt: System Procedures
+fn: sp_replmonitorhelpmergesessiondetail
+fs: sp_replmonitorhelpmergesessiondetail(@RETURN_VALUE int RETURN,@session_id int IN)
+pt: System Procedures
+fn: sp_replmonitorhelpmergesubscriptionmoreinfo
+fs: sp_replmonitorhelpmergesubscriptionmoreinfo(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN)
+pt: System Procedures
+fn: sp_replmonitorhelppublication
+fs: sp_replmonitorhelppublication(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@publication_type int IN,@refreshpolicy tinyint IN)
+pt: System Procedures
+fn: sp_replmonitorhelppublicationthresholds
+fs: sp_replmonitorhelppublicationthresholds(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@publication_type int IN,@thresholdmetricname sysname IN)
+pt: System Procedures
+fn: sp_replmonitorhelppublisher
+fs: sp_replmonitorhelppublisher(@RETURN_VALUE int RETURN,@publisher sysname IN,@refreshpolicy tinyint IN)
+pt: System Procedures
+fn: sp_replmonitorhelpsubscription
+fs: sp_replmonitorhelpsubscription(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@publication_type int IN,@mode int IN,@topnum int IN,@exclude_anonymous bit IN,@refreshpolicy tinyint IN)
+pt: System Procedures
+fn: sp_replmonitorrefreshjob
+fs: sp_replmonitorrefreshjob(@RETURN_VALUE int RETURN,@iterations tinyint IN,@profile bit IN)
+pt: System Procedures
+fn: sp_replmonitorsubscriptionpendingcmds
+fs: sp_replmonitorsubscriptionpendingcmds(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@subscription_type int IN)
+pt: System Procedures
+fn: sp_replpostsyncstatus
+fs: sp_replpostsyncstatus(@RETURN_VALUE int RETURN,@pubid int IN,@artid int IN,@syncstat int IN,@xact_seqno binary OUT)
+pt: System Procedures
+fn: sp_replqueuemonitor
+fs: sp_replqueuemonitor(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisherdb sysname IN,@publication sysname IN,@tranid sysname IN,@queuetype tinyint IN)
+pt: System Procedures
+fn: sp_replrestart
+fs: sp_replrestart(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_replsetoriginator
+fs: sp_replsetoriginator(@RETURN_VALUE int RETURN,@originator_srv sysname IN,@originator_db sysname IN,@publication sysname IN)
+pt: System Procedures
+fn: sp_replshowcmds
+fs: sp_replshowcmds(@RETURN_VALUE int RETURN,@maxtrans int IN)
+pt: System Procedures
+fn: sp_replsqlqgetrows
+fs: sp_replsqlqgetrows(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisherdb sysname IN,@publication sysname IN,@batchsize int IN)
+pt: System Procedures
+fn: sp_replsync
+fs: sp_replsync(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@article sysname IN)
+pt: System Procedures
+fn: sp_requestpeerresponse
+fs: sp_requestpeerresponse(@RETURN_VALUE int RETURN,@publication sysname IN,@description nvarchar IN,@request_id int OUT)
+pt: System Procedures
+fn: sp_resetsnapshotdeliveryprogress
+fs: sp_resetsnapshotdeliveryprogress(@RETURN_VALUE int RETURN,@verbose_level int IN,@drop_table nvarchar IN)
+pt: System Procedures
+fn: sp_resetstatus
+fs: sp_resetstatus(@RETURN_VALUE int RETURN,@DBName sysname IN)
+pt: System Procedures
+fn: sp_resign_database
+fs: sp_resign_database(@RETURN_VALUE int RETURN,@keytype sysname IN,@fn nvarchar IN,@pwd sysname IN)
+pt: System Procedures
+fn: sp_resolve_logins
+fs: sp_resolve_logins(@RETURN_VALUE int RETURN,@dest_db sysname IN,@dest_path nvarchar IN,@filename nvarchar IN)
+pt: System Procedures
+fn: sp_restoredbreplication
+fs: sp_restoredbreplication(@RETURN_VALUE int RETURN,@srv_orig sysname IN,@db_orig sysname IN,@keep_replication int IN,@perform_upgrade bit IN)
+pt: System Procedures
+fn: sp_restoremergeidentityrange
+fs: sp_restoremergeidentityrange(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN)
+pt: System Procedures
+fn: sp_resyncmergesubscription
+fs: sp_resyncmergesubscription(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@resync_type int IN,@resync_date_str nvarchar IN)
+pt: System Procedures
+fn: sp_revoke_publication_access
+fs: sp_revoke_publication_access(@RETURN_VALUE int RETURN,@publication sysname IN,@login sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_revokedbaccess
+fs: sp_revokedbaccess(@RETURN_VALUE int RETURN,@name_in_db sysname IN)
+pt: System Procedures
+fn: sp_revokelogin
+fs: sp_revokelogin(@RETURN_VALUE int RETURN,@loginame sysname IN)
+pt: System Procedures
+fn: sp_runwebtask
+fs: sp_runwebtask(@RETURN_VALUE int RETURN,@procname nvarchar IN,@outputfile nvarchar IN)
+pt: System Procedures
+fn: sp_schemafilter
+fs: sp_schemafilter(@RETURN_VALUE int RETURN,@publisher sysname IN,@schema sysname IN,@operation nvarchar IN)
+pt: System Procedures
+fn: sp_schemata_rowset
+fs: sp_schemata_rowset(@RETURN_VALUE int RETURN,@schema_name sysname IN,@schema_owner sysname IN)
+pt: System Procedures
+fn: sp_script_reconciliation_delproc
+fs: sp_script_reconciliation_delproc(@RETURN_VALUE int RETURN,@artid int IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_script_reconciliation_insproc
+fs: sp_script_reconciliation_insproc(@RETURN_VALUE int RETURN,@artid int IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_script_reconciliation_sinsproc
+fs: sp_script_reconciliation_sinsproc(@RETURN_VALUE int RETURN,@artid int IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_script_reconciliation_vdelproc
+fs: sp_script_reconciliation_vdelproc(@RETURN_VALUE int RETURN,@artid int IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_script_reconciliation_xdelproc
+fs: sp_script_reconciliation_xdelproc(@RETURN_VALUE int RETURN,@artid int IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_script_synctran_commands
+fs: sp_script_synctran_commands(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@trig_only bit IN)
+pt: System Procedures
+fn: sp_scriptdelproc
+fs: sp_scriptdelproc(@RETURN_VALUE int RETURN,@artid int IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_scriptdynamicupdproc
+fs: sp_scriptdynamicupdproc(@RETURN_VALUE int RETURN,@artid int IN)
+pt: System Procedures
+fn: sp_scriptinsproc
+fs: sp_scriptinsproc(@RETURN_VALUE int RETURN,@artid int IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_scriptmappedupdproc
+fs: sp_scriptmappedupdproc(@RETURN_VALUE int RETURN,@artid int IN,@mode tinyint IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_scriptpublicationcustomprocs
+fs: sp_scriptpublicationcustomprocs(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_scriptsinsproc
+fs: sp_scriptsinsproc(@RETURN_VALUE int RETURN,@artid int IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_scriptsubconflicttable
+fs: sp_scriptsubconflicttable(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@alter bit IN)
+pt: System Procedures
+fn: sp_scriptsupdproc
+fs: sp_scriptsupdproc(@RETURN_VALUE int RETURN,@artid int IN,@mode tinyint IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_scriptupdproc
+fs: sp_scriptupdproc(@RETURN_VALUE int RETURN,@artid int IN,@mode tinyint IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_scriptvdelproc
+fs: sp_scriptvdelproc(@RETURN_VALUE int RETURN,@artid int IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_scriptvupdproc
+fs: sp_scriptvupdproc(@RETURN_VALUE int RETURN,@artid int IN,@mode tinyint IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_scriptxdelproc
+fs: sp_scriptxdelproc(@RETURN_VALUE int RETURN,@artid int IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_scriptxupdproc
+fs: sp_scriptxupdproc(@RETURN_VALUE int RETURN,@artid int IN,@mode tinyint IN,@publishertype tinyint IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_server_info
+fs: sp_server_info(@RETURN_VALUE int RETURN,@attribute_id int IN)
+pt: System Procedures
+fn: sp_serveroption
+fs: sp_serveroption(@RETURN_VALUE int RETURN,@server sysname IN,@optname varchar IN,@optvalue nvarchar IN)
+pt: System Procedures
+fn: sp_setapprole
+fs: sp_setapprole(@RETURN_VALUE int RETURN,@rolename sysname IN,@password sysname IN,@encrypt varchar IN,@fCreateCookie bit IN,@cookie varbinary OUT)
+pt: System Procedures
+fn: sp_setdefaultdatatypemapping
+fs: sp_setdefaultdatatypemapping(@RETURN_VALUE int RETURN,@mapping_id int IN,@source_dbms sysname IN,@source_version varchar IN,@source_type sysname IN,@source_length_min bigint IN,@source_length_max bigint IN,@source_precision_min bigint IN,@source_precision_max bigint IN,@source_scale_min int IN,@source_scale_max int IN,@source_nullable bit IN,@destination_dbms sysname IN,@destination_version varchar IN,@destination_type sysname IN,@destination_length bigint IN,@destination_precision bigint IN,@destination_scale int IN,@destination_nullable bit IN)
+pt: System Procedures
+fn: sp_setnetname
+fs: sp_setnetname(@RETURN_VALUE int RETURN,@server sysname IN,@netname sysname IN)
+pt: System Procedures
+fn: sp_setreplfailovermode
+fs: sp_setreplfailovermode(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@failover_mode nvarchar IN,@override tinyint IN)
+pt: System Procedures
+fn: sp_setsubscriptionxactseqno
+fs: sp_setsubscriptionxactseqno(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@xact_seqno varbinary IN)
+pt: System Procedures
+fn: sp_settriggerorder
+fs: sp_settriggerorder(@RETURN_VALUE int RETURN,@triggername nvarchar IN,@order varchar IN,@stmttype varchar IN,@namespace varchar IN)
+pt: System Procedures
+fn: sp_showcolv
+fs: sp_showcolv(@RETURN_VALUE int RETURN,@colv varbinary IN)
+pt: System Procedures
+fn: sp_showlineage
+fs: sp_showlineage(@RETURN_VALUE int RETURN,@lineage varbinary IN)
+pt: System Procedures
+fn: sp_showpendingchanges
+fs: sp_showpendingchanges(@RETURN_VALUE int RETURN,@destination_server sysname IN,@publication sysname IN,@article sysname IN)
+pt: System Procedures
+fn: sp_showrowreplicainfo
+fs: sp_showrowreplicainfo(@RETURN_VALUE int RETURN,@ownername sysname IN,@tablename sysname IN,@rowguid uniqueidentifier IN,@show nvarchar IN)
+pt: System Procedures
+fn: sp_spaceused
+fs: sp_spaceused(@RETURN_VALUE int RETURN,@objname nvarchar IN,@updateusage varchar IN)
+pt: System Procedures
+fn: sp_special_columns
+fs: sp_special_columns(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_owner sysname IN,@table_qualifier sysname IN,@col_type char IN,@scope char IN,@nullable char IN,@ODBCVer int IN)
+pt: System Procedures
+fn: sp_special_columns_90
+fs: sp_special_columns_90(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_owner sysname IN,@table_qualifier sysname IN,@col_type char IN,@scope char IN,@nullable char IN,@ODBCVer int IN)
+pt: System Procedures
+fn: sp_sproc_columns
+fs: sp_sproc_columns(@RETURN_VALUE int RETURN,@procedure_name nvarchar IN,@procedure_owner nvarchar IN,@procedure_qualifier sysname IN,@column_name nvarchar IN,@ODBCVer int IN,@fUsePattern bit IN)
+pt: System Procedures
+fn: sp_sproc_columns_90
+fs: sp_sproc_columns_90(@RETURN_VALUE int RETURN,@procedure_name nvarchar IN,@procedure_owner nvarchar IN,@procedure_qualifier sysname IN,@column_name nvarchar IN,@ODBCVer int IN,@fUsePattern bit IN)
+pt: System Procedures
+fn: sp_sqlexec
+fs: sp_sqlexec(@RETURN_VALUE int RETURN,@p1 text IN)
+pt: System Procedures
+fn: sp_srvrolepermission
+fs: sp_srvrolepermission(@RETURN_VALUE int RETURN,@srvrolename sysname IN)
+pt: System Procedures
+fn: sp_startmergepullsubscription_agent
+fs: sp_startmergepullsubscription_agent(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN)
+pt: System Procedures
+fn: sp_startmergepushsubscription_agent
+fs: sp_startmergepushsubscription_agent(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN)
+pt: System Procedures
+fn: sp_startpublication_snapshot
+fs: sp_startpublication_snapshot(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_startpullsubscription_agent
+fs: sp_startpullsubscription_agent(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN)
+pt: System Procedures
+fn: sp_startpushsubscription_agent
+fs: sp_startpushsubscription_agent(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_statistics
+fs: sp_statistics(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_owner sysname IN,@table_qualifier sysname IN,@index_name sysname IN,@is_unique char IN,@accuracy char IN)
+pt: System Procedures
+fn: sp_statistics_rowset2
+fs: sp_statistics_rowset2(@RETURN_VALUE int RETURN,@table_schema sysname IN)
+pt: System Procedures
+fn: sp_statistics_rowset
+fs: sp_statistics_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN)
+pt: System Procedures
+fn: sp_stopmergepullsubscription_agent
+fs: sp_stopmergepullsubscription_agent(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN)
+pt: System Procedures
+fn: sp_stopmergepushsubscription_agent
+fs: sp_stopmergepushsubscription_agent(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN)
+pt: System Procedures
+fn: sp_stoppublication_snapshot
+fs: sp_stoppublication_snapshot(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_stoppullsubscription_agent
+fs: sp_stoppullsubscription_agent(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN)
+pt: System Procedures
+fn: sp_stoppushsubscription_agent
+fs: sp_stoppushsubscription_agent(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_stored_procedures
+fs: sp_stored_procedures(@RETURN_VALUE int RETURN,@sp_name nvarchar IN,@sp_owner nvarchar IN,@sp_qualifier sysname IN,@fUsePattern bit IN)
+pt: System Procedures
+fn: sp_subscribe
+fs: sp_subscribe(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN,@destination_db sysname IN,@sync_type nvarchar IN,@loopback_detection nvarchar IN)
+pt: System Procedures
+fn: sp_subscription_cleanup
+fs: sp_subscription_cleanup(@RETURN_VALUE int RETURN,@publisher sysname IN,@publisher_db sysname IN,@publication sysname IN,@reserved nvarchar IN)
+pt: System Procedures
+fn: sp_subscriptionsummary
+fs: sp_subscriptionsummary(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_table_constraints_rowset2
+fs: sp_table_constraints_rowset2(@RETURN_VALUE int RETURN,@table_schema sysname IN,@table_catalog sysname IN,@constraint_name sysname IN,@constraint_schema sysname IN,@constraint_catalog sysname IN,@constraint_type nvarchar IN)
+pt: System Procedures
+fn: sp_table_constraints_rowset
+fs: sp_table_constraints_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN,@table_catalog sysname IN,@constraint_name sysname IN,@constraint_schema sysname IN,@constraint_catalog sysname IN,@constraint_type nvarchar IN)
+pt: System Procedures
+fn: sp_table_privileges
+fs: sp_table_privileges(@RETURN_VALUE int RETURN,@table_name nvarchar IN,@table_owner nvarchar IN,@table_qualifier sysname IN,@fUsePattern bit IN)
+pt: System Procedures
+fn: sp_table_privileges_ex
+fs: sp_table_privileges_ex(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_name sysname IN,@table_schema sysname IN,@table_catalog sysname IN,@fUsePattern bit IN)
+pt: System Procedures
+fn: sp_table_privileges_rowset2
+fs: sp_table_privileges_rowset2(@RETURN_VALUE int RETURN,@table_schema sysname IN,@grantor sysname IN,@grantee sysname IN)
+pt: System Procedures
+fn: sp_table_privileges_rowset
+fs: sp_table_privileges_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN,@grantor sysname IN,@grantee sysname IN)
+pt: System Procedures
+fn: sp_table_privileges_rowset_rmt
+fs: sp_table_privileges_rowset_rmt(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_catalog sysname IN,@table_name sysname IN,@table_schema sysname IN,@grantor sysname IN,@grantee sysname IN)
+pt: System Procedures
+fn: sp_table_statistics2_rowset
+fs: sp_table_statistics2_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN,@table_catalog sysname IN,@stat_name sysname IN,@stat_schema sysname IN,@stat_catalog sysname IN)
+pt: System Procedures
+fn: sp_table_statistics_rowset
+fs: sp_table_statistics_rowset(@RETURN_VALUE int RETURN,@table_name_dummy sysname IN)
+pt: System Procedures
+fn: sp_table_validation
+fs: sp_table_validation(@RETURN_VALUE int RETURN,@table sysname IN,@expected_rowcount bigint OUT,@expected_checksum numeric OUT,@rowcount_only smallint IN,@owner sysname IN,@full_or_fast tinyint IN,@shutdown_agent bit IN,@table_name sysname IN,@column_list ntext IN)
+pt: System Procedures
+fn: sp_tablecollations
+fs: sp_tablecollations(@RETURN_VALUE int RETURN,@object nvarchar IN)
+pt: System Procedures
+fn: sp_tablecollations_90
+fs: sp_tablecollations_90(@RETURN_VALUE int RETURN,@object nvarchar IN)
+pt: System Procedures
+fn: sp_tableoption
+fs: sp_tableoption(@RETURN_VALUE int RETURN,@TableNamePattern nvarchar IN,@OptionName varchar IN,@OptionValue varchar IN)
+pt: System Procedures
+fn: sp_tables
+fs: sp_tables(@RETURN_VALUE int RETURN,@table_name nvarchar IN,@table_owner nvarchar IN,@table_qualifier sysname IN,@table_type varchar IN,@fUsePattern bit IN)
+pt: System Procedures
+fn: sp_tables_ex
+fs: sp_tables_ex(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_name sysname IN,@table_schema sysname IN,@table_catalog sysname IN,@table_type sysname IN,@fUsePattern bit IN)
+pt: System Procedures
+fn: sp_tables_info_90_rowset2
+fs: sp_tables_info_90_rowset2(@RETURN_VALUE int RETURN,@table_schema sysname IN,@table_type nvarchar IN)
+pt: System Procedures
+fn: sp_tables_info_90_rowset2_64
+fs: sp_tables_info_90_rowset2_64(@RETURN_VALUE int RETURN,@table_schema sysname IN,@table_type nvarchar IN)
+pt: System Procedures
+fn: sp_tables_info_90_rowset
+fs: sp_tables_info_90_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN,@table_type nvarchar IN)
+pt: System Procedures
+fn: sp_tables_info_90_rowset_64
+fs: sp_tables_info_90_rowset_64(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN,@table_type nvarchar IN)
+pt: System Procedures
+fn: sp_tables_info_rowset2
+fs: sp_tables_info_rowset2(@RETURN_VALUE int RETURN,@table_schema sysname IN,@table_type nvarchar IN)
+pt: System Procedures
+fn: sp_tables_info_rowset2_64
+fs: sp_tables_info_rowset2_64(@RETURN_VALUE int RETURN,@table_schema sysname IN,@table_type nvarchar IN)
+pt: System Procedures
+fn: sp_tables_info_rowset
+fs: sp_tables_info_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN,@table_type nvarchar IN)
+pt: System Procedures
+fn: sp_tables_info_rowset_64
+fs: sp_tables_info_rowset_64(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN,@table_type nvarchar IN)
+pt: System Procedures
+fn: sp_tables_rowset2
+fs: sp_tables_rowset2(@RETURN_VALUE int RETURN,@table_schema sysname IN,@table_type nvarchar IN)
+pt: System Procedures
+fn: sp_tables_rowset
+fs: sp_tables_rowset(@RETURN_VALUE int RETURN,@table_name sysname IN,@table_schema sysname IN,@table_type nvarchar IN)
+pt: System Procedures
+fn: sp_tables_rowset_rmt
+fs: sp_tables_rowset_rmt(@RETURN_VALUE int RETURN,@table_server sysname IN,@table_catalog sysname IN,@table_name sysname IN,@table_schema sysname IN,@table_type sysname IN)
+pt: System Procedures
+fn: sp_tableswc
+fs: sp_tableswc(@RETURN_VALUE int RETURN,@table_name nvarchar IN,@table_owner nvarchar IN,@table_qualifier sysname IN,@table_type varchar IN,@fUsePattern bit IN)
+pt: System Procedures
+fn: sp_trace_getdata
+fs: sp_trace_getdata(@RETURN_VALUE int RETURN,@traceid int IN,@records int IN)
+pt: System Procedures
+fn: sp_unbindefault
+fs: sp_unbindefault(@RETURN_VALUE int RETURN,@objname nvarchar IN,@futureonly varchar IN)
+pt: System Procedures
+fn: sp_unbindrule
+fs: sp_unbindrule(@RETURN_VALUE int RETURN,@objname nvarchar IN,@futureonly varchar IN)
+pt: System Procedures
+fn: sp_unregister_custom_scripting
+fs: sp_unregister_custom_scripting(@RETURN_VALUE int RETURN,@type varchar IN,@publication sysname IN,@article sysname IN)
+pt: System Procedures
+fn: sp_unregistercustomresolver
+fs: sp_unregistercustomresolver(@RETURN_VALUE int RETURN,@article_resolver nvarchar IN)
+pt: System Procedures
+fn: sp_unsetapprole
+fs: sp_unsetapprole(@RETURN_VALUE int RETURN,@cookie varbinary IN)
+pt: System Procedures
+fn: sp_unsubscribe
+fs: sp_unsubscribe(@RETURN_VALUE int RETURN,@publication sysname IN,@article sysname IN)
+pt: System Procedures
+fn: sp_update_agent_profile
+fs: sp_update_agent_profile(@RETURN_VALUE int RETURN,@agent_type int IN,@agent_id int IN,@profile_id int IN)
+pt: System Procedures
+fn: sp_updateextendedproperty
+fs: sp_updateextendedproperty(@RETURN_VALUE int RETURN,@name sysname IN,@value sql_variant IN,@level0type varchar IN,@level0name sysname IN,@level1type varchar IN,@level1name sysname IN,@level2type varchar IN,@level2name sysname IN)
+pt: System Procedures
+fn: sp_updatestats
+fs: sp_updatestats(@RETURN_VALUE int RETURN,@resample char IN)
+pt: System Procedures
+fn: sp_upgrade_log_shipping
+fs: sp_upgrade_log_shipping(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_user_counter10
+fs: sp_user_counter10(@RETURN_VALUE int RETURN,@newvalue int IN)
+pt: System Procedures
+fn: sp_user_counter1
+fs: sp_user_counter1(@RETURN_VALUE int RETURN,@newvalue int IN)
+pt: System Procedures
+fn: sp_user_counter2
+fs: sp_user_counter2(@RETURN_VALUE int RETURN,@newvalue int IN)
+pt: System Procedures
+fn: sp_user_counter3
+fs: sp_user_counter3(@RETURN_VALUE int RETURN,@newvalue int IN)
+pt: System Procedures
+fn: sp_user_counter4
+fs: sp_user_counter4(@RETURN_VALUE int RETURN,@newvalue int IN)
+pt: System Procedures
+fn: sp_user_counter5
+fs: sp_user_counter5(@RETURN_VALUE int RETURN,@newvalue int IN)
+pt: System Procedures
+fn: sp_user_counter6
+fs: sp_user_counter6(@RETURN_VALUE int RETURN,@newvalue int IN)
+pt: System Procedures
+fn: sp_user_counter7
+fs: sp_user_counter7(@RETURN_VALUE int RETURN,@newvalue int IN)
+pt: System Procedures
+fn: sp_user_counter8
+fs: sp_user_counter8(@RETURN_VALUE int RETURN,@newvalue int IN)
+pt: System Procedures
+fn: sp_user_counter9
+fs: sp_user_counter9(@RETURN_VALUE int RETURN,@newvalue int IN)
+pt: System Procedures
+fn: sp_usertypes_rowset2
+fs: sp_usertypes_rowset2(@RETURN_VALUE int RETURN,@type_schema sysname IN)
+pt: System Procedures
+fn: sp_usertypes_rowset
+fs: sp_usertypes_rowset(@RETURN_VALUE int RETURN,@type_name sysname IN,@type_schema sysname IN)
+pt: System Procedures
+fn: sp_usertypes_rowset_rmt
+fs: sp_usertypes_rowset_rmt(@RETURN_VALUE int RETURN,@type_server sysname IN,@type_catalog sysname IN,@type_name sysname IN,@type_schema sysname IN,@assembly_id int IN)
+pt: System Procedures
+fn: sp_validatecache
+fs: sp_validatecache(@RETURN_VALUE int RETURN,@publisher sysname IN,@publication sysname IN,@article sysname IN)
+pt: System Procedures
+fn: sp_validatelogins
+fs: sp_validatelogins(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_validatemergepublication
+fs: sp_validatemergepublication(@RETURN_VALUE int RETURN,@publication sysname IN,@level tinyint IN)
+pt: System Procedures
+fn: sp_validatemergepullsubscription
+fs: sp_validatemergepullsubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@publisher sysname IN,@publisher_db sysname IN,@level tinyint IN)
+pt: System Procedures
+fn: sp_validatemergesubscription
+fs: sp_validatemergesubscription(@RETURN_VALUE int RETURN,@publication sysname IN,@subscriber sysname IN,@subscriber_db sysname IN,@level tinyint IN)
+pt: System Procedures
+fn: sp_validlang
+fs: sp_validlang(@RETURN_VALUE int RETURN,@name sysname IN)
+pt: System Procedures
+fn: sp_validname
+fs: sp_validname(@RETURN_VALUE int RETURN,@name sysname IN,@raise_error bit IN)
+pt: System Procedures
+fn: sp_verifypublisher
+fs: sp_verifypublisher(@RETURN_VALUE int RETURN,@publisher sysname IN)
+pt: System Procedures
+fn: sp_views_rowset2
+fs: sp_views_rowset2(@RETURN_VALUE int RETURN,@view_schema sysname IN)
+pt: System Procedures
+fn: sp_views_rowset
+fs: sp_views_rowset(@RETURN_VALUE int RETURN,@view_name sysname IN,@view_schema sysname IN)
+pt: System Procedures
+fn: sp_vupgrade_mergetables
+fs: sp_vupgrade_mergetables(@RETURN_VALUE int RETURN,@remove_repl bit IN)
+pt: System Procedures
+fn: sp_vupgrade_replication
+fs: sp_vupgrade_replication(@RETURN_VALUE int RETURN,@login sysname IN,@password sysname IN,@ver_old int IN,@force_remove tinyint IN,@security_mode bit IN)
+pt: System Procedures
+fn: sp_vupgrade_replsecurity_metadata
+fs: sp_vupgrade_replsecurity_metadata(@RETURN_VALUE int RETURN)
+pt: System Procedures
+fn: sp_who2
+fs: sp_who2(@RETURN_VALUE int RETURN,@loginame sysname IN)
+pt: System Procedures
+fn: sp_who
+fs: sp_who(@RETURN_VALUE int RETURN,@loginame sysname IN)
+pt: System Procedures
+fn: sp_xml_schema_rowset2
+fs: sp_xml_schema_rowset2(@RETURN_VALUE int RETURN,@schema_name sysname IN,@target_namespace sysname IN)
+pt: System Procedures
+fn: sp_xml_schema_rowset
+fs: sp_xml_schema_rowset(@RETURN_VALUE int RETURN,@collection_name sysname IN,@schema_name sysname IN,@target_namespace sysname IN)
+pt: System Procedures

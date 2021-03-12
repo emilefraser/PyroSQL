@@ -1,0 +1,5 @@
+create procedure dbo.update_manager_ssn (@dept_no int, @e_ssn varchar(25))
+as
+begin
+update employee set superssn = @e_ssn where dno = @dept_no
+end

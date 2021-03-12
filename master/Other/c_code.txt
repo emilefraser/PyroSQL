@@ -1,0 +1,544 @@
+fn: assert
+fs: assert(int expression)
+fd: Macro used for internal error detection.
+pt: assert
+fn: isalnum
+fs: int isalnum(int c)
+fd: is c alpha or digit
+pt: ctype
+fn: isalpha
+fs: int isalpha(int c)
+fd: is c alpha
+pt: ctype
+fn: iscntrl
+fs: int iscntrl(int c)
+fd: is control character
+pt: ctype
+fn: isdigit
+fs: int isdigit(int c)
+fd: is decimal digit
+pt: ctype
+fn: isgraph
+fs: int isgraph(int c)
+fd: is printing character other than space
+pt: ctype
+fn: islower
+fs: int islower(int c)
+fd: is lower-case letter
+pt: ctype
+fn: isprint
+fs: int isprint(int c)
+fd: is printing character (including space)
+pt: ctype
+fn: ispunct
+fs: int ispunct(int c)
+fd: is printing character other than space, letter, digit
+pt: ctype
+fn: isspace
+fs: int isspace(int c)
+fd: is space, formfeed, newline, carriage return, tab, vertical tab
+pt: ctype
+fn: isupper
+fs: int isupper(int c)
+fd: is upper-case letter
+pt: ctype
+fn: isxdigit
+fs: int isxdigit(int c)
+fd: is hexadecimal digit
+pt: ctype
+fn: tolower
+fs: int tolower(int c)
+fd: return lower-case equivalent
+pt: ctype
+fn: toupper
+fs: int toupper(int c)
+fd: return upper-case equivalent
+pt: ctype
+fn: exp
+fs: double exp(double x)
+fd: exponential of x
+pt: math
+fn: log
+fs: double log(double x)
+fd: natural logarithm of x
+pt: math
+fn: log10
+fs: double log10(double x)
+fd: base-10 logarithm of x
+pt: math
+fn: pow
+fs: double pow(double x, double y)
+fd: x raised to power y
+pt: math
+fn: sqrt
+fs: double sqrt(double x)
+fd: square root of x
+pt: math
+fn: ceil
+fs: double ceil(double x)
+fd: smallest integer not less than x
+pt: math
+fn: floor
+fs: double floor(double x)
+fd: largest integer not greater than x
+pt: math
+fn: fabs
+fs: double fabs(double x)
+fd: absolute value of x
+pt: math
+fn: ldexp
+fs: double ldexp(double x, int n)
+fd: x times 2 to the power n
+pt: math
+fn: frexp
+fs: double frexp(double x, int* exp)
+fd: if x non-zero, returns value, with absolute value in interval [1/2, 1), and assigns to *exp integer such that product of return value and 2 raised to the power *exp equals x; if x zero, both return value and *exp are zero
+pt: math
+fn: modf
+fs: double modf(double x, double* p)
+fd: returns fractional part and assigns to *ip integral part of x, both with same sign as x
+pt: math
+fn: modf
+fs: double modf(double x, double* ip)
+fd: returns fractional part and assigns to *ip integral part of x, both with same sign as x
+pt: math
+fn: fmod
+fs: double fmod(double x, double y)
+fd: if y non-zero, floating-point remainder of x/y, with same sign as x; if y zero, result is implementation-defined
+pt: math
+fn: sin
+fs: double sin(double x)
+fd: sine of x
+pt: math
+fn: cos
+fs: double cos(double x)
+fd: cosine of x
+pt: math
+fn: tan
+fs: double tan(double x)
+fd: tangent of x
+pt: math
+fn: asin
+fs: double asin(double x)
+fd: arc-sine of x
+pt: math
+fn: acos
+fs: double acos(double x)
+fd: arc-cosine of x
+pt: math
+fn: atan
+fs: double atan(double x)
+fd: arg-tangent of x
+pt: math
+fn: atan2
+fs: double atan2(double y, double x)
+fd: arc-tangent of y/x
+pt: math
+fn: sinh
+fs: double sinh(double x)
+fd: hyperbolic sine of x
+pt: math
+fn: cosh
+fs: double cosh(double x)
+fd: hyperbolic cosine of x
+pt: math
+fn: tanh
+fs: double tanh(double x)
+fd: hyperbolic tangent of x
+pt: math
+fn: signal
+fs: void (*signal(int sig, void (*handler)(int)))(int)
+fd: Install handler for subsequent signal sig.
+pt: signal
+fn: raise
+fs: int raise(int sig)
+fd: Sends signal sig. Returns zero on success.
+pt: signal
+fn: va_start
+fs: void va_start(va_list ap, lastarg)
+fd: Initialisation macro which must be called once before any unnamed argument is accessed.
+pt: stdarg
+fn: va_arg
+fs: type va_arg(va_list ap, type)
+fd: Yields value of the type (type) and value of the next unnamed argument.
+pt: stdarg
+fn: va_end
+fs: void va_end(va_list ap)
+fd: Termination macro which must be called once after argument processing and before exit from function.
+pt: stdarg
+fn: offsetof
+fs: offsetof(stype, m)
+fd: Offset (in bytes) of member m from start of structure type stype.
+pt: stddef
+fn: freopen
+fs: FILE* freopen(const char* filename, const char* mode, FILE* stream)
+fd: Closes file associated with stream, then opens file filename with specified mode and associates it with stream. Returns stream or NULL on error.
+pt: stdio
+fn: fflush
+fs: int fflush(FILE* stream)
+fd: Flushes stream stream and returns zero on success or EOF on error. Effect undefined for input stream. fflush(NULL) flushes all output streams.
+pt: stdio
+fn: fclose
+fs: int fclose(FILE* stream)
+fd: Closes stream stream (after flushing, if output stream). Returns EOF on error, zero otherwise.
+pt: stdio
+fn: remove
+fs: int remove(const char* filename)
+fd: Removes specified file. Returns non-zero on failure.
+pt: stdio
+fn: rename
+fs: int rename(const char* oldname, const char* newname)
+fd: Changes name of file oldname to newname. Returns non-zero on failure.
+pt: stdio
+fn: tmpfile
+fs: FILE* tmpfile()
+fd: Creates temporary file (mode "wb+") which will be removed when closed or on normal program termination. Returns stream or NULL on failure.
+pt: stdio
+fn: tmpnam
+fs: char* tmpnam(char s[L_tmpnam])
+fd: Assigns to s (if s non-null) and returns unique name for a temporary file. Unique name is returned for each of the first TMP_MAX invocations.
+pt: stdio
+fn: setvbuf
+fs: int setvbuf(FILE* stream, char* buf, int mode, size_t size)
+fd: Controls buffering for stream stream. mode is _IOFBF for full buffering, _IOLBF for line buffering, _IONBF for no buffering. Non-null buf specifies buffer of size size to be used; otherwise, a buffer is allocated. Returns non-zero on error. Call must be before any other operation on stream.
+pt: stdio
+fn: setbuf
+fs: void setbuf(FILE* stream, char* buf)
+fd: Controls buffering for stream stream. For null buf, turns off buffering, otherwise equivalent to (void)setvbuf(stream, buf, _IOFBF, BUFSIZ).
+pt: stdio
+fn: fprintf
+fs: int fprintf(FILE* stream, const char* format, ...)
+fd: Converts (according to format format) and writes output to stream stream. Number of characters written, or negative value on error, is returned.
+pt: stdio
+fn: printf
+fs: int printf(const char* format, ...)
+fd: printf(f, ...) is equivalent to fprintf(stdout, f, ...)
+pt: stdio
+fn: sprintf
+fs: int sprintf(char* s, const char* format, ...)
+fd: Like fprintf, but output written into string s, which must be large enough to hold the output, rather than to a stream. Output is NUL-terminated. Returns length (excluding the terminating NUL).
+pt: stdio
+fn: vfprintf
+fs: int vfprintf(FILE* stream, const char* format, va_list arg)
+fd: Equivalent to fprintf with variable argument list replaced by arg, which must have been initialised by the va_start macro (and may have been used in calls to va_arg).
+pt: stdio
+fn: vprintf
+fs: int vprintf(const char* format, va_list arg);\
+fd: Equivalent to printf with variable argument list replaced by arg, which must have been initialised by the va_start macro (and may have been used in calls to va_arg).
+pt: stdio
+fn: vsprintf
+fs: int vsprintf(char* s, const char* format, va_list arg)
+fd: Equivalent to sprintf with variable argument list replaced by arg, which must have been initialised by the va_start macro (and may have been used in calls to va_arg).
+pt: stdio
+fn: fscanf
+fs: int fscanf(FILE* stream, const char* format, ...)
+fd: Performs formatted input conversion, reading from stream stream according to format format. The function returns when format is fully processed. Returns number of items converted and assigned, or EOF if end-of-file or error occurs before any conversion.
+pt: stdio
+fn: scanf
+fs: int scanf(const char* format, ...)
+fd: scanf(f, ...) is equivalent to fscanf(stdin, f, ...)
+pt: stdio
+fn: sscanf
+fs: int sscanf(char* s, const char* format, ...)
+fd: Like fscanf, but input read from string s.
+pt: stdio
+fn: fgetc
+fs: int fgetc(FILE* stream)
+fd: Returns next character from (input) stream stream, or EOF on end-of-file or error.
+pt: stdio
+fn: fgets
+fs: char* fgets(char* s, int n, FILE* stream)
+fd: Copies characters from (input) stream stream to s, stopping when n-1 characters copied, newline copied, end-of-file reached or error occurs. If no error, s is NUL-terminated. Returns NULL on end-of-file or error, s otherwise.
+pt: stdio
+fn: fputc
+fs: int fputc(int c, FILE* stream)
+fd: Writes c, to stream stream. Returns c, or EOF on error.
+pt: stdio
+fn: fputs
+fs: char* fputs(const char* s, FILE* stream)
+fd: Writes s, to (output) stream stream. Returns non-negative on success or EOF on error.
+pt: stdio
+fn: getc
+fs: int getc(FILE* stream)
+fd: Equivalent to fgetc except that it may be a macro.
+pt: stdio
+fn: getchar
+fs: int getchar(void)
+fd: Equivalent to getc(stdin).
+pt: stdio
+fn: gets
+fs: char* gets(char* s)
+fd: Copies characters from stdin into s until newline encountered, end-of-file reached, or error occurs. Does not copy newline. NUL-terminates s. Returns s, or NULL on end-of-file or error. Should not be used because of the potential for buffer overflow.
+pt: stdio
+fn: putc
+fs: int putc(int c, FILE* stream)
+fd: Equivalent to fputc except that it may be a macro.
+pt: stdio
+fn: putchar
+fs: int putchar(int c)
+fd: putchar(c) is equivalent to putc(c, stdout).
+pt: stdio
+fn: puts
+fs: int puts(const char* s)
+fd: Writes s (excluding terminating NUL) and a newline to stdout. Returns non-negative on success, EOF on error.
+pt: stdio
+fn: ungetc
+fs: int ungetc(int c, FILE* stream)
+fd: Pushes c (which must not be EOF), onto (input) stream stream such that it will be returned by the next read. Only one character of pushback is guaranteed (for each stream). Returns c, or EOF on error.
+pt: stdio
+fn: fread
+fs: size_t fread(void* ptr, size_t size, size_t nobj, FILE* stream)
+fd: Reads (at most) nobj objects of size size from stream stream into ptr and returns number of objects read. (feof and ferror can be used to check status.)
+pt: stdio
+fn: fwrite
+fs: size_t fwrite(const void* ptr, size_t size, size_t nobj, FILE* stream)
+fd: Writes to stream stream, nobj objects of size size from array ptr. Returns number of objects written.
+pt: stdio
+fn: fseek
+fs: int fseek(FILE* stream, long offset, int origin)
+fd: Sets file position for stream stream and clears end-of-file indicator. For a binary stream, file position is set to offset bytes from the position indicated by origin: beginning of file for SEEK_SET, current position for SEEK_CUR, or end of file for SEEK_END. Behaviour is similar for a text stream, but offset must be zero or, for SEEK_SET only, a value returned by ftell. Returns non-zero on error.
+pt: stdio
+fn: ftell
+fs: long ftell(FILE* stream)
+fd: Returns current file position for stream stream, or -1 on error.
+pt: stdio
+fn: rewind
+fs: void rewind(FILE* stream)
+fd: Equivalent to fseek(stream, 0L, SEEK_SET); clearerr(stream).
+pt: stdio
+fn: fgetpos
+fs: int fgetpos(FILE* stream, fpos_t* ptr)
+fd: Stores current file position for stream stream in *ptr. Returns non-zero on error.
+pt: stdio
+fn: fsetpos
+fs: int fsetpos(FILE* stream, const fpos_t* ptr)
+fd: Sets current position of stream stream to *ptr. Returns non-zero on error.
+pt: stdio
+fn: clearerr
+fs: void clearerr(FILE* stream)
+fd: Clears end-of-file and error indicators for stream stream.
+pt: stdio
+fn: feof
+fs: int feof(FILE* stream)
+fd: Returns non-zero if end-of-file indicator is set for stream stream.
+pt: stdio
+fn: ferror
+fs: int ferror(FILE* stream)
+fd: Returns non-zero if error indicator is set for stream stream.
+pt: stdio
+fn: perror
+fs: void perror(const char* s)
+fd: Prints s (if non-null) and strerror(errno) to standard error.
+pt: stdio
+fn: abs
+fs: int abs(int n) or long abs(long n)
+fd: Returns absolute value of n.
+pt: stdlib
+fn: div
+fs: div(int num, int denom)
+fd: Returns quotient and remainder of num/denom.
+pt: stdlib
+fn: ldiv
+fs: ldiv(long num, long denom)
+fd: Returns quotient and remainder of num/denom.
+pt: stdlib
+fn: atof
+fs: double atof(const char* s)
+fd: Equivalent to strtod(s, (char**)NULL) except that errno is not necessarily set on conversion error.
+pt: stdlib
+fn: atoi
+fs: int atoi(const char* s)
+fd: Equivalent to (int)strtol(s, (char**)NULL, 10) except that errno is not necessarily set on conversion error.
+pt: stdlib
+fn: atol
+fs: long atol(const char* s)
+fd: Equivalent to strtol(s, (char**)NULL, 10) except that errno is not necessarily set on conversion error.
+pt: stdlib
+fn: strtod
+fs: double strtod(const char* s, char** endp)
+fd: Converts initial characters (ignoring leading white space) of s to type double. If endp non-null, stores pointer to unconverted suffix in *endp. On overflow, sets errno to ERANGE and returns HUGE_VAL with the appropriate sign; on underflow, sets errno to ERANGE and returns zero; otherwise returns converted value.
+pt: stdlib
+fn: strtol
+fs: long strtol(const char* s, char** endp, int base)
+fd: Converts initial characters (ignoring leading white space) of s to type long. If endp non-nu ll, stores pointer to unconverted suffix in *endp. If base between 2 and 36, that base used for conversion; if zero, leading (after any sign) 0X or 0x implies hexadecimal, leading 0 (after any sign) implies octal, otherwise decimal assumed. Leading 0X or 0x permitted for base hexadecimal. On overflow, sets errno to ERANGE and returns LONG_MAX or LONG_MIN (as appropriate for sign); otherwise returns converted value.
+pt: stdlib
+fn: strtoul
+fs: unsigned long strtoul(const char* s, char** endp, int base)
+fd: As for strtol except result is unsigned long and value on overflow is ULONG_MAX.
+pt: stdlib
+fn: calloc
+fs: void* calloc(size_t nobj, size_t size)
+fd: Returns pointer to zero-initialised newly-allocated space for an array of nobj objects each of size size, or NULL on error.
+pt: stdlib
+fn: malloc
+fs: void* malloc(size_t size)
+fd: Returns pointer to uninitialised newly-allocated space for an object of size size, or NULL on error.
+pt: stdlib
+fn: realloc
+fs: void* realloc(void* p, size_t size)
+fd: Returns pointer to newly-allocated space for an object of size size, initialised, to minimum of old and new sizes, to existing contents of p (if non-null), or NULL on error. On success, old object deallocated, otherwise unchanged.
+pt: stdlib
+fn: free
+fs: void free(void* p)
+fd: If p non-null, deallocates space to which it points.
+pt: stdlib 
+fn: abort
+fs: void abort()
+fd: Terminates program abnormally, by calling raise(SIGABRT).
+pt: stdlib
+fn: exit
+fs: void exit(int status)
+fd: Terminates program normally. Functions installed using atexit are called (in reverse order to that in which installed), open files are flushed, open streams are closed and control is returned to environment. status is returned to environment in implementation-dependent manner. Zero or EXIT_SUCCESS indicates successful termination and EXIT_FAILURE indicates unsuccessful termination. Implementations may define other values.
+pt: stdlib
+fn: atexit
+fs: int atexit(void (*fcm)(void))
+fd: Registers fcn to be called when program terminates normally (or when main returns). Returns non-zero on failure.
+pt: stdlib
+fn: system
+fs: int system(const char* s)
+fd: If s is not NULL, passes s to environment for execution, and returns status reported by command processor; if s is NULL, non-zero returned if environment has a command processor.
+pt: stdlib
+fn: getenv
+fs: char* getenv(const char* name)
+fd: Returns string associated with name name from implementation's environment, or NULL if no such string exists.
+pt: stdlib
+fn: bsearch
+fs: void* bsearch(const void* key, const void* base, size_t n, size_t size, int (*cmp)(const void* keyval, const void* datum))
+fd: Searches ordered array base (of n objects each of size size) for item matching key according to comparison function cmp. cmp must return negative value if first argument is less than second, zero if equal and positive if greater. Items of base are assumed to be in ascending order (according to cmp). Returns a pointer to an item matching key, or NULL if none found.
+pt: stdlib
+fn: qsort
+fs: void qsort(void* base, size_t n, size_t size, int (*cmp)(const void*, const void*))
+fd: Arranges into ascending order array base (of n objects each of size size) according to comparison function cmp. cmp must return negative value if first argument is less than second, zero if equal and positive if greater.
+pt: stdlib
+fn: rand
+fs: int rand(void);
+fd: Returns pseudo-random number in range 0 to RAND_MAX.
+pt: stdlib
+fn: srand
+fs: void srand(unsigned int seed)
+fd: Uses seed as seed for new sequence of pseudo-random numbers. Initial seed is 1.
+pt: stdlib
+fn: strcpy
+fs: char* strcpy(char* s, const char* ct)
+fd: Copies ct to s including terminating NUL and returns s.
+pt: string
+fn: strncpy
+fs: char* strncpy(char* s, const char* ct, size_t n)
+fd: Copies at most n characters of ct to s. Pads with NUL characters if ct is of length less than n. Note that this may leave s without NUL-termination. Return s.
+pt: string
+fn: strcat
+fs: char* strcat(char* s, const char* ct);
+fd: Concatenate ct to s and return s.
+pt: string
+fn: strncat
+fs: char* strncat(char* s, const char* ct, size_t n)
+fd: Concatenate at most n characters of ct to s. NUL-terminates s and return it.
+pt: string
+fn: strcmp
+fs: int strcmp(const char* cs, const char* ct)
+fd: Compares cs with ct, returning negative value if cs<ct, zero if cs==ct, positive value if cs>ct.
+pt: string
+fn: strncmp
+fs: int strncmp(const char* cs, const char* ct, size_t n)
+fd: Compares at most (the first) n characters of cs and ct, returning negative value if cs<ct, zero if cs==ct, positive value if cs>ct.
+pt: string
+fn: strcoll
+fs: int strcoll(const char* cs, const char* ct)
+fd: Compares cs with ct according to locale, returning negative value if cs<ct, zero if cs==ct, positive value if cs>ct.
+pt: string
+fn: strchr
+fs: char* strchr(const char* cs, int c)
+fd: Returns pointer to first occurrence of c in cs, or NULL if not found.
+pt: string
+fn: strrchr
+fs: char* strrchr(const char* cs, int c)
+fd: Returns pointer to last occurrence of c in cs, or NULL if not found.
+pt: string
+fn: strspn
+fs: size_t strspn(const char* cs, const char* ct)
+fd: Returns length of prefix of cs which consists of characters which are in ct.
+pt: string
+fn: strcspn
+fs: size_t strcspn(const char* cs, const char* ct)
+fd: Returns length of prefix of cs which consists of characters which are not in ct.
+pt: string
+fn: strpbrk
+fs: char* strpbrk(const char* cs, const char* ct)
+fd: Returns pointer to first occurrence in cs of any character of ct, or NULL if none is found.
+pt: string
+fn: strstr
+fs: char* strstr(const char* cs, const char* ct)
+fd: Returns pointer to first occurrence of ct within cs, or NULL if none is found.
+pt: string
+fn: strlen
+fs: size_t strlen(const char* cs)
+fd: Returns length of cs.
+pt: string
+fn: strerror
+fs: char* strerror(int n)
+fd: Returns pointer to implementation-defined message string corresponding with error n.
+pt: string
+fn: strtok
+fs: char* strtok(char* s, const char* t)
+fd: Searches s for next token delimited by any character from ct. Non-NULL s indicates the first call of a sequence. If a token is found, it is NUL-terminated and returned, otherwise NULL is returned. ct need not be identical for each call in a sequence.
+pt: string
+fn: strxfrm
+fs: size_t strxfrm(char* s, const char* ct, size_t n)
+fd: Stores in s no more than n characters (including terminating NUL) of a string produced from ct according to a locale-specific transformation. Returns length of entire transformed string.
+pt: string
+fn: memcpy
+fs: void* memcpy(void* s, const void* ct, size_t n)
+fd: Copies n characters from ct to s and returns s. s may be corrupted if objects overlap.
+pt: string
+fn: memmove
+fs: void* memmove(void* s, const void* ct, size_t n)
+fd: Copies n characters from ct to s and returns s. s will not be corrupted if objects overlap.
+pt: string
+fn: memcmp
+fs: int memcmp(const void* cs, const void* ct, size_t n)
+fd: Compares at most (the first) n characters of cs and ct, returning negative value if cs<ct, zero if cs==ct, positive value if cs>ct.
+pt: string
+fn: memchr
+fs: void* memchr(const void* cs, int c, size_t n);
+fd: Returns pointer to first occurrence of c in first n characters of cs, or NULL if not found.
+pt: string
+fn: memset
+fs: void* memset(void* s, int c, size_t n)
+fd: Replaces each of the first n characters of s by c and returns s.
+pt: string
+fn: clock
+fs: clock_t clock(void)
+fd: Returns elapsed processor time used by program or -1 if not available.
+pt: time
+fn: time
+fs: time_t time(time_t* tp)
+fd: Returns current calendar time or -1 if not available. If tp is non-NULL, return value is also assigned to *tp.
+pt: time
+fn: difftime
+fs: double difftime(time_t time2, time_t time1)
+fd: Returns the difference in seconds between time2 and time1.
+pt: time
+fn: mktime
+fs: time_t mktime(struct tm* tp)
+fd: If necessary, adjusts fields of *tp to fall withing normal ranges. Returns the corresponding calendar time, or -1 if it cannot be represented.
+pt: time
+fn: asctime
+fs: char* asctime(const struct tm* tp);
+fd: Returns the given time as a string of the form: Sun Jan 3 13:08:42 1988\n\0
+pt: time
+fn: ctime
+fs: char* ctime(const time_t* tp);
+fd: Returns string equivalent to calendar time tp converted to local time.
+pt: time
+fn: gmtime
+fs: struct tm* gmtime(const time_t* tp)
+fd: Returns calendar time *tp converted to Coordinated Universal Time, or NULL if not available.
+pt: time
+fn: localtime
+fs: struct tm* localtime(const time_t* tp)
+fd: Returns calendar time *tp converted into local time.
+pt: time
+fn: strftime
+fs: size_t strftime(char* s, size_t smax, const char* fmt, const struct tm* tp)
+fd: Formats *tp into s according to fmt. Places no more than smax characters into s, and returns number of characters produced (excluding terminating NUL), or 0 if greater than smax.
+pt: time

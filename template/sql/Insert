@@ -1,0 +1,13 @@
+INSERT INTO table_name [ ( col_name1, col_name2, .... ) ]
+  VALUES ( expression1_1, expression1_2, .... ),
+         ( expression2_1, expression2_2, .... ), .... 
+
+--example
+	INSERT INTO pet (pet_id, name)
+		VALUES (1, 'Fido')
+
+INSERT INTO table_name [ ( col_name1, col_name2, .... ) ]
+  SELECT ... 
+
+INSERT INTO table_name
+  SET col_name1 = expression1, col_name2 = expression2, .... 

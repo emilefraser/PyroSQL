@@ -1,0 +1,682 @@
+databaseType=Athena (Amazon)
+driverClass=com.simba.athena.jdbc.Driver
+driverProvider=
+driverVersion=
+connectionType=*Amazon Athena JDBC Driver
+driverName=
+jdbcUrl=
+classLocation=
+builtIn=Yes
+defaultPort=
+keepAliveQuery=NONE
+jdbcUrlFormat=
+((Z~]
+databaseType=Aurora (MySQL)
+driverClass=org.mariadb.jdbc.Driver,com.mysql.jdbc.Driver
+driverProvider=MariaDB,MySQL
+driverVersion= 2.2.3, 
+connectionType=*JDBC (MySQL/MariaDB Client),JDBC (MySQL Connector/J)
+driverName=MariaDB Java Client,MySQL Connector/J
+jdbcUrl=jdbc:mysql://<host>[:<port>]/[<database_name>],jdbc:mysql://<host>[:<port>]/[<database_name>]
+classLocation=/drivers/mariadb/mariadb-java-client.jar, 
+builtIn=Yes,No
+defaultPort=3306,3306
+keepAliveQuery=select CURRENT_TIME
+jdbcUrlFormat=
+((Z~]
+databaseType=Aurora (PostgreSQL)
+driverClass=org.postgresql.Driver
+driverProvider=PostgreSQL
+driverVersion=9.4
+connectionType=*JDBC (PostgreSQL Native Driver)
+driverName=PostgreSQL Native Driver
+jdbcUrl=jdbc:postgresql://<host>[:<port>]/<database_name>
+classLocation=/drivers/postgresql/postgresql_jdbc.jar
+builtIn=Yes
+defaultPort=5432
+keepAliveQuery=select CURRENT_TIME
+jdbcUrlFormat=
+((Z~]
+databaseType=BigQuery (Google)
+driverClass=com.simba.googlebigquery.jdbc42.Driver
+driverProvider=Simba
+driverVersion=
+connectionType=JDBC (Simba BigQuery JDBC Driver)
+driverName=Simba BigQuery JDBC Driver
+jdbcUrl=jdbc:bigquery://<host>:<port>;ProjectId=<database_name>;OAuthType=X;
+classLocation=
+builtIn=No
+defaultPort=443
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:bigquery://https://www.googleapis.com/bigquery/v2:<port>;ProjectId=<project_name>;OAuthType=X;
+((Z~]
+databaseType=Cache (InterSystems)
+driverClass=com.intersys.jdbc.CacheDriver
+driverProvider=InterSystems
+driverVersion=
+connectionType=JDBC (Intersystems Cache JDBC Driver)
+driverName=InterSystems Cache JDBC Driver
+jdbcUrl=jdbc:Cache://<host>:<port>/<database_name>
+classLocation=
+builtIn=No
+defaultPort=1972
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:Cache://<host>:<port>/<database_name>
+((Z~]
+databaseType=Cassandra
+driverClass=com.razorsql.cassandra.CassandraDriver,org.apache.cassandra.cql.jdbc.CassandraDriver
+driverProvider=DataStax,Cassandra
+driverVersion=3.1.4, 
+connectionType=*JDBC (DataStax Driver), JDBC (Thrift Protocol)
+driverName=DataStax Cassandra Driver,Cassandra JDBC
+jdbcUrl=jdbc:cassandra://<host>[:<port>][/<database_name>],jdbc:cassandra://<host>[:<port>][/<database_name>]
+classLocation=/drivers/datastax/datastax_driver.jar, 
+builtIn=Yes,No
+defaultPort=9042,9160
+keepAliveQuery=META
+jdbcUrlFormat= , 
+((Z~]
+databaseType=Couchbase
+driverClass=cdata.jdbc.couchbase.CouchbaseDriver
+driverProvider=CData
+driverVersion= 
+connectionType=JDBC (CData Driver)
+driverName=CData Couchbase Driver
+jdbcUrl=jdbc:couchbase:Server=<host>
+classLocation=
+builtIn=No
+defaultPort=
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:couchbase:Server=<host>
+((Z~]
+databaseType=DBASE
+driverClass=
+driverProvider=
+driverVersion=
+driverName=
+jdbcUrl=
+classLocation=
+builtIn=No
+defaultPort=
+keepAliveQuery=META
+jdbcUrlFormat=
+((Z~]
+databaseType=DB2
+driverClass=com.ibm.db2.jcc.DB2Driver,com.ibm.db2.jcc.DB2Driver,com.ibm.db2.jcc.DB2Driver,com.ibm.db2.jcc.DB2Driver,COM.ibm.db2.jdbc.app.DB2Driver,COM.ibm.db2.jdbc.net.DB2Driver,com.ibm.as400.access.AS400JDBCDriver
+driverProvider=IBM,IBM,IBM,IBM,IBM,IBM,JTOpen
+driverVersion=4.28,4.28,4.28,4.28 ,  ,6.4
+connectionType=*JDBC (IBM Type 4 Universal LUW),*JDBC (Type 2-DB2 Client required),*JDBC (Type 4 for z/OS),*JDBC (Type 2 for z/OS),JDBC (IBM DB2 App Driver), JDBC (IBM DB2 Net Driver), JDBC (AS400/iSeries JTOpen)
+driverName=IBM DB2 JDBC Universal Driver,IBM DB2 Universal Driver,IBM DB2 Universal Driver,IBM DB2 Universal Driver,IBM DB2 App Driver,IBM DB2 Net Driver, JTOpen for AS400 / iSeries
+jdbcUrl=jdbc:db2://<host>[:<port>]/<database_name>,jdbc:db2:<database_name>,jdbc:db2://<host>[:<port>]/<database_name>,jdbc:db2:<database_name>,jdbc:db2:<database_name>,jdbc:db2://<host>[:<port>]/<database_name>,jdbc:as400://<host>
+classLocation=/drivers/db2/db2jcc.jar;/drivers/db2/db2jcc_license_cu.jar,/drivers/db2/db2jcc.jar;/drivers/db2/db2jcc_license_cu.jar,/drivers/db2/db2jcc.jar,/drivers/db2/db2jcc.jar, , , 
+builtIn=Yes,Yes,Yes,Yes,No,No,No
+defaultPort=50000, , , , ,6789 , 
+keepAliveQuery=META
+jdbcUrlFormat= 
+((Z~]
+databaseType=Derby
+driverClass=org.apache.derby.jdbc.EmbeddedDriver,org.apache.derby.jdbc.ClientDriver
+driverProvider=Apache Derby,Apache Derby
+driverVersion= , 
+connectionType=*JDBC (Derby Embedded),*JDBC (Derby Network)
+driverName=Apache Derby Embedded JDBC Driver,Apache Derby Network Client JDBC Driver
+jdbcUrl=jdbc:derby:<file_name>;create=true,jdbc:derby://<host>[:<port>]/<database_name>
+classLocation= , 
+builtIn=Yes,Yes
+defaultPort=1527,1527
+keepAliveQuery=SELECT CURRENT TIME FROM SYSIBM.SYSDUMMY1
+jdbcUrlFormat=jdbc:derby:<file_name>;create=true,jdbc:derby://<host>[:<port>]/<database_name>
+((Z~]
+databaseType=Druid
+driverClass=org.apache.calcite.avatica.remote.Driver
+driverProvider=Apache Calcite Avatica
+driverVersion=1.1
+connectionType=JDBC (Avatica)
+driverName=Apache Calcite Avatica
+jdbcUrl=jdbc:avatica:remote:url=<host>
+classLocation= 
+builtIn=No
+defaultPort= 
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:avatica:remote:url=<host>/druid/v2/sql/avatica/
+((Z~]
+databaseType=DynamoDB (Amazon)
+driverClass=
+driverProvider=
+driverVersion=
+connectionType=*RazorSQL DynamoDB Driver
+driverName=
+jdbcUrl=
+classLocation=
+builtIn=Yes
+defaultPort=
+keepAliveQuery=NONE
+jdbcUrlFormat=
+((Z~]
+databaseType=FileMaker
+driverClass=com.filemaker.jdbc.Driver,com.ddtek.jdbc.sequelink.SequeLinkDriver
+driverProvider=FileMaker,FileMaker
+driverVersion= , 
+connectionType=JDBC (FileMaker JDBC fmjdbc.jar),JDBC (FileMaker JDBC sljc.jar)
+driverName=FileMaker JDBC Driver,FileMaker JDBC Driver
+jdbcUrl=jdbc:filemaker://<host>/<database_name>,jdbc:sequelink://<host>:<port>
+classLocation= , 
+builtIn=No,No
+defaultPort=2399,2399
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:filemaker://<host>/<database_name>,jdbc:sequelink://<host>:<port>
+((Z~]
+databaseType=Firebird
+driverClass=org.firebirdsql.jdbc.FBDriver
+driverProvider=Firebird
+driverVersion=4.0
+connectionType=*JDBC (Jaybird JDBC Driver)
+driverName=Firebird Jaybird JDBC Driver
+jdbcUrl=jdbc:firebirdsql://<host>[:<port>]/<file_name>
+classLocation=/drivers/firebird/jaybird.jar
+builtIn=Yes
+defaultPort=3050
+keepAliveQuery=SELECT CURRENT_TIMESTAMP FROM RDB$DATABASE
+jdbcUrlFormat=jdbc:firebirdsql:[//host[:port]/]<database>
+((Z~]
+databaseType=FrontBase
+driverClass=com.frontbase.jdbc.FBJDriver
+driverProvider=FrontBase
+driverVersion=2.5.6
+connectionType=JDBC (FrontBase JDBC Driver)
+driverName=FrontBase JDBC Driver
+jdbcUrl=jdbc:FrontBase://<host>/<database_name>[/dbpasswd=<database_password>]
+classLocation= 
+builtIn=No
+defaultPort=
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:FrontBase://<host>:<port>/<database>
+((Z~]
+databaseType=Greenplum
+driverClass=org.postgresql.Driver
+driverProvider=PostgreSQL
+driverVersion=42.2.18
+connectionType=*JDBC (PostgreSQL Native Driver)
+driverName=PostgreSQL Native Driver
+jdbcUrl=jdbc:postgresql://<host>[:<port>][/<database_name>]
+classLocation=/drivers/postgresql/postgresql_jdbc.jar
+builtIn=Yes
+defaultPort=5432
+keepAliveQuery=select CURRENT_TIME
+jdbcUrlFormat=
+((Z~]
+databaseType=H2
+driverClass=org.h2.Driver,org.h2.Driver
+driverProvider=H2,H2
+driverVersion= , 
+connectionType=JDBC (H2 Embedded),JDBC (H2 Server)
+driverName=H2 JDBC Driver,H2 JDBC Driver
+jdbcUrl=jdbc:h2:file:<file_name>,jdbc:h2:tcp://<host>[:<port>]/<database_name>
+classLocation= , 
+builtIn=No,No
+defaultPort= , 
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:h2:tcp://<host>[:<port>]/<database_name>
+((Z~]
+databaseType=HBase
+driverClass=org.apache.phoenix.jdbc.PhoenixDriver,cdata.jdbc.apachehbase.ApacheHBaseDriver
+driverProvider=Apache Phoenix,CData
+driverVersion=NA,NA
+connectionType=JDBC (Apache Phoenix Driver),JDBC (CData Driver)
+driverName=Apache Phoenix Driver,CData HBase Driver
+jdbcUrl=jdbc:phoenix:<host>[:<port>],jdbc:apachehbase:Server=<host>[;Port=<port>;]
+classLocation= , 
+builtIn=No,No
+defaultPort=2181,8080
+keepAliveQuery=META
+jdbcUrlFormat=
+((Z~]
+databaseType=Hive
+driverClass=org.apache.hive.jdbc.HiveDriver
+driverProvider=Apache
+driverVersion=1.8-2.6.3 (uber-timveil)
+connectionType=JDBC (Apache Hive2Server)
+driverName=Apache JDBC (uber-timveil)
+jdbcUrl=jdbc:hive2://<host>[:<port>]/<database_name>
+classLocation= 
+builtIn=No
+defaultPort=10000
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:hive2://<host>[:<port>]/<database_name>
+((Z~]
+databaseType=HSQLDB / HyperSQL
+driverClass=org.hsqldb.jdbcDriver,org.hsqldb.jdbcDriver
+driverProvider=HSQLDB,HSQLDB
+driverVersion=2.3,2.3
+connectionType=*JDBC (HSQLDB Embedded),*JDBC (HSQLDB Server)
+driverName=HSQLDB JDBC Driver,HSQLDB JDBC Driver
+jdbcUrl=jdbc:hsqldb:file:<file_name>;shutdown=true,jdbc:hsqldb:hsql://<host>[:<port>][/<database_name>]
+classLocation=/drivers/hsqldb/hsqldb.jar,/drivers/hsqldb/hsqldb.jar
+builtIn=Yes,Yes
+defaultPort=9001,9001
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:hsqldb:file:<file_name>;shutdown=true,jdbc:hsqldb:hsql://<host>[:<port>][/<database_name>]
+((Z~]
+databaseType=Ingres
+driverClass=com.ingres.jdbc.IngresDriver
+driverProvider=Ingres
+driverVersion=
+connectionType=JDBC (Ingres Driver)
+driverName=Ingres JDBC Driver
+jdbcUrl=jdbc:ingres://<host>:<port>/<database_name>
+classLocation=
+builtIn=No
+defaultPort=II7
+keepAliveQuery=META
+jdbcUrlFormat=
+((Z~]
+databaseType=Informix
+driverClass=com.informix.jdbc.IfxDriver
+driverProvider=Informix
+driverVersion=3.5
+connectionType=*JDBC (Informix JDBC Driver)
+driverName=Informix JDBC Driver
+jdbcUrl=jdbc:informix-sqli://<host>:<port>/<database_name>:INFORMIXSERVER=<server_name>
+classLocation=/drivers/informix/ifxjdbc.jar
+builtIn=Yes
+defaultPort=
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:informix-sqli://{<ip-address>|<host-name>}:<br><port-number>[/<dbname>]:INFORMIXSERVER=<server-name>
+((Z~]
+databaseType=Interbase
+driverClass=interbase.interclient.Driver
+driverProvider=Interbase
+driverVersion= 
+connectionType=JDBC (Interbase JDBC Driver)
+driverName=Interbase JDBC Driver
+jdbcUrl=jdbc:interbase://<host>[:<port>]/<file_name>
+classLocation= 
+builtIn=No
+defaultPort=3050
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:interbase://<host>[:<port>]/<file_name>
+((Z~]
+databaseType=Kdb+
+driverClass=kdb.jdbc
+driverProvider=Kdb+
+driverVersion=1
+connectionType=*JDBC (Kdb+ Driver)
+driverName=Kdb+ JDBC Driver
+jdbcUrl=jdbc:q:<host>:<port>
+classLocation=/drivers/kdb/kdb.jar
+builtIn=Yes
+defaultPort=
+keepAliveQuery=
+jdbcUrlFormat=
+((Z~]
+databaseType=Keyspaces (Amazon)
+driverClass=com.razorsql.cassandra.CassandraDriver
+driverProvider=DataStax
+driverVersion=3.1.4
+connectionType=*JDBC (DataStax Driver)
+driverName=DataStax Cassandra Driver
+jdbcUrl=jdbc:cassandra://<host>[:<port>][/<database_name>]
+classLocation=/drivers/datastax/datastax_driver.jar
+builtIn=Yes
+defaultPort=9142
+keepAliveQuery=META
+jdbcUrlFormat= 
+((Z~]
+databaseType=MariaDB
+driverClass=org.mariadb.jdbc.Driver
+driverProvider=MariaDB
+driverVersion=2.2.3
+connectionType=*JDBC (MariaDB Client)
+driverName=MariaDB Java Client
+jdbcUrl=jdbc:mysql://<host>[:<port>]/[<database_name>]
+classLocation=/drivers/mariadb/mariadb-java-client.jar
+builtIn=Yes
+defaultPort=3306
+keepAliveQuery=select CURRENT_TIME
+jdbcUrlFormat=
+((Z~]
+databaseType=Microsoft Access
+driverClass=net.ucanaccess.jdbc.UcanaccessDriver
+driverProvider=UCanAccess
+driverVersion=4.0.2
+connectionType=*JDBC (UCanAccess Driver)
+driverName=UCanAccess Driver
+jdbcUrl=jdbc:ucanaccess://<file_name>
+classLocation=/drivers/access/ucanaccess.jar;/drivers/hsqldb/hsqldb.jar
+builtIn=Yes
+defaultPort= 
+keepAliveQuery=select date()
+jdbcUrlFormat=
+((Z~]
+databaseType=Microsoft SQL Server
+driverClass=net.sourceforge.jtds.jdbc.Driver,com.microsoft.sqlserver.jdbc.SQLServerDriver,com.microsoft.jdbc.sqlserver.SQLServerDriver
+driverProvider=JTDS,Microsoft,Microsoft
+driverVersion=1.2.5,6.2, 
+connectionType=*JDBC (jTDS Driver 2000-2017),*JDBC (MS SQL 2005-2017 Driver),JDBC (MS SQL 2000 Driver)
+driverName=JTDS Driver,Microsoft SQL Server JDBC Driver,Microsoft SQL Server 2000 JDBC Driver
+jdbcUrl=jdbc:jtds:sqlserver://<host>[:<port>][/<database_name>],jdbc:sqlserver://<host>[:<port>][;databaseName=<database_name>],jdbc:microsoft:sqlserver://<host>[:<port>][;DatabaseName=<database_name>]
+classLocation=/drivers/jtds/jtds12.jar,/drivers/sqlserver/sqljdbc.jar, 
+builtIn=Yes,Yes,No
+defaultPort=1433,1433,1433
+keepAliveQuery=select GETDATE()
+jdbcUrlFormat=
+((Z~]
+databaseType=Mimer SQL
+driverClass=com.mimer.jdbc.Driver
+driverProvider=Mimer
+driverVersion=
+connectionType=JDBC (Mimer JDBC Driver)
+driverName=Mimer JDBC Driver
+jdbcUrl=jdbc:mimer://<host>[:<port>]/<database_name>
+classLocation=
+builtIn=No
+defaultPort=1360
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:mimer://<host>:<port>/<database>
+((Z~]
+databaseType=MonetDB
+driverClass=nl.cwi.monetdb.jdbc.MonetDriver
+driverProvider=MonetDB
+driverVersion= 
+connectionType=JDBC (MonetDB Driver)
+driverName=MonetDB Driver
+jdbcUrl=jdbc:monetdb://<host>[:<port>]/[<database_name>]
+classLocation= 
+builtIn=No
+defaultPort=50000
+keepAliveQuery=select CURRENT_TIME
+jdbcUrlFormat=
+((Z~]
+databaseType=MongoDB
+driverClass=
+driverProvider=
+driverVersion=
+connectionType=*RazorSQL MongoDB Driver
+driverName=
+jdbcUrl=
+classLocation=
+builtIn=Yes
+defaultPort=27017
+keepAliveQuery=NONE
+jdbcUrlFormat=
+((Z~]
+databaseType=MySQL
+driverClass=org.mariadb.jdbc.Driver,com.mysql.jdbc.Driver
+driverProvider=MariaDB,MySQL
+driverVersion= 2.2.3, 
+connectionType=*JDBC (MySQL/MariaDB Client),JDBC (MySQL Connector/J)
+driverName=MariaDB Java Client,MySQL Connector/J
+jdbcUrl=jdbc:mysql://<host>[:<port>]/[<database_name>],jdbc:mysql://<host>[:<port>]/[<database_name>]
+classLocation=/drivers/mariadb/mariadb-java-client.jar, 
+builtIn=Yes,No
+defaultPort=3306,3306
+keepAliveQuery=select CURRENT_TIME
+jdbcUrlFormat=
+((Z~]
+databaseType=Netezza
+driverClass=org.netezza.Driver
+driverProvider=Netezza
+driverVersion=
+connectionType=JDBC (Netezza JDBC Driver)
+driverName=Netezza JDBC Driver
+jdbcUrl=jdbc:netezza://<host>:<port>/<database_name>
+classLocation=
+builtIn=No
+defaultPort=
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:netezza://<host>:<port>/<database_name>
+((Z~]
+databaseType=OpenBase
+driverClass=com.openbase.jdbc.ObDriver
+driverProvider=OpenBase
+driverVersion=JDBC 10 09 2006
+connectionType=JDBC (OpenBase JDBC Driver)
+driverName=OpenBase JDBC Driver
+jdbcUrl=jdbc:openbase://<host>/<database_name>
+classLocation=
+builtIn=No
+defaultPort=
+keepAliveQuery=META
+jdbcUrlFormat=
+((Z~]
+databaseType=Oracle
+driverClass=oracle.jdbc.driver.OracleDriver,oracle.jdbc.driver.OracleDriver,oracle.jdbc.driver.OracleDriver,oracle.jdbc.driver.OracleDriver,oracle.jdbc.driver.OracleDriver,oracle.jdbc.driver.OracleDriver,oracle.jdbc.driver.OracleDriver,oracle.jdbc.driver.OracleDriver,oracle.jdbc.driver.OracleDriver,oracle.jdbc.driver.OracleDriver
+driverProvider=Oracle,Oracle,Oracle,Oracle,Oracle,Oracle,Oracle,Oracle,Oracle
+driverVersion=19.3,12.1,10.2.0.4,19.3, ,12.1, ,10.2.0.4, , , 
+connectionType=*JDBC (Oracle Thin 19 18 12 11),*JDBC(Oracle Thin 10g-12c),*JDBC (Oracle Thin 9i 8i),*JDBC(Oracle 19c OCI Driver),JDBC(Oracle 18c OCI Driver),*JDBC(Oracle 12c OCI Driver),JDBC (Oracle 11g OCI Driver), *JDBC (Oracle 10g OCI Driver), JDBC (Oracle 9i OCI Driver), JDBC (Oracle 8i OCI Driver)
+driverName=Oracle Thin Driver,Oracle Thin Driver,Oracle Thin Driver,Oracle 19c OCI Driver,Oracle 18c OCI Driver,Oracle 12c OCI Driver,Oracle 11g OCI Driver, Oracle 10g OCI Driver,Oracle 9i OCI Driver, Oracle 8i OCI Driver
+jdbcUrl=jdbc:oracle:thin:@//<host>[:<port>]/<service_name>!jdbc:oracle:thin:@<host>:<port>:[<SID>],jdbc:oracle:thin:@//<host>[:<port>]/<service_name>!jdbc:oracle:thin:@<host>:<port>:[<SID>],jdbc:oracle:thin:@//<host>[:<port>]/<service_name>!jdbc:oracle:thin:@<host>:<port>:[<SID>],jdbc:oracle:oci:@<database_name>,jdbc:oracle:oci:@<database_name>,jdbc:oracle:oci:@<database_name>,jdbc:oracle:oci:@<database_name>,jdbc:oracle:oci:@<database_name>,jdbc:oracle:oci:@<database_name>,jdbc:oracle:oci8:@<database_name>
+classLocation=/drivers/oracle/ojdbc8.jar;/drivers/oracle/orai18n.jar;/drivers/oracle/xdb6.jar;/drivers/oracle/xmlparserv2.jar,/drivers/oracle/ojdbc6.jar;/drivers/oracle/orai18n.jar;/drivers/oracle/xdb6.jar;/drivers/oracle/xmlparserv2.jar,/drivers/oracle/ojdbc14.jar,/drivers/oracle/ojdbc8.jar;/drivers/oracle/orai18n.jar;/drivers/oracle/xdb6.jar;/drivers/oracle/xmlparserv2.jar, ,/drivers/oracle/ojdbc6.jar;/drivers/oracle/orai18n.jar;/drivers/oracle/xdb6.jar;/drivers/oracle/xmlparserv2.jar, ,/drivers/oracle/ojdbc14.jar, , 
+builtIn=Yes,Yes,Yes,Yes,No,Yes,No,Yes,No,No
+defaultPort=1521,1521,1521,1521,1521,1521,1521,1521, , 
+keepAliveQuery=select SYSDATE from dual
+jdbcUrlFormat=
+((Z~]
+databaseType=Paradox
+driverClass=
+driverProvider=
+driverVersion=
+driverName=
+jdbcUrl=
+classLocation=
+builtIn=No
+defaultPort=
+keepAliveQuery=META
+jdbcUrlFormat=
+((Z~]
+databaseType=Pervasive
+driverClass=com.pervasive.jdbc.v2.Driver
+driverProvider=Pervasive
+driverVersion=
+connectionType=JDBC (Pervasive JDBC Driver)
+driverName=Pervasive JDBC Driver
+jdbcUrl=jdbc:pervasive://<host>[:<port>]/<database_name>
+classLocation= 
+builtIn=No
+defaultPort= 
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:pervasive://<server>:<port>/<datasource>
+((Z~]
+databaseType=PointBase
+driverClass=com.pointbase.jdbc.jdbcUniversalDriver
+driverProvider=PointBase
+driverVersion= 
+connectionType=JDBC (Server Universal Driver)
+driverName=PointBase Server Universal Driver
+jdbcUrl=jdbc:pointbase:server://<host>[:<port>]/<database_name>
+classLocation= 
+builtIn=No
+defaultPort= 
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:pointbase:server://<host>[:<port>]/<database_name>
+((Z~]
+databaseType=PostgreSQL
+driverClass=org.postgresql.Driver
+driverProvider=PostgreSQL
+driverVersion=9.4
+connectionType=*JDBC (PostgreSQL Native Driver)
+driverName=PostgreSQL Native Driver
+jdbcUrl=jdbc:postgresql://<host>[:<port>]/<database_name>
+classLocation=/drivers/postgresql/postgresql_jdbc.jar
+builtIn=Yes
+defaultPort=5432
+keepAliveQuery=select CURRENT_TIME
+jdbcUrlFormat=
+((Z~]
+databaseType=Redshift
+driverClass=org.postgresql.Driver,com.amazon.redshift.jdbc41.Driver
+driverProvider=PostgreSQL,Redshift
+driverVersion=9.4,41-1
+connectionType=*JDBC (PostgreSQL Native Driver),JDBC (Redshift Driver)
+driverName=PostgreSQL Native Driver,Redshift JDBC Driver
+jdbcUrl=jdbc:postgresql://<host>[:<port>]/<database_name>,jdbc:redshift://<host>:<port>/<database_name>
+classLocation=/drivers/postgresql/postgresql_jdbc.jar, 
+builtIn=Yes,No
+defaultPort=5439,5439
+keepAliveQuery=select CURRENT_TIME
+jdbcUrlFormat=
+((Z~]
+databaseType=SalesForce
+driverClass=
+driverProvider=
+driverVersion=
+connectionType=*RazorSQL SalesForce Driver
+driverName=
+jdbcUrl=
+classLocation=
+builtIn=Yes
+defaultPort=
+keepAliveQuery=NONE
+jdbcUrlFormat=
+((Z~]
+databaseType=SimpleDB (Amazon)
+driverClass=
+driverProvider=
+driverVersion=
+connectionType=*RazorSQL SimpleDB Driver
+driverName=
+jdbcUrl=
+classLocation=
+builtIn=Yes
+defaultPort=
+keepAliveQuery=NONE
+jdbcUrlFormat=
+((Z~]
+databaseType=Snowflake
+driverClass=net.snowflake.client.jdbc.SnowflakeDriver
+driverProvider=Snowflake
+driverVersion=
+connectionType=JDBC (Snowflake)
+driverName=Snowflake JDBC Driver
+jdbcUrl=jdbc:snowflake://<database_name>.<host>.snowflakecomputing.com
+classLocation=
+builtIn=No
+defaultPort=1025
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:snowflake://<account_name>.<region_id>.snowflakecomputing.com/?<connection_params>
+((Z~]
+databaseType=Solid
+driverClass=solid.jdbc.SolidDriver
+driverProvider=Solid
+driverVersion=
+connectionType=JDBC (Solid JDBC Driver)
+driverName=Solid JDBC Driver
+jdbcUrl=jdbc:solid://<host>:<port>
+classLocation=
+builtIn=No
+defaultPort=1315 or 1964
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:solid://<host>:<port>
+((Z~]
+databaseType=SQLite
+driverClass=org.sqlite.JDBC, 
+driverProvider=SQLiteJDBC (xerial.org), 
+driverVersion=xerial.org 3.23, 
+connectionType=*JDBC (SQLiteJDBC Driver),RazorSQL SQLite Driver (Legacy)
+driverName=SQLiteJDBC Driver, 
+jdbcUrl=jdbc:sqlite:<file_name>, 
+classLocation=/drivers/sqlite/sqlite-jdbc.jar, 
+builtIn=Yes,Yes
+defaultPort= , 
+keepAliveQuery=NONE
+jdbcUrlFormat=
+((Z~]
+databaseType=SQL Azure
+driverClass=com.microsoft.sqlserver.jdbc.SQLServerDriver,com.microsoft.sqlserver.jdbc.SQLServerDriver,net.sourceforge.jtds.jdbc.Driver
+driverProvider=Microsoft,Microsoft,JTDS
+driverVersion=6.2,6.2,1.2.5
+connectionType=*JDBC (MS SQL Server),*JDBC (Azure Data Warehouse),*JDBC (jTDS Driver),
+driverName=Microsoft SQL Server JDBC Driver,Microsoft SQL Server JDBC Driver,JTDS Driver
+jdbcUrl=jdbc:sqlserver://<host>[:<port>][;databaseName=<database_name>],jdbc:sqlserver://<host>[:<port>][;databaseName=<database_name>],jdbc:jtds:sqlserver://<host>[:<port>][/<database_name>]
+classLocation=/drivers/sqlserver/sqljdbc.jar;/drivers/sqlserver/adal4j.jar,/drivers/sqlserver/sqljdbc.jar;/drivers/sqlserver/adal4j.jar,/drivers/jtds/jtds12.jar
+builtIn=Yes,Yes,Yes
+defaultPort=1433,1433,1433
+keepAliveQuery=select GETDATE()
+jdbcUrlFormat=
+((Z~]
+databaseType=Sybase (ASE)
+driverClass=com.sybase.jdbc4.jdbc.SybDriver,net.sourceforge.jtds.jdbc.Driver
+driverProvider=Sybase,JTDS Driver
+driverVersion=5.5,1.2.5
+connectionType=*JDBC (JConnect for A.S.E),*JDBC (jTDS for A.S.E.)
+driverName=Adaptive Server Enterprise,jTDS Driver
+jdbcUrl=jdbc:sybase:Tds:<host>:<port>[/<database_name>],jdbc:jtds:sybase://<host>[:<port>][/<database_name>]
+classLocation=/drivers/sybase/jconn2.jar,/drivers/jtds/jtds12.jar
+builtIn=Yes,Yes
+defaultPort= , 
+keepAliveQuery=select getdate()
+((Z~]
+databaseType=Sybase (IQ)
+driverClass=com.sybase.jdbc4.jdbc.SybDriver
+driverProvider=Sybase
+driverVersion=5.5
+connectionType=*JDBC (JConnect Sybase IQ)
+driverName=Sybase IQ
+jdbcUrl=jdbc:sybase:Tds:<host>:<port>?ServiceName=<database_name>
+classLocation=/drivers/sybase/jconn2.jar
+builtIn=Yes
+defaultPort=2638
+keepAliveQuery=select getdate()
+((Z~]
+databaseType=Sybase (SQL Anywhere)
+driverClass=com.sybase.jdbc4.jdbc.SybDriver
+driverProvider=Sybase
+driverVersion=5.5
+connectionType=*JDBC (JConnect SQL Anywhere)
+driverName=SQL Anywhere
+jdbcUrl=jdbc:sybase:Tds:<host>:<port>?ServiceName=<database_name>
+classLocation=/drivers/sybase/jconn2.jar
+builtIn=Yes
+defaultPort=2638
+keepAliveQuery=select getdate()
+((Z~]
+databaseType=Teradata
+driverClass=com.teradata.jdbc.TeraDriver
+driverProvider=Teradata
+driverVersion=
+connectionType=JDBC (Teradata Type 4 JDBC)
+driverName=TeraData Type 4 JDBC
+jdbcUrl=jdbc:teradata://<host>[/DBS_PORT=<port>][/DATABASE=<database_name>]
+classLocation=
+builtIn=No
+defaultPort=1025
+keepAliveQuery=META
+jdbcUrlFormat=jdbc:teradata://<database server name>[/DBS_PORT=<port>]
+((Z~]
+databaseType=Vertica
+driverClass=com.vertica.jdbc.Driver
+driverProvider=Vertica
+driverVersion=6.1
+connectionType=*JDBC (Vertica)
+driverName=Vertica
+jdbcUrl=jdbc:vertica://<host>[:<port>]/<database_name>
+classLocation=/drivers/vertica/vertica-jdk5-6.1.3-0.jar
+builtIn=Yes
+defaultPort=5433
+keepAliveQuery=select getdate()
+((Z~]
+databaseType=VoltDB
+driverClass=org.voltdb.jdbc.Driver
+driverProvider=VoltDB
+driverVersion=7.8.2
+connectionType=JDBC (VoltDB)
+driverName=VoltDB JDBC Client
+jdbcUrl=jdbc:voltdb://<host>
+classLocation= 
+builtIn=No
+defaultPort=21212
+keepAliveQuery=META
+((Z~]
+databaseType=Yellowbrick
+driverClass=org.postgresql.Driver
+driverProvider=PostgreSQL
+driverVersion=9.4
+connectionType=*JDBC (PostgreSQL Native Driver)
+driverName=PostgreSQL Native Driver
+jdbcUrl=jdbc:postgresql://<host>[:<port>]/<database_name>
+classLocation=/drivers/postgresql/postgresql_jdbc.jar
+builtIn=Yes
+defaultPort=5432
+keepAliveQuery=select CURRENT_TIME
+jdbcUrlFormat=
+((Z~]

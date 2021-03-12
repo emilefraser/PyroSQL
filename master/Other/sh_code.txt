@@ -1,0 +1,90 @@
+fn: alias
+fs: alias [alias-name[=string] ...]
+fd: define or display aliases
+fn: bg
+fs: bg [job_id ...]
+fd: runs jobs in the background
+fn: cd
+fs: cd [-L | -P] [directory]
+fd: change the working directory
+fn: command
+fs: command [-p] command_name [argument ...] or command [ -v | -V ] command_name
+fd: execute a simple command
+fn: echo
+fs: echo [-neE] [arg ...]
+fd: prints a string
+fn: eval
+fs: eval [arguments]
+fd: The arguments are concatenated together into a single command, which is then read and executed, and its exit status returned as the exit status of eval. 
+fn: exec
+fs: exec [-cl] [-a name] [command [arguments]]
+fd: If command is supplied, it replaces the shell without creating a new process. If the -l option is supplied, the shell places a dash at the beginning of the zeroth arg passed to command. This is what the login program does. The -c option causes command to be executed with an empty environment. If -a is supplied, the shell passes name as the zeroth argument to command. If no command is specified, redirections may be used to affect the current shell environment. If there are no redirection errors, the return status is zero; otherwise the return status is non-zero. 
+fn: exit
+fs: exit [n]
+fd: Exit the shell, returning a status of n to the shell's parent. If n is omitted, the exit status is that of the last command executed. 
+fn: export
+fs: export [-fn] [-p] [name[=value]]
+fd: Mark each name to be passed to child processes in the environment. If the -f option is supplied, the names refer to shell functions; otherwise the names refer to shell variables. The -n option means to no longer mark each name for export. If no names are supplied, or if the -p option is given, a list of exported names is displayed. The -p option displays output in a form that may be reused as input. If a variable name is followed by =value, the value of the variable is set to value.
+fn: fc
+fs: fc [-r][-e editor] [first[last]] or fc -l[-nr] [first[last]] or fc -s[old=new][first]
+fd: process the command history list
+fn: fg
+fs: fg [job_id]
+fd: runs jobs in the foreground
+fn: getopts
+fs: getopts optstring name [arg...]
+fd: parse utility options
+fn: hash
+fs: hash [-r] [-p filename] [-dt] [name]
+fd: Remember the full pathnames of commands specified as name arguments, so they need not be searched for on subsequent invocations.
+fn: jobs
+fs: jobs [-l| -p][job_id...]
+fd: display status of jobs in the current session
+fn: kill
+fs: kill -s signal_name pid ... or kill -l [exit_status] or kill [-signal_name] pid ... or kill [-signal_number] pid ... 
+fd: terminate or signal processes
+fn: newgrp
+fs: newgrp [-l][group]
+fd: change to a new group
+fn: printf
+fs: printf [-v var] format [arguments]
+fd: Write the formatted arguments to the standard output under the control of the format. 
+fn: pwd
+fs: pwd [-L | -P ]
+fd: return working directory name
+fn: read
+fs: read [-r] var...
+fd: read a line from standard input
+fn: readonly
+fs: readonly [-apf] [name[=value]] ...
+fd: mark each name as readonly
+fn: set
+fs: set [--abefhkmnptuvxBCHP] [-o option] [argument ...]
+fd: If no options or arguments are supplied, set displays the names and values of all shell variables and functions, sorted according to the current locale, in a format that may be reused as input for setting or resetting the currently-set variables. Read-only variables cannot be reset. In posix mode, only shell variables are listed. When options are supplied, they set or unset shell attributes.
+fn: shift
+fs: shift [n]
+fd: Shift the positional parameters to the left by n.
+fn: test
+fs: test expr
+fd: test
+fn: trap
+fs: trap [-lp] [arg] [sigspec ...]
+fd: 
+fn: type
+fs: type [-afptP] [name ...]
+fd: For each name, indicate how it would be interpreted if used as a command name.
+fn: ulimit
+fs: ulimit [-acdefilmnpqrstuvxSH] [limit]
+fd: ulimit provides control over the resources available to processes started by the shell, on systems that allow such control.
+fn: umask
+fs: umask [-S][mask]
+fd: get or set the file mode creation mask
+fn: unalias
+fs: unalias alias-name... or unalias -a
+fd: remove alias definitions
+fn: unset
+fs: unset [-fv] [name]
+fd: Each variable or function name is removed.
+fn: wait
+fs: wait [pid...]
+fd: await process completion

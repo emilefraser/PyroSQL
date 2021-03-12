@@ -1,0 +1,8 @@
+Objective-C:http://developer.apple.com/mac/library/documentation/Cocoa/Reference/Foundation/ObjC_classic/
+PHP:http://php.net/quickref.php
+Java:http://java.sun.com/javase/6/docs/api/
+CSS:http://www.w3schools.com/CSS/CSS_reference.asp
+Python:http://docs.python.org/library/
+Perl:http://perldoc.perl.org/index-modules-A.html
+Ruby:http://ruby-doc.org/stdlib/
+HTML:http://www.w3schools.com/tags/default.asp

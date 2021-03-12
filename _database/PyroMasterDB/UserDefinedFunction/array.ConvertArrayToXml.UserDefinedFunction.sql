@@ -24,10 +24,11 @@ CREATE   FUNCTION [array].[ConvertArrayToXml]  (
     @Delimiter VARCHAR(10) = '',''
 )
 RETURNS XML
-AS BEGIN
+AS 
+BEGIN
       DECLARE @results TABLE
          (
-          seqno INT IDENTITY(1, 1),-- the sequence is meaningful here
+          seqno INT IDENTITY(1, 1),
           Item VARCHAR(MAX)
          )
       DECLARE @Next INT
@@ -36,29 +37,41 @@ AS BEGIN
       DECLARE @ii INT
       DECLARE @xml XML
 
-      SELECT   @ii = 0, @lenStringArray = LEN(REPLACE(@StringArray, '' '', ''|'')),
-               @lenDelimiter = LEN(REPLACE(@Delimiter, '' '', ''|''))
+SELECT
+	@ii				= 0
+  , @lenStringArray = LEN(REPLACE(@StringArray, '' '', ''|''))
+  , @lenDelimiter   = LEN(REPLACE(@Delimiter, '' '', ''|''))
 
-      WHILE @ii <= @lenStringArray+1--while there is another list element
-         BEGIN
-            SELECT   @next = CHARINDEX(@Delimiter, @StringArray + @Delimiter,
-                                      @ii)
-            INSERT   INTO @Results
-                     (Item)
-                     SELECT   SUBSTRING(@StringArray, @ii, @Next - @ii)
-            SELECT   @ii = @Next + @lenDelimiter
-         END	
-      SELECT   @xml = ( SELECT seqno,
-                            item
-                     FROM   @results
-                   FOR
-                     XML PATH(''element''),
-                         TYPE,
-                         ELEMENTS,
-                         ROOT(''stringarray'')
-                   )
-      RETURN @xml
-   END
+WHILE @ii <= @lenStringArray + 1--while there is another list element
+BEGIN
+SELECT
+	@Next = CHARINDEX(@Delimiter, @StringArray + @Delimiter,
+	@ii)
+INSERT INTO
+	@results (
+		Item
+	)
+	SELECT
+		SUBSTRING(@StringArray, @ii, @Next - @ii)
+SELECT @ii = @Next + @lenDelimiter
+END
+
+SELECT
+	@xml =
+	(
+		SELECT
+			seqno, Item
+		FROM
+			@results
+		FOR
+		XML
+			PATH (''element''),
+			TYPE,
+			ELEMENTS,
+			ROOT (''stringarray'')
+	)
+RETURN @xml
+END
 
 ' 
 END

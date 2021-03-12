@@ -1,0 +1,27 @@
+*bigint,NUMBER,19
+*smallint,NUMBER,5
+*tinyint,NUMBER,3
+*int,NUMBER,10
+*money,NUMBER,19|4
+*datetime,DATE,-1
+*date,DATE,-1
+char*,CHAR,-1
+nchar*,NCHAR,-1
+text*,CLOB,-1
+ntext*,NCLOB,-1
+varchar*,VARCHAR2,-1
+nvarchar*,NVARCHAR2,-1
+binary*,BLOB,-1
+varbinary*,BLOB,-1
+image*,BLOB,-1
+timestamp*,VARCHAR2,100
+time*,VARCHAR2,25
+hierarchyid,VARCHAR2,892
+uniqueidentifier,VARCHAR2,250
+xml,CLOB,-1
+geography,VARCHAR2,250
+*float,FLOAT,63
+*double,FLOAT,126
+decimal*, NUMBER,-1
+numeric*,NUMBER,-1
+bit,NUMBER,-1

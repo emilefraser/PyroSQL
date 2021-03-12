@@ -1,0 +1,12 @@
+call
+choice
+cls
+echo
+exit
+for
+goto
+if
+pause
+rem
+shift
+start

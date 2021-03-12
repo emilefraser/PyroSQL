@@ -1,0 +1,15 @@
+bigint,NUMBER,19
+char*,CHAR,-1
+date,DATE,-1
+decimal*,NUMBER,-1
+*numeric,NUMBER,-1
+*double,FLOAT,126
+*float,FLOAT,63
+int*,NUMBER,19
+smallint,NUMBER,-1
+time,VARCHAR2,25
+*timestamp,TIMESTAMP,NONE
+*varchar,VARCHAR2,-1
+blob sub_type 0,BLOB,-1
+blob sub_type 1,BLOB,-1
+blob*,BLOB,-1

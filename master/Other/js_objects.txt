@@ -1,0 +1,436 @@
+Array:method:concat:arrayX:Required. One or more array objects to be joined to an array:Joins two or more arrays and returns the result
+fs: concat (arrayX,arrayX,......,arrayX)
+Array:method:join:separator:Optional. Specifies the separator to be used:Puts all the elements of an array into a string
+fs: join (separator)
+Array:method:pop:NONE:NONE:Removes and returns the last element of an array
+fs: pop ()
+Array:method:push:newelement1|newelementX:Required. The first element to add to the array|Optional. Several elements may be added:Adds one or more elements to the end of an array and returns the new length
+fs: push (newelement1,newelement2,....,newelementX)
+Array:method:reverse:NONE:NONE:Reverses the order of the elements in an array
+fs: reverse ()
+Array:method:shift:NONE:NONE:Removes and returns the first element of an array
+fs: shift ()
+Array:method:slice:start|end:Required. Specify where to start the selection. Must be a number|Optional. Specify where to end the selection. Must be a number:Returns selected elements from an existing array
+fs: slice (start,end)
+Array:method:sort:sortBy:Optional. Specifies the sort order. Must be a function:Sorts the elements of an array
+fs: sort (sortby)
+Array:method:splice:index|howmany|element1|elementX:Required. Specify where to add/remove elements. Must be a number|Required Specify how many elements should be removed. Must be a number, but can be "0"|Optional. Specify a new element to add to the array|Optional. Several elements can be added:Removes and adds new elements to an array
+fs: splice (index,howmany,element1,.....,elementX)
+Array:method:toSource:NONE:NONE:Represents the source code of an object
+fs: toSource ()
+Array:method:toString:NONE:NONE:Converts an array to a string and returns the result
+fs: toString ()
+Array:method:unshift:newelement1|newelementX:Required. The first element to add to the array|Optional. Several elements may be added:Adds one or more elements to the beginning of an array and returns the new length
+fs: unshift(newelement1,newelement2,....,newelementX)
+Array:method:valueOf:NONE:NONE:Returns the primitive value of an Array object
+fs: valueOf ()
+Array:property:constructor:NONE:NONE:A reference to the function that created the object
+Array:property:index:NONE:NONE:
+Array:property:input:NONE:NONE:
+Array:property:length:NONE:NONE:Sets or returns the number of elements in an array
+Array:property:prototype:NONE:NONE:Adds properties or methods to the object
+Boolean:method:toSource:NONE:NONE:Represents the source code of an object
+fs: toSource ()
+Boolean:method:toString:NONE:NONE:Converts a Boolean value to a string and returns the result
+fs: toString ()
+Boolean:method:valueOf:NONE:NONE:Returns the primitive value of a Boolean object
+fs: valueOf ()
+Boolean:property:constructor:NONE:NONE:A reference to the function that created the object
+Boolean:property:prototype:NONE:NONE:Allows you to add properties and methods to the object
+Date:method:Date:NONE:NONE:Returns today's date and time
+fs: Date ()
+Date:method:getDate:NONE:NONE:Returns the day of the month from a Date object (from 1-31)
+fs: getDate ()
+Date:method:getDay:NONE:NONE:Returns the day of the week from a Date object (from 0-6)
+fs: getDay ()
+Date:method:getMonth:NONE:NONE:Returns the month from a Date object (from 0-11)
+fs: getMonth ()
+Date:method:getFullYear:NONE:NONE:Returns the year, as a four-digit number, from a Date object
+fs: getFullYear ()
+Date:method:getYear:NONE:NONE:Returns the year, as a two-digit or a four-digit number, from a Date object
+fs: getYear ()
+Date:method:getHours:NONE:NONE:Returns the hour of a Date object
+fs: getHours ()
+Date:method:getMinutes:NONE:NONE:Returns the minutes of a Date object (from 0-59)
+fs: getMinutes ()
+Date:method:getSeconds:NONE:NONE:Returns the seconds of a Date object (from 0-59)
+fs: getSeconds ()
+Date:method:getMilliseconds:NONE:NONE:Returns the milliseconds of a Date object (from 0-999)
+fs: getMilliseconds ()
+Date:method:getTime:NONE:NONE:Returns the number of milliseconds since midnight Jan 1, 1970
+fs: getTime ()
+Date:method:getTimezoneOffset:NONE:NONE:Returns the difference in minutes between local time and Greenwich Mean Time (GMT)
+fs: getTimezoneOffset ()
+Date:method:getUTCDate:NONE:NONE:Returns the day of the month from a Date object according to universal time (from 1-31)
+fs: getUTCDate ()
+Date:method:getUTCDay:NONE:NONE:Returns the day of the week from a Date object according to universal time (from 0-6)
+fs: getUTCDay ()
+Date:method:getUTCMonth:NONE:NONE:Returns the month from a Date object according to universal time (from 0-11)
+fs: getUTCMonth ()
+Date:method:getUTCFullYear:NONE:NONE:Returns the four-digit year from a Date object according to universal time
+fs: getUTCFullYear ()
+Date:method:getUTCHours:NONE:NONE:Returns the hour of a Date object according to universal time (from 0-23)
+fs: getUTCHours ()
+Date:method:getUTCMinutes:NONE:NONE:Returns the minutes of a Date object according to universal time (from 0-59)
+fs: getUTCMinutes ()
+Date:method:getUTCSeconds:NONE:NONE:Returns the seconds of a Date object according to universal time (from 0-59)
+fs: getUTCSeconds ()
+Date:method:getUTCMilliseconds:NONE:NONE:Returns the milliseconds of a Date object according to universal time (from 0-999)
+fs: getUTCMilliseconds ()
+Date:method:parse:datestring:Required. A string representing a date:Takes a date string and returns the number of milliseconds since midnight of January 1, 1970
+fs: parse(datestring)
+Date:method:setDate:day:Required. A numeric value (from 1 to 31) that represents a day in a month:Sets the day of the month in a Date object (from 1-31)
+fs: setDate (day)
+Date:method:setMonth:month|day:Required. A numeric value between 0 and 11 representing the month|Optional. A numeric value between 1 and 31 representing the day:Sets the month in a Date object (from 0-11)
+fs: setMonth (month[,day])
+Date:method:setFullYear:year|month|day:Required. A four-digit value representing the year|Optional. A numeric value between 0 and 11 representing the month|Optional. A numeric value between 1 and 31 representing the date:Sets the year in a Date object (four digits)
+fs: setFullYear(year[,month[,day]])
+Date:method:setYear:year:Required. A two or four digit number that indicates the year:Sets the year in the Date object (two or four digits)
+fs: setYear (year)
+Date:method:setHours:hour|minute|second|millisecond:Required. A numeric value between 0 and 23 representing the hour|Optional. A numeric value between 0 and 59 representing the minutes|Optional. A numeric value between 0 and 59 representing the seconds|Optional. A numeric value between 0 and 999 representing the milliseconds:Sets the hour in a Date object (from 0-23)
+fs: setHours (hour[,minute[,second[,millisecond]]])
+Date:method:setMinutes:minute|second|millisecond:Required. A numeric value between 0 and 59 representing the minutes|Optional. A numeric value between 0 and 59 representing the seconds|Optional. A numeric value between 0 and 999 representing the milliseconds:Set the minutes in a Date object (from 0-59)
+fs: setMinutes (minute[,second[,millisecond]])
+Date:method:setSeconds:second|millisecond:Required. A numeric value between 0 and 59 representing the seconds|Optional. A numeric value between 0 and 999 representing the milliseconds:Sets the seconds in a Date object (from 0-59)
+fs: setSeconds (second[,millisecond])
+Date:method:setMilliseconds:millisecond:Required. A numeric value between 0 and 999 representing the milliseconds:Sets the milliseconds in a Date object (from 0-999)
+fs: setMilliseconds (millisecond)
+Date:method:setTime:millisecond:Required. A numeric value representing the milliseconds since midnight January 1, 1970. Can be a negative number:Calculates a date and time by adding or subtracting a specified number of milliseconds to/from midnight January 1, 1970
+fs: setTime (millisecond)
+Date:method:setUTCDate:day:Required. A numeric value (from 1 to 31) that represents a day in a month:Sets the day of the month in a Date object according to universal time (from 1-31)
+fs: setUTCDate (day)
+Date:method:setUTCMonth:month|day:Required. A numeric value between 0 and 11 representing the month|Optional. A numeric value between 1 and 31 representing the day:Sets the month in a Date object according to universal time (from 0-11)
+fs: setUTCMonth(month[,day])
+Date:method:setUTCFullYear:year|month|day:Required. A four-digit value representing the year|Optional. A numeric value between 0 and 11 representing the month|Optional. A numeric value between 1 and 31 representing the date:Sets the year in a Date object according to universal time (four digits)
+fs: setUTCFullYear (year[,month[,day]])
+Date:method:setUTCHours:hour|minute|second|millisecond:Required. A numeric value between 0 and 23 representing the hour|Optional. A numeric value between 0 and 59 representing the minutes|Optional. A numeric value between 0 and 59 representing the seconds|Optional. A numeric value between 0 and 999 representing the milliseconds:Sets the hour in a Date object according to universal time (from 0-23)
+fs: setUTCHours (hour[,minute[,second[,millisecond]]])
+Date:method:setUTCMinutes:minute|second|millisecond:Required. A numeric value between 0 and 59 representing the minutes|Optional. A numeric value between 0 and 59 representing the seconds|Optional. A numeric value between 0 and 999 representing the milliseconds:Set the minutes in a Date object according to universal time (from 0-59)
+fs: setUTCMinutes (minute[,second[,millisecond]])
+Date:method:setUTCSeconds:second|millisecond:Required. A numeric value between 0 and 59 representing the seconds|Optional. A numeric value between 0 and 999 representing the milliseconds:Set the seconds in a Date object according to universal time (from 0-59)
+fs: setUTCSeconds (second[,millisecond])
+Date:method:setUTCMilliseconds:millisecond:Required. A numeric value between 0 and 999 representing the milliseconds:Sets the milliseconds in a Date object according to universal time (from 0-999)
+fs: setUTCMilliseconds (millisecond)
+Date:method:toSource:NONE:NONE:Represents the source code of an object
+fs: toSource ()
+Date:method:toString:NONE:NONE:Converts a Date object to a string
+fs: toString ()
+Date:method:toGMTString:NONE:NONE:Converts a Date object, according to Greenwich time, to a string
+fs: toGMTString ()
+Date:method:toUTCString:NONE:NONE:Converts a Date object, according to universal time, to a string
+fs: toUTCString ()
+Date:method:toLocaleString:NONE:NONE:Converts a Date object, according to local time, to a string
+fs: toLocaleString ()
+Date:method:UTC:year|month|day|hours|minutes|seconds|milliseconds:Required. A four digit number representing the year|Required. An integer between 0 and 11 representing the month|Required. An integer between 1 and 31 representing the date|Optional. An integer between 0 and 23 representing the hour|Optional. An integer between 0 and 59 representing the minutes|Optional. An integer between 0 and 59 representing the seconds|Optional. An integer between 0 and 999 representing the milliseconds:Takes a date and returns the number of milliseconds since midnight of January 1, 1970 according to universal time
+fs: UTC (year,month,day[,hours[,minutes[,seconds[,milliseconds]]]])
+Date:method:valueOf:NONE:NONE:Returns the primitive value of a Date object
+fs: valueOf ()
+Date:property:constructor:NONE:NONE:A reference to the function that created the object
+Date:property:prototype:NONE:NONE:Allows you to add properties and methods to the object
+Document:method:close:NONE:NONE:Closes an output stream opened with the document.open() method, and displays the collected data
+fs: close ()
+Document:method:getElementById:id:The id of the element to return:Returns a reference to the first object with the specified id
+fs: getElementById (id)
+Document:method:getElementsByName:name:The name of the elements to return:Returns a collection of objects with the specified name
+fs: getElementsByName (name)
+Document:method:getElementsByTagName:tagname:The tag of the elements to return:Returns a collection of objects with the specified tagname
+fs: getElementsByTagName (tagname)
+Document:method:open:mimetype|replace:Optional. Specifies the type of document to write to|Optional. When set, it causes the history entry for the new document to inherit the history entry from the parent document:Opens a stream to collect the output from any document.write() or document.writeln() methods
+fs: open ([mimetype[,replace]])
+Document:method:write:expression:Code or data to write:Writes HTML expressions or JavaScript code to a document
+fs: write (expression)
+Document:method:writeln:expression:Code or data to write:Identical to the write() method, with the addition of writing a new line character after each expression
+fs: writeln (expression)
+Document:property:anchors:NONE:NONE:Returns a reference to all Anchor objects in the document
+Document:property:forms:NONE:NONE:Returns a reference to all Form objects in the document
+Document:property:images:NONE:NONE:Returns a reference to all Image objects in the document
+Document:property:links:NONE:NONE:Returns a reference to all Area and Link objects in the document
+Document:property:cookie:NONE:NONE:Sets or returns all cookies associated with the current document
+Document:property:domain:NONE:NONE:Returns the domain name for the current document
+Document:property:lastModified:NONE:NONE:Returns the date and time a document was last modified
+Document:property:referrer:NONE:NONE:Returns the URL of the document that loaded the current document
+Document:property:title:NONE:NONE:Returns the title of the current document
+Document:property:URL:NONE:NONE:Returns the URL of the current document
+Global:method:decodeURI:URIString:Required. The URI to be decoded:Decodes an encoded URI
+fs: decodeURI (URIString)
+Global:method:decodeURIComponent:URIString:Required. The URI to be decoded:Decodes an encoded URI component
+fs: decodeURIComponent (URIString)
+Global:method:encodeURI:URIString:Required. The URI to be encoded:Encodes a string as a URI
+fs: encodeURI (URIString)
+Global:method:encodeURIComponent:URIString:Required. The URI to be encoded:Encodes a string as a URI component
+fs: encodeURIComponent (URIString)
+Global:method:escape:string:Required. The string to be encoded:Encodes a string
+fs: escape (string)
+Global:method:eval:string:Required. The string to be evaluated:Evaluates a string and executes it as if it was script code
+fs: eval (String)
+Global:method:isFinite:number:Required. The value to be tested:Checks if a value is a finite number
+fs: isFinite (number)
+Global:method:isNaN:number:Required. The value to be tested:Checks if a value is not a number
+fs: isNaN (number)
+Global:method:Number:object:Required. A JavaScript object:Converts an object's value to a number
+fs: Number (object)
+Global:method:parseFloat:string:Required. The string to be parsed:Parses a string and returns a floating point number
+fs: parseFloat (string)
+Global:method:parseInt:string:Required. The string to be parsed:Parses a string and returns an integer
+fs: parseInt (string)
+Global:method:String:object:Required. A JavaScript object:Converts an object's value to a string
+fs: String (object)
+Global:method:unescape:string:Required. The string to be decoded:Decodes a string encoded by escape()
+fs: unescape (string)
+Global:property:Infinity:NONE:NONE:A numeric value that represents positive or negative infinity
+Global:property:NaN:NONE:NONE:Indicates that a value is "Not a Number"
+Global:property:undefined:NONE:NONE:Indicates that a variable has not been assigned a value
+History:method:back:NONE:NONE:Loads the previous URL in the history list
+fs: back ()
+History:method:forward:NONE:NONE:Loads the next URL in the history list
+fs: forward ()
+History:method:go:number|URL:negative index of page|URL of page:Loads a specific page in the history list
+fs: go (number | URL)
+History:property:length:NONE:NONE:Returns the number of elements in the history list
+Location:method:assign:URL:The URL to load:Loads a new document
+fs: assign (URL)
+Location:method:reload:NONE:NONE:Reloads the current document
+fs: reload ()
+Location:method:replace:URL:The new URL to load:Replaces the current document with a new one
+fs: replace (URL)
+Location:property:hash:NONE:NONE:Sets or returns the URL from the hash sign
+Location:property:host:NONE:NONE:Sets or returns the hostname and port number of the current URL
+Location:property:hostname:NONE:NONE:Sets or returns the hostname of the current URL
+Location:property:href:NONE:NONE:Sets or returns the entire URL
+Location:property:pathname:NONE:NONE:Sets or returns the path of the current URL
+Location:property:port:NONE:NONE:Sets or returns the port number of the current URL
+Location:property:protocol:NONE:NONE:Sets or returns the protocol of the current URL
+Location:property:search:NONE:NONE:Sets or returns the URL from the question mark
+Math:method:abs:x:Required. Must be a numeric value:Returns the absolute value of a number
+fs: abs (x)
+Math:method:acos:x:Required. Must be a numeric value in the range -1 to 1:Returns the arccosine of a number
+fs: acos (x)
+Math:method:asin:x:Required. Must be a numeric value in the range -1 to 1:Returns the arcsine of a number
+fs: asin (x)
+Math:method:atan:x:Required. A number:Returns the arctangent of x as a numeric value between -PI/2 and PI/2 radians
+fs: atan (x)
+Math:method:atan2:x|y:Required. A number|Required. A number:Returns the angle theta of an (x,y) point as a numeric value between -PI and PI radians
+fs: atan2 (x, y)
+Math:method:ceil:x:Required. A number:Returns the value of a number rounded upwards to the nearest integer
+fs: ceil (x)
+Math:method:cos:x:Required. A number:Returns the cosine of a number
+fs: cos (x)
+Math:method:exp:x:Required. A number:Returns the value of E to the x
+fs: exp (x)
+Math:method:floor:x:Required. A number:Returns the value of a number rounded downwards to the nearest integer
+fs: floor (x)
+Math:method:log:x:Required. A number:Returns the natural logarithm (base E) of a number
+fs: log (x)
+Math:method:max:x|y:Required. A number|Required. A number:Returns the number with the highest value of x and y
+fs: max (x,y)
+Math:method:min:x|y:Required. A number|Required. A number:Returns the number with the lowest value of x and y
+fs: min (x,y)
+Math:method:pow:x|y:Required. A number|Required. A number:Returns the value of x to the power of y
+fs: pow (x,y)
+Math:method:random:NONE:NONE:Returns a random number between 0 and 1
+fs: random ()
+Math:method:round:x:Required. A number:Rounds a number to the nearest integer
+fs: round (x)
+Math:method:sin:x:Required. A number:Returns the sine of a number
+fs: sin (x)
+Math:method:sqrt:x:Required. A number:Returns the square root of a number
+fs: sqrt (x)
+Math:method:tan:x:Required. A number:Returns the tangent of an angle
+fs: tan (x)
+Math:method:toSource:NONE:NONE:Represents the source code of an object
+fs: toSource ()
+Math:method:valueOf:NONE:NONE:Returns the primitive value of a Math object
+fs: valueOf ()
+Math:property:constructor:NONE:NONE:A reference to the function that created the object
+Math:property:E:NONE:NONE:Returns Euler's constant (approx. 2.718)
+Math:property:LN2:NONE:NONE:Returns the natural logarithm of 2 (approx. 0.693)
+Math:property:LN10:NONE:NONE:Returns the natural logarithm of 10 (approx. 2.302)
+Math:property:LOG2E:NONE:NONE:Returns the base-2 logarithm of E (approx. 1.414)
+Math:property:LOG10E:NONE:NONE:Returns the base-10 logarithm of E (approx. 0.434)
+Math:property:PI:NONE:NONE:Returns PI (approx. 3.14159)
+Math:property:prototype:NONE:NONE:Allows you to add properties and methods to the object
+Math:property:SQRT1_2:NONE:NONE:Returns the square root of 1/2 (approx. 0.707)
+Math:property:SQRT2:NONE:NONE:Returns the square root of 2 (approx. 1.414)
+Navigator:method:javaEnabled:NONE:NONE:Specifies whether or not the browser has Java enabled
+fs: javaEnabled ()
+Navigator:method:taintEnabled:NONE:NONE:Specifies whether or not the browser has data tainting enabled
+fs: taintEnabled ()
+Navigator:property:appCodeName:NONE:NONE:Returns the code name of the browser
+Navigator:property:appName:NONE:NONE:Returns the name of the browser
+Navigator:property:appVersion:NONE:NONE:Returns the platform and version of the browser
+Navigator:property:browserLanguage:NONE:NONE:Returns the current browser language
+Navigator:property:cookieEnabled:NONE:NONE:Returns a Boolean value that specifies whether cookies are enabled in the browser
+Navigator:property:platform:NONE:NONE:Returns the operating system platform
+Navigator:property:userAgent:NONE:NONE:Returns the value of the user-agent header sent by the client to the server
+Navigator:property:userLanguage:NONE:NONE:Returns the OS natural language setting
+Number:method:toExponential:num:Required. Specifies the number of decimal places in the exponential notation:Convert the value of the object into an exponential notation
+fs: toExponential (num)
+Number:method:toFixed:num:Required. Specifies the number of decimals to use:Round a Number to the specified number of decimals
+fs: toFixed (num)
+Number:method:toPrecision:num:Required. Specifies the minimum number of digits the value must have to be converted to exponential notation:Converts the value of the object into an exponential notation if it has more digits than specified
+fs: toPrecision (num)
+Number:method:toString:NONE:NONE:Converts a Number object to string
+fs: toString ()
+Number:method:valueOf:NONE:NONE:Returns the primitive value of a Number object
+fs: valueOf ()
+Number:property:constructor:NONE:NONE:A reference to the function that created the object
+Number:property:MAX_VALUE:NONE:NONE:Largest number that is less than infinity
+Number:property:MIN_VALUE:NONE:NONE:Smallest number that is greater than negative infinity
+Number:property:NaN:NONE:NONE:Not a number
+Number:property:NEGATIVE_INFINITY:NONE:NONE:Out of range negative number
+Number:property:POSITIVE_INFINITY:NONE:NONE:Out of range positive number
+Number:property:prototype:NONE:NONE:Allows you to add properties and methods to the object
+RegExp:method:compile:regexp:Required. The new regular expression to search for:Change the regular expression (what to search for)
+fs: compile (regexp)
+RegExp:method:exec:RegExpObject|string:Required. The regular expression to use|Required. The string to search:Search a string for a specified value. Returns the found value and remembers the position
+fs: exec (RegExpObject,string)
+RegExp:method:test:RegExpObject|string:Required. The regular expression to use|Required. The string to search:Search a string for a specified value. Returns true or false
+fs: test (RegExpObject,string)
+RegExp:property:global:NONE:NONE:Specifies if the "g" modifier is set
+RegExp:property:ignoreCase:NONE:NONE:Specifies if the "i" modifier is set
+RegExp:property:input:NONE:NONE:The string on which the pattern match is performed
+RegExp:property:lastIndex:NONE:NONE:An integer specifying the index at which to start the next match
+RegExp:property:lastMatch:NONE:NONE:The last matched characters
+RegExp:property:lastParen:NONE:NONE:The last matched parenthesized substring
+RegExp:property:leftContext:NONE:NONE:The substring in front of the characters most recently matched
+RegExp:property:multiline:NONE:NONE:Specifies if the "m" modifier is set
+RegExp:property:prototype:NONE:NONE:Allows you to add properties and methods to the object
+RegExp:property:rightContext:NONE:NONE:The substring after the characters most recently matched
+RegExp:property:source:NONE:NONE:The text used for pattern matching
+Screen:method: :NONE:NONE: 
+Screen:property:availHeight:NONE:NONE:Returns the height of the display screen (excluding the Windows Taskbar)
+Screen:property:availWidth:NONE:NONE:Returns the width of the display screen (excluding the Windows Taskbar)
+Screen:property:colorDepth:NONE:NONE:Returns the bit depth of the color palette on the destination device or buffer
+Screen:property:height:NONE:NONE:The height of the display screen
+Screen:property:width:NONE:NONE:Returns width of the display screen
+String:method:anchor:anchorname:Required. Defines a name for the anchor:Creates an HTML anchor
+String:method:big:NONE:NONE:Displays a string in a big font
+fs: big ()
+String:method:blink:NONE:NONE:Displays a blinking string
+fs: blink ()
+String:method:bold:NONE:NONE:Displays a string in bold
+fs: bold ()
+String:method:charAt:index:Required. A number representing a position in the string:Returns the character at a specified position
+fs: charAt (index)
+String:method:charCodeAt:index:Required. A number representing a position in the string:Returns the Unicode of the character at a specified position
+fs: charCodeAt (index)
+String:method:concat:stringX:stringX:Required. One or more string objects to be joined to a string:Joins two or more strings
+fs: concat(stringX,stringX,...,stringX)
+String:method:fixed:NONE:NONE:Displays a string as teletype text
+fs: fixed ()
+String:method:fontcolor:color:Required. Specifies a font-color for the string. The value can be a color name (red), an RGB value (rgb(255,0,0)), or a hex number (#FF0000):Displays a string in a specified color
+fs: fontcolor (color)
+String:method:fontsize:size:Required. A number that specifies the font size:Displays a string in a specified size
+fs: fontsize (size)
+String:method:fromCharCode:numX:Required. One or more Unicode values:Takes the specified Unicode values and returns a string
+fs: fromCharCode (numX,numX,...,numX)
+String:method:indexOf:searchvalue|fromindex:Required. Specifies a string value to search for|Optional. Specifies where to start the search:Returns the position of the first occurrence of a specified string value in a string
+fs: indexOf (searchValue[,fromindex])
+String:method:italics:NONE:NONE:Displays a string in italic
+fs: italics ()
+String:method:lastIndexOf:search|fromIndex:Required. Specifies a string value to search for|Optional. Specifies where to start the search. Starting backwards in the string:Returns the position of the last occurrence of a specified string value, searching backwards from the specified position in a string
+fs: lastIndexOf (search[,fromindex])
+String:method:link:url:Required. Specifies the URL to link to:Displays a string as a hyperlink
+fs: link (url)
+String:method:match:searchValue:Required. Specifies a string value to search for:Searches for a specified value in a string
+fs: match (searchValue)
+String:method:replace:indstring|newstring:Required. Specifies a string value to find.|Required. Specifies the string to replace the found value from findstring:Replaces some characters with some other characters in a string
+fs: replace (indstring,newstring)
+String:method:search:searchString:Required. The value to search for in a string.:Searches a string for a specified value
+fs: search (searchString)
+String:method:slice:start|end:Required. Specify where to start the selection. Must be a number|Optional. Specify where to end the selection. Must be a number:Extracts a part of a string and returns the extracted part in a new string
+fs: slice (start[,end])
+String:method:small:NONE:NONE:Displays a string in a small font
+fs: small ()
+String:method:split:separator|howmany:Required. Specifies the character, regular expression, or substring that is used to determine where to split the string|Optional. Specify how many times split should occur. Must be a numeric value:Splits a string into an array of strings
+fs: split (separator[,howmany])
+String:method:strike:NONE:NONE:Displays a string with a strikethrough
+fs: strike ()
+String:method:sub:NONE:NONE:Displays a string as subscript
+fs: sub ()
+String:method:substr:start|length:Required. Where to start the extraction. Must be a numeric value|Optional. How many characters to extract. Must be a numeric value.:Extracts a specified number of characters in a string, from a start index
+fs: substr (start[,length])
+String:method:substring:start|stop:Required. Where to start the extraction. Must be a numeric value|Optional. Where to stop the extraction. Must be a numeric value:Extracts the characters in a string between two specified indices
+fs: substring (start[,stop])
+String:method:sup:NONE:NONE:Displays a string as superscript
+fs: sup ()
+String:method:toLowerCase:NONE:NONE:Displays a string in lowercase letters
+fs: toLowerCase ()
+String:method:toUpperCase:NONE:NONE:Displays a string in uppercase letters
+fs: toUpperCase ()
+String:method:toSource:NONE:NONE:Represents the source code of an object
+fs: toSource ()
+String:method:valueOf:NONE:NONE:Returns the primitive value of a String object
+fs: valueOf ()
+String:property:constructor:NONE:NONE:A reference to the function that created the object
+String:property:length:NONE:NONE:Returns the number of characters in a string
+String:property:prototype:NONE:NONE:Adds properties or methods to the object
+Window:method:alert:message:Required. The message to display:Displays an alert box with a message and an OK button
+fs: alert (message)
+Window:method:blur:NONE:NONE:Removes focus from the current window
+fs: blur ()
+Window:method:clearInterval:id:Required. Id of setInterval:Cancels a timeout set with setInterval()
+fs: clearInterval (id)
+Window:method:clearTimeout:id:Required. Id of setTimeout:Cancels a timeout set with setTimeout()
+fs: clearTimeout (id)
+Window:method:close:NONE:NONE:close:Closes the current window
+fs: close ()
+Window:method:confirm:message:Required. The message to display:Displays a dialog box with a message and an OK and a Cancel button
+fs: confirm (message)
+Window:method:createPopup:NONE:NONE:Creates a pop-up window
+fs: createPopup ()
+Window:method:focus:NONE:NONE:Sets focus to the current window
+fs: focus ()
+Window:method:moveBy:x|y:Required. The x value to move by.|Required. The y value to move by.:Moves a window relative to its current position
+fs: moveBy (x,y)
+Window:method:moveTo:x|y:Required. The x coordinate to move to.|Required. The y coordinate to move to.:Moves a window to the specified position
+fs: moveTo(x,y)
+Window:method:open:URL|name|Specs|replace:Optional. Specifies the URL of the page to open|Optional. Specifies the target attribute or name of the window. Name or _blank, _parent, _self, _top|A comma separated list of items (channelmode=yes,no,1,0; directories=yes,no,1,0; fullscreen=yes,no,1,0; height=pixels; left=pixels; location=yes,no,1,0; menubar=yes,no,1,0; resizable=yes,no,1,0; scrollbars=yes,no,1,0; status=yes,no,1,0; titlebar=yes,no,1,0; toolbar=yes,no,1,0; top=pixels; width=pixels)|Optional. Specifies whether the URL creates a new entry or replaces the current entry in the history list (true,false):Opens a new browser window
+fs: open (URL[,name[,Specs[,replace]]])
+Window:method:print:NONE:NONE:Prints the contents of the current window
+fs: print ()
+Window:method:prompt:text|defaultText:Optional. The message to display in the dialog box|Optional.The default input text:Displays a dialog box that prompts the user for input
+fs: prompt ([text[,defaultText]])
+Window:method:resizeBy:width|height:Required. How many pixels to resize the width by|Optional. How many pixels to resize the height by:Resizes a window by the specified pixels
+fs: resizeBy (width[,height])
+Window:method:resizeTo:width|height:Required. The width of the window|Optional. The height of the window:Resizes a window to the specified width and height
+fs: resizeTo (width[,height])
+Window:method:scrollBy:x|y:Required. How many pixels to scroll by on the x axis|Required. How many pixels to scroll by on the y axis:Scrolls the content by the specified number of pixels
+fs: scrollBy (x,y)
+Window:method:scrollTo:x|y:Required. The x-axis position to scroll to|Required. The y axis position to scroll to:Scrolls the content to the specified coordinates
+fs: scrollTo (x,y)
+Window:method:setInterval:code|milliseconds|lang:Required. A pointer to a function or the code to be executed|Required. The number of milliseconds|Optional. JScript,VBScript, or JavaScript:Evaluates an expression at specified intervals
+fs: setInterval (code,milliseconds[,lang])
+Window:method:setTimeout:code|milliseconds|lang:Required. A pointer to a function or the code to be executed|Required. The number of milliseconds|Optional. JScript,VBScript, or JavaScript:Evaluates an expression after a specified number of milliseconds
+fs: setTimeout (code,milliseconds[,lang])
+Window:property:frames[]:NONE:NONE:Returns all named framed in a window
+Window:property:closed:NONE:NONE:Returns whether or not a window has been closed
+Window:property:defaultStatus:NONE:NONE:Sets or returns the default text in the statusbar of the window
+Window:property:document:NONE:NONE:The document object
+Window:property:history:NONE:NONE:The history object
+Window:property:length:NONE:NONE:Sets or returns the number of frames in the window
+Window:property:location:NONE:NONE:The location object
+Window:property:name:NONE:NONE:Sets or returns the name of the window
+Window:property:opener:NONE:NONE:Returns a reference to the window that created the window
+Window:property:parent:NONE:NONE:Returns the parent window
+Window:property:self:NONE:NONE:Returns a reference to the current window
+Window:property:status:NONE:NONE:Sets the text in the statusbar of a window
+Window:property:top:NONE:NONE:Returns the topmost ancestor window
+XMLHttpRequest:method:abort:NONE:NONE:If the request has been sent already, this method will abort the request.
+fs: abort ()
+XMLHttpRequest:method:getAllResponseHeaders:NONE:NONE:Returns all of the response headers as a string for HTTP requests.
+fs: getAllResponseHeaders ()
+XMLHttpRequest:method:getResponseHeader:header:Required. The name of the header to retrieve.:Returns a string containing the text of the header specified or NULL if the response has not yet been received or the header does not exist in the response.
+fs: getResponseHeader (header)
+XMLHttpRequest:method:open:method|url|async|user|password:Required. The HTTP method either POST or GET|Required. The url to which to send the request|Optional. Whether the request is asynchronous or synchronous|Optional. A username for authentication|Optional. A password for authentication:Initializes a request
+fs: open (method,url[,async,user,password])
+XMLHttpRequest:method:send:body:Optional. Specifies the body of the message being sent with the request:Sends the request. If the request is asynchronous, returns immediately after sending the request. If it is synchronous returns only after the response has been received. 
+fs: send ([body])
+XMLHttpRequest:method:setRequestHeader:header|value:Required. The name of the header to set in the request|Required. The body of the header:Sets a HTTP request header for HTTP requests. You must call open before setting the request headers.
+fs: setRequestHeader (header,value)
+XMLHttpRequest:property:onreadystatechange:NONE:NONE:An attribute that represents a function that MUST be invoked when readyState changes value
+XMLHttpRequest:property:readyState:NONE:NONE:The state of the request. Possible values 0 UNINITIALIZED open() has not been called yet. 1 LOADING send() has not been called yet. 2 LOADED send() has been called, headers and status are available. 3 INTERACTIVE Downloading, responseText holds the partial data. 4 COMPLETED Finished with all operations.
+XMLHttpRequest:property:responseXML:NONE:NONE:The response to the request is parsed as if it were a text/xml stream. This attributes represents the response as a DOM Document object.
+XMLHttpRequest:property:responseText:NONE:NONE:The response to the request as text. NULL if the request is unsuccessful or has not yet been sent.
+XMLHttpRequest:property:status:NONE:NONE:The status of the response to the request for HTTP requests.
+XMLHttpRequest:property:statusText:NONE:NONE:The string representing the status of the response for HTTP requests.

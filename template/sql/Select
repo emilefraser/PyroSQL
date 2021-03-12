@@ -1,0 +1,7 @@
+SELECT {[DISTINCT | ALL] <value expression> .,..} | *
+	[INTO <host variable list>]
+	FROM <table reference> .,..
+	[WHERE <predicate>]
+	[GROUP BY <grouping column> .,..]
+	[HAVING <predicate>]
+	[ORDER BY <ordering column> [ASC | DESC] .,..]

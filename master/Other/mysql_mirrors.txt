@@ -1,0 +1,5 @@
+http://mysql.he.net/Downloads/Connector-J/mysql-connector-java-5.0.8.zip[Hurricane Electric, San Jose, CA USA]
+http://mysql.mirrors.hoobly.com/Downloads/Connector-J/mysql-connector-java-5.0.8.zip[Hoobly Classifieds, Chicago, IL USA]
+http://mysql.mirror.redwire.net/Downloads/Connector-J/mysql-connector-java-5.0.8.zip[Redwire Broadband, San Diego, CA USA]
+http://www.mirrorservice.org/sites/ftp.mysql.com/Downloads/Connector-J/mysql-connector-java-5.0.8.zip[UK Mirror Service, United Kingdom]
+http://mirrors.dedipower.com/www.mysql.com/Downloads/Connector-J/mysql-connector-java-5.0.8.zip[DediPower Managed Hosting, United Kingdom]

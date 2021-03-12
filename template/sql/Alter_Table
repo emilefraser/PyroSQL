@@ -1,0 +1,7 @@
+ALTER TABLE <table name> ADD <column name> <data type> <size>
+
+ALTER TABLE <table_name> 
+	ADD FOREIGN KEY (<column name>) 
+	REFERENCES <table_name> (<column_name>)
+	
+ALTER TABLE <table_name> ADD PRIMARY KEY (<column_name>)

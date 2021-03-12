@@ -1,0 +1,21 @@
+BIGINT,bigint,-1
+BINARY,blob sub_type 0,-1
+BIT,varchar,4
+BLOB,blob sub_type 0,-1
+BOOLEAN,varchar,4
+CHAR,char,-1
+CLOB,blob sub_type 1,-1
+DATE,date,NONE
+DECIMAL,decimal,-1
+DOUBLE,double,-1
+FLOAT,float,-1
+INTEGER,int,-1
+LONGVARBINARY,blob sub_type 0,-1
+LONGVARCHAR,blob sub_type 1,-1
+NUMERIC,numeric,-1
+SMALLINT,int,-1
+TIME,time,NONE
+TIMESTAMP,timestamp,NONE
+TINYINT,int,-1
+VARBINARY,blob sub_type 0,-1
+VARCHAR,varchar,-1

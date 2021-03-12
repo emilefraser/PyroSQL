@@ -1,0 +1,15 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[adf].[_Notification]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [adf].[_Notification](
+	[NotificationId] [int] IDENTITY(0,1) NOT NULL,
+ CONSTRAINT [PK_NotificationID] PRIMARY KEY CLUSTERED 
+(
+	[NotificationId] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO

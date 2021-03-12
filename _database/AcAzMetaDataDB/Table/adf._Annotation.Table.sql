@@ -1,0 +1,16 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[adf].[_Annotation]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [adf].[_Annotation](
+	[AnnotationId] [int] IDENTITY(0,1) NOT NULL,
+	[CreatedDT]  AS (getdate()),
+ CONSTRAINT [PK_AnnotationID] PRIMARY KEY CLUSTERED 
+(
+	[AnnotationId] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO

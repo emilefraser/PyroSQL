@@ -1,0 +1,9 @@
+Number,DOUBLE,-1
+String,VARCHAR,-1
+Number Set,VARCHAR,-1
+String Set,VARCHAR,-1
+Binary,VARBINARY,-1
+Binary Set,VARBINARY,-1
+Bool,VARCHAR,5
+Map,VARCHAR,-1
+List,VARCHAR,-1

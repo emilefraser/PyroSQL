@@ -1,0 +1,21 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Number]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Number](
+	[n] [bigint] NULL
+) ON [PRIMARY]
+WITH
+(
+DATA_COMPRESSION = PAGE
+)
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[Number]') AND name = N'ucix_Number_n')
+CREATE UNIQUE CLUSTERED INDEX [ucix_Number_n] ON [dbo].[Number]
+(
+	[n] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, DATA_COMPRESSION = PAGE) ON [PRIMARY]
+GO

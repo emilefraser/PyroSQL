@@ -1,0 +1,37 @@
+CREATE TABLE tableName
+(
+	columnName1 dataType1 [size1] [columnConstraint1...] [defaultValue1],
+	columnName2 dataType2 [size2] [columnConstraint2...] [defaultValue2],
+	.
+	.
+	.,
+	[tableConstraint1],
+	[tableConstraint2],
+	.
+	.
+	.
+);
+
+--example
+CREATE TABLE pet (
+       pet_id INT NOT NULL,
+       name VARCHAR(25),
+       owner VARCHAR(25),
+       PRIMARY KEY (pet_id)
+)
+
+NOTE:
+tableConstraint = 
+	UNIQUE(<column list>) 
+	| CHECK(<predicate>)
+	| PRIMARY KEY(<column list>) 
+	| FOREIGN KEY(<column list>)
+	REFERENCES <table name>[(<column list>)]
+	
+columnConstraint = 
+	NOT NULL
+	| UNIQUE
+	| CHECK (<predicate>)
+	| PRIMARY KEY
+	| REFERENCES <table name>[(<column name>)]
+	

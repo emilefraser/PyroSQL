@@ -7,6 +7,8 @@ BEGIN
 EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [init].[CreateSchemasForDatabase] AS' 
 END
 GO
+-- Create Procedure CreateSchemasForDatabase
+-- Create Procedure CreateSchemasForDatabase
 
 -- Create By	:	Emile Fraser
 -- Date			:	2021-01-02
@@ -19,84 +21,108 @@ ALTER    PROCEDURE [init].[CreateSchemasForDatabase]
 AS
     BEGIN
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'access';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'array';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'automate';
+
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'azure';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'benchmark';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'bprac';
+		
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'compare';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
-			@SchemaName = 'benchmark';
-
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'connect';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'config';
+
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'dba';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'dimension';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'dataprofile';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'dt';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'hierarchy';
+			
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'generate';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'help';
+
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'init';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'inout';
+			
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'logger';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'measure';
+
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'meta';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'mssql';
-
-		EXEC [tool].[CreateSchemaIfNotExists]
+			
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'number';
 
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'printer';
+
 		-- Where refrence data is stored
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'reference';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'secure';
 
 		-- templating engine
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'pyro';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'schedule';
+
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'string';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'stat';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'struct';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'template';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'test';
 
-		EXEC [tool].[CreateSchemaIfNotExists]
+		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'tool';
 END
 GO

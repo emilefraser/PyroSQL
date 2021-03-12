@@ -1,0 +1,9 @@
+Number,DOUBLE,NONE
+String,CLOB,NONE
+Number Set,CLOB,NONE
+String Set,CLOB,NONE
+Binary,BLOB,NONE
+Binary Set,BLOB,NONE
+Bool,VARCHAR,5
+Map,CLOB,NONE
+List,CLOB,NONE
