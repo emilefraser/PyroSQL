@@ -4,7 +4,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[meta].[Metadata_Constraint_UniqueKey]'))
 EXEC dbo.sp_executesql @statement = N'
-CREATE VIEW [meta].[Metadata_Constraint_UniqueKey]
+CREATE   VIEW [meta].[Metadata_Constraint_UniqueKey]
 AS
      SELECT SCHEMA_NAME(tab.schema_id) AS [schema_name], 
             uqkey.[name] AS uniquekey_name, 

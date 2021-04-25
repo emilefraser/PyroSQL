@@ -17,6 +17,18 @@ GO
 					@DatabaseName		= 'AdventureWorks_DV'
 				,	@RootFolder			= 'D:\Database\localdb'
 				,	@Category			= 'DataVault'
+
+				USE [master]
+GO
+
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'dbWarden')
+BEGIN
+	CREATE DATABASE [dbWarden]
+
+	ALTER DATABASE [dbWarden] SET RECOVERY SIMPLE
+END
+GO
+
 */
 
 ALTER        PROCEDURE [construct].[CreateDatabaseIfNotExist]

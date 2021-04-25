@@ -4,9 +4,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[string].[INSTR]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 BEGIN
-execute dbo.sp_executesql @statement = N'
-
-CREATE FUNCTION [string].[INSTR](
+execute dbo.sp_executesql @statement = N'CREATE FUNCTION [string].[INSTR](
     @str       NVARCHAR(4000),
     @substr    NVARCHAR(4000),
     @start     INT,
@@ -20,10 +18,10 @@ Note
     Original link: http://www.sqlservercentral.com/scripts/SUBSTRING/148570/
     Modified Date: 2016-11-17
 Example:
-    SELECT Loc FROM dbo.udf_INSTR (''Hello World'', ''l'', 1, 1) -- return 3
-    SELECT Loc FROM dbo.udf_INSTR (''Hello World'', ''l'', 1, 3) -- return 10
-    SELECT Loc FROM dbo.udf_INSTR (''Hello World'', ''l'', 1, 4) -- return NULL
-    SELECT Loc FROM dbo.udf_INSTR (''???? - ??? ??? ???'',''?'', 1, 1) -- return 14
+    SELECT Loc FROM [string].[INSTR](''Hello World'', ''l'', 1, 1) -- return 3
+    SELECT Loc FROM [string].[INSTR](''Hello World'', ''l'', 1, 3) -- return 10
+    SELECT Loc FROM [string].[INSTR](''Hello World'', ''l'', 1, 4) -- return NULL
+    SELECT Loc FROM [string].[INSTR](''???? - ??? ??? ???'',''?'', 1, 1) -- return 14
 */
 RETURN
     WITH Tally(N) AS
@@ -47,6 +45,7 @@ RETURN
     SELECT Loc= MAX(Loc)
     FROM Find_N_STR
     WHERE Loc > 0;
+
 ' 
 END
 GO

@@ -13,7 +13,7 @@ execute dbo.sp_executesql @statement = N'
 
 
 
---  SELECT * FROM string.[SplitStringWithDelimeterAndChunk](''HUB_Andreas, LINK_Emile, SAT_Andreas, LINK_Ansa'', '','',1)
+--  SELECT * FROM string.[SplitStringWithDelimeterAndSplit](''HUB_Andreas, LINK_Emile, SAT_Andreas, LINK_Ansa'', '','',0)
 
 CREATE     FUNCTION [string].[SplitStringWithDelimeterAndSplit] (
 	@StringValue	NVARCHAR(MAX)
@@ -51,8 +51,8 @@ RETURN
 			)
 	SELECT 
 		Item = LTRIM(RTRIM(SUBSTRING(@StringValue, s.ChunkStart, ISNULL(NULLIF(CHARINDEX(@Delimiter, @StringValue, s.ChunkStart), 0) - s.ChunkStart, 8000))))
---	,	ChunkStart
---	,	ChunkNumber
+	,	ChunkStart
+	,	ChunkNumber
 	FROM 
 		cteStart s
 	WHERE

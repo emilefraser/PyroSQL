@@ -6,7 +6,7 @@ IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[meta].[Met
 EXEC dbo.sp_executesql @statement = N'/*
 	SELECT * FROM [meta].[Metadata_RowsPerTable]
 */
-CREATE      VIEW [meta].[Metadata_SpacePerIndex]
+CREATE   VIEW [meta].[Metadata_SpacePerIndex]
 AS
 SELECT
 	SCHEMA_NAME(tab.schema_id) + ''.'' + tab.name AS [table]

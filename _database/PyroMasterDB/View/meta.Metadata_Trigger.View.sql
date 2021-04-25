@@ -3,7 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[meta].[Metadata_Trigger]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [meta].[Metadata_Trigger]
+EXEC dbo.sp_executesql @statement = N'CREATE   VIEW [meta].[Metadata_Trigger]
 AS
      SELECT 
 		ObjectID			= obj.object_id

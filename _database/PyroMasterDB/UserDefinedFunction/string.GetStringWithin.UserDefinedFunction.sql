@@ -5,7 +5,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[string].[GetStringWithin]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
 BEGIN
 execute dbo.sp_executesql @statement = N'-- =================================================
--- within string Function
+-- GetStringWithin string Function
 -- =================================================
 -- Return non-zero if the string contains the specified
 -- substring, otherwise return False. suffix can also be
@@ -15,34 +15,47 @@ execute dbo.sp_executesql @statement = N'-- ====================================
 -- that position.
 
 /*
-SELECT   string.GetStringWithin(''I''''m writing an unauthorised autobiography, but 
-what I''''ve always wanted to do is to write a book ending in the word
-''''mayonnaise'''''',
-	                dbo.array(''mayonnaise,thrifty,art,lust'','',''),
-                    DEFAULT, DEFAULT, DEFAULT, DEFAULT)
+SELECT [string].[GetStringWithin](
+	''Im writing an unauthorised autobiography, but what Ive always wanted to do is to write a book ending in the word mayonnaise'',
+	[array].[ConvertArrayToXml](''mayonnaise,art,writing'', '',''),
+    DEFAULT, 
+	DEFAULT, 
+	DEFAULT, 
+	DEFAULT
+)
+
+SELECT [array].[ConvertArrayToXml](''mayonnaise,art,writing'', '','')
 */
-CREATE   FUNCTION [string].[GetStringWithin]
-   (
+CREATE   FUNCTION [string].[GetStringWithin] (
     @String VARCHAR(MAX),
-    @Substring XML,
+    @SubStringValue XML,
     @start INT = NULL,
     @end INT = NULL,
     @prefixWildcard VARCHAR(1)=''%'',
     @SuffixWildcard VARCHAR(1)=''%''
-   )
+  )
 RETURNS INT
 AS BEGIN
 	  DECLARE @Match INT
-      SELECT   @Start = COALESCE(@Start, 1),
+      
+	  -- Replaces null start and end, with @string start and end
+	  SELECT   @Start = COALESCE(@Start, 1),
                @End = COALESCE(@End, LEN(@String))
-      IF @string IS NULL OR @Substring IS NULL
+      
+	  IF @string IS NULL OR @SubStringValue IS NULL
+	  BEGIN
          RETURN NULL
-      --convert a single Substring  into an array of one.   
-      IF CHARINDEX(''<stringarray>'', CONVERT(VARCHAR(MAX), @Substring)) = 0
-         SELECT   @Substring = ''<stringarray><element><seqno>1</seqno><item>''
-                 + CONVERT(VARCHAR(MAX),@Substring)
+	  END
+
+      -- Convert a single Substring into an array of one
+      IF CHARINDEX(''<stringarray>'', CONVERT(VARCHAR(MAX), @SubStringValue)) = 0
+	  BEGIN
+         SELECT   @SubStringValue = ''<stringarray><element><seqno>1</seqno><item>''
+                 + CONVERT(VARCHAR(MAX),@SubStringValue)
                 + ''</item></element></stringarray>''
-		-- provide sensible defaults for the limiters
+	END
+
+	-- provide sensible defaults for the limiters
       SELECT   @end = CASE WHEN @end > LEN(@string)
                                  THEN LEN(@string)
                            ELSE @end
@@ -51,13 +64,15 @@ AS BEGIN
                                  THEN LEN(@string)
                            ELSE @start
                       END
+
 --and it is one simple SELECT statement!
    SELECT @match= COUNT(*) FROM 
       ( SELECT x.y.value(''item[1]'', ''VARCHAR(200)'') AS [Substring ]
-         FROM @Substring .nodes(''//stringarray/element'') AS x ( y )
+         FROM @SubStringValue.nodes(''//stringarray/element'') AS x ( y )
       ) theSubstrings
-   WHERE PATINDEX(@SuffixWildcard+Substring +@prefixWildcard,
+   WHERE PATINDEX(CONCAT(@SuffixWildcard,CONVERT(NVARCHAR(MAX), @SubStringValue),@prefixWildcard),
                        SUBSTRING(@string, @Start, @End - @start + 1))>0
+
 RETURN @match
    END
 ' 

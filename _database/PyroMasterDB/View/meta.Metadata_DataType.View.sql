@@ -4,7 +4,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[meta].[Metadata_DataType]'))
 EXEC dbo.sp_executesql @statement = N'
-CREATE    VIEW [meta].[Metadata_DataType]
+CREATE   VIEW [meta].[Metadata_DataType]
 AS
 SELECT
 	t.name						  AS data_type

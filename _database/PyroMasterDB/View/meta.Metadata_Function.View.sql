@@ -3,10 +3,11 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[meta].[Metadata_Function]'))
-EXEC dbo.sp_executesql @statement = N'/*
+EXEC dbo.sp_executesql @statement = N'
+/***meta***
 	SELECT * FROM [meta].[Metadata_Function]
-*/
-CREATE    VIEW [meta].[Metadata_Function]
+***meta***/
+CREATE   VIEW [meta].[Metadata_Function]
 AS
 SELECT
 	SchemaName					= SCHEMA_NAME(obj.schema_id)

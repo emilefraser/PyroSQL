@@ -60,6 +60,9 @@ AS
 
 		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'dt';
+			
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'ext';
 
 		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'generate';
@@ -98,9 +101,9 @@ AS
 		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'secure';
 
-		-- templating engine
-		EXEC [construct].[CreateSchemaIfNotExists]
-			@SchemaName = 'pyro';
+		---- templating engine
+		--EXEC [construct].[CreateSchemaIfNotExists]
+		--	@SchemaName = 'pyro';
 
 		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'string';
@@ -119,5 +122,21 @@ AS
 
 		EXEC [construct].[CreateSchemaIfNotExists]
 			@SchemaName = 'tool';
+
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'assert';
+
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'internal';
+
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'runner';
+
+		
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'static';
+
+		EXEC [construct].[CreateSchemaIfNotExists]
+			@SchemaName = 'tSQLt';
 END
 GO

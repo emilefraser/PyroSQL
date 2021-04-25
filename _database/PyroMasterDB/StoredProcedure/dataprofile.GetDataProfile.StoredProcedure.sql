@@ -7,7 +7,7 @@ BEGIN
 EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dataprofile].[GetDataProfile] AS' 
 END
 GO
-
+-- EXEC [dataprofile].[GetDataProfile]
 ALTER PROCEDURE [dataprofile].[GetDataProfile]
 AS
 BEGIN
@@ -92,7 +92,7 @@ FOR
             INNER JOIN INFORMATION_SCHEMA.TABLES t ON t.TABLE_SCHEMA = c.TABLE_SCHEMA
                                                       AND t.TABLE_NAME = c.TABLE_NAME
     WHERE   c.TABLE_SCHEMA IN ( 'dbo' )  --------------------------------
-            AND c.TABLE_NAME LIKE 't_per%'  -- <<< Schema, table and view names to analyze go here
+           -- AND c.TABLE_NAME LIKE 't_per%'  -- <<< Schema, table and view names to analyze go here
             AND t.TABLE_TYPE NOT IN ( 'VIEW' ) --------------------------------
     ORDER BY c.TABLE_NAME ,
             c.ORDINAL_POSITION

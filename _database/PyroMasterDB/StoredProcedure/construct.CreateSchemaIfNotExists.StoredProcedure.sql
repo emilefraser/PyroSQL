@@ -12,7 +12,7 @@ GO
 
 -- Create By	:	Emile Fraser
 -- Date			:	2021-01-02
--- Description	:	Schema Creator generatemic Script
+-- Description	:	Schema Creation DDL Script
 
 /*
 	EXEC dbo.CreateSchemaIfNotExists 
@@ -57,7 +57,7 @@ BEGIN
 		-- Debug Prints if flag on
 		IF (@sql_debug = 1)
 		BEGIN
-			SET @sql_message   = '{{statement}}' + @sql_crlf + @sql_tab + @sql_statement + @sql_crlf 
+			SET @sql_message   =  @sql_statement + @sql_crlf 
 			RAISERROR(@sql_message, 0, 1) WITH NOWAIT
 		END -- IF (@sql_debug = 1)
 
@@ -66,7 +66,7 @@ BEGIN
 		BEGIN
 			BEGIN TRY
 				EXEC @sql_return = sp_executesql
-					   @stmt            = @sql_statement
+					   @stmt = @sql_statement
 			END TRY
         
 			BEGIN CATCH

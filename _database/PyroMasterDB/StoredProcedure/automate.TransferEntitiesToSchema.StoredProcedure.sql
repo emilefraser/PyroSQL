@@ -7,10 +7,16 @@ BEGIN
 EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [automate].[TransferEntitiesToSchema] AS' 
 END
 GO
--- EXEC tool.TransferEntitiesToSchema @SourceSchemaName = 'bprac', @TargetSchemaName = 'temptr'
+/*
+ EXEC [automate].[TransferEntitiesToSchema] 
+						@SourceSchemaName	= 'dbo'
+					,	@TargetSchemaName	= 'datavault'
+					,	@EntityNamePartial	= 'LINK'
+*/
 ALTER     PROCEDURE [automate].[TransferEntitiesToSchema]
 	@SourceSchemaName SYSNAME
 ,	@TargetSchemaName SYSNAME
+,	@EntityNamePartial SYSNAME
 AS
 
 BEGIN
@@ -52,6 +58,10 @@ BEGIN
 		o.is_ms_shipped = 0
 	AND
 		o.type IN ('U', 'V')
+	AND
+		o.name LIKE IIF(@EntityNamePartial IS NULL, 
+							'%' + o.name + '%', 
+							'%' + @EntityNamePartial + '%')
 
 	OPEN @cursor_exec
 	FETCH NEXT FROM @cursor_exec
@@ -80,7 +90,7 @@ BEGIN
 					IF (@sql_log = 1)
 					BEGIN
 						INSERT INTO @log (StepAction, StepName, StepDefinition, StepResult, StepMessage)
-						SELECT 'TRANSFER', QUOTENAME(@schema_name) + '.' + QUOTENAME(@entity_name) , @sql_statement, @sql_rc, NULL
+						SELECT 'TRANSFER', QUOTENAME(@schema_name) + '.' + QUOTENAME(@entity_name) , @sql_statement, @sql_rc, 'SUCCESS'
 					END
 
 				END TRY

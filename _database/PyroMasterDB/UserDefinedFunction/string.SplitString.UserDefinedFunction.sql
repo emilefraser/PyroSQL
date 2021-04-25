@@ -14,9 +14,9 @@ execute dbo.sp_executesql @statement = N'-- ====================================
 --so now we test it out (The real test rig is longer and more boring)
 SELECT  * FROM dbo.ArrayToTable(dbo.split(''If I wanted that c**p from you, 
 I''''d squeeze your head'', NULL, NULL))
-SELECT dbo.split(''How come you always program when drunk?
+SELECT [string].[SplitString](''How come you always program when drunk?
 Because I learned how to when drunk'', ''?'', NULL) 
-SELECT dbo.split(''This is the worst disaster to happen here since I arrived'' 
+SELECT [string].[SplitString](''This is the worst disaster to happen here since I arrived'' 
 					,NULL, NULL) 
 */
 CREATE   FUNCTION [string].[SplitString]

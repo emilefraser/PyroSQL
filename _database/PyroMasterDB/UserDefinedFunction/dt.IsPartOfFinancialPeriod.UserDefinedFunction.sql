@@ -18,7 +18,7 @@ BEGIN
 	,	@CalendarDateFinancialPeriodValue	NVARCHAR(20)
 	,	@CurrentDate						DATE = FORMAT(GETDATE(), ''yyyy-MM-dd'')
 	,	@ReturnValue						BIT
-
+	/*
 	SET @CurrentFinancialPeriodValue = 
 		CASE UPPER(@FinancialPeriodGranularity) 
 			WHEN ''YEAR''
@@ -87,8 +87,8 @@ BEGIN
 			SET @ReturnValue = 1
 		ELSE
 			SET @ReturnValue = 0
-
-		RETURN @ReturnValue
+			*/
+		RETURN 0 --@ReturnValue
 
 END' 
 END

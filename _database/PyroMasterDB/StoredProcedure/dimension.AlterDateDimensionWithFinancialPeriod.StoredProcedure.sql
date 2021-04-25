@@ -52,9 +52,9 @@ BEGIN
 
  
   DECLARE	@FinancialYearStartDayOfMonthValue		INT = 1
-  ,			@FinancialYearStartMonthOfYearValue		INT = 7
+  ,			@FinancialYearStartMonthOfYearValue		INT = 10
   ,			@FinancialYearEndDayOfMonthValue		INT = 30
-  ,			@FinancialYearEndMonthOfYearValue		INT = 6
+  ,			@FinancialYearEndMonthOfYearValue		INT = 9
 
   DECLARE	@FinancialYearStartDayOfMonthString		NVARCHAR(2) = CONVERT(NVARCHAR(2), @FinancialYearStartDayOfMonthValue)
   ,			@FinancialYearStartMonthOfYearString	NVARCHAR(2) = CONVERT(NVARCHAR(2), @FinancialYearStartMonthOfYearValue)
@@ -90,7 +90,7 @@ BEGIN
 	SET @column_name		= N'CalendarDateValue'
 	SET @default_value		=  'CONVERT(INT, FORMAT([CalendarDate], ''yyyyMMdd''))'
 
-	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
 	PRINT(@sql_template_altertable)
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -98,7 +98,7 @@ BEGIN
 	SET @column_name		= N'CalendarDateTime'
 	SET @default_value		=  'CONVERT(DATETIME2(7), [CalendarDate])'
 
-	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
 	PRINT(@sql_template_altertable)
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -112,7 +112,7 @@ BEGIN
 	SET @column_name		= N'DayOfWeek'
 	SET @default_value		=  'CONVERT(VARCHAR(2),	DATEPART(WEEKDAY,  [CalendarDate]))'
 
-	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
 	PRINT(@sql_template_altertable)
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -120,7 +120,7 @@ BEGIN
 	SET @column_name		= N'DayOfWeekValue'
 	SET @default_value		=  'CONVERT(TINYINT, DATEPART(WEEKDAY,  [CalendarDate]))'
 
-	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
 	PRINT(@sql_template_altertable)
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -128,7 +128,7 @@ BEGIN
 	SET @column_name		= N'DayOfWeekName'
 	SET @default_value		=  'CONVERT(VARCHAR(10), DATENAME([CalendarDate]))'
 
-	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
 	PRINT(@sql_template_altertable)
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -136,7 +136,7 @@ BEGIN
 	SET @column_name		= N'DayOfWeekAbbreviation'
 	SET @default_value		=  'CONVERT(VARCHAR(3), DATENAME([CalendarDate]))'
 
-	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
 	PRINT(@sql_template_altertable)
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -144,7 +144,7 @@ BEGIN
 	SET @column_name		= N'DayOfMonth'
 	SET @default_value		= 'CONVERT(VARCHAR(2), FORMAT([CalendarDate], ''00''))'
 
-	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
 	PRINT(@sql_template_altertable)
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -152,7 +152,7 @@ BEGIN
 	SET @column_name		= N'DayOfMonthValue'
 	SET @default_value		= 'CONVERT(TINYINT, DATEPART(DAY, [CalendarDate]))'
 
-	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
 	PRINT(@sql_template_altertable)
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -160,7 +160,7 @@ BEGIN
 	SET @column_name		= N'DayOfQuarter'
 	SET @default_value		= 'CONVERT(VARCHAR(2),	FORMAT(DATEDIFF(d, DATEADD(qq, DATEDIFF(qq, 0, [CalendarDate]), 0), [CalendarDate]) + 1, ''00'')'
 
-	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
 	PRINT(@sql_template_altertable)
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -168,7 +168,7 @@ BEGIN
 	SET @column_name		= N'DayOfQuarterValue'
 	SET @default_value		= 'CONVERT(TINYINT,	DATEDIFF(d, DATEADD(qq, DATEDIFF(qq, 0, [CalendarDate]), 0), [CalendarDate]) + 1)'
 
-	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
 	PRINT(@sql_template_altertable)
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -177,7 +177,7 @@ BEGIN
 	SET @column_name		= N'DayOfHalfYear'
 	SET @default_value		= 'CONVERT(VARCHAR(3), FORMAT(DATEDIFF(DAY, DATEADD(MONTH,(DATEPART(MONTH, [CalendarDate])-1) / 6 * 6, DATEADD(YEAR, YEAR(@dt)-1900, 0)), [CalendarDate]), ''000'')'
 
-	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
 	PRINT(@sql_template_altertable)
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -185,7 +185,7 @@ BEGIN
 	SET @column_name		= N'DayOfHalfYearValue'
 	SET @default_value		= 'CONVERT(TINYINT,	DATEDIFF(d, DATEADD(QUARTER, DATEDIFF(QUARTER, 0, [CalendarDate]), 0), [CalendarDate]) + 1)'
 
-	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+	SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
 	PRINT(@sql_template_altertable)
 	EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -223,7 +223,7 @@ DATEADD(mm,((DATEPART(mm,@dt)-1)/6 * 6) + 6,DATEADD(yy,YEAR(@dt)-1900,-1)) AS Ha
 	SET @column_name		= N'DayOfMonthValue'
 	SET @default_value	= 'CONVERT(TINYINT, DATEPART(DAY, [CalendarDate]))'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -274,7 +274,7 @@ DATEADD(mm,((DATEPART(mm,@dt)-1)/6 * 6) + 6,DATEADD(yy,YEAR(@dt)-1900,-1)) AS Ha
 																									ELSE DATEADD(YEAR, -1, CONVERT(DATE, CONCAT_WS(''-'', YEAR([CalendarDate]), ''07'', ''01''))) END
 																									, [CalendarDate]) + 1)'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -287,7 +287,7 @@ DATEADD(mm,((DATEPART(mm,@dt)-1)/6 * 6) + 6,DATEADD(yy,YEAR(@dt)-1900,-1)) AS Ha
 																									ELSE DATEADD(YEAR, -1, CONVERT(DATE, CONCAT_WS(''-'', YEAR([CalendarDate]), ''07'', ''01''))) END
 																									, [CalendarDate]) +1 )'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -300,7 +300,7 @@ DATEADD(mm,((DATEPART(mm,@dt)-1)/6 * 6) + 6,DATEADD(yy,YEAR(@dt)-1900,-1)) AS Ha
 																									ELSE DATEADD(YEAR, -1, CONVERT(DATE, CONCAT_WS(''-'', YEAR([CalendarDate]), ''07'', ''01''))) END
 																									, [CalendarDate]) +1, ''000''))'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
 
 
@@ -325,7 +325,7 @@ DATEADD(mm,((DATEPART(mm,@dt)-1)/6 * 6) + 6,DATEADD(yy,YEAR(@dt)-1900,-1)) AS Ha
 															END
 															, [CalendarDate]) % 7 > 0, 1, 0)))'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -346,7 +346,7 @@ DATEADD(mm,((DATEPART(mm,@dt)-1)/6 * 6) + 6,DATEADD(yy,YEAR(@dt)-1900,-1)) AS Ha
 																									END 
 																									, [CalendarDate]) % 7 > 0, 1, 0)))'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -365,7 +365,7 @@ DATEADD(mm,((DATEPART(mm,@dt)-1)/6 * 6) + 6,DATEADD(yy,YEAR(@dt)-1900,-1)) AS Ha
 																									ELSE DATEADD(YEAR, -1, CONVERT(DATE, CONCAT_WS(''-'', YEAR([CalendarDate]), ''07'', ''01''))) END
 																									, [CalendarDate]) % 7 > 0, 1, 0)), ''00''))'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -388,7 +388,7 @@ FROM  dimension.DateDimension2
   SET @isnullable		= 0
   SET @default_value	= 'CONVERT(NVARCHAR(2), CASE WHEN MONTH(CalendarDate) >= 7 THEN MONTH(CalendarDate) - 6 ELSE MONTH(CalendarDate) + 6 END)'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -398,7 +398,7 @@ FROM  dimension.DateDimension2
   SET @isnullable		= 0
   SET @default_value	=  'CONVERT(NVARCHAR(2), CASE WHEN MONTH(CalendarDate) >= 7 THEN MONTH(CalendarDate) - 6 ELSE	MONTH(CalendarDate) + 6 END)'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
   
@@ -408,7 +408,7 @@ FROM  dimension.DateDimension2
   SET @isnullable		= 0
   SET @default_value	=  'CONVERT(NVARCHAR(4), ''FM'' +  CONVERT(NVARCHAR(2), CASE WHEN MONTH(CalendarDate) >= 7 THEN MONTH(CalendarDate) - 6 ELSE	MONTH(CalendarDate) + 6 END))'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -424,7 +424,7 @@ FROM  dimension.DateDimension2
 													WHEN MONTH(CalendarDate) >= 4 THEN 4
 													ELSE 3 END)'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -437,7 +437,7 @@ FROM  dimension.DateDimension2
 													WHEN MONTH(CalendarDate) >= 4 THEN 4
 													ELSE 3 END)'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -450,7 +450,7 @@ FROM  dimension.DateDimension2
 													WHEN MONTH(CalendarDate) >= 4 THEN 4
 													ELSE 3 END))'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
   */
@@ -463,7 +463,7 @@ FROM  dimension.DateDimension2
   SET @isnullable		= 0
   SET @default_value	= 'CONVERT(NVARCHAR(1), IIF(MONTH(CalendarDate) <= ' + '6' + ', 2, 1))'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -473,7 +473,7 @@ FROM  dimension.DateDimension2
   SET @isnullable		= 0
   SET @default_value	= 'CONVERT(INT, IIF(MONTH(CalendarDate) <= ' + '6' + ', 2, 1))'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -483,7 +483,7 @@ FROM  dimension.DateDimension2
   SET @isnullable		= 0
   SET @default_value	= 'CONVERT(NVARCHAR(3), ''FH'' + CONVERT(NVARCHAR(1),IIF(MONTH(CalendarDate) <= ' + '6' + ', 2, 1)))'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
    */
@@ -497,7 +497,7 @@ FROM  dimension.DateDimension2
   SET @isnullable		= 0
   SET @default_value	= 'CONVERT(NVARCHAR(4), IIF(MONTH(CalendarDate) >= ' + @FinancialYearStartMonthOfYearString + ', YEAR(CalendarDate) + 1, YEAR(CalendarDate)))'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -507,7 +507,7 @@ FROM  dimension.DateDimension2
   SET @isnullable		= 0
   SET @default_value	= 'CONVERT(INT, IIF(MONTH(CalendarDate) >= ' + @FinancialYearStartMonthOfYearString + ', YEAR(CalendarDate) + 1, YEAR(CalendarDate)))'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
 
@@ -517,7 +517,7 @@ FROM  dimension.DateDimension2
   SET @isnullable		= 0
   SET @default_value	= 'CONVERT(NVARCHAR(6), ''FY'' + CONVERT(NVARCHAR(4),IIF(MONTH(CalendarDate) >= ' + @FinancialYearStartMonthOfYearString + ', YEAR(CalendarDate) + 1, YEAR(CalendarDate))))'
 
-  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @data_type, @isnullable, @default_value))
+  SET @sql_template_altertable = (SELECT dimension.GetCalendarDateAlterDefinition(@schema_name, @entity_name, @column_name, @default_value))
   PRINT(@sql_template_altertable)
   EXEC sp_executesql @stmt = @sql_template_altertable
   */

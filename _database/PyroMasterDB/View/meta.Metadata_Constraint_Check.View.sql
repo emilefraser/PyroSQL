@@ -3,7 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[meta].[Metadata_Constraint_Check]'))
-EXEC dbo.sp_executesql @statement = N'CREATE    VIEW [meta].[Metadata_Constraint_Check]
+EXEC dbo.sp_executesql @statement = N'CREATE   VIEW [meta].[Metadata_Constraint_Check]
 AS
 	select con.[name] as constraint_name,
     schema_name(t.schema_id) + ''.'' + t.[name]  as [table],

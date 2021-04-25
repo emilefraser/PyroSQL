@@ -22,9 +22,9 @@ execute dbo.sp_executesql @statement = N'
 -- to write this, since he once swore he would never publish another
 -- string splitting routine
 /*
-SELECT * FROM array.ConvertArrayToTable(dbo.parts(''IS your manager a bookworm? 
+SELECT * FROM [string].[GetStringPartsWithDelimiter](dbo.parts(''IS your manager a bookworm? 
 NO just an ordinary one'',''?'',0))
-SELECT string.GetStringPartsWithDelimiter(''None of my team ever made a fool of me. 
+SELECT [string].[GetStringPartsWithDelimiter](''None of my team ever made a fool of me. 
 well who was it then?'',''fool'',0)
 
 */

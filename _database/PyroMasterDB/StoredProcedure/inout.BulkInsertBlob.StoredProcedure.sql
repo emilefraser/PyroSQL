@@ -14,7 +14,7 @@ Delimited_FilePath - The name of the CSV File that already in the blob container
 SAS_Token - For accessing any blob within the container (Private container) we need a SAS token. (You can refer here on how to generate the SAS token)
 Location - The URL of the Azure Storage Account along with the container
 
-exec BulkInsertBlob 'inputblob.csv','st=2018-10-21T14%3A32%3A16Z&se=2018-10-22T14%3A32%3A16Z&sp=rl&sv=2018-03-28&sr=b&sig=5YCuPCTVTt826ilyVsLBrKarPNg5sWUyrN7bMQ5fIhc%3D','https://testingstorageaccount.blob.core.windows.net/testing'
+exec inout.BulkInsertBlob 'inputblob.csv','st=2018-10-21T14%3A32%3A16Z&se=2018-10-22T14%3A32%3A16Z&sp=rl&sv=2018-03-28&sr=b&sig=5YCuPCTVTt826ilyVsLBrKarPNg5sWUyrN7bMQ5fIhc%3D','https://testingstorageaccount.blob.core.windows.net/testing'
 The parameters we are using are:
 
 ?Storage Account Name: https://testingstorageaccount.blob.core.windows.net/
