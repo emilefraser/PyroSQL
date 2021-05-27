@@ -1,0 +1,29 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[tSQLt].[Private_GetDataTypeOrComputedColumnDefinition]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'CREATE FUNCTION [tSQLt].[Private_GetDataTypeOrComputedColumnDefinition](@UserTypeId INT, @MaxLength INT, @Precision INT, @Scale INT, @CollationName NVARCHAR(MAX), @ObjectId INT, @ColumnId INT, @ReturnDetails BIT)
+RETURNS TABLE
+AS
+RETURN SELECT 
+              COALESCE(cc.IsComputedColumn, 0) AS IsComputedColumn,
+              COALESCE(cc.ComputedColumnDefinition, GFTN.TypeName) AS ColumnDefinition
+        FROM (SELECT @UserTypeId, @MaxLength, @Precision, @Scale, @CollationName, @ObjectId, @ColumnId, @ReturnDetails) 
+             AS V(UserTypeId, MaxLength, Precision, Scale, CollationName, ObjectId, ColumnId, ReturnDetails)
+       CROSS APPLY tSQLt.Private_GetFullTypeName(V.UserTypeId, V.MaxLength, V.Precision, V.Scale, V.CollationName) AS GFTN
+        LEFT JOIN (SELECT 1 AS IsComputedColumn,
+                          '' AS ''+ cci.definition + CASE WHEN cci.is_persisted = 1 THEN '' PERSISTED'' ELSE '''' END AS ComputedColumnDefinition,
+                          cci.object_id,
+                          cci.column_id
+                     FROM sys.computed_columns cci
+                  )cc
+               ON cc.object_id = V.ObjectId
+              AND cc.column_id = V.ColumnId
+              AND V.ReturnDetails = 1;               
+
+
+' 
+END
+GO
