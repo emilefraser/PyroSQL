@@ -1,3 +1,6 @@
+CREATE VIEW meta.Depend_DependMapWithCTE
+AS
+
 with
 dependencies as
 /*this recursive CTE will list all the tables in the database,
@@ -46,3 +49,4 @@ select d.source ,
        d.source_type,
        d.dependent_type
 from dependencies as d
+

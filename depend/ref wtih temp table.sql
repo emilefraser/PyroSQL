@@ -1,11 +1,6 @@
--- By Steven Rao
--- On Aug 16, 2018
--- Given a single database object (such as stored procedure, function, view, table), list the dependance tree view of all depedent objects
--- Recusively looking inside DMV sys.sql_expression_dependencies
-
--- Based on
--- https://www.sqlservercentral.com/Forums/Topic1874321-3077-1.aspx
-
+CREATE PROCEDURE meta.Depend_TempTable
+AS 
+BEGin
 
 declare @schemaName varchar(128), @objectName varchar(128), @objectID int
 
@@ -195,3 +190,5 @@ select
    -------------------------------------------------------------------------------
  order by 1,2,5,3,4
   option (maxrecursion 5000);
+
+  END

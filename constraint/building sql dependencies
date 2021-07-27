@@ -1,0 +1,31 @@
+T-sql – Way to obtain full list of column dependencies for stored procedure
+dependenciesstored-procedurest-sql
+
+I've built a stored procedure (which we can call sproc_deps) that uses sys.sql_expression_dependencies and sys.dm_sql_referenced_entities. I want it to list out all of the tables and columns used by a stored procedure of the user's choice. This stored procedure will have its name passed as an argument to sproc_deps.
+
+The problem is that I'm getting columns that the stored procedure doesn't actually use when I combine sys.sql_expression_dependencies and sys.dm_sql_referenced_entities. In order to get the information I want, I've JOINed a few other things on as well:
+
+sys.objects(for object IDs, and type_desc)
+sys.tables(to match against tables contained in sys.sql_expression_dependencies)
+sys.views (because I'm interested in both views and tables)
+sys.columns (to pull columns for each table or view involved)
+Here is the actual JOIN:
+
+sys.sql_expression_dependencies AS sed  
+INNER JOIN sys.objects AS o ON sed.referencing_id = o.object_id  
+LEFT OUTER JOIN sys.tables t on sed.referenced_entity_name = t.name
+LEFT OUTER JOIN sys.views v on sed.referenced_entity_name = v.name
+LEFT OUTER JOIN sys.columns c on (c.object_id = t.object_id OR c.object_id = v.object_id)
+INNER JOIN sys.dm_sql_referenced_entities (N'dbo.DummySprocName', 'OBJECT') s
+ON s.referenced_entity_name = sed.referenced_entity_name
+Using just sys.sql_expression_dependencies nets a small list of tables that I can't really decipher, and using sys.dm_sql_referenced_entities yields a partial list of tables and columns used by the procedure.
+
+Is it possible for sproc_deps to return the correct list of tables and columns used by a procedure using just T-SQL? If so, how?
+
+Best Answer
+I would come at this from the opposite direction.
+
+    select c.table_name, c.column_name, sp.name 
+    from INFORMATION_SCHEMA.columns c
+    inner join sys.procedures sp on object_definition(sp.object_id) like '%' + c.TABLE_NAME + '%' 
+    and object_definition(sp.object_id) like '%' + c.column_name + '%'

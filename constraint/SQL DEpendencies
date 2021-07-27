@@ -1,0 +1,184 @@
+Trap
+  {
+      # Handle the exception
+      $err = $_.Exception
+     $MyErrorMessage= $err.Message
+      while ($err.InnerException)
+      {
+          $MyErrorMessage += $err.InnerException
+      };
+     "$((Get-Date).ToString()) - Unhandled error '$MyErrorMessage'">>$TheLogFile;    
+      # End the script.
+      break
+  } 
+  set-psdebug -strict
+  $ErrorActionPreference = "stop" # 
+  <#variables that you need to fill in for each project. Normally I have this as a separate file and read the relevant data file in according to the project being built The script adds to the config object as it is executed #>
+  $config = @{
+     # The SQL Change Automation project (in source control directory) to validate, test and sync
+     'Project' = 'MyPathToTheProjectDirectory';
+     # The directory to store the NuGet Package in.
+     'BuildArtifact' = 'MyPathToTheArtifactDirectory';
+     # The directory in which to store the build error log.
+     'LogDirectory' = 'MyPathToTheLogDirectory';
+     # the name of the project and Nuget Package
+     'PackageId' = 'MyBigProject';
+     # the version in the Nuget Package
+     'PackageVersion' = '1.0.0';
+     'Databases' = @{
+        'Temporary' = #the temporary database. (leave blank for local)
+        @{
+           'ServerInstance' = 'MyServer'; 'Database' = 'master'; 'Username' = 'NeverYouMind';'SQLCompareOptions'='';
+        };
+        'Target' = #the target database.
+        @{
+           'ServerInstance' = 'MyDevServer'; 'Database' = 'MyDatabase'; 'Username' = 'NeverYouMind';'SQLCompareOptions'='';
+        }
+     }
+  }
+
+  # and some handy constants
+  $MS = 'Microsoft.SQLServer'
+  $My = "$MS.Management.Smo"
+  $errors = 0 #keep a count of the errors we encounter
+  $TheLogFile = "$($config.LogDirectory)\logfile.txt"
+  #Load SMO assemblies
+  $ImportErrors = @()
+  Import-Module SqlChangeAutomation -ErrorAction silentlycontinue -ErrorVariable +ImportErrors
+  Import-Module sqlserver -DisableNameChecking -ErrorAction silentlycontinue -ErrorVariable +ImportErrors
+  if ($ImportErrors.count -gt 0) #if we couldn't import something
+  {
+     $ImportErrors | foreach{
+        "The $($config.'PackageId') build gave an error '$($_)'"
+        "$((Get-Date).ToString()) - $_">>$TheLogFile;
+        write-warning $_;
+        $errors++ #keep a count of the errors
+     }
+  }
+  #check and if necessary create all directories specified by the config
+  @("$($config.LogDirectory)", "$($config.BuildArtifact)") | foreach{
+     # If necessary, create the directory for the artefact
+     if (-not (Test-Path -PathType Container $_))
+     {
+        # we create the  directory if it doesn't already exist
+        New-Item -ItemType Directory -Force -Path $_;
+     }
+  }
+  @("$($config.Project)") | Foreach{
+     if (-not (Test-Path -PathType Container $_))
+     {
+        "$((Get-Date).ToString()) - the project file directory '$($config.Project)' isn't there">>$TheLogFile
+        Write-error "the project file directory for $($config.'PackageId'), '$($config.Project)' isn't there"
+        <a id="post-464606-_Hlk517452254"></a>$errors++ #keep a count of the errors
+     }
+  }
+  <# We'll start by checking that all the servers can be reached with the connection information. we can quickly ascertain that all the server connection information is OK We can make the connection checks, and abort on failure before wasting time starting the process.#>
+  $config.Databases.GetEnumerator() | foreach{
+     $ConnectionErrors = @() # to store any connection errors in
+     $Database = $_
+     $db = $Database.Value;
+     if ($db.username -ieq '')
+     {
+        # Crikey, this is easy, windows Passwords. Dont you love 'em?
+        $db.Connection =
+        New-DatabaseConnection -ServerInstance $db.ServerInstance -Database $db.Database
+     }
+     else
+{ 
+<# This is more elaborate a process than you might expect because we can't assume that we can use Windows authentication, because of Azure, remote servers outside the domain, and other such complications. We can't ever keep passwords for SQL Server authentication as part of the static script data. At this stage, we ask for passwords if they aren't known, and otherwise store them as secure strings on file in the user area, protected by the workstation security. #>
+        #create a connection object to manage credentials
+        $conn = new-object "$MS.Management.Common.ServerConnection"
+        $conn.ServerInstance = $db.ServerInstance
+        $encryptedPasswordFile="$env:USERPROFILE\$($db.Username)-$($db.ServerInstance).txt"
+        # test to see if we know about the password un a secure string stored in the user area
+        if (Test-Path -path $encryptedPasswordFile -PathType leaf)
+        {
+            #has already got this set for this login so fetch it
+            $encrypted = Get-Content $encryptedPasswordFile | ConvertTo-SecureString
+            $Credentials = New-Object System.Management.Automation.PsCredential($db.Username, $encrypted)
+        }
+        else #then we have to ask the user for it
+        {
+            #hasn't got this set for this login
+            $Credentials = get-credential -Credential $db.Username
+            $Credentials.Password | ConvertFrom-SecureString | Set-Content $encryptedPasswordFile
+        }
+        $conn.LoginSecure = $false
+        $conn.Login = $Credentials.UserName
+        $conn.SecurePassword = $Credentials.Password
+        #We get the password on the fly for the Cmdlet that creates the SCA connection object for each database
+        $db.Connection = New-DatabaseConnection -ServerInstance $db.ServerInstance -Database $db.Database -Username $conn.Login -Password $conn.Password
+    }
+     #now we can test that the credentials get to the server
+     $TestResult = Test-DatabaseConnection $db.Connection -ErrorAction silentlycontinue -ErrorVariable ConnectionErrors
+     if ($ConnectionErrors.count -gt 0) #if we couldn't connect to something
+     {
+        write-warning "$($Database.Name;) gave an error $($connectionErrors[0])";
+        "$((Get-Date).ToString()) - $($Database.Name;) of $($config.'PackageId') gave an error $($connectionErrors[0])">>$TheLogFile;
+        $errors++
+     }
+  }
+  if ($errors -eq 0) #if there were errors, then it gives up at this stage and reports the errors.
+  {
+     # we now check whether we can buld this without errors
+
+     $tempServerConnectionString = $config.Databases.Temporary.Connection.ConnectionString.UnmaskedValue
+     # Validate the SQL Change Automation project and import it inot a ScriptsFolder object
+     try
+     {
+        $validatedProject = Invoke-DatabaseBuild $config.Project -TemporaryDatabaseServer $tempServerConnectionString -SQLCompareOptions $config.Databases.Temporary.SQLCompareOptions   3>>$TheLogFile
+     }
+     catch #could not get the -ErrorAction silentlycontinue -ErrorVariable ConnectionErrors to work
+     {
+        $_.Exception.Message
+        "$($Database.Name;) of of $($config.'PackageId') couldn't be validated because $($_.Exception.Message)" | Foreach{
+           write-warning $_
+           "$((Get-Date).ToString()) - $_">>$TheLogFile;
+           $errors++;
+        }
+     }
+  }
+  if ($errors -eq 0) #if there were errors, then it gives up at this stage and reports the errors.
+  {
+     # OK we can now build it 
+     #this section builds the server temporarily to check that it can be done
+     #Then it produces documentation and the nuget package
+     if ($validatedProject.GetType().Name -ne 'ScriptsFolder')
+     {
+        $TheError = "$($config.PackageId) could not be verified."
+        write-warning $TheError;
+        "$((Get-Date).ToString()) - $TheError">>$TheLogFile;
+     }
+     else
+     {
+        #get the SchemaDocumentation object that we can then add to the nuget package
+        $documentation = $validatedProject |
+        New-DatabaseDocumentation -TemporaryDatabaseServer $tempServerConnectionString
+        if ($documentation.GetType().Name -ne 'SchemaDocumentation')
+        {
+           $TheError = "$($config.PackageId) could not be documented."
+           write-warning $TheError;
+           "$((Get-Date).ToString()) - $TheError">>$TheLogFile;
+        }
+
+        $buildArtifact = $validatedProject |
+        New-DatabaseBuildArtifact -PackageId $config.PackageId -PackageVersion $config.PackageVersion -Documentation $documentation
+
+        if ($buildArtifact.GetType().Name -ne 'SocBuildArtifact')
+        {
+           $TheError = "$($config.PackageId) build artefact could not be created."
+           write-warning $TheError;
+           "$((Get-Date).ToString()) - $TheError">>$TheLogFile;
+        }
+        $buildArtifact | Export-DatabaseBuildArtifact -Path "$($config.BuildArtifact)" -force
+     }
+     # Sync a database
+     $syncResult = Sync-DatabaseSchema -Source $validatedProject -Target $config.Databases.Target.Connection
+     # And Save the script
+     $syncResult.UpdateSql>"$($config.BuildArtifact)\$($config.PackageId)$($config.version).SYNCSQL"
+
+  }
+  if ($errors -gt 0)
+  {
+     "$((Get-Date).ToString()) - the build process was aborted">>$TheLogFile;
+  }

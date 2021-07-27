@@ -1,0 +1,120 @@
+
+<!-- saved from url=(0061)chrome-extension://ohlencieiipommannpdfcmfdpjjmeolj/algo.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="chrome-extension://ohlencieiipommannpdfcmfdpjjmeolj/algo_loader.js"></script>
+    <script type="text/javascript" src="chrome-extension://ohlencieiipommannpdfcmfdpjjmeolj/assets/unversioned/jquery/3.6.0.min.js"></script>
+    <script type="text/javascript" src="chrome-extension://ohlencieiipommannpdfcmfdpjjmeolj/assets/unversioned/raven/3.19.1.min.js"></script>
+    <script type="text/javascript" src="chrome-extension://ohlencieiipommannpdfcmfdpjjmeolj/assets/client/algo.js"></script>
+    <link rel="stylesheet" type="text/css" href="chrome-extension://ohlencieiipommannpdfcmfdpjjmeolj/assets/content/main.css" media="screen,print" <="" head="">
+  <title>Moving databases from Azure SQL Managed Instance to SQL Server - Microsoft Tech Community</title></head><body class="content-unmask cs-algo-iframe px-2 px-sm-4 px-md-5 pt-2 pt-sm-3 lia-blog lia-user-status-anonymous BlogArticlePage lia-body lia-a11y direction-ltr" id="pf-body"><div id="printfriendly" class="pf-12"><div id="pf-print-area"><h1 id="pf-title" class="non-delete" style="direction: ltr;">Moving databases from Azure SQL Managed Instance to SQL Server</h1><div id="pf-src" class="non-delete"><a id="pf-src-url" href="https://techcommunity.microsoft.com/t5/azure-sql/moving-databases-from-azure-sql-managed-instance-to-sql-server/ba-p/2335297" class="non-delete"><img id="pf-src-icon" src="./favicons" class="non-delete"><strong class="non-delete">techcommunity.microsoft.com</strong><span class="non-delete">/t5/azure-sql/moving-databases-from-azure-sql-managed-instance-to-sql-server/ba-p/2335297</span></a></div><span id="pf-date">May 14, 2021</span><div id="pf-content" orig-style="null" style="direction: ltr;"><div class="" data-pf_style_display="block" data-pf_style_visibility="visible" orig-style="null">
+	
+		
+			
+					
+		
+	
+				
+		
+			
+					
+		
+	
+				
+		
+			<div class="lia-message-body-wrapper lia-component-message-view-widget-body" data-pf_style_display="block" data-pf_style_visibility="visible" orig-style="null">
+		<div itemprop="text" id="bodyDisplay" class="lia-message-body" data-pf_style_display="block" data-pf_style_visibility="visible" orig-style="null">
+	
+		<div class="lia-message-body-content pf-candidate" data-pf_style_display="block" data-pf_style_visibility="visible" orig-style="null">
+			
+				
+					
+					
+						<h1 id="toc-hId-1328168684" data-pf_style_display="block" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Introduction</span></h1>
+
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><em data-pf_style_display="inline" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Let's move our database to the cloud! </span></em><span class="text-node">This is one of the common scenarios for solution modernization and database migrations. There are many ways of migrating SQL Server database to Microsoft Azure and there are lots of materials covering this topic. </span><strong data-pf_style_display="inline" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">This blog is about the ability to go back from Azure SQL Managed Instance to physical/virtual SQL Server environment.</span></strong><span class="text-node"> At this stage, there are at least two questions that could come up. First, what's the challenge of going back, as it's a matter of backup and restore, isn’t it? Well, it isn’t, because backup-restore strategy does not work today in this case, and you will find more about this below. Second, why should anyone go back from the Azure, or cloud in general to any other place? Our customer and partner cases shed some light on this. One of the reasons for example is a policy or general requirement of having a "cloud exit" plan.</span></p>
+
+<h2 id="toc-hId-2018730158" data-pf_style_display="block" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Why backup-restore is not a way to go?</span></h2>
+
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><span class="text-node">To better understand this problem, first of all, let’s see what is Managed Instance? It’s a database product in a form of a platform as a service (PaaS), meaning that Microsoft as a service provider covers for you various platform aspects such as:</span></p>
+<ul data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null">
+<li data-pf_style_display="list-item" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Providing resources (compute, memory, networking) and setting up the system.</span></li>
+<li data-pf_style_display="list-item" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Built in high availability and disaster recovery capabilities.</span></li>
+<li data-pf_style_display="list-item" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Regular OS and </span><strong data-pf_style_display="inline" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">SQL upgrades</span></strong><span class="text-node">.</span></li>
+<li data-pf_style_display="list-item" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Automatic backups, monitoring, etc.</span></li>
+</ul>
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><span class="text-node">As SQL bits are being upgraded regularly (every few months), Managed Instance is running on “evergreen” SQL bits. This means that current Managed Instance version is most of the time actually newer than the latest SQL Server version. As SQL Server backups are not backwards compatible, a backup from Managed Instance cannot be restored to e.g., SQL Server 2019. It's for the same reason as why backup from SQL Server 2019 cannot be restored to SQL Server 2017. Specifically, internal database version mismatch is one of the main technical reasons why a database from Managed Instance cannot be backed up and then restored to e.g., SQL Server 2019. Upgrading is of course working but downgrading internal database version has never been supported in SQL Server. So by design, backups from lower versions of the SQL Server can be restored to higher version, but vice versa is not supported.</span></p>
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><strong data-pf_style_display="inline" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Note</span></strong><span class="text-node">: You can use this query to check internal database version of the server instances you’re using:</span></p>
+<pre data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null">select name as database_name, version as internal_database_version from sys.sysdatabases</pre>
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><span class="text-node">Lack of backup-restore functionality from higher to lower version is what makes moving a database from Managed Instance to SQL Server a non-trivial effort, and that’s why migration to the Managed Instance is often considered a one-way journey. </span><a href="https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35414512-make-backups-portable-to-on-premise-sql" target="_blank" rel="noopener nofollow noreferrer" data-pf_style_display="inline" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Making Managed Instance backup portable to on-premises SQL</span></a><span class="text-node"> is one of the popular Managed Instance feature requests on Azure Feedback. The team is investigating ways to provide the solution for this request and make the two-way migration, both to and from Managed Instance easy and simple. Until a solution arrives, we’ll talk more about currently available options for migration of user databases from Managed Instance to SQL Server: Export/Import and Transactional Replication.</span></p>
+
+<h2 id="toc-hId-211275695" data-pf_style_display="block" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Why moving away from Managed Instance?</span></h2>
+
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><span class="text-node">While we’re striving to build Azure SQL Managed Instance to be the best PaaS database solution, with full compatibility with SQL Server and want you to like it and use it for your databases, sometimes having an option to easily migrate from Managed Instance to another database system is a necessity. Motivation can come from compliance or legal reasons. Sometimes our customers have contract obligation to provide database backups to their clients, who might not want to use our cloud solutions. In other cases, development practices require using schemas and data from production back in development environment that are often purely on-premises. Finally, you might find out that you require more flexibility than what PaaS can offer, so you need to go back to IaaS (e.g. managed VMs) or on-premises solutions.</span></p>
+
+<h1 id="toc-hId-200772591" data-pf_style_display="block" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Available options</span></h1>
+
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><span class="text-node">There are two main SQL technologies that can be used today for moving data from Managed Instance to SQL Server. Those are:</span></p>
+<ul data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null">
+<li data-pf_style_display="list-item" data-pf_style_visibility="visible" orig-style="null"><a href="https://aka.ms/sqlmi-to-sqlserver-bacpac-blog" target="_self" rel="noopener noreferrer" data-pf_style_display="inline" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Export/Import, also known as BACPAC</span></a><span class="text-node">.</span></li>
+<li data-pf_style_display="list-item" data-pf_style_visibility="visible" orig-style="null"><a href="https://aka.ms/sqlmi-to-sqlserver-tranrepl-blog" target="_self" rel="noopener noreferrer" data-pf_style_display="inline" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Transactional replication</span></a><span class="text-node">.</span></li>
+</ul>
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><span class="text-node">Both technologies have different options and some limitations, and these will be discussed later, or in subsequent blog posts.</span></p>
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><span class="text-node">Here is a brief comparison of the two technologies and their pros and cons.</span></p>
+
+<h2 id="toc-hId-891334065" data-pf_style_display="block" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Export/Import</span></h2>
+
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><span class="text-node">Using export/import is very simple, either through SSMS or SqlPackage. It’s best to be used for offline migration of small and medium databases.</span></p>
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><span class="text-node">This technology has some limitations:</span></p>
+<ul data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null">
+<li data-pf_style_display="list-item" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">It does not handle databases that reference external objects (schemas with three or four-part names).</span></li>
+<li data-pf_style_display="list-item" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Its performance degrades when working with large databases or databases with large number of objects (hundreds of GBs or tens of thousands of objects in a database).</span></li>
+<li data-pf_style_display="list-item" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Produced BACPAC is not transactionally consistent.</span></li>
+</ul>
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><span class="text-node">If you'd like to read more about this option, see&nbsp;</span><a href="https://aka.ms/sqlmi-to-sqlserver-bacpac-blog" target="_self" rel="noopener noreferrer" data-pf_style_display="inline" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">how to migrate database from Managed Instance to SQL Server with export/import</span></a><span class="text-node">.</span></p>
+
+<h2 id="toc-hId--916120398" data-pf_style_display="block" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Transactional replication</span></h2>
+
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><span class="text-node">This is a more robust way to migrate databases from Managed Instance to SQL Server. It’s best to be used for online or offline migration of large and complex databases.</span></p>
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><span class="text-node">Some outstanding limitations that apply to transactional replication are:</span></p>
+<ul data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null">
+<li data-pf_style_display="list-item" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Tables must have primary keys.</span></li>
+<li data-pf_style_display="list-item" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">Setup is not simple.</span></li>
+</ul>
+<p data-pf_style_display="block" data-pf_style_visibility="visible" class="added-to-list1" orig-style="null"><span class="text-node">To find out more about this, see </span><a href="https://aka.ms/sqlmi-to-sqlserver-tranrepl-blog" target="_self" rel="noopener noreferrer" data-pf_style_display="inline" data-pf_style_visibility="visible" orig-style="null"><span class="text-node">how to migrate database from Managed Instance to SQL Server with transactional replication</span></a><span class="text-node">.</span></p>
+					
+				
+			
+			
+			
+				
+			
+			
+			
+			
+			
+			
+		</div>
+		
+		
+	
+
+	
+	
+</div>
+	</div>
+		
+			
+		
+			
+					
+				
+		
+			
+					
+				
+		
+	
+	
+</div></div></div></div><style type="text/css" name="pf-style">#pf-content img.mediumImage, #pf-content figure.mediumImage {margin: 1em 0 1em 1.5em;clear: right;display: inline-block;float: right;}</style><br style="clear:both"><br style="clear:both"></body></html>
